@@ -11,6 +11,10 @@ void help() {
         printf("Memiliki satu argumen yaitu filename yang merepresentasikan suatu save file yang ingin dibuka. ");
         printf("Membaca save file <filename> yang berisi list game yang dapat dimainkan, histori dan scoreboard game\n");
     }
+    else if (input == "START")  {
+        printf("(+) START: \n");
+        printf("Memulai program dengan me-load konfigurasi default.\n");
+    }
     else if (input == "SAVE") {
         printf("(+) SAVE <filename>: \n");
         printf("menyimpan save file dengan nama <filename>.\n");
