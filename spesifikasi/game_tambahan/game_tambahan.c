@@ -1,6 +1,7 @@
 # include "game_tambahan.h"
 
 void GameTambahan() {
-    int random = rand();
+    srand(time(0));
+    int random = rand() % 100;
     printf("Permainan Selesai, Skor: %d\n", random);
 }
