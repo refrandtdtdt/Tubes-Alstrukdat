@@ -3,8 +3,10 @@
 
 # include <stdio.h>
 void quit();
-/* perintah untuk mengeluarkan program
+/*
+perintah untuk mengeluarkan program
 I.S. Sembarang
-F.S. mengakhiri program ketika input QUIT diberikan*/
+F.S. mengakhiri program ketika input QUIT diberikan
+*/
 
 #endif

@@ -4,6 +4,7 @@
 #include <math.h>
 #include "boolean.h"
 
+#include "command.h"
 void Start()
 {
     printf("Start\n");
@@ -47,11 +48,6 @@ void PlayGame()
 void SkipGame(int x)
 {
     printf("SkipGame %d\n", x);
-}
-
-void Help()
-{
-    printf("Help\n");
 }
 
 boolean Eqstr(char* s1, char* s2)
@@ -181,12 +177,16 @@ int main() // PROGRAM UTAMA
         {
             Help();
         }
+
+        else if (Eqstr(command, "QUIT"))    {
+            quit();
+        }
         else // COMMAND LAIN
         {
             printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
         }
     }
-    printf("\nAnda keluar dari game BNMO.\nBye bye ...");
+    //printf("\nAnda keluar dari game BNMO.\nBye bye ...");
 
     return 0;
 }
