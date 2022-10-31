@@ -2,5 +2,5 @@
 
 void GameTambahan() {
     int random = rand();
-    printf("Permainan Selesai, Skor: %d", random);
+    printf("Permainan Selesai, Skor: %d\n", random);
 }
