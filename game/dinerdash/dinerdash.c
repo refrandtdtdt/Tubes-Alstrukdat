@@ -3,7 +3,7 @@
 int rng(int lower, int upper) {
     int num;
     srand(time(0));
-    num = (rand() % (upper - lower + 1)) + lower;
+    num = ((rand() % (upper - lower + 1)) + lower)/(rand()%2);
     return num;
 }
 
