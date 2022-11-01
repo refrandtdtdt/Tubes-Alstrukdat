@@ -67,9 +67,9 @@ void sort_enqueue(Queue *q, ElType val)    {
     int i, j, k;
     //kasus ketika belum penuh
     if ((q->idxTail < CAPACITY) && (q->idxTail != IDX_UNDEF))   {
-        i = q->idxTail;
-        while (q->buffer[i].durasi > val.durasi)   {
-            i--;
+        i = q->idxHead;
+        while (q->buffer[i].durasi < val.durasi)   {
+            i++;
         }
         //insert ke indeks i
         for (j = q->idxTail; j >= i; j--)   {
