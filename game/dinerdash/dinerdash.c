@@ -126,6 +126,7 @@ void DinerDash()    {
                     served++;
                     dequeue(&antrean, &gain);
                     saldo += gain.harga;
+                    printf("Berhasil mengantar M%d.\n", gain.ID);
                 }
                 else    {
                     printf("Makanan M%d Belum jadi.\n", id_food);
@@ -153,7 +154,7 @@ void DinerDash()    {
             if (HEAD(cooking).durasi == 0)  {
                 dequeue(&cooking, &food);
                 InsertLast(&serving, food);
-                printf("Makanan M%d telah selesai dimasak", food.ID);
+                printf("Makanan M%d telah selesai dimasak.\n", food.ID);
             }
         }
         //cari yang sudah tidak tahan
