@@ -14,7 +14,7 @@ void CreateMakanan(Makanan* food, int id)   {
     food->harga = rng(10000, 15000);
 }
 
-void Table(Queue antrean, Queue cooking, Queue serving) {
+void Table(Queue antrean, Queue cooking, List serving) {
     printf("Daftar Pesanan\n");
     printf("Makanan | Durasi Memasak | Ketahanan | Harga\n");
     printf("-------------------------------------------------\n");
@@ -43,10 +43,10 @@ void Table(Queue antrean, Queue cooking, Queue serving) {
     //menampilkan serving
     printf("Daftar Makanan yang dapat disajikan\n");
     printf("Makanan | Sisa ketahanan makanan\n");
-    if (!isEmpty(serving))  {
-        for (k = serving.idxHead; k <= serving.idxTail; k++)  {
-            printf("M%d       ", serving.buffer[k].ID);
-            printf("| %d              |", serving.buffer[k].ketahanan);
+    if (!IsEmpty(serving))  {
+        for (k = FirstIdx(serving); k <= LastIdx(serving); k++)  {
+            printf("M%d       ", serving.A[k].ID);
+            printf("| %d              |", serving.A[k].ketahanan);
             printf("\n");
         }
     }
@@ -56,70 +56,116 @@ void Table(Queue antrean, Queue cooking, Queue serving) {
 void DinerDash()    {
     printf("Selamat datang di game Diner Dash!\n\n");
     int saldo = 0;      //uang yang diterima pemain
-    printf("SALDO: %d\n\n", saldo);
-
     int on_cook = 0;
-    int on_queue = 0;
     int served = 0;
+    int idx_served;
+    int st = 0;
 
     //masukkan default
-    Queue antrean, cooking, serving;
+    Queue antrean, cooking;
+    List serving;
     Makanan pesanan;
+    ElType head_antrean;
     CreateQueue(&antrean);
     CreateQueue(&cooking);
-    CreateQueue(&serving);
-    for (int st = 0; st < 3; st++)  {
+    serving = MakeList();
+    while (st < 3)  {
         CreateMakanan(&pesanan, st);
         enqueue(&antrean, pesanan);
+        st++;
     }
     char* command;
-    char* id_food;
-    Makanan food;
-    int idx_cook, idx_serve;
+    char* id_food_str1;
+    char* id_food_str2;
+    Makanan food, gain;
+    int idx_cook, idx_serve, id_food;
+    int xx;
     while ((length(antrean) <= 7) && (served < 15))  {
-        DeleteZero(&serving);
-        while (HEAD(cooking).durasi != 0)   {
-            if (HEAD(cooking).durasi == 0)  {
-                sort_enqueue(&serving, HEAD(cooking));
-            }
-        }
+        printf("SALDO: %d\n\n", saldo);
 
         // print tabel
         Table(antrean, cooking, serving);
 
         //input command
-        while (!((Eqstr(command, "COOK")) || (Eqstr(command, "COOK  "))))  {
+        while (!((Eqstr(command, "COOK")) || (Eqstr(command, "SERVE"))))  {
             printf("MASUKKAN COMMAND: ");
             command = (char*) malloc (20*sizeof(char));
-            id_food = (char*) malloc (10*sizeof(char));
-            scanf("%s %s", command, id_food);
-            if (!((command == "COOK") || (command == "SERVE")))  {
+            id_food_str1 = (char*) malloc (10*sizeof(char));
+            scanf("%s %s", command, id_food_str1);
+            
+            id_food_str2 = (char*) malloc (10*sizeof(char));
+            getcommParameter(id_food_str1, "M", id_food_str2);
+            id_food = StrToInt(id_food_str2);
+            if (!((Eqstr(command, "COOK")) || (Eqstr(command, "SERVE"))))  {
                 printf("Command Tidak Valid, ulangi.\n");
             }
         }
 
+
+        //cek input    
+        if (Eqstr(command, "COOK"))    {
+            if (on_cook <= 5)   {
+                Search_queue(antrean, id_food, &xx);
+                if (xx != -1)   {
+                    sort_enqueue(&cooking, antrean.buffer[xx]);
+                    on_cook++;
+                    printf("Berhasil memasak M%d.\n", id_food);
+                }
+                else    {
+                    printf("Gagal memasak M%d.\n", id_food);
+                }
+
+            }
+        }
+        else if (Eqstr(command, "SERVE"))    {
+            head_antrean =  HEAD(antrean);
+            if (id_food == head_antrean.ID)    {
+                Search(serving, head_antrean, &idx_served);
+                if (idx_served != InvalidIdx)   {
+                    DeleteAt(&serving, idx_served);
+                    served++;
+                    dequeue(&antrean, &gain);
+                    saldo += gain.harga;
+                }
+                else    {
+                    printf("Makanan M%d Belum jadi.\n", id_food);
+                }
+            }
+            else    {
+                printf("Belum bisa dihidangin, Makanan M%d belum dihidangin!\n", head_antrean.ID);
+            }
+        }
+
+        //kurangi 1 setiap round
         if (!isEmpty(cooking))  {
-            for (idx_cook = 0; idx_cook < length(cooking); idx_cook++)  {
+            for (idx_cook = IDX_HEAD(cooking); idx_cook <= IDX_TAIL(cooking); idx_cook++)  {
                 cooking.buffer[idx_cook].durasi--;
             }
         }
-        if (!isEmpty(serving))  {
-            for (idx_serve = 0; idx_serve < length(cooking); idx_serve++)  {
-                cooking.buffer[idx_serve].ketahanan--;
+        if (!IsEmpty(serving))  {
+            for (idx_serve = FirstIdx(serving); idx_serve <= LastIdx(serving); idx_serve++)  {
+                serving.A[idx_serve].ketahanan--;
             } 
         }
 
-
-        //cek input
-        
-        if (command == "COOK")    {
-            if (on_cook <= 5)   {
-                sort_enqueue(&cooking, food);
-                on_cook++;
+        //cari apabila ada yang sudah selesai dimasak
+        while (HEAD(cooking).durasi != 0)   {
+            if (HEAD(cooking).durasi == 0)  {
+                dequeue(&cooking, &food);
+                InsertLast(&serving, food);
+                printf("Makanan M%d telah selesai dimasak", food.ID);
             }
         }
-        else if (command == "SERVE")    {
-            
-        }
+        //cari yang sudah tidak tahan
+        delete_zero_durability(&serving);
+
+        //tambah pesanan baru
+        st++;
+        CreateMakanan(&pesanan, st);
+        enqueue(&antrean, pesanan);
     }
+    free(command);
+    free(id_food_str1);
+    free(id_food_str2);
+    printf("\nPermainan Selesai!!\nTotal Pendapatan yang didapat: %d\n", saldo);
 }

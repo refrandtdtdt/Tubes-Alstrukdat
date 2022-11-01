@@ -70,6 +70,19 @@ void clear(char* str)
         i++;
     }
 }
+
+int StrToInt(char* str) {
+    int val = 0;
+    int ten = 1;
+    int dig;
+    while (*str != '\0')    {
+        val *= ten;
+        dig = *str - '0';
+        val += dig;
+        ten *= 10;
+        *(str++);
+    }
+}
 // int main()
 // {
 //     char tes[] = "testing jeger";

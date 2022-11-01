@@ -86,11 +86,24 @@ void sort_enqueue(Queue *q, ElType val)    {
     }
 }
 
-void DeleteZero(Queue *q)   {
-    ElType dummy;
-    if (!isEmpty(*q))   {    
-        while (HEAD(*q).ketahanan != 0)   {
-            dequeue(q, &dummy);
-        }
-    }
+void Search_queue(Queue Q, int X, int* index){
+/* Prekondisi : X sembarang */
+/* Mengirimkan true jika terdapat elemen dengan ID sesuai dengan ID X di dalam list */
+/* yaitu antara FirstIdx(L)..LastIdx(L) */
+	boolean found = 0;
+	int i = IDX_HEAD(Q);
+	while((i <= IDX_TAIL(Q)) && !found){
+		if(Q.buffer[i].ID == X){
+			found = 1;
+		}
+		else{
+			i++;
+		}
+	}
+	if (found)	{
+		*index = i;
+	}
+	else	{
+		*index = -1;
+	}
 }
