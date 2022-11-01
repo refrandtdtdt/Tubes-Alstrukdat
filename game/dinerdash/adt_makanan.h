@@ -2,7 +2,7 @@
 #define ADT_MAKANAN_H
 
 typedef struct  {
-    char* ID;
+    int ID;
     int durasi;
     int ketahanan;
     int harga;

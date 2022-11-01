@@ -5,7 +5,7 @@
 #define QUEUE_H
 
 #include "boolean.h"
-#include "list.h"
+#include "list_pesanan.h"
 #include "adt_makanan.h"
 
 #define IDX_UNDEF -1

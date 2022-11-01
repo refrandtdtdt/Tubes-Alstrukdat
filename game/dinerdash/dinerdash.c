@@ -8,23 +8,7 @@ int rng(int lower, int upper) {
 }
 
 void CreateMakanan(Makanan* food, int id)   {
-    food->ID = "M";
-    char str_id[3];
-    int temp = id;
-    int len  = floor(log(id)) + 1; //panjang digit id 
-    int degree = len;
-    int i;
-    int j = 0;
-    int k = 1;
-    for(i = 0; i < len; i++)    {
-        str_id[i] = temp/(pow(10, degree));
-        degree--;
-    }
-    while (str_id[j] != '\0')   {
-        food->ID[k] = str_id[j];
-        j++;
-        k++;
-    }
+    food->ID = id;
     food->durasi = rng(1,5);
     food->ketahanan = rng(1,5);
     food->harga = rng(10000, 15000);
@@ -38,7 +22,7 @@ void Table(Queue antrean, Queue cooking, Queue serving) {
     //menampilkan antrean
     if (!isEmpty(antrean)); {
         for (i = antrean.idxHead; i <= antrean.idxTail; i++)  {
-            printf("%s", antrean.buffer[i].ID);
+            printf("M%d", antrean.buffer[i].ID);
             printf("     ");
             printf("| %d              |", antrean.buffer[i].durasi);
             printf("| %d              |", antrean.buffer[i].ketahanan);
@@ -51,7 +35,7 @@ void Table(Queue antrean, Queue cooking, Queue serving) {
     printf("Makanan | Sisa Durasi Memasak \n");
     if (!isEmpty(cooking))  {
         for (j = cooking.idxHead; j <= cooking.idxTail; j++)  {
-            printf("%s       ", cooking.buffer[j].ID);
+            printf("M%d       ", cooking.buffer[j].ID);
             printf("| %d              |", cooking.buffer[j].durasi);
             printf("\n");
         }
@@ -61,7 +45,7 @@ void Table(Queue antrean, Queue cooking, Queue serving) {
     printf("Makanan | Sisa ketahanan makanan\n");
     if (!isEmpty(serving))  {
         for (k = serving.idxHead; k <= serving.idxTail; k++)  {
-            printf("%s       ", serving.buffer[k].ID);
+            printf("M%d       ", serving.buffer[k].ID);
             printf("| %d              |", serving.buffer[k].ketahanan);
             printf("\n");
         }

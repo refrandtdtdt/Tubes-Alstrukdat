@@ -1,4 +1,4 @@
-#include "list.h"
+#include "list_pesanan.h"
 # include <stdio.h>
 
 List MakeList(){
@@ -6,14 +6,17 @@ List MakeList(){
 /* F.S. Terbentuk list L kosong dengan kapasitas MaxEl */
 	List L;
 	for (IdxType i=0;i<MaxEl;i++){
-		L.A[i] = Mark;
+		L.A[i].ID = Mark;
+		L.A[i].durasi = Mark;
+		L.A[i].harga = Mark;
+		L.A[i].ketahanan = Mark;
 	}
 	return L;
 }
 
 boolean IsEmpty(List L){
 /* Mengirimkan true jika list L kosong, mengirimkan false jika tidak */
-	return(L.A[0] == Mark);
+	return(L.A[0].ID == Mark);
 }
 
 Makanan Get(List L, IdxType i){
@@ -33,7 +36,7 @@ int Length(List L){
 /* Mengirimkan nol jika list kosong */
 	int len = 0;
 	IdxType i = 0;
-	while(L.A[i] != Mark && i<MaxEl){
+	while(L.A[i].ID != Mark && i<MaxEl){
 		len++;
 		i++;
 	}
@@ -44,7 +47,7 @@ IdxType FirstIdx(List L){
 /* Prekondisi : list L tidak kosong */
 /* Mengirimkan indeks elemen pertama */
 	IdxType p = 0;
-	while (L.A[p] == Mark) {
+	while (L.A[p].ID == Mark) {
 		p++;
 	}
 	return p;
@@ -72,12 +75,12 @@ boolean IsIdxEff (List L, IdxType i){
 
 boolean Search(List L, Makanan X){
 /* Prekondisi : X sembarang */
-/* Mengirimkan true jika terdapat elemen X di dalam list */
+/* Mengirimkan true jika terdapat elemen dengan ID sesuai dengan ID X di dalam list */
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
 	boolean found = 0;
 	IdxType i = FirstIdx(L);
 	while(i <= LastIdx(L) && !found){
-		if(L.A[i] == X){
+		if(L.A[i].ID == X.ID){
 			found = 1;
 		}
 		else{
@@ -96,7 +99,8 @@ void InsertFirst(List *L, Makanan X){
 void InsertAt(List *L, Makanan X, IdxType i){
 /* I.S. L terdefinisi, tidak kosong, i merupakan indeks lojik yang valid di L. */
 /* F.S. v disisipkan dalam L pada indeks ke-i (bukan menimpa elemen di i). */
-	L->A[Length(*L)+1] = Mark;
+	//L->A[Length(*L)+1].ID = Mark;
+	CreateMark(L, Length(*L)+1);
 	IdxType q = Length(*L);
 	while(q>i){
 		L->A[q] = L->A[q-1];
@@ -125,13 +129,14 @@ void DeleteAt(List *L, IdxType i){
 		L->A[i] = L->A[i+1];
 		i++;
 	}
-	L->A[q] = Mark;
+	CreateMark(L, q);
 }
 
 void DeleteLast(List *L){
 /* I.S. L terdefinisi, tidak kosong. */
 /* F.S. F diset dengan elemen terakhir L, elemen terakhir L dihapus dari L. */
-	L->A[LastIdx(*L)] = Mark;
+	//L->A[LastIdx(*L)] = Mark;
+	CreateMark(L, LastIdx(*L));
 }
 
 List Concat(List L1, List L2){
@@ -148,4 +153,11 @@ List Concat(List L1, List L2){
 		p++;
 	}
 	return L3;
+}
+
+void CreateMark(List *L, IdxType i)	{
+	L->A[i].durasi = Mark;
+	L->A[i].ID = Mark;
+	L->A[i].harga = Mark;
+	L->A[i].ketahanan = Mark;
 }
