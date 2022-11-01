@@ -76,7 +76,7 @@ boolean IsIdxEff (List L, IdxType i);
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
 
 /* ********** Operasi-operasi ********** */
-boolean Search(List L, Makanan X);
+void Search(List L, Makanan X, IdxType* index);
 /* Prekondisi : X sembarang */
 /* Mengirimkan true jika terdapat elemen X di dalam list */
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
@@ -112,4 +112,7 @@ List Concat(List L1, List L2);
 /* Contoh : L1 : [1, 2]; L2 : [3, 4]; Mengembalikan [1, 2, 3, 4] */
 
 void CreateMark(List *L, IdxType i);
+
+void delete_zero_durability(List *L);
+
 #endif

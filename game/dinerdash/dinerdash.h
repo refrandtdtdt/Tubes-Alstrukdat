@@ -6,6 +6,8 @@
 # include <stdlib.h>
 # include <time.h>
 # include <math.h>
+# include "functions.h"
+# include "list_pesanan.h"
 
 int rng(int lower, int upper);
 
@@ -16,7 +18,7 @@ I.S. Sembarang
 F.S. membuat food bertipe data Makanan dengan random value
 */
 
-void Table(Queue antrean, Queue cooking, Queue serving);
+void Table(Queue antrean, Queue cooking, List serving);
 /* 
 Menampilkan Table terkait.
 I.S Sembarang

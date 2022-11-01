@@ -73,7 +73,7 @@ boolean IsIdxEff (List L, IdxType i){
 	return (i >= FirstIdx(L) && i <= LastIdx(L));
 }
 
-boolean Search(List L, Makanan X){
+void Search(List L, Makanan X, IdxType* index){
 /* Prekondisi : X sembarang */
 /* Mengirimkan true jika terdapat elemen dengan ID sesuai dengan ID X di dalam list */
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
@@ -87,7 +87,12 @@ boolean Search(List L, Makanan X){
 			i++;
 		}
 	}
-	return found;
+	if (found)	{
+		*index = i;
+	}
+	else	{
+		*index = InvalidIdx;
+	}
 }
 
 void InsertFirst(List *L, Makanan X){
@@ -160,4 +165,14 @@ void CreateMark(List *L, IdxType i)	{
 	L->A[i].ID = Mark;
 	L->A[i].harga = Mark;
 	L->A[i].ketahanan = Mark;
+}
+
+void delete_zero_durability(List *L)	{
+	int i = FirstIdx(*L);
+	while (i <= LastIdx(*L))	{
+		while (L->A[i].ketahanan == 0)	{
+			DeleteAt(L, i);
+		}
+		i++;
+	}
 }

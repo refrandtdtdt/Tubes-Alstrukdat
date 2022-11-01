@@ -5,7 +5,6 @@
 #define QUEUE_H
 
 #include "boolean.h"
-#include "list_pesanan.h"
 #include "adt_makanan.h"
 
 #define IDX_UNDEF -1
@@ -71,7 +70,7 @@ void displayQueue(Queue q);
 
 void sort_enqueue(Queue *q, ElType val);
 
-void DeleteZero(Queue *q);
+void Search_queue(Queue Q, int X, int* index);
 /*
 menghapus yang ketahanannya sudah 0
 */
