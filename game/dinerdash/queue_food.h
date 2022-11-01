@@ -5,6 +5,7 @@
 #define QUEUE_H
 
 #include "boolean.h"
+#include "list.h"
 
 #define IDX_UNDEF -1
 #define CAPACITY 100
@@ -12,7 +13,7 @@
 /* Definisi elemen dan address */
 
 typedef struct  {
-    char ID[5];
+    char* ID;
     int durasi;
     int ketahanan;
     int harga;
@@ -75,5 +76,11 @@ void displayQueue(Queue q);
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika Queue kosong : menulis [] */
 
+void sort_enqueue(Queue *q, ElType val);
+
+void DeleteZero(Queue *q);
+/*
+menghapus yang ketahanannya sudah 0
+*/
 
 #endif

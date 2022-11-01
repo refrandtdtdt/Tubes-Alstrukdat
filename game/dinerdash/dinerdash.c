@@ -37,7 +37,7 @@ void Table(Queue antrean, Queue cooking, Queue serving) {
     int i,j,k;
     //menampilkan antrean
     if (!isEmpty(antrean)); {
-        for (i = 0; i <= antrean.idxTail; i++)  {
+        for (i = antrean.idxHead; i <= antrean.idxTail; i++)  {
             printf("%s", antrean.buffer[i].ID);
             printf("     ");
             printf("| %d              |", antrean.buffer[i].durasi);
@@ -50,7 +50,7 @@ void Table(Queue antrean, Queue cooking, Queue serving) {
     printf("Daftar Makanan yang sedang dimasak\n");
     printf("Makanan | Sisa Durasi Memasak \n");
     if (!isEmpty(cooking))  {
-        for (j = 0; j <= cooking.idxTail; j++)  {
+        for (j = cooking.idxHead; j <= cooking.idxTail; j++)  {
             printf("%s       ", cooking.buffer[j].ID);
             printf("| %d              |", cooking.buffer[j].durasi);
             printf("\n");
@@ -60,9 +60,9 @@ void Table(Queue antrean, Queue cooking, Queue serving) {
     printf("Daftar Makanan yang dapat disajikan\n");
     printf("Makanan | Sisa ketahanan makanan\n");
     if (!isEmpty(serving))  {
-        for (k = 0; k <= cooking.idxTail; k++)  {
-            printf("%s       ", cooking.buffer[k].ID);
-            printf("| %d              |", cooking.buffer[k].ketahanan);
+        for (k = serving.idxHead; k <= serving.idxTail; k++)  {
+            printf("%s       ", serving.buffer[k].ID);
+            printf("| %d              |", serving.buffer[k].ketahanan);
             printf("\n");
         }
     }
@@ -89,18 +89,27 @@ void DinerDash()    {
         enqueue(&antrean, pesanan);
     }
     char* command;
+    char* id_food;
     Makanan food;
     int idx_cook, idx_serve;
-    while ((length(antrean) > 7) && (served < 15))  {
-        //print tabel
+    while ((length(antrean) <= 7) && (served < 15))  {
+        DeleteZero(&serving);
+        while (HEAD(cooking).durasi != 0)   {
+            if (HEAD(cooking).durasi == 0)  {
+                sort_enqueue(&serving, HEAD(cooking));
+            }
+        }
+
+        // print tabel
         Table(antrean, cooking, serving);
 
         //input command
-        while (!((command == "COOK") || (command == "SERVE")))  {
+        while (!((Eqstr(command, "COOK")) || (Eqstr(command, "COOK  "))))  {
             printf("MASUKKAN COMMAND: ");
             command = (char*) malloc (20*sizeof(char));
-            scanf("%s %s", &command, &food);
-            if (!((command == "COOK") || (command == "SERVE"))  {
+            id_food = (char*) malloc (10*sizeof(char));
+            scanf("%s %s", command, id_food);
+            if (!((command == "COOK") || (command == "SERVE")))  {
                 printf("Command Tidak Valid, ulangi.\n");
             }
         }
@@ -121,9 +130,12 @@ void DinerDash()    {
         
         if (command == "COOK")    {
             if (on_cook <= 5)   {
-                enqueue(&cooking, food);
+                sort_enqueue(&cooking, food);
                 on_cook++;
             }
+        }
+        else if (command == "SERVE")    {
+            
         }
     }
 }

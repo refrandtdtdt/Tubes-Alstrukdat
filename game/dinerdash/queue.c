@@ -63,25 +63,34 @@ void dequeue(Queue *q, ElType *val) {
     }
 }
 
-void displayQueue(Queue q)  {
-    // array untuk kebutuhan
-    ElType temp[CAPACITY];
-    // masukan nilai-nilai queue ke array
-    // jika IDX_HEAD <= IDX_TAIL
-    int i, m, k;
-    m = 0;
-    while (!isEmpty(q)) {
-        dequeue(&q, &k);
-        temp[m] = k;
-        m++;
-    }
-    // print traversal
-    printf("[");
-    if (m > 0)  {
-        for (i = 0; i < m-1; i++) {
-            printf("%d,", temp[i]);
+void sort_enqueue(Queue *q, ElType val)    {
+    int i, j, k;
+    //kasus ketika belum penuh
+    if ((q->idxTail < CAPACITY) && (q->idxTail != IDX_UNDEF))   {
+        i = q->idxTail;
+        while (q->buffer[i].durasi > val.durasi)   {
+            i--;
         }
-        printf("%d", temp[m-1]);
+        //insert ke indeks i
+        for (j = q->idxTail; j >= i; j--)   {
+            q->buffer[j+1] = q->buffer[j];
+        }
+        q->buffer[i] = val;
+        q->idxTail++;
     }
-    printf("]\n");
+    // kasus ketika kosong
+    else if ((IDX_HEAD(*q) == IDX_UNDEF) && (IDX_TAIL(*q) == IDX_UNDEF))    {
+        q->buffer[0] = val;
+        IDX_HEAD(*q) = 0;
+        IDX_TAIL(*q) = 0;
+    }
+}
+
+void DeleteZero(Queue *q)   {
+    ElType dummy;
+    if (!isEmpty(*q))   {    
+        while (HEAD(*q).ketahanan != 0)   {
+            dequeue(q, &dummy);
+        }
+    }
 }
