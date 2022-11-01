@@ -5,3 +5,9 @@ void GameTambahan() {
     int random = rand() % 100;
     printf("Permainan Selesai, Skor: %d\n", random);
 }
+
+int main()
+{
+    GameTambahan();
+    return 0;
+}

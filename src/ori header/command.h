@@ -7,6 +7,10 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+// Fungsi tambahan pembantu
+boolean Eqstr(char* s1, char* s2);
+// Mengecek apakah dua string adalah sama
+
 void help();
 /* memberikan bantuan untuk tiap-tiap command
 I.S. Sembarang

@@ -12,6 +12,25 @@ boolean eop;
 static FILE *pita;
 static int retval;
 
+void adv() {
+    retval = fscanf(pita,"%c",&cc);
+    eop = (cc == MARK);
+    if (eop) {
+        fclose(pita);
+    }
+}
+void advline(char* str)
+{
+    int i=0;
+    while (cc != '\n' && cc != '\0')
+    {
+        str[i] = cc;
+        adv();
+        i++;
+    }
+    adv();
+}
+
 void startread(char* filename) {
     pita = fopen(filename,"r");
     adv();
@@ -20,14 +39,6 @@ void startread(char* filename) {
 void startwrite(char* filename) {
     pita = fopen(filename,"w");
     adv();
-}
-
-void adv() {
-    retval = fscanf(pita,"%c",&cc);
-    eop = (cc == MARK);
-    if (eop) {
-        fclose(pita);
-    }
 }
 
 #endif
