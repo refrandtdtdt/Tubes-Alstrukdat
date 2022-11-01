@@ -1,1 +1,1 @@
-Ini bagian Reyhan : Play Game, Queue Game, Skip Game
+Ini bagian Reyhan di Tubes 1 : Play Game, Queue Game, Skip Game
