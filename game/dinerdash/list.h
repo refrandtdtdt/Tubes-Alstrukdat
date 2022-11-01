@@ -6,7 +6,7 @@
 #define ADTList1
 
 #include "boolean.h"
-
+#include "adt_makanan.h"
 /* Kamus Umum */
 #define MaxEl 100
 #define Mark -9999  /* Nilai tak terdefinisi */
@@ -16,7 +16,7 @@
 #define IdxType int
 
 typedef struct {
-	ElType A[MaxEl];  /* Memori tempat penyimpanan elemen (container) */
+	Makanan A[MaxEl];  /* Memori tempat penyimpanan elemen (container) */
 } List;
 
 #define List(i) L.A(i)
@@ -40,12 +40,12 @@ boolean IsEmpty(List L);
 /* Mengirimkan true jika list L kosong, mengirimkan false jika tidak */
 
 /* *** Menghasilkan sebuah elemen *** */
-ElType Get(List L, IdxType i);
+Makanan Get(List L, IdxType i);
 /* Prekondisi : list tidak kosong, i antara FirstIdx(T)..LastIdx(T) */
 /* Mengirimkan elemen list yang ke-i */
 
 /* *** Selektor SET : Mengubah nilai list dan elemen list *** */
-void Set(List *L, IdxType i, ElType v);
+void Set(List *L, IdxType i, Makanan v);
 /* I.S. T terdefinisi, sembarang */
 /* F.S. Elemen T yang ke-i bernilai v */
 
@@ -76,20 +76,20 @@ boolean IsIdxEff (List L, IdxType i);
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
 
 /* ********** Operasi-operasi ********** */
-boolean Search(List L, ElType X);
+boolean Search(List L, Makanan X);
 /* Prekondisi : X sembarang */
 /* Mengirimkan true jika terdapat elemen X di dalam list */
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
 
-void InsertFirst(List *L, ElType X);
+void InsertFirst(List *L, Makanan X);
 /* I.S. L terdefinisi, mungkin kosong. */
 /* F.S. v menjadi elemen pertama L. */
 
-void InsertAt(List *L, ElType X, IdxType i);
+void InsertAt(List *L, Makanan X, IdxType i);
 /* I.S. L terdefinisi, tidak kosong, i merupakan indeks lojik yang valid di L. */
 /* F.S. v disisipkan dalam L pada indeks ke-i (bukan menimpa elemen di i). */
 
-void InsertLast(List *L, ElType X);
+void InsertLast(List *L, Makanan X);
 /* I.S. L terdefinisi, mungkin kosong. */
 /* F.S. v menjadi elemen terakhir L. */
 

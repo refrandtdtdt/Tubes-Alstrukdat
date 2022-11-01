@@ -6,19 +6,12 @@
 
 #include "boolean.h"
 #include "list.h"
+#include "adt_makanan.h"
 
 #define IDX_UNDEF -1
 #define CAPACITY 100
 
 /* Definisi elemen dan address */
-
-typedef struct  {
-    char* ID;
-    int durasi;
-    int ketahanan;
-    int harga;
-} Makanan;
-
 typedef Makanan ElType;
 typedef struct {
 	ElType buffer[CAPACITY]; 

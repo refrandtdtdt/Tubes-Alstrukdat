@@ -16,13 +16,13 @@ boolean IsEmpty(List L){
 	return(L.A[0] == Mark);
 }
 
-ElType Get(List L, IdxType i){
+Makanan Get(List L, IdxType i){
 /* Prekondisi : list tidak kosong, i antara FirstIdx(T)..LastIdx(T) */
 /* Mengirimkan elemen list yang ke-i */
 	return L.A[i];
 }
 
-void Set(List *L, IdxType i, ElType v){
+void Set(List *L, IdxType i, Makanan v){
 /* I.S. T terdefinisi, sembarang */
 /* F.S. Elemen T yang ke-i bernilai v */
 	L->A[i] = v;
@@ -70,7 +70,7 @@ boolean IsIdxEff (List L, IdxType i){
 	return (i >= FirstIdx(L) && i <= LastIdx(L));
 }
 
-boolean Search(List L, ElType X){
+boolean Search(List L, Makanan X){
 /* Prekondisi : X sembarang */
 /* Mengirimkan true jika terdapat elemen X di dalam list */
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
@@ -87,13 +87,13 @@ boolean Search(List L, ElType X){
 	return found;
 }
 
-void InsertFirst(List *L, ElType X){
+void InsertFirst(List *L, Makanan X){
 /* I.S. L terdefinisi, mungkin kosong. */
 /* F.S. v menjadi elemen pertama L. */
 	L->A[0] = X;
 }
 
-void InsertAt(List *L, ElType X, IdxType i){
+void InsertAt(List *L, Makanan X, IdxType i){
 /* I.S. L terdefinisi, tidak kosong, i merupakan indeks lojik yang valid di L. */
 /* F.S. v disisipkan dalam L pada indeks ke-i (bukan menimpa elemen di i). */
 	L->A[Length(*L)+1] = Mark;
@@ -105,7 +105,7 @@ void InsertAt(List *L, ElType X, IdxType i){
 	L->A[i] = X;
 }
 
-void InsertLast(List *L, ElType X){
+void InsertLast(List *L, Makanan X){
 /* I.S. L terdefinisi, mungkin kosong. */
 /* F.S. v menjadi elemen terakhir L. */
 	L->A[Length(*L)] = X;
