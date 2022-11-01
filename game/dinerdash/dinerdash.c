@@ -126,7 +126,7 @@ void DinerDash()    {
                     served++;
                     dequeue(&antrean, &gain);
                     saldo += gain.harga;
-                    printf("Berhasil mengantar M%d.", gain.ID);
+                    printf("Berhasil mengantar M%d.\n", gain.ID);
                 }
                 else    {
                     printf("Makanan M%d Belum jadi.\n", id_food);
