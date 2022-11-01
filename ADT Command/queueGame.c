@@ -10,14 +10,18 @@ F.S. Apabila nomor game valid, game dengan nomor game tersebut dimasukkan ke dal
 apabila tidak, akan mengeluarkan output bahwa nomor game tidak valid dan akan mengulang proses input nomor game
 yang akan dimasukkan ke queue tempat penampungan.
 */
-void tambahQueueGame () {
-    // Deklarasi
+void tambahQueueGame (List * daftarGame) {
     Queue tempatPenampungan;
     CreateQueue(&tempatPenampungan);
+
+    int i = 0;
+    while (Get((*daftarGame), i) != Mark) {
+        printf("%d", Get((*daftarGame), i));
+        i++;
+    }
+
     boolean found;
     found = false;
-
-    // Input dan Proses
     while (!found) {
 
     }
