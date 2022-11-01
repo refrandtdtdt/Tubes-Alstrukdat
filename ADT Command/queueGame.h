@@ -3,7 +3,8 @@
 #ifndef QUEUEGAME_H
 #define QUEUEGAME_H
 
-#include "../ADT Queue/queue.h"
+#include "../ADT Default/queue.h"
+#include "../ADT Default/list.h"
 
 /*
 Prosedur ini akan membaca nomor game yang akan dimasukkan ke dalam antrian, lalu dicek apakah nomor game
