@@ -1,1 +1,1 @@
-Coba coba aja gais
+Ini bagian Reyhan : Play Game, Queue Game, Skip Game
