@@ -2,7 +2,7 @@
 #include "../ADT_Command/queueGame.h"
 
 int main () {
-    Set daftar_game; CreateEmpty(&daftar_game);
+    TabInt daftar_game; MakeEmpty(&daftar_game);
     Queue antrian_game; CreateQueue(&antrian_game);
 
     printf("Masukkan gan :\n");
@@ -11,6 +11,6 @@ int main () {
         scanf("%d\n", &masukan);
         Insert(&daftar_game, masukan);
     }
-
+    tambahAntrianGame(daftar_game, &antrian_game);
     return 0;
 }

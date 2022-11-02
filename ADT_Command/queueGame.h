@@ -3,10 +3,10 @@
 #ifndef QUEUEGAME_H
 #define QUEUEGAME_H
 
-#include "../ADT_Default/set.h"
+#include "../ADT_Default/array.h"
 #include "../ADT_Default/queue.h"
 
-void tambahAntrianGame (Set * daftar_game, Queue * antrian_game);
+void tambahAntrianGame (TabInt daftar_game, Queue * antrian_game);
 /*
 Prosedur ini akan membaca masukan game yang akan ditambahkan user ke dalam antrian game
 I.S. Sudah tersedia list game dan queue game di main program yang sudah terdefinisi

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "queueGame.h"
 
-void tambahAntrianGame (Set * daftar_game, Queue * antrian_game) {
+void tambahAntrianGame (TabInt daftar_game, Queue * antrian_game) {
     // Mengeluarkan output game-game yang sedang dalam antrian
     printf("Berikut adalah daftar antrian game-mu\n");
     for (int i = 0; i < length(*antrian_game); i++) {
@@ -13,20 +13,23 @@ void tambahAntrianGame (Set * daftar_game, Queue * antrian_game) {
 
     // Mengeluarkan output game-game yang terdapat dalam list
     printf("Berikut adalah daftar game yang tersedia\n");
-    for (int j = 0; j < (*daftar_game).Count; j++) {
-        printf("%d. %s\n", j+1, (*daftar_game).Elements[j]);
+    for (int j = 0; j < NbElmt(daftar_game); j++) {
+        printf("%d. %s\n", j+1, GetElmt((daftar_game), j));
     }
+
+    // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
+    printf("\n");
 
     // Input dan proses
     int nomorGame;
     printf("Nomor Game yang mau ditambahkan ke antrian: ");
     scanf("%d\n", &nomorGame);
-    while (nomorGame > (*daftar_game).Count) {
+    while (nomorGame > NbElmt(daftar_game)) {
         printf("Nomor permainan tidak valid, silahkan masukkan nomor game pada list.\n");
         printf("Nomor Game yang mau ditambahkan ke antrian: ");
         scanf("%d\n", &nomorGame);
     }
-    enqueue(antrian_game, (*daftar_game).Elements[nomorGame-1]);
+    enqueue(antrian_game, GetElmt((daftar_game), (nomorGame-1)));
     printf("Game berhasil ditambahkan ke dalam daftar antrian.");
 }
 /*
