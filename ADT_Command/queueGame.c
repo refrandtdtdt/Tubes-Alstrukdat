@@ -24,10 +24,12 @@ void tambahAntrianGame (TabInt daftar_game, Queue * antrian_game) {
     int nomorGame;
     printf("Nomor Game yang mau ditambahkan ke antrian: ");
     scanf("%d\n", &nomorGame);
-    while (nomorGame > NbElmt(daftar_game)) {
-        printf("Nomor permainan tidak valid, silahkan masukkan nomor game pada list.\n");
-        printf("Nomor Game yang mau ditambahkan ke antrian: ");
-        scanf("%d\n", &nomorGame);
+    if (nomorGame > NbElmt(daftar_game)) {
+        while (nomorGame > NbElmt(daftar_game)) {
+            printf("Nomor permainan tidak valid, silahkan masukkan nomor game pada list.\n");
+            printf("Nomor Game yang mau ditambahkan ke antrian: ");
+            scanf("%d\n", &nomorGame);
+        }
     }
     enqueue(antrian_game, GetElmt((daftar_game), (nomorGame-1)));
     printf("Game berhasil ditambahkan ke dalam daftar antrian.");
