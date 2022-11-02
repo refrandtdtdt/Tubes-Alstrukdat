@@ -2,7 +2,17 @@
 #include "queueGame.h"
 
 void tambahAntrianGame (List * list_game, Queue * queue_game) {
-    int i;
+    // Mengeluarkan output game-game yang sedang dalam antrian
+    printf("Berikut adalah daftar antrian game-mu\n");
+    for (int i = 0; i < length(*queue_game); i++) {
+        printf("%d. %s\n", i+1, (*queue_game).buffer[i]);
+    }
+    printf("\n");
+    // Mengeluarkan output game-game yang terdapat dalam list
+    printf("Berikut adalah daftar game yang tersedia\n");
+    for (int j = 0; j < Length(*list_game); j++) {
+        printf("%d. %s\n", j+1, Get((*list_game), j));
+    }
 }
 /*
 Prosedur ini akan membaca masukan game yang akan ditambahkan user ke dalam antrian game

@@ -1,5 +1,5 @@
 /* MODUL LIST INTEGER */
-/* Berisi definisi dan semua primitif pemrosesan list integer */
+/* Berisi definisi dan semua primitif pemrosesan list string */
 /* Penempatan elemen selalu rapat kiri */
 
 #ifndef ADTList1
@@ -14,7 +14,7 @@
 
 /* Definisi elemen dan koleksi objek */
 #define IdxType int
-#define ElType int
+#define ElType char *
 
 typedef struct {
 	ElType A[MaxEl];  /* Memori tempat penyimpanan elemen (container) */
