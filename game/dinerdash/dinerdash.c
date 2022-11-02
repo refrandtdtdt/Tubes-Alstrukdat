@@ -31,6 +31,7 @@ void Table(Queue antrean, Queue cooking, List serving) {
             printf("\n");
         }
     }
+    printf("\n");
     //menampilkan cooking
     printf("Daftar Makanan yang sedang dimasak\n");
     printf("Makanan | Sisa Durasi Memasak \n");
@@ -41,6 +42,7 @@ void Table(Queue antrean, Queue cooking, List serving) {
             printf("\n");
         }
     }
+    printf("\n");
     //menampilkan serving
     printf("Daftar Makanan yang dapat disajikan\n");
     printf("Makanan | Sisa ketahanan makanan\n");
