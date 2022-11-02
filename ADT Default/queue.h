@@ -1,7 +1,8 @@
-/* File : queueGame.h */
+/* File : queue.h */
+/* Definisi ADT Queue dengan representasi array secara eksplisit dan alokasi statik */
 
-#ifndef QUEUEGAME_H
-#define QUEUEGAME_H
+#ifndef QUEUE_H
+#define QUEUE_H
 
 #include "boolean.h"
 
@@ -16,23 +17,13 @@ typedef struct {
 	int idxTail;
 } Queue;
 
+
 /* ********* AKSES (Selektor) ********* */
 /* Jika q adalah Queue, maka akses elemen : */
 #define IDX_HEAD(q) (q).idxHead
 #define IDX_TAIL(q) (q).idxTail
 #define     HEAD(q) (q).buffer[(q).idxHead]
 #define     TAIL(q) (q).buffer[(q).idxTail]
-
-void tambahQueueGame ();
-/*
-Prosedur ini akan membaca nomor game yang akan dimasukkan ke dalam antrian, lalu dicek apakah nomor game
-tersebut masih dalam rentang nomor game yang ada pada daftar game.
-Asumsi : Queue game maksimal hanya menampung 100 antrian game
-I.S. Terdapat queue untuk menampung antrian.
-F.S. Apabila nomor game valid, game dengan nomor game tersebut dimasukkan ke dalam queue tempat penampungan,
-apabila tidak, akan mengeluarkan output bahwa nomor game tidak valid dan akan mengulang proses input nomor game
-yang akan dimasukkan ke queue tempat penampungan.
-*/
 
 /* *** Kreator *** */
 void CreateQueue(Queue *q);
@@ -73,5 +64,6 @@ void displayQueue(Queue q);
 /* F.S. Jika q tidak kosong: [e1,e2,...,en] */
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika Queue kosong : menulis [] */
+
 
 #endif
