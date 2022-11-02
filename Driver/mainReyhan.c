@@ -6,10 +6,10 @@ int main () {
     Queue antrian_game; CreateQueue(&antrian_game);
 
     printf("Masukkan gan :\n");
-    char masukan[20];
+    int masukan;
     for (int i = 0; i < 5; i++) {
         scanf("%d\n", &masukan);
-        Insert(&daftar_game, masukan);
+        SetEl(&daftar_game, i, masukan);
     }
     tambahAntrianGame(daftar_game, &antrian_game);
     return 0;
