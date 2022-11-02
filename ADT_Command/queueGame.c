@@ -22,10 +22,9 @@ void tambahAntrianGame (TabInt daftar_game, Queue * antrian_game) {
 
     // Input dan proses
     int nomorGame;
-    boolean found = false;
     printf("Nomor Game yang mau ditambahkan ke antrian: ");
     scanf("%d\n", &nomorGame);
-    if (nomorGame >= IdxMin && nomorGame <= NbElmt(daftar_game)) {
+    if ((nomorGame >= IdxMin) && (nomorGame <= NbElmt(daftar_game))) {
         enqueue(antrian_game, GetElmt((daftar_game), (nomorGame)));
         printf("Game berhasil ditambahkan ke dalam daftar antrian.");
     } else {
