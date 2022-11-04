@@ -23,13 +23,18 @@ void tambahAntrianGame (TabInt daftar_game, Queue * antrian_game) {
     // Input dan proses
     int nomorGame;
     printf("Nomor Game yang mau ditambahkan ke antrian: ");
-    scanf("%d\n", &nomorGame);
-    if ((nomorGame >= IdxMin) && (nomorGame <= NbElmt(daftar_game))) {
-        enqueue(antrian_game, GetElmt((daftar_game), (nomorGame)));
-        printf("Game berhasil ditambahkan ke dalam daftar antrian.");
-    } else {
-        printf("Nomor permainan tidak valid, silahkan masukkan nomor game pada list.\n");
+    boolean valid = false;
+    while (!valid) {
+        scanf("%d", &nomorGame);
+        if (IsIdxEff(daftar_game, nomorGame)) {
+            valid = true;
+        } else {
+            printf("Nomor permainan tidak valid, silahkan masukkan nomor game pada list.\n");
+            printf("Nomor Game yang mau ditambahkan ke antrian: ");
+        }
     }
+    enqueue(antrian_game, GetElmt((daftar_game), (nomorGame)));
+    printf("Game berhasil ditambahkan ke dalam daftar antrian.");
 }
 /*
 Prosedur ini akan membaca masukan game yang akan ditambahkan user ke dalam antrian game

@@ -8,7 +8,7 @@ int main () {
     printf("Masukkan gan :\n");
     int masukan;
     for (int i = 1; i <= 5; i++) {
-        scanf("%d\n", &masukan);
+        scanf("%d", &masukan);
         SetEl(&daftar_game, i, masukan);
     }
 
