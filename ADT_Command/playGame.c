@@ -8,10 +8,14 @@ void mainkanGame (Queue * antrian_game) {
         printf("%d. %d\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY]);
     }
 
+    // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
+    printf("\n");
+
     if (isEmpty(*antrian_game)) {
         printf("Belum ada game dalam antrianmu.\n");
         printf("Silakan masukkan command QUEUE GAME untuk menambahkan game dalam antrianmu.\n");
     } else {
+        // Dequeue game yang dimainkan
         int dummy;
         dequeue(antrian_game, &dummy);
 

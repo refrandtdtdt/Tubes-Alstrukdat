@@ -8,19 +8,31 @@ void lewatiGame (Queue * antrian_game, ElType jumlah_skip) {
         printf("%d. %d\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY]);
     }
 
+    // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
+    printf("\n");
+
     if (isEmpty(*antrian_game)) {
         printf("Belum ada game dalam antrianmu.\n");
         printf("Silakan masukkan command QUEUE GAME untuk menambahkan game dalam antrianmu.\n");
     } else {
         if (jumlah_skip < length(*antrian_game)) {
+            // Dequeue <jumlah_skip> buah game
             int j;
             int dummySkip;
             for (j = 0; j < jumlah_skip; j++) {
                 dequeue((antrian_game), &dummySkip);
             }
+
+            // Dequeue game yang dimainkan
             int dummy;
             dequeue(antrian_game, &dummy);
             
+            /* 
+            Kalau <jumlah_skip> == length(*antrian_game) - 1, maka akan ngeskip (ngedequeue) <jumlah_skip> buah
+            game lalu juga ngedequeue game yang dimainkan, akibatnya IDX_HEAD(*antrian_game) > IDX_TAIL(*antrian_game)
+            karena pada dasarnya kalau ngedequeue itu index dari head akan "mundur", maka harus dibuat kondisi khusus
+            untuk menjadikan antrian tadi menjadi kosong lagi dengan CreateQueue(antrian_game)
+            */
             if (IDX_HEAD(*antrian_game) > IDX_TAIL(*antrian_game)) {
                 CreateQueue(antrian_game);
             }
