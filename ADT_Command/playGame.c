@@ -7,6 +7,13 @@ void mainkanGame (Queue * antrian_game) {
     for (i = 0; i < length(*antrian_game); i++) {
         printf("%d. %d\n", i+1, (*antrian_game).buffer[i]);
     }
+
+    int dummy;
+    dequeue(antrian_game, &dummy);
+
+    if (dummy == 1) { // 1 asumsinya RNG
+        output
+    }
 }
 /*
 Prosedur ini akan langsung memainkan game yang terletak pada antrian pertama pada antrian game
