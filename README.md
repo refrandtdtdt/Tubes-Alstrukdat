@@ -9,4 +9,4 @@ TBA
 - 18221161 - Reyhan Putra Ananda
 - 18221169 - Ferdinand Refrandt
 
-### **cara mencompile**
+### **Cara Mengcompile**
