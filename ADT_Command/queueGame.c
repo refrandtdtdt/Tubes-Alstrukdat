@@ -29,7 +29,7 @@ void tambahAntrianGame (TabInt daftar_game, Queue * antrian_game) {
         if (IsIdxEff(daftar_game, nomorGame)) {
             valid = true;
         } else {
-            printf("Nomor permainan tidak valid, silahkan masukkan nomor game pada list.\n");
+            printf("Nomor permainan tidak valid, silakan masukkan nomor game pada list.\n");
             printf("Nomor Game yang mau ditambahkan ke antrian: ");
         }
     }
