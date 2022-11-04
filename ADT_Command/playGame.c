@@ -12,7 +12,24 @@ void mainkanGame (Queue * antrian_game) {
     dequeue(antrian_game, &dummy);
 
     if (dummy == 1) { // 1 asumsinya RNG
-        output
+        printf("Loading RNG ...\n");
+        // Panggil fungsi game RNG
+    } else if (dummy == 2) { // 2 asumsinya Diner DASH
+        printf("Loading  Diner DASH ...\n");
+        // Panggil fungsi game Diner DASH
+    } else if ((dummy == 3) || (dummy == 4) || (dummy == 5)) { // asumsinya 3 = DINOSAUR IN EARTH, 4 = RISEWOMAN, 5 = EIFFEL TOWER
+        if (dummy == 3) {
+            printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
+            printf("Silahkan pilih game lain.\n");
+        } else if (dummy == 4) {
+            printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
+            printf("Silahkan pilih game lain.\n");
+        } else if (dummy == 5) {
+            printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
+            printf("Silahkan pilih game lain.\n");
+        }
+    } else {
+        // panggil fungsi game tambahan (angka random)
     }
 }
 /*
