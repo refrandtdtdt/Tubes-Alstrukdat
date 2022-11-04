@@ -1,10 +1,11 @@
 # include "dinerdash.h"
 
 int rng(int lower, int upper) {
-    int num;
+    int num,num1;
     srand(time(0));
-    num = ((rand() % (upper - lower + 1)) + lower)/(rand()%2);
-    return num;
+    num = rand() % ((rand() + 3) % 50000);
+    num1 = (rand() % (upper - lower + 1)) + lower;
+    return num1;
 }
 
 void CreateMakanan(Makanan* food, int id)   {
@@ -30,6 +31,7 @@ void Table(Queue antrean, Queue cooking, List serving) {
             printf("\n");
         }
     }
+    printf("\n");
     //menampilkan cooking
     printf("Daftar Makanan yang sedang dimasak\n");
     printf("Makanan | Sisa Durasi Memasak \n");
@@ -40,6 +42,7 @@ void Table(Queue antrean, Queue cooking, List serving) {
             printf("\n");
         }
     }
+    printf("\n");
     //menampilkan serving
     printf("Daftar Makanan yang dapat disajikan\n");
     printf("Makanan | Sisa ketahanan makanan\n");
