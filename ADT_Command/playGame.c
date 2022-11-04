@@ -2,7 +2,11 @@
 #include "playGame.h"
 
 void mainkanGame (Queue * antrian_game) {
-    
+    printf("Berikut adalah daftar game-mu\n");
+    int i;
+    for (i = 0; i < length(*antrian_game); i++) {
+        printf("%d. %d\n", i+1, (*antrian_game).buffer[i]);
+    }
 }
 /*
 Prosedur ini akan langsung memainkan game yang terletak pada antrian pertama pada antrian game
