@@ -10,7 +10,7 @@ void mainkanGame (Queue * antrian_game) {
 
     if (isEmpty(*antrian_game)) {
         printf("Belum ada game dalam antrianmu.\n");
-        printf("Silakan masukkan command QUEUE GAME untuk menambahkan game dalam antrianmu.");
+        printf("Silakan masukkan command QUEUE GAME untuk menambahkan game dalam antrianmu.\n");
     } else {
         int dummy;
         dequeue(antrian_game, &dummy);
@@ -45,4 +45,6 @@ F.S. Kondisi 1) Apabila game dalam antrian pertama bisa dimainkan, maka akan men
      Kondisi 2) Apabila game dalam antrian pertama tidak bisa dimainkan (dalam maintenance), maka akan mengeluarkan
                 output bahwa tidak bisa memainkan game. Game yang tidak bisa dimainkan tersebut dikeluarkan dari
                 antrian game
+Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada game dalam antrian dan cara memasukkan
+       game ke dalam antrian
 */
