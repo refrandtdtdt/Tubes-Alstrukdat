@@ -34,7 +34,7 @@ void tambahAntrianGame (TabInt daftar_game, Queue * antrian_game) {
         }
     }
     enqueue(antrian_game, GetElmt((daftar_game), (nomorGame)));
-    printf("Game berhasil ditambahkan ke dalam daftar antrian.");
+    printf("Game berhasil ditambahkan ke dalam daftar antrian.\n");
 }
 /*
 Prosedur ini akan membaca masukan game yang akan ditambahkan user ke dalam antrian game

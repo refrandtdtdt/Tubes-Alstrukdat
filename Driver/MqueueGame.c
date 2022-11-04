@@ -12,15 +12,12 @@ int main () {
         SetEl(&daftar_game, i, masukan);
     }
 
-    int jumlahEl = NbElmt(daftar_game);
-    printf("Panjangnya gan :\n");
-    printf("%d\n", jumlahEl);
-
-    printf("hasilnya gan :\n");
-    for (int j = 1; j <= jumlahEl; j++) {
-        printf("%d\n", GetElmt(daftar_game, j));
-    }
-
     tambahAntrianGame(daftar_game, &antrian_game);
+
+    int j;
+    printf("Antrian game sekarang :\n");
+    for (j = 0; j < length((antrian_game)); j++) {
+        printf("%d. %d\n", j+1, (antrian_game).buffer[(j + IDX_HEAD((antrian_game))) % CAPACITY]);
+    }
     return 0;
 }
