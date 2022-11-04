@@ -4,6 +4,3 @@
 - QUEUE GAME
 - PLAY GAME
 - SKIP GAME
-
-### **Cara penggunaan**
-1. 
