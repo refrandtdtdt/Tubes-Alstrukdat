@@ -11,7 +11,7 @@ int main () {
         enqueue(&antrian_game, masukan);
     }
 
-    lewatiGame(&antrian_game, 1);
+    lewatiGame(&antrian_game, 6);
 
     int j;
     printf("Antrian game sekarang :\n");

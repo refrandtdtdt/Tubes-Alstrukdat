@@ -12,45 +12,43 @@ void lewatiGame (Queue * antrian_game, ElType jumlah_skip) {
         printf("Belum ada game dalam antrianmu.\n");
         printf("Silakan masukkan command QUEUE GAME untuk menambahkan game dalam antrianmu.\n");
     } else {
+        if (jumlah_skip < length(*antrian_game)) {
+            int j;
+            int dummySkip;
+            for (j = 0; j < jumlah_skip; j++) {
+                dequeue((antrian_game), &dummySkip);
+            }
+            int dummy;
+            dequeue(antrian_game, &dummy);
+            
+            if (IDX_HEAD(*antrian_game) > IDX_TAIL(*antrian_game)) {
+                CreateQueue(antrian_game);
+            }
 
-    }
-
-    if (jumlah_skip < length(*antrian_game)) {
-        int j;
-        int dummySkip;
-        for (j = 0; j < jumlah_skip; j++) {
-            dequeue((antrian_game), &dummySkip);
-        }
-        int dummy;
-        dequeue(antrian_game, &dummy);
-
-        if (dummy == 1) { // 1 asumsinya RNG
-            printf("Loading RNG ...\n");
-            // Panggil fungsi game RNG
-        } else if (dummy == 2) { // 2 asumsinya Diner DASH
-            printf("Loading  Diner DASH ...\n");
-            // Panggil fungsi game Diner DASH
-        } else if ((dummy == 3) || (dummy == 4) || (dummy == 5)) { // asumsinya 3 = DINOSAUR IN EARTH, 4 = RISEWOMAN, 5 = EIFFEL TOWER
-            if (dummy == 3) {
-                printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
-            } else if (dummy == 4) {
-                printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
-            } else if (dummy == 5) {
-                printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
+            if (dummy == 1) { // 1 asumsinya RNG
+                printf("Loading RNG ...\n");
+                // Panggil fungsi game RNG
+            } else if (dummy == 2) { // 2 asumsinya Diner DASH
+                printf("Loading  Diner DASH ...\n");
+                // Panggil fungsi game Diner DASH
+            } else if ((dummy == 3) || (dummy == 4) || (dummy == 5)) { // asumsinya 3 = DINOSAUR IN EARTH, 4 = RISEWOMAN, 5 = EIFFEL TOWER
+                if (dummy == 3) {
+                    printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
+                    printf("Silahkan pilih game lain.\n");
+                } else if (dummy == 4) {
+                    printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
+                    printf("Silahkan pilih game lain.\n");
+                } else if (dummy == 5) {
+                    printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
+                    printf("Silahkan pilih game lain.\n");
+                }
+            } else {
+                printf("Nanti menjalankan fungsi game tambahan.\n"); // panggil fungsi game tambahan (angka random)
             }
         } else {
-            // panggil fungsi game tambahan (angka random)
+            CreateQueue(antrian_game);
+            printf("Tidak ada permainan lagi dalam antrian game-mu\n");
         }
-    } else {
-        int j;
-        int dummy;
-        for (j = 0; j < length((*antrian_game)); j++) {
-            dequeue((antrian_game), &dummy);
-        }
-        printf("Tidak ada permainan lagi dalam antrian game-mu\n");
     }
 }
 /*

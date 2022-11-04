@@ -33,7 +33,7 @@ void mainkanGame (Queue * antrian_game) {
                 printf("Silahkan pilih game lain.\n");
             }
         } else {
-            // panggil fungsi game tambahan (angka random)
+            printf("Nanti menjalankan fungsi game tambahan.\n"); // panggil fungsi game tambahan (angka random)
         }
     }
 }
