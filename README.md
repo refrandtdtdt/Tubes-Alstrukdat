@@ -1,10 +1,9 @@
-# Tubes Alstrukdat 1 : Bagian Reyhan
+# Tubes 1 Alstrukdat : Bagian Reyhan
 
-> Play Game
->
-> Queue Game
-> 
-> Skip Game
+## **Command yang dibuat**
+- QUEUE GAME
+- PLAY GAME
+- SKIP GAME
 
-## Cara penggunaan :
+## **Cara penggunaan**
 1. 
