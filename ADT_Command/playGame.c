@@ -36,6 +36,7 @@ void mainkanGame (Queue * antrian_game) {
             // panggil fungsi game tambahan (angka random)
         }
     }
+}
 /*
 Prosedur ini akan langsung memainkan game yang terletak pada antrian pertama pada antrian game
 I.S. Sudah tersedia antrian game di main program yang sudah terdefinisi
