@@ -94,7 +94,7 @@ void Search_queue(Queue Q, int X, int* index){
 	int i = IDX_HEAD(Q);
 	while((i <= IDX_TAIL(Q)) && !found){
 		if(Q.buffer[i].ID == X){
-			found = 1;
+			found = true;
 		}
 		else{
 			i++;
@@ -104,6 +104,6 @@ void Search_queue(Queue Q, int X, int* index){
 		*index = i;
 	}
 	else	{
-		*index = -1;
+		*index = IDX_UNDEF;
 	}
 }

@@ -9,7 +9,8 @@
 # include "functions.h"
 # include "list_pesanan.h"
 
-int rng(int lower, int upper);
+int rng1(int lower, int upper);
+int rng2(int lower, int upper);
 
 void CreateMakanan(Makanan* food, int id);
 /*
