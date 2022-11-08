@@ -10,14 +10,14 @@ extern boolean file;
 char cc;
 boolean eop;
 boolean file;
-static FILE *pita;
-static int retval;
+FILE *pita;
+int retval;
 
 void ADV();
 void START();
 
 void STARTF(char* filename);
-
+void CLOSEF();
 void STARTW(char* filename);
 
 #endif

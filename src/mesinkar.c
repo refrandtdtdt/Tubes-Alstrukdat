@@ -5,8 +5,8 @@
 char cc;
 boolean eop;
 boolean file;
-static FILE *pita;
-static int retval;
+FILE *pita;
+int retval;
 
 void ADV()
 {
@@ -16,7 +16,7 @@ void ADV()
    {
       rewind(pita);
    }
-   else if (eop && file)
+   else if (retval == EOF && file)
    {
       fclose(pita);
    }
@@ -34,8 +34,10 @@ void STARTF(char* filename) {
     pita = fopen(filename,"r");
     ADV();
 }
-
+void CLOSEF() {
+   fclose(pita);
+}
 void STARTW(char* filename) {
-    pita = fopen(filename,"w");
-    ADV();
+   fopen(filename,"w");
+   pita = fopen(filename,"w");
 }

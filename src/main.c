@@ -12,6 +12,7 @@ int main() // PROGRAM UTAMA
     char* parameter;
     int run = 0;
     Queue queueGame; CreateQueue(&queueGame);
+    Tabstr listGame; MakeEmpty(&listGame);
     Sentence input; CreateSentence(&input);
     //Tabstr listGame; MakeEmpty(&listGame);
 
@@ -19,60 +20,60 @@ int main() // PROGRAM UTAMA
     {
         printf("ENTER COMMAND: ");
         START();
-        convertToArrayOfKata(&input,2);
+        convertToArrayOfKata(&input,NMax);
         command = kataToString(input.buffer[0]);
         parameter = kataToString(input.buffer[1]);
         // COMMANDS
         if(Eqstr(command,"START")) // START
         {
-            Start();
+            Load("default.txt",&listGame);
         }
-        else if(Eqfront(command, "LOAD")) // LOAD
+        else if(Eqstr(command, "LOAD")) // LOAD
         {
             int i = len(parameter); //.txt
             if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
             {
-                Load(parameter);
+                Load(parameter,&listGame);
             }
             else
             {
                 printf("\nFormat file invalid\n");
             }
         }
-        else if(Eqfront(command, "SAVE")) // SAVE
+        else if(Eqstr(command, "SAVE")) // SAVE
         {
             getcommParameter(command,"SAVE ",parameter);
             int i = len(parameter); //.txt
             if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
             {
-                Save(parameter);
+                Save(parameter, listGame);
             }
             else
             {
                 printf("\nFormat file invalid\n");
             }
         }
-        else if(Eqstr(command,"CREATE GAME")) // CREATE GAME
+        else if(Eqstr(command,"CREATE") && Eqstr(parameter,"GAME")) // CREATE GAME
         {
             CreateGame();
         }
-        else if(Eqstr(command,"LIST GAME")) // LIST GAME
+        else if(Eqstr(command,"LIST") && Eqstr(parameter,"GAME")) // LIST GAME
         {
-            ListGame();
+            ListGame(listGame);
         }
-        else if(Eqstr(command,"DELETE GAME")) // DELETE GAME
+        else if(Eqstr(command,"DELETE") && Eqstr(parameter,"GAME")) // DELETE GAME
         {
             DeleteGame();
         }
-        else if(Eqstr(command,"QUEUE GAME")) // QUEUE GAME
+        else if(Eqstr(command,"QUEUE") && Eqstr(parameter,"GAME")) // QUEUE GAME
         {
             QueueGame();
         }
-        else if(Eqstr(command,"PLAY GAME")) // PLAY GAME
+        else if(Eqstr(command,"PLAY") && Eqstr(parameter,"GAME")) // PLAY GAME
         {
             PlayGame();
         }
-        else if(Eqfront(command, "SKIPGAME")) // SKIPGAME
+        else if(Eqstr(command, "SKIPGAME")) // SKIPGAME
         {
             getcommParameter(command,"SKIPGAME ",parameter);
             int x = 0;

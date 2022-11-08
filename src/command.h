@@ -8,6 +8,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "ADT.h"
+# include "mesinkar.h"
+# include "mesinkata_modif.h"
 
 void Help() {
     char* input;
@@ -69,43 +71,58 @@ perintah untuk mengeluarkan program
 I.S. Sembarang
 F.S. mengakhiri program ketika input QUIT diberikan
 */
-void Start()
-{
-    printf("Start\n");
-}
+// void Start()
+// {
+//     Load()
+// }
 
-void Load(char *filename)
+void Load(char *filename, Tabstr *list)
 {
+    char* currline;
     printf("Loading %s...\n", filename);
-    printf("reading\n");
-    // startread(filename);
-    // char currline[] = "..............................................";
-    // int games = 0;
-    // while (cc != '\n')
-    // {
-    //     games *= 10;
-    //     games += cc-'0';
-    //     adv();
-    // }
-    // printf("%d games loaded\n", games);
-    // adv();
-    // for(int i=0; i<games;i++)
-    // {
-    //     clear(currline);
-    //     advline(currline);
-    //     printf("%s\n",currline);
-    //     //SetEl(Tab,i+1,currline);
-    //     // printf("tes ");
-    //     // Insert(s, currline);
-    //     // printf("%s\n\n", s->Elements[i]);
-    // }
-    // //TulisIsi(*Tab);
-    printf("Savefile loaded successfully\n");
+    STARTF(filename);
+    if(retval == EOF)
+    {
+        printf("\nSavefile could not be found\n");
+    }
+    else
+    {
+        Sentence gameName; CreateSentence(&gameName);
+        int games = 0;
+        while (cc != '\n')
+        {
+            games *= 10;
+            games += cc-'0';
+            ADV();
+        }
+        printf("%d games loaded\n", games);
+        ADV();
+        for (int i = 0; i < games; i++)
+        {
+            clear(gameName.buffer[i].TabWord);
+        }
+        convertToArrayOfKata(&gameName, games);
+        for (int i = 0; i <games;i++)
+        {
+            list->TI[i] = gameName.buffer[i];
+        }
+        list->Neff = games;
+        printf("\nSavefile loaded successfully\n");
+        CLOSEF();
+    }
 }
 
-void Save(char* filename)
+void Save(char* filename, Tabstr list)
 {
-    printf("Save %s\n", filename);
+    printf("Saving to %s...\n", filename);
+    STARTW(filename);
+    fprintf(pita, "%d\n", list.Neff);
+    for (int i = 0; i < list.Neff; i++)
+    {
+        fprintf(pita, "%s\n", list.TI[i].TabWord);
+    }
+    CLOSEF();
+    printf("Saved Successfully\n");
 }
 
 void CreateGame()
@@ -113,13 +130,9 @@ void CreateGame()
     printf("CreateGame\n");
 }
 
-void ListGame()
+void ListGame(Tabstr T)
 {
-    // printf("ListGame\n");
-    // for(int i=0;i<5;i++)
-    // {
-    //     printf("%s\n", s.Elements[i]);
-    // }
+    TulisIsi(T);
 }
 
 void DeleteGame()

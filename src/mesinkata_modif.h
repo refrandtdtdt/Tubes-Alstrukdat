@@ -18,7 +18,7 @@ typedef struct
 } Word;
 
 typedef struct {
-   Word buffer[2];
+   Word buffer[NMax];
    int Length;
 } Sentence;
 

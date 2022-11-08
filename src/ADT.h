@@ -3,18 +3,19 @@
 #include <stdio.h>
 #include "boolean.h"
 #include "functions.h"
+#include "mesinkata_modif.h"
 
 // HEADER INI BUKAN FINAL, BUAT TESTING AJA
 
 /* Kamus Umum */
 
 #define IdxMax 100
-#define IdxMin 1
+#define IdxMin 0
 #define IdxUndef -999 /* indeks tak terdefinisi*/
 
 /* Definisi elemen dan koleksi objek */
 typedef int IdxType;
-typedef char* ElType;
+typedef Word ElType;
 
 typedef struct
 	{

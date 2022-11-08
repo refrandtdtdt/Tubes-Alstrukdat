@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "mesinkata_modif.h"
 #include "mesinkar.h"
+#include "functions.h"
 
 boolean endWord;
 Word currentWord;
@@ -10,9 +11,18 @@ void IgnoreBlanks()
     /* Mengabaikan satu atau beberapa BLANK
        I.S. : cc sembarang
        F.S. : cc ≠ BLANK atau cc = MARK */
-    while (cc == BLANK)
+    if (file)
     {
-        ADV();
+        if (cc == '\n'){
+            ADV();
+        }
+    }
+    else
+    {
+        while (cc == BLANK)
+        {
+            ADV();
+        }
     }
 }
 
@@ -57,9 +67,10 @@ void ADVWORD()
 
 void CopyWord()
 {
+    clear(currentWord.TabWord);
     currentWord.Length = 0;
     int i = 0;
-    while (cc != BLANK && cc != '\n')
+    while (((cc != BLANK && !file) || file) && cc != '\n')
     {
         if (i < NMax)
         { // jika lebih akan terpotong
@@ -97,6 +108,13 @@ void convertToArrayOfKata(Sentence *sentence, int length)  {
 
 void CreateSentence(Sentence *sentence) {
     sentence->Length = 0;
+    for (int i = 0; i < NMax; i++)
+    {
+        for(int j = 0; j < NMax; j++)
+        {
+            sentence->buffer[i].TabWord[j] = '\0';
+        }
+    }
 }
 
 char* kataToString(Word kata)   {
