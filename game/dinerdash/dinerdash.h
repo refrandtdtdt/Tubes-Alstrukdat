@@ -8,6 +8,8 @@
 # include <math.h>
 # include "functions.h"
 # include "list_pesanan.h"
+# include "mesinkar.h"
+# include "mesinkata_modif.h"
 
 int rng1(int lower, int upper);
 int rng2(int lower, int upper);

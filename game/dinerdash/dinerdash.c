@@ -3,7 +3,7 @@
 
 int rng1(int lower, int upper) {
     int num,num1;
-    srand(time(0));
+    srand(time(NULL));
     num = rand() % ((rand() + 3) % 50000);
     num1 = (rand() % (upper - lower + 1)) + lower;
     return num1;
@@ -11,9 +11,9 @@ int rng1(int lower, int upper) {
 
 int rng2(int lower, int upper) {
     int num,num1;
-    srand(time(0));
-    num = rand() % ((rand()) % 5000);
-    num1 = ((rand() + 2) % (upper - lower + 1)) + lower;
+    srand(time(NULL));
+    num = rand() % ((rand()) % 1000);
+    num1 = ((rand()) % (upper - lower + 1)) + lower;
     return num1;
 }
 

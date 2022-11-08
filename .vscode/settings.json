@@ -30,6 +30,8 @@
   ],
   "files.associations": {
     "stdio.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "mesinkar.h": "c",
+    "mesinkata_modif.h": "c"
   }
 }
