@@ -2,6 +2,7 @@
 #define FUNCTIONS_H
 
 # include <stdio.h>
+# include <stdlib.h>
 # include "boolean.h"
 
 // Fungsi tambahan pembantu
@@ -11,6 +12,7 @@ boolean Eqfront(char* s1, char* s2);
 void getcommParameter(char* s1, char* s2, char* str);
 void clear(char* str);
 int StrToInt(char* str);
+void StrCopy(char* str, char* newstr);
 
 // int main()
 // {

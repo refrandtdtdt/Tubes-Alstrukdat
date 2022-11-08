@@ -2,43 +2,22 @@
 #define __MESIN_KAR__
 #include "boolean.h"
 #include <stdio.h>
-#define MARK '.'
 /* State Mesin */
 extern char cc;
 extern boolean eop;
+extern boolean file;
 
 char cc;
 boolean eop;
+boolean file;
 static FILE *pita;
 static int retval;
 
-void adv() {
-    retval = fscanf(pita,"%c",&cc);
-    eop = (cc == MARK);
-    if (eop) {
-        fclose(pita);
-    }
-}
-void advline(char* str)
-{
-    int i=0;
-    while (cc != '\n' && cc != '\0')
-    {
-        str[i] = cc;
-        adv();
-        i++;
-    }
-    adv();
-}
+void ADV();
+void START();
 
-void startread(char* filename) {
-    pita = fopen(filename,"r");
-    adv();
-}
+void STARTF(char* filename);
 
-void startwrite(char* filename) {
-    pita = fopen(filename,"w");
-    adv();
-}
+void STARTW(char* filename);
 
 #endif

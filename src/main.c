@@ -3,18 +3,25 @@
 #include <time.h>
 #include <math.h>
 #include "command.h"
+#include "mesinkata_modif.h"
 
 int main() // PROGRAM UTAMA
 {
     printf("---------------Welcome---------------\n");
-    char command[30];
-    char parameter[] = "...................";
+    char* command;
+    char* parameter;
     int run = 0;
+    Queue queueGame; CreateQueue(&queueGame);
+    Sentence input; CreateSentence(&input);
+    //Tabstr listGame; MakeEmpty(&listGame);
+
     while (run != 1)
     {
         printf("ENTER COMMAND: ");
-        scanf("%[^\n]%*c", command);
-        clear(parameter);
+        START();
+        convertToArrayOfKata(&input,2);
+        command = kataToString(input.buffer[0]);
+        parameter = kataToString(input.buffer[1]);
         // COMMANDS
         if(Eqstr(command,"START")) // START
         {
@@ -22,7 +29,6 @@ int main() // PROGRAM UTAMA
         }
         else if(Eqfront(command, "LOAD")) // LOAD
         {
-            getcommParameter(command,"LOAD",parameter);
             int i = len(parameter); //.txt
             if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
             {
@@ -35,7 +41,7 @@ int main() // PROGRAM UTAMA
         }
         else if(Eqfront(command, "SAVE")) // SAVE
         {
-            getcommParameter(command,"SAVE",parameter);
+            getcommParameter(command,"SAVE ",parameter);
             int i = len(parameter); //.txt
             if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
             {
@@ -68,7 +74,7 @@ int main() // PROGRAM UTAMA
         }
         else if(Eqfront(command, "SKIPGAME")) // SKIPGAME
         {
-            getcommParameter(command,"SKIPGAME",parameter);
+            getcommParameter(command,"SKIPGAME ",parameter);
             int x = 0;
             int i = 0;
             boolean num = true;
@@ -99,7 +105,7 @@ int main() // PROGRAM UTAMA
         {
             Help();
         }
-        else if (Eqstr(command, "QUIT")) // QUIT
+        else if(Eqstr(command, "QUIT")) // QUIT
         {
             Quit();
         }
@@ -107,6 +113,8 @@ int main() // PROGRAM UTAMA
         {
             printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
         }
+        clear(parameter);
+        clear(command);
     }
     //printf("\nAnda keluar dari game BNMO.\nBye bye ...");
 

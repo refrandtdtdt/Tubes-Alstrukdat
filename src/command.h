@@ -7,7 +7,7 @@
 # include "functions.h"
 # include <stdio.h>
 # include <stdlib.h>
-# include "mesinkar.h"
+# include "ADT.h"
 
 void Help() {
     char* input;
@@ -76,25 +76,31 @@ void Start()
 
 void Load(char *filename)
 {
-    printf("Load %s\n", filename);
-    startread(filename);
-    char currline[] = "................................................";
-    int games = 0;
-    while (cc != '\n')
-    {
-        games *= 10;
-        games += cc-'0';
-        adv();
-    }
-    printf("%d\n", games);
-    adv();
-    for(int i=0; i<games;i++)
-    {
-        clear(currline);
-        advline(currline);
-        printf("%s\n", currline);
-    }
-    printf("\n");
+    printf("Loading %s...\n", filename);
+    printf("reading\n");
+    // startread(filename);
+    // char currline[] = "..............................................";
+    // int games = 0;
+    // while (cc != '\n')
+    // {
+    //     games *= 10;
+    //     games += cc-'0';
+    //     adv();
+    // }
+    // printf("%d games loaded\n", games);
+    // adv();
+    // for(int i=0; i<games;i++)
+    // {
+    //     clear(currline);
+    //     advline(currline);
+    //     printf("%s\n",currline);
+    //     //SetEl(Tab,i+1,currline);
+    //     // printf("tes ");
+    //     // Insert(s, currline);
+    //     // printf("%s\n\n", s->Elements[i]);
+    // }
+    // //TulisIsi(*Tab);
+    printf("Savefile loaded successfully\n");
 }
 
 void Save(char* filename)
@@ -109,7 +115,11 @@ void CreateGame()
 
 void ListGame()
 {
-    printf("ListGame\n");
+    // printf("ListGame\n");
+    // for(int i=0;i<5;i++)
+    // {
+    //     printf("%s\n", s.Elements[i]);
+    // }
 }
 
 void DeleteGame()

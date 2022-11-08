@@ -3,7 +3,7 @@
 int len(char* str)
 {
     int i = 0;
-    while (str[i] != '\0')
+    while (str[i] != '\0' && str[i] != '\n')
     {
         i++;
     }
@@ -81,4 +81,12 @@ int StrToInt(char* str) {
         ten *= 10;
     }
     return val;
+}
+
+void StrCopy(char* str, char* newstr)
+{
+    for(int i = 0; i < len(str); i++)
+    {
+        newstr[i] = str[i];
+    }
 }

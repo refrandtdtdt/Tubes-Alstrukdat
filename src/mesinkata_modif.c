@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "mesinkata_modif.h"
+#include "mesinkar.h"
 
 boolean endWord;
 Word currentWord;
@@ -7,9 +8,9 @@ Word currentWord;
 void IgnoreBlanks()
 {
     /* Mengabaikan satu atau beberapa BLANK
-       I.S. : currentChar sembarang
-       F.S. : currentChar ≠ BLANK atau currentChar = MARK */
-    while (currentChar == BLANK)
+       I.S. : cc sembarang
+       F.S. : cc ≠ BLANK atau cc = MARK */
+    while (cc == BLANK)
     {
         ADV();
     }
@@ -17,13 +18,12 @@ void IgnoreBlanks()
 
 void STARTWORD()
 {
-    /* I.S. : currentChar sembarang
-       F.S. : endWord = true, dan currentChar = MARK;
+    /* I.S. : cc sembarang
+       F.S. : endWord = true, dan cc = MARK;
               atau endWord = false, currentWord adalah kata yang sudah diakuisisi,
-              currentChar karakter pertama sesudah karakter terakhir kata */
-    START();
+              cc karakter pertama sesudah karakter terakhir kata */
     IgnoreBlanks();
-    if (currentChar == MARK)
+    if (cc == '\n' && !file)
     {
         endWord = true;
     }
@@ -37,13 +37,13 @@ void STARTWORD()
 
 void ADVWORD()
 {
-    /* I.S. : currentChar adalah karakter pertama kata yang akan diakuisisi
+    /* I.S. : cc adalah karakter pertama kata yang akan diakuisisi
        F.S. : currentWord adalah kata terakhir yang sudah diakuisisi,
-              currentChar adalah karakter pertama dari kata berikutnya, mungkin MARK
-              Jika currentChar = MARK, endWord = true.
+              cc adalah karakter pertama dari kata berikutnya, mungkin MARK
+              Jika cc = MARK, endWord = true.
        Proses : Akuisisi kata menggunakan procedure CopyWord */
     IgnoreBlanks();
-    if (currentChar == MARK)
+    if (cc == '\n' && !file)
     {
         endWord = true;
     }
@@ -59,16 +59,18 @@ void CopyWord()
 {
     currentWord.Length = 0;
     int i = 0;
-    while (currentChar != BLANK && currentChar != MARK)
+    while (cc != BLANK && cc != '\n')
     {
         if (i < NMax)
         { // jika lebih akan terpotong
-            currentWord.TabWord[i] = currentChar;
+            currentWord.TabWord[i] = cc;
             ADV();
             i++;
         }
         else
+        {
             break;
+        }
     }
     currentWord.Length = i;
 }
