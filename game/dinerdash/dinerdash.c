@@ -77,6 +77,7 @@ void DinerDash()    {
     List serving;
     Makanan pesanan;
     ElType head_antrean;
+    Sentence input;
     CreateQueue(&antrean);
     CreateQueue(&cooking);
     serving = MakeList();
@@ -106,7 +107,11 @@ void DinerDash()    {
         //input command
         while (!input_success)  {
             printf("MASUKKAN COMMAND: ");
-            scanf("%s %s", command, id_food_str1);
+            START();
+            convertToArrayOfKata(&input, 2);
+            command = kataToString(input.buffer[0]);
+            id_food_str1 = kataToString(input.buffer[1]);
+            //scanf("%s %s", command, id_food_str1);
             getcommParameter(id_food_str1, "M", id_food_str2);
             id_food = StrToInt(id_food_str2);
             Search_queue (antrean, id_food, &xx);
