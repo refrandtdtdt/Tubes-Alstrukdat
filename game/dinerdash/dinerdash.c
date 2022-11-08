@@ -113,7 +113,6 @@ void DinerDash()    {
             convertToArrayOfKata(&input, 2);
             command = kataToString(input.buffer[0]);
             id_food_str1 = kataToString(input.buffer[1]);
-            //scanf("%s %s", command, id_food_str1);
             getcommParameter(id_food_str1, "M", id_food_str2);
             id_food = StrToInt(id_food_str2);
             Search_queue (antrean, id_food, &xx);
