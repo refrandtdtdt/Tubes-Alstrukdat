@@ -11,7 +11,7 @@ int rng1(int lower, int upper) {
 int rng2(int lower, int upper) {
     int num,num1;
     srand(time(0));
-    num = rand() % ((rand()) % 5000);
+    num = rand() % ((rand()) % 25000);
     num1 = ((rand() + 2) % (upper - lower + 1)) + lower;
     return num1;
 }
@@ -25,7 +25,7 @@ void CreateMakanan(Makanan* food, int id)   {
 
 void Table(Queue antrean, Queue cooking, List serving) {
     printf("Daftar Pesanan\n");
-    printf("Makanan | Durasi Memasak | Ketahanan | Harga\n");
+    printf("Makanan | Durasi Memasak | Ketahanan | Harga     |\n");
     printf("-------------------------------------------------\n");
     int i,j,k;
     //menampilkan antrean
@@ -35,29 +35,31 @@ void Table(Queue antrean, Queue cooking, List serving) {
             printf("     ");
             printf("| %d              |", antrean.buffer[i].durasi);
             printf(" %d          |", antrean.buffer[i].ketahanan);
-            printf(" %d          |", antrean.buffer[i].harga);
+            printf(" %d     |", antrean.buffer[i].harga);
             printf("\n");
         }
     }
     printf("\n");
     //menampilkan cooking
     printf("Daftar Makanan yang sedang dimasak\n");
-    printf("Makanan | Sisa Durasi Memasak \n");
+    printf("Makanan | Sisa Durasi Memasak |\n");
+    printf("-------------------------------\n");
     if (!isEmpty(cooking))  {
         for (j = cooking.idxHead; j <= cooking.idxTail; j++)  {
-            printf("M%d       ", cooking.buffer[j].ID);
-            printf("| %d              |", cooking.buffer[j].durasi);
+            printf("M%d      ", cooking.buffer[j].ID);
+            printf("| %d                  |", cooking.buffer[j].durasi);
             printf("\n");
         }
     }
     printf("\n");
     //menampilkan serving
     printf("Daftar Makanan yang dapat disajikan\n");
-    printf("Makanan | Sisa ketahanan makanan\n");
+    printf("Makanan | Sisa ketahanan makanan |\n");
+    printf("----------------------------------\n");
     if (!IsEmpty(serving))  {
         for (k = FirstIdx(serving); k <= LastIdx(serving); k++)  {
-            printf("M%d       ", serving.A[k].ID);
-            printf("| %d              |", serving.A[k].ketahanan);
+            printf("M%d      ", serving.A[k].ID);
+            printf("| %d                   |", serving.A[k].ketahanan);
             printf("\n");
         }
     }
@@ -115,6 +117,11 @@ void DinerDash()    {
             getcommParameter(id_food_str1, "M", id_food_str2);
             id_food = StrToInt(id_food_str2);
             Search_queue (antrean, id_food, &xx);
+            if (Eqstr(command, "SKIP")) {
+                printf("Berhasil Skip\n");
+                input_success = true;
+                break;
+            }
             if (!((Eqstr(command, "COOK")) || (Eqstr(command, "SERVE"))))  {
                 printf("Command Tidak Valid, ulangi.\n");
             }
@@ -126,6 +133,32 @@ void DinerDash()    {
             }
         }
 
+        if (Eqstr(command, "SERVE"))    {
+            head_antrean =  HEAD(antrean);
+            if (id_food == head_antrean.ID)    {
+                Search(serving, head_antrean, &idx_served);
+                if (idx_served != InvalidIdx)   {
+                    DeleteAt(&serving, idx_served);
+                    served++;
+                    dequeue(&antrean, &gain);
+                    saldo += gain.harga;
+                    printf("Berhasil mengantar M%d.\n", gain.ID);
+                    success = true;
+                }
+                else    {
+                    printf("Makanan M%d Belum jadi.\n", id_food);
+                    success = false;
+                }
+            }
+            else    {
+                printf("Belum bisa dihidangin, Makanan M%d belum dihidangin!\n", head_antrean.ID);
+                success = false;
+            }
+        }
+
+        if (Eqstr(command, "SKIP")) {
+            success = true;
+        }
         //kurangi 1 setiap round jika success
         if (success)    {
             if (!isEmpty(cooking))  {
@@ -164,28 +197,7 @@ void DinerDash()    {
                 success = false;
             }
         }
-        else if (Eqstr(command, "SERVE"))    {
-            head_antrean =  HEAD(antrean);
-            if (id_food == head_antrean.ID)    {
-                Search(serving, head_antrean, &idx_served);
-                if (idx_served != InvalidIdx)   {
-                    DeleteAt(&serving, idx_served);
-                    served++;
-                    dequeue(&antrean, &gain);
-                    saldo += gain.harga;
-                    printf("Berhasil mengantar M%d.\n", gain.ID);
-                    success = true;
-                }
-                else    {
-                    printf("Makanan M%d Belum jadi.\n", id_food);
-                    success = false;
-                }
-            }
-            else    {
-                printf("Belum bisa dihidangin, Makanan M%d belum dihidangin!\n", head_antrean.ID);
-                success = false;
-            }
-        }
+
         if (success)    {
             //tambah pesanan baru
             CreateMakanan(&pesanan, st);
@@ -193,6 +205,7 @@ void DinerDash()    {
             st++;
         }
         id_food = -1;
+        printf("===========================================================================\n");
     }
     free(command);
     free(id_food_str1);
