@@ -14,6 +14,7 @@ int main() // PROGRAM UTAMA
     Queue queueGame; CreateQueue(&queueGame);
     Tabstr listGame; MakeEmpty(&listGame);
     Sentence input; CreateSentence(&input);
+    boolean loaded = false;
     //Tabstr listGame; MakeEmpty(&listGame);
 
     while (run != 1)
@@ -27,6 +28,7 @@ int main() // PROGRAM UTAMA
         if(Eqstr(command,"START")) // START
         {
             Load("default.txt",&listGame);
+            loaded = true;
         }
         else if(Eqstr(command, "LOAD")) // LOAD
         {
@@ -34,6 +36,7 @@ int main() // PROGRAM UTAMA
             if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
             {
                 Load(parameter,&listGame);
+                loaded = true;
             }
             else
             {
@@ -42,64 +45,112 @@ int main() // PROGRAM UTAMA
         }
         else if(Eqstr(command, "SAVE")) // SAVE
         {
-            getcommParameter(command,"SAVE ",parameter);
-            int i = len(parameter); //.txt
-            if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
+            if(loaded)
             {
-                Save(parameter, listGame);
+                getcommParameter(command,"SAVE ",parameter);
+                int i = len(parameter); //.txt
+                if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
+                {
+                    Save(parameter, listGame);
+                }
+                else
+                {
+                    printf("\nFormat file invalid\n");
+                }
             }
             else
             {
-                printf("\nFormat file invalid\n");
+                printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
             }
         }
         else if(Eqstr(command,"CREATE") && Eqstr(parameter,"GAME")) // CREATE GAME
         {
-            CreateGame();
-        }
-        else if(Eqstr(command,"LIST") && Eqstr(parameter,"GAME")) // LIST GAME
-        {
-            ListGame(listGame);
-        }
-        else if(Eqstr(command,"DELETE") && Eqstr(parameter,"GAME")) // DELETE GAME
-        {
-            DeleteGame();
-        }
-        else if(Eqstr(command,"QUEUE") && Eqstr(parameter,"GAME")) // QUEUE GAME
-        {
-            QueueGame();
-        }
-        else if(Eqstr(command,"PLAY") && Eqstr(parameter,"GAME")) // PLAY GAME
-        {
-            PlayGame();
-        }
-        else if(Eqstr(command, "SKIPGAME")) // SKIPGAME
-        {
-            getcommParameter(command,"SKIPGAME ",parameter);
-            int x = 0;
-            int i = 0;
-            boolean num = true;
-            while(parameter[i]!='\0' && num)
+            if(loaded)
             {
-                if(parameter[i]-'0'<0 || parameter[i]-'0'>9)
-                {
-                    num = false;
-                }
-                else
-                {
-                    x *= 10;
-                    x += parameter[i]-'0';
-                }
-                i++;
-            }
-
-            if(num)
-            {
-                SkipGame(x);
+                CreateGame();
             }
             else
             {
-                printf("\nParameter invalid\n");
+                printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+            }
+        }
+        else if(Eqstr(command,"LIST") && Eqstr(parameter,"GAME")) // LIST GAME
+        {
+            if(loaded)
+            {
+                ListGame(listGame);
+            }
+            else
+            {
+                printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+            }
+        }
+        else if(Eqstr(command,"DELETE") && Eqstr(parameter,"GAME")) // DELETE GAME
+        {
+            if(loaded)
+            {
+                DeleteGame();
+            }
+            else
+            {
+                printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+            }
+        }
+        else if(Eqstr(command,"QUEUE") && Eqstr(parameter,"GAME")) // QUEUE GAME
+        {
+            if(loaded)
+            {
+                tambahAntrianGame (listGame, &queueGame);
+            }
+            else
+            {
+                printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+            }
+        }
+        else if(Eqstr(command,"PLAY") && Eqstr(parameter,"GAME")) // PLAY GAME
+        {
+            if(loaded)
+            {
+                mainkanGame(&queueGame);
+            }
+            else
+            {
+                printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+            }
+        }
+        else if(Eqstr(command, "SKIPGAME")) // SKIPGAME
+        {
+            if(loaded)
+            {
+                int x = 0;
+                int i = 0;
+                boolean num = true;
+                while(parameter[i]!='\0' && num)
+                {
+                    if(parameter[i]-'0'<0 || parameter[i]-'0'>9)
+                    {
+                        num = false;
+                    }
+                    else
+                    {
+                        x *= 10;
+                        x += parameter[i]-'0';
+                    }
+                    i++;
+                }
+
+                if(num)
+                {
+                    lewatiGame(&queueGame, x);
+                }
+                else
+                {
+                    printf("\nParameter invalid\n");
+                }
+            }
+            else
+            {
+                printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
             }
         }
         else if(Eqstr(command,"HELP")) // HELP

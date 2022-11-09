@@ -30,24 +30,8 @@ boolean Eqstr(char* s1, char* s2)
 }
 // Fungsi untuk mengecek apakah dua string adalah sama
 
-boolean Eqfront(char* s1, char* s2)
-{
-    int i = 0;
-    while (s2[i]!='\0')
-    {
-        if(s1[i]!=s2[i])
-        {
-            return false;
-        }
-        i++;
-    }
-    return true;
-}
-// Fungsi khusus untuk mengecek apakah command awal sudah benar
-
 void getcommParameter(char* s1, char* s2, char* str)
 {
-    // cek apakah command valid
     int i = len(s2);
     int j = len(s1);
     int k = 0;
@@ -57,7 +41,7 @@ void getcommParameter(char* s1, char* s2, char* str)
         k++;
     }
 }
-// Fungsi khusus untuk mengambil masukan parameter command
+// Fungsi untuk mengambil bagian belakang dari suatu string
 
 void clear(char* str)
 {
@@ -81,12 +65,4 @@ int StrToInt(char* str) {
         ten *= 10;
     }
     return val;
-}
-
-void StrCopy(char* str, char* newstr)
-{
-    for(int i = 0; i < len(str); i++)
-    {
-        newstr[i] = str[i];
-    }
 }

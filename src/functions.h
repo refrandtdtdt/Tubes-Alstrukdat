@@ -8,11 +8,9 @@
 // Fungsi tambahan pembantu
 int len(char* str);
 boolean Eqstr(char* s1, char* s2);
-boolean Eqfront(char* s1, char* s2);
 void getcommParameter(char* s1, char* s2, char* str);
 void clear(char* str);
 int StrToInt(char* str);
-void StrCopy(char* str, char* newstr);
 
 // int main()
 // {
