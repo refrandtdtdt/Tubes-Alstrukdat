@@ -80,6 +80,7 @@ void DinerDash()    {
     FILE* aturan;
     char ch;
     char ret;
+    CHARMACHINE("dinerdash_ui.txt");
     printf("Selamat datang di game Diner Dash!\n\n");
     int saldo = 0;      //uang yang diterima pemain
     int on_cook = 0;
