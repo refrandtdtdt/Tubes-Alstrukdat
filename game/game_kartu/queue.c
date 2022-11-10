@@ -6,32 +6,32 @@ void CreateQueue(Queue *q)  {
     IDX_TAIL(*q) = IDX_UNDEF;
 }
 
-boolean isEmpty(Queue q)    {
+boolean isQueueEmpty(Queue q)    {
     return ((IDX_HEAD(q) == IDX_UNDEF) || (IDX_TAIL(q) == IDX_UNDEF));
 }
 
-boolean isFull(Queue q) {
+boolean isQueueFull(Queue q) {
     return (length(q) == CAPACITY);
 }
 
 int length(Queue q) {
     // case 1, IDX_HEAD <= IDX_TAIL
-    if ((IDX_HEAD(q) <= IDX_TAIL(q)) && (!isEmpty(q))) {
+    if ((IDX_HEAD(q) <= IDX_TAIL(q)) && (!isQueueEmpty(q))) {
         return (IDX_TAIL(q) - IDX_HEAD(q) + 1);
     }
     // case 2, IDX_HEAD >= IDX_TAIL
-    else if ((IDX_HEAD(q) > IDX_TAIL(q)) && (!isEmpty(q)))   {
+    else if ((IDX_HEAD(q) > IDX_TAIL(q)) && (!isQueueEmpty(q)))   {
         return (CAPACITY + IDX_TAIL(q) - IDX_HEAD(q) + 1);
     }
     // case 3, queue kosong
-    else if (isEmpty(q))  {
+    else if (isQueueEmpty(q))  {
         return 0;
     }
 }
 
-void enqueue(Queue *q, ElType val)
+void enqueue(Queue *q, Pemain val)
 {
-   if (isEmpty(*q))
+   if (isQueueEmpty(*q))
    {
       IDX_TAIL(*q) = 0;
       IDX_HEAD(*q) = 0;
@@ -44,7 +44,7 @@ void enqueue(Queue *q, ElType val)
    }
 }
 
-void dequeue(Queue *q, ElType *val) {
+void dequeue(Queue *q, Pemain *val) {
     // Kasus Pertama: saat idxHead < idxMax
     if ((IDX_HEAD(*q) >= 0) && (IDX_HEAD(*q) < CAPACITY-1) && (IDX_HEAD(*q) != IDX_TAIL(*q)))   {
         *val = HEAD(*q);
@@ -62,10 +62,10 @@ void dequeue(Queue *q, ElType *val) {
         IDX_TAIL(*q) = IDX_UNDEF;
     }
 }
-
+/*
 void displayQueue(Queue q)  {
     // array untuk kebutuhan
-    ElType temp[CAPACITY];
+    Pemain temp[CAPACITY];
     // masukan nilai-nilai queue ke array
     // jika IDX_HEAD <= IDX_TAIL
     int i, m, k;
@@ -85,3 +85,4 @@ void displayQueue(Queue q)  {
     }
     printf("]\n");
 }
+*/
