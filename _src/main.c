@@ -27,7 +27,7 @@ int main() // PROGRAM UTAMA
         // COMMANDS
         if(Eqstr(command,"START")) // START
         {
-            Load("default.txt",&listGame);
+            Load("_data/default.txt",&listGame);
             loaded = true;
         }
         else if(Eqstr(command, "LOAD")) // LOAD
