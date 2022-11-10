@@ -34,16 +34,15 @@ int main()  {
     num_of_cards = StrToInt(kataToString(sent_card.buffer[0]));
 
     //create the deck
+    /*aturan*/
+    //pakai mesin kata buat ngeprint aturannya
+    CHARMACHINE("aturan.txt");
     CreateDeck(&deck);
     printf("Tunggu Sebentar, sedang dikocok...\n");
     shuffle(&deck, Length(deck));
     Shuffle(&deck, &tumpukan);
-    printf("success\n");
-    PrintStackCard(tumpukan);
-    printf("success\n");
     //set the player
     SetPlayers(&player, num_of_players);
-    printf("success\n");
 
     /*mengisi kartu masing-masing player*/
     for (int l = 0; l < num_of_cards*num_of_players; l++)   {
@@ -51,10 +50,6 @@ int main()  {
     }
 
     system("cls");
-
-    /*aturan*/
-    //pakai mesin kata buat ngeprint aturannya
-    CHARMACHINE("aturan.txt");
 
     /* Start Permainan */
     printf("Permainan Dimulai!!\n");

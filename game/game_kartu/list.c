@@ -223,7 +223,7 @@ void shuffle(List* array, size_t n)
           Kartu t = array->A[j];
           array->A[j] = array->A[i];
           array->A[i] = t;
-          //delay(10000);
+          delay(10666);
         }
     }
 }
