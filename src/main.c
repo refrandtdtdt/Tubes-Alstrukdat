@@ -67,7 +67,7 @@ int main() // PROGRAM UTAMA
         {
             if(loaded)
             {
-                CreateGame();
+                buatgame(&listGame);
             }
             else
             {
@@ -89,7 +89,7 @@ int main() // PROGRAM UTAMA
         {
             if(loaded)
             {
-                DeleteGame();
+                HapusGame(&listGame);
             }
             else
             {
@@ -168,7 +168,5 @@ int main() // PROGRAM UTAMA
         clear(parameter);
         clear(command);
     }
-    //printf("\nAnda keluar dari game BNMO.\nBye bye ...");
-
     return 0;
 }

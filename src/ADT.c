@@ -75,7 +75,7 @@ boolean IsIdxValid (Tabstr T, IdxType i)
 
 boolean IsIdxEff (Tabstr T, IdxType i)
 {
-    return i>=IdxMin && i<=T.Neff;
+    return i>=IdxMin && i<T.Neff;
 }
 
 
