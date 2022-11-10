@@ -13,10 +13,11 @@ Anggota Kelompok dan Pembagian Tugas
 | Nazhif Haidar Putra Wibowo | 18221083 | Dinner Dash, Quit | 
 | Muhammad Hanif Al Faithoni | 18221135 | RNG, Command lain|
 | Victoria Angelique | 18221153 | Create game, List Game, Delete Game |
-| Reyhan Putra Ananda | 18221161 | Queue Game, Play Game | 
+| Reyhan Putra Ananda | 18221161 | Queue Game, Play Game, Skip Game | 
 | Ferdinand Refrandt | 18221169 | Start, Save, Load, Main Program | 
 
 
 ### **Cara Mengcompile**
 1. Buka terminal baru
-2. ketik "make all" (tanpa tanda kutip)
+2. Ketik "make all" (tanpa tanda kutip)
+3. Ketik "./main" (tanpa tanda kutip)
