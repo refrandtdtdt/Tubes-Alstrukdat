@@ -1,6 +1,10 @@
 # Tugas besar Alstrukdat
 
 ## Binomo Part 2
+Binomo adalah program game console yang dibuat untuk mendesain game sendiri dan memainkan game sesuai dengan keinginan. Beberapa game yang disediakan oleh Binomo ini :
+- RNG
+- Dinner dash 
+- Card Game
 
 Anggota Kelompok dan Pembagian Tugas
 
