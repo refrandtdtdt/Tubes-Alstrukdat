@@ -34,11 +34,31 @@ void Load(char *filename, Tabstr *list);
 
 void Save(char* filename, Tabstr list);
 
-void CreateGame();
+void buatgame (Tabstr *T); 
+/*
+prosedur ini akan membaca masukkan nama game yang ingin ditambahkan ke dalam Binomo
+I.S Sembarang
+F.S Game berhasil ditambahkan ke dalam array game yang tersedia 
+Apabila game yg ditambahkan sudah ada di dalam array game sebelumnya maka game tidak ditambahkan kembali
+*/
 
-void ListGame(Tabstr T);
+void ListGame (Tabstr T);
+/* proses : menuliskan list atau daftar game yang terdapat dalam Binomo */
+/* I.S T boleh kosong */
+/* F.S Jika T tidak kosong indeks dan nama game ditulis berderet ke bawah
+Contoh output
+1. RNG 
+2. LUNCH SLOW
+3. DINOSAUR IN EARTH */
+/* Jika T kosong : Hanya Menulis "Tidak ada game yang tersimpan "*/
 
-void DeleteGame();
+void HapusGame();
+/*I.S Tab terdefinisi dan tidak kosong */
+/*F.S elemen game ke-i dihapus dari tab game sesuai dengan keinginan user*/
+/*Syarat penghapusan game: 
+- Game yang dapat dihapus hanyalah game yang dibuat secara custom sendiri oleh user
+- Lima Game pertama yang terdapat dlaam file konfigurasi (game default) tidak dapat dihapus 
+- Game yang berada dalam queue game (antrian game) tidak dapat dihapus */
 
 void tambahAntrianGame (Tabstr daftar_game, Queue * antrian_game);
 /*
