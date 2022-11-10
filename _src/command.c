@@ -2,10 +2,12 @@
 
 void Help() {
     char* input;
-    input = (char*) malloc (20*sizeof(char));
-    printf("help command: \n");
-    printf("-START\n-LOAD\n-SAVE\n-CREATE GAME\n-LIST GAME\n-DELETE GAME\n-QUEUE GAME\n-PLAY GAME\n-SKIP GAME\n");
-    scanf("%[^\n]%*c", input);
+    printf("Help command: \n");
+    printf("-START\n-LOAD\n-SAVE\n-CREATE GAME\n-LIST GAME\n-DELETE GAME\n-QUEUE GAME\n-PLAY GAME\n-SKIP GAME\n:\n");
+    START();
+    file = true;
+    CopyWord();
+    input = kataToString(currentWord);
     if (Eqstr(input,"LOAD"))   {
         printf("(+) LOAD <filename>: \n");
         printf("Memiliki satu argumen yaitu filename yang merepresentasikan suatu save file yang ingin dibuka. ");
@@ -60,12 +62,8 @@ perintah untuk mengeluarkan program
 I.S. Sembarang
 F.S. mengakhiri program ketika input QUIT diberikan
 */
-// void Start()
-// {
-//     Load()
-// }
 
-void Load(char *filename, Tabstr *list)
+void Load(char *filename, TabGame *list)
 {
     char* currline;
     printf("Loading %s...\n", filename);
@@ -93,7 +91,7 @@ void Load(char *filename, Tabstr *list)
         convertToArrayOfKata(&gameName, games);
         for (int i = 0; i <games;i++)
         {
-            list->TI[i] = gameName.buffer[i];
+            list->TG[i] = gameName.buffer[i];
         }
         list->Neff = games;
         printf("\nSavefile loaded successfully\n");
@@ -101,39 +99,103 @@ void Load(char *filename, Tabstr *list)
     }
 }
 
-void Save(char* filename, Tabstr list)
+void Save(char* filename, TabGame list)
 {
     printf("Saving to %s...\n", filename);
     STARTW(filename);
     fprintf(pita, "%d\n", list.Neff);
     for (int i = 0; i < list.Neff; i++)
     {
-        fprintf(pita, "%s\n", list.TI[i].TabWord);
+        fprintf(pita, "%s\n", list.TG[i].TabWord);
     }
     CLOSEF();
     printf("Saved Successfully\n");
 }
 
-void CreateGame()
+void buatgame (TabGame *T)
+/*
+prosedur ini akan membaca masukkan nama game yang ingin ditambahkan ke dalam Binomo
+I.S Sembarang
+F.S Game berhasil ditambahkan ke dalam array game yang tersedia 
+Apabila game yg ditambahkan sudah ada di dalam array game sebelumnya maka game tidak ditambahkan kembali
+*/
 {
-    printf("CreateGame\n");
+    printf("Masukkan nama game yang akan ditambahkan: ");
+    START();
+    file = true;
+    CopyWord();
+    boolean isMember = false;
+    int i;
+    for (i = 0; i <= GetLastIdx(*T); i++)
+    {
+        if (Eqstr((*T).TG[i].TabWord, kataToString(currentWord)))
+        {
+            isMember = true;
+        }
+        else
+        {
+            isMember = false;
+        }
+    }
+    if (!isMember)
+    {
+        (*T).Neff++;
+        (*T).TG[i] = currentWord;
+        printf("Game berhasil ditambahkan\n");
+    }
+    else 
+    {
+        printf("Game sudah terdaftar\n");
+    }
 }
 
-void ListGame(Tabstr T)
+void ListGame(TabGame T)
 {
     TulisIsi(T);
 }
 
-void DeleteGame()
+void HapusGame(TabGame *T)
+/*I.S Tab terdefinisi dan tidak kosong */
+/*F.S elemen game ke-i dihapus dari tab game sesuai dengan keinginan user*/
+/*Syarat penghapusan game: 
+- Game yang dapat dihapus hanyalah game yang dibuat secara custom sendiri oleh user
+- Lima Game pertama yang terdapat dlaam file konfigurasi (game default) tidak dapat dihapus 
+- Game yang berada dalam queue game (antrian game) tidak dapat dihapus */
 {
-    printf("DeleteGame\n");
+    printf("Berikut adalah daftar game yang tersedia\n");
+    ListGame(*T);
+    printf("Masukkan nomor game yang akan dihapus: ");
+    START();
+    CopyWord();
+    int del = WordToInt(currentWord);
+    if (del <= 5 && del > 0)
+    {
+        printf("Game gagal dihapus\n");
+    }
+    else
+    {
+        if (del <= T->Neff)
+        {
+            int j;
+            for (j = del-1; j < T->Neff; j++)
+            {
+                (*T).TG[j] = (*T).TG[j+1];
+            }
+            (*T).Neff--;
+            printf("Game berhasil dihapus\n");
+        }
+        else
+        {
+            printf("Nomor game tidak ada dalam list\n");
+        }
+    }
 }
 
-void tambahAntrianGame (Tabstr daftar_game, Queue * antrian_game) {
+void tambahAntrianGame (TabGame daftar_game, Queue * antrian_game) {
     // Mengeluarkan output game-game yang sedang dalam antrian
     printf("Berikut adalah daftar antrian game-mu\n");
     for (int i = 0; i < length(*antrian_game); i++) {
-        printf("%d: %s\n", i+1, (*antrian_game).buffer[i].TabWord);
+        printf("%d. %s\n", i+1, (*antrian_game).buffer[i].TabWord);
     }
 
     // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
@@ -142,7 +204,7 @@ void tambahAntrianGame (Tabstr daftar_game, Queue * antrian_game) {
     // Mengeluarkan output game-game yang terdapat dalam list
     printf("Berikut adalah daftar game yang tersedia\n");
     for (int j = 0; j < NbElmt(daftar_game); j++) {
-        printf("%d: %s\n", j+1, GetElmt(daftar_game, j).TabWord);
+        printf("%d. %s\n", j+1, GetElmt(daftar_game, j).TabWord);
     }
 
     // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
@@ -152,13 +214,12 @@ void tambahAntrianGame (Tabstr daftar_game, Queue * antrian_game) {
     int nomorGame;
     printf("Nomor Game yang mau ditambahkan ke antrian: ");
     boolean valid = false;
-    Sentence input;
     while (!valid) {
         //scanf("%d", &nomorGame);
         START();
-        convertToArrayOfKata(&input,NMax);
-        nomorGame = StrToInt(kataToString(input.buffer[0]));
-        if (IsIdxEff(daftar_game, nomorGame)) {
+        CopyWord();
+        nomorGame = WordToInt(currentWord);
+        if (IsIdxEff(daftar_game, nomorGame-1)) {
             valid = true;
         } else {
             printf("Nomor permainan tidak valid, silakan masukkan nomor game pada list.\n");
@@ -181,7 +242,7 @@ void mainkanGame (Queue * antrian_game) {
     printf("Berikut adalah daftar game dalam antrianmu\n");
     int i;
     for (i = 0; i < length((*antrian_game)); i++) {
-        printf("%d: %s\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY].TabWord);
+        printf("%d. %s\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY].TabWord);
     }
 
     // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
@@ -201,20 +262,18 @@ void mainkanGame (Queue * antrian_game) {
         } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
             printf("Loading Diner DASH ...\n");
             // Panggil fungsi game Diner DASH
-        } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH") || Eqstr(dummy.TabWord,"RISEWOMAN") || Eqstr(dummy.TabWord,"EIFFEL TOWER")) {
-            if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
-                printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
-            } else if (Eqstr(dummy.TabWord,"RISEWOMAN")) {
-                printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
-            } else if (Eqstr(dummy.TabWord,"EIFFEL TOWER")) {
-                printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
-            }
+        } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
+            printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
+            printf("Silahkan pilih game lain.\n");
+        } else if (Eqstr(dummy.TabWord,"RISEWOMAN")) {
+            printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
+            printf("Silahkan pilih game lain.\n");
+        } else if (Eqstr(dummy.TabWord,"EIFFEL TOWER")) {
+            printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
+            printf("Silahkan pilih game lain.\n");
         } else if (Eqstr(dummy.TabWord,"Card Game")) {
-            printf("Loading Card Game ...\n");
-            // Panggil fungsi game Card Game
+        printf("Loading Card Game ...\n");
+        // Panggil fungsi game Card Game
         } else {
             GameTambahan();
         }
@@ -236,7 +295,7 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
     printf("Berikut adalah daftar game dalam antrianmu\n");
     int i;
     for (i = 0; i < length((*antrian_game)); i++) {
-        printf("%d: %s\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY].TabWord);
+        printf("%d. %s\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY].TabWord);
     }
 
     // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
@@ -274,17 +333,17 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
             } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
                 printf("Loading Diner DASH ...\n");
                 // Panggil fungsi game Diner DASH
-            } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH") || Eqstr(dummy.TabWord,"RISEWOMAN") || Eqstr(dummy.TabWord,"EIFFEL TOWER")) {
-                if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
-                    printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
-                    printf("Silahkan pilih game lain.\n");
-                } else if (Eqstr(dummy.TabWord,"RISEWOMAN")) {
-                    printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
-                    printf("Silahkan pilih game lain.\n");
-                } else if (Eqstr(dummy.TabWord,"EIFFEL TOWER")) {
-                    printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
-                    printf("Silahkan pilih game lain.\n");
-                }
+            } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
+                printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
+                printf("Silahkan pilih game lain.\n");
+            } else if (Eqstr(dummy.TabWord,"RISEWOMAN")) {
+                printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
+                printf("Silahkan pilih game lain.\n");
+            } else if (Eqstr(dummy.TabWord,"EIFFEL TOWER")) {
+                printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
+                printf("Silahkan pilih game lain.\n");
+            } else if (Eqstr(dummy.TabWord,"Card Game")) {
+                printf("Loading Card Game ...\n");
             } else {
                 GameTambahan();
             }
@@ -294,6 +353,7 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
         }
     }
 }
+
 /*
 Prosedur ini akan melewati sebanyak <jumlah_skip> game, game yang dilewati akan dikeluarkan dari antrian game,
 lalu langsung memainkan game yang terletak pada antrian pertama pada antrian game setelah game-game tadi dilewati
@@ -313,7 +373,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
 */
 
 void GameTambahan() {
-    srand(time(NULL));
+    srand(time(0));
     int random = abs((rand() % 100 + (rand() % 100)*pow(-1, rand()))) % 100 + abs((rand() % 50)*pow(-1, rand()));
     printf("Permainan Selesai, Skor: %d\n", random);
 }
@@ -322,6 +382,7 @@ void RNG()
 {
     srand(time(NULL));
     int x = (rand() % 30);
+    int skor = 100;
     printf("RNG Telah dimulai. Uji keberuntungan Anda dengan menebak X.\n");
     printf("Tebakan: ");
     START();
@@ -331,14 +392,17 @@ void RNG()
         if (WordToInt(currentWord) > x)
         {
             printf("Lebih kecil\n");
+            skor-=10;
         }
         else if (WordToInt(currentWord) < x)
         {
             printf("Lebih besar\n");
+            skor-=10;
         }
         printf("Tebakan: ");
         START();
         CopyWord();
     }
     printf("\nYa, X adalah %d.\n", x);
+    printf("Skor : %d\n", skor);
 }

@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "mesinkar.h"
+#include "functions.h"
 /* State Mesin */
 char cc;
 boolean eop;
@@ -30,13 +32,47 @@ void START()
 
 void STARTF(char* filename) {
     file = true;
-    pita = fopen(filename,"r");
+    char path[] = "_data/";
+    char filepath[] = ".................................................";
+    clear(filepath);// = (char*) malloc ((len(filename)+len(path)-2)*sizeof(char));
+    int i = 0;
+    while (i < len(path))
+    {
+      filepath[i] = path[i];
+      i++;
+    }
+    int j = 0;
+    while (i-len(path) < len(filename))
+    {
+      filepath[i] = filename[j];
+      i++;
+      j++;
+    }
+    i=0;
+    pita = fopen(filepath,"r");
     ADV();
 }
 void CLOSEF() {
    fclose(pita);
 }
 void STARTW(char* filename) {
-   fopen(filename,"w");
-   pita = fopen(filename,"w");
+   char path[] = "_data/";
+   char filepath[] = ".................................................";
+   clear(filepath);// = (char*) malloc ((len(filename)+len(path)-2)*sizeof(char));
+   int i = 0;
+   while (i < len(path))
+   {
+      filepath[i] = path[i];
+      i++;
+   }
+   int j = 0;
+   while (i-len(path) < len(filename))
+   {
+      filepath[i] = filename[j];
+      i++;
+      j++;
+   }
+   i=0;
+   fopen(filepath,"w");
+   pita = fopen(filepath,"w");
 }
