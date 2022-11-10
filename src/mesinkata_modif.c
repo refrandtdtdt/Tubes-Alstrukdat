@@ -126,3 +126,7 @@ char* kataToString(Word kata)   {
     output[kata.Length] = '\0';
     return output;
 }
+
+int WordToInt(Word kata) {
+    return StrToInt(kata.TabWord);
+}

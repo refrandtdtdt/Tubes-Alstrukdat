@@ -60,4 +60,5 @@ void CreateSentence(Sentence *sentence);
 
 char* kataToString(Word kata);
 
+int WordToInt(Word kata);
 #endif

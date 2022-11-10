@@ -197,7 +197,7 @@ void mainkanGame (Queue * antrian_game) {
 
         if (Eqstr(dummy.TabWord,"RNG")) {
             printf("Loading RNG ...\n");
-            // Panggil fungsi game RNG
+            RNG();// Panggil fungsi game RNG
         } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
             printf("Loading Diner DASH ...\n");
             // Panggil fungsi game Diner DASH
@@ -267,7 +267,7 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
 
             if (Eqstr(dummy.TabWord,"RNG")) {
                 printf("Loading RNG ...\n");
-                // Panggil fungsi game RNG
+                RNG();// Panggil fungsi game RNG
             } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
                 printf("Loading Diner DASH ...\n");
                 // Panggil fungsi game Diner DASH
@@ -313,4 +313,29 @@ void GameTambahan() {
     srand(time(0));
     int random = abs((rand() % 100 + (rand() % 100)*pow(-1, rand()))) % 100 + abs((rand() % 50)*pow(-1, rand()));
     printf("Permainan Selesai, Skor: %d\n", random);
+}
+
+void RNG()
+{
+    srand(time(NULL));
+    int x = (rand() % 30);
+    printf("RNG Telah dimulai. Uji keberuntungan Anda dengan menebak X.\n");
+    printf("Tebakan: ");
+    START();
+    CopyWord();
+    while (WordToInt(currentWord) != x)
+    {
+        if (WordToInt(currentWord) > x)
+        {
+            printf("Lebih kecil\n");
+        }
+        else if (WordToInt(currentWord) < x)
+        {
+            printf("Lebih besar\n");
+        }
+        printf("Tebakan: ");
+        START();
+        CopyWord();
+    }
+    printf("\nYa, X adalah %d.\n", x);
 }

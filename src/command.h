@@ -84,4 +84,6 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
 
 void GameTambahan();
 
+void RNG();
+
 #endif
