@@ -212,6 +212,9 @@ void mainkanGame (Queue * antrian_game) {
                 printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
                 printf("Silahkan pilih game lain.\n");
             }
+        } else if (Eqstr(dummy.TabWord,"Card Game")) {
+            printf("Loading Card Game ...\n");
+            // Panggil fungsi game Card Game
         } else {
             GameTambahan();
         }
