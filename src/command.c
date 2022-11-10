@@ -65,7 +65,7 @@ F.S. mengakhiri program ketika input QUIT diberikan
 //     Load()
 // }
 
-void Load(char *filename, Tabstr *list)
+void Load(char *filename, TabGame *list)
 {
     char* currline;
     printf("Loading %s...\n", filename);
@@ -93,7 +93,7 @@ void Load(char *filename, Tabstr *list)
         convertToArrayOfKata(&gameName, games);
         for (int i = 0; i <games;i++)
         {
-            list->TI[i] = gameName.buffer[i];
+            list->TG[i] = gameName.buffer[i];
         }
         list->Neff = games;
         printf("\nSavefile loaded successfully\n");
@@ -101,20 +101,20 @@ void Load(char *filename, Tabstr *list)
     }
 }
 
-void Save(char* filename, Tabstr list)
+void Save(char* filename, TabGame list)
 {
     printf("Saving to %s...\n", filename);
     STARTW(filename);
     fprintf(pita, "%d\n", list.Neff);
     for (int i = 0; i < list.Neff; i++)
     {
-        fprintf(pita, "%s\n", list.TI[i].TabWord);
+        fprintf(pita, "%s\n", list.TG[i].TabWord);
     }
     CLOSEF();
     printf("Saved Successfully\n");
 }
 
-void buatgame (Tabstr *T)
+void buatgame (TabGame *T)
 /*
 prosedur ini akan membaca masukkan nama game yang ingin ditambahkan ke dalam Binomo
 I.S Sembarang
@@ -130,7 +130,7 @@ Apabila game yg ditambahkan sudah ada di dalam array game sebelumnya maka game t
     int i;
     for (i = 0; i <= GetLastIdx(*T); i++)
     {
-        if (Eqstr((*T).TI[i].TabWord, kataToString(currentWord)))
+        if (Eqstr((*T).TG[i].TabWord, kataToString(currentWord)))
         {
             isMember = true;
         }
@@ -142,7 +142,7 @@ Apabila game yg ditambahkan sudah ada di dalam array game sebelumnya maka game t
     if (!isMember)
     {
         (*T).Neff++;
-        (*T).TI[i] = currentWord;
+        (*T).TG[i] = currentWord;
         printf("Game berhasil ditambahkan\n");
     }
     else 
@@ -151,12 +151,12 @@ Apabila game yg ditambahkan sudah ada di dalam array game sebelumnya maka game t
     }
 }
 
-void ListGame(Tabstr T)
+void ListGame(TabGame T)
 {
     TulisIsi(T);
 }
 
-void HapusGame(Tabstr *T)
+void HapusGame(TabGame *T)
 /*I.S Tab terdefinisi dan tidak kosong */
 /*F.S elemen game ke-i dihapus dari tab game sesuai dengan keinginan user*/
 /*Syarat penghapusan game: 
@@ -181,7 +181,7 @@ void HapusGame(Tabstr *T)
             int j;
             for (j = del-1; j < T->Neff; j++)
             {
-                (*T).TI[j] = (*T).TI[j+1];
+                (*T).TG[j] = (*T).TG[j+1];
             }
             (*T).Neff--;
             printf("Game berhasil dihapus\n");
@@ -193,7 +193,7 @@ void HapusGame(Tabstr *T)
     }
 }
 
-void tambahAntrianGame (Tabstr daftar_game, Queue * antrian_game) {
+void tambahAntrianGame (TabGame daftar_game, Queue * antrian_game) {
     // Mengeluarkan output game-game yang sedang dalam antrian
     printf("Berikut adalah daftar antrian game-mu\n");
     for (int i = 0; i < length(*antrian_game); i++) {

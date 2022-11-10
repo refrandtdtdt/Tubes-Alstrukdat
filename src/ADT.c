@@ -3,7 +3,7 @@
 // HEADER INI BUKAN FINAL, BUAT TESTING AJA
 
 /* ********** KONSTRUKTOR ********** */
-void MakeEmpty (Tabstr *T)
+void MakeEmpty (TabGame *T)
 {
     T->Neff = 0;
    //  for(int i=1;1<=IdxMax;i++)
@@ -15,65 +15,65 @@ void MakeEmpty (Tabstr *T)
 
 /* ********** SELEKTOR ********** */
 /* *** Banyaknya elemen *** */
-int NbElmt (Tabstr T)
+int NbElmt (TabGame T)
 {
     return T.Neff;
 }
 
 /* *** Daya tampung container *** */
-int MaxNbEl (Tabstr T)
+int MaxNbEl (TabGame T)
 {
     return IdxMax-IdxMin+1;
 }
 
 /* *** Selektor INDEKS *** */
-IdxType GetFirstIdx (Tabstr T)
+IdxType GetFirstIdx (TabGame T)
 {
     return IdxMin;
 }
 
-IdxType GetLastIdx (Tabstr T)
+IdxType GetLastIdx (TabGame T)
 {
     return T.Neff-1;
 }
 
 /* *** Menghasilkan sebuah elemen *** */
-ElType GetElmt (Tabstr T, IdxType i)
+ElType GetElmt (TabGame T, IdxType i)
 {
-    return T.TI[i];
+    return T.TG[i];
 }
 
 /* *** Selektor SET : Mengubah nilai TABEL dan elemen tabel *** */
 
-void SetTab (Tabstr Tin, Tabstr *Tout)
+void SetTab (TabGame Tin, TabGame *Tout)
 {
     Tout->Neff = Tin.Neff;
     for(int i=IdxMin; i<=Tin.Neff; i++)
     {
-        Tout->TI[i] = Tin.TI[i];
+        Tout->TG[i] = Tin.TG[i];
     }
 }
 
 /* Assignment THsl -> Tin */
-void SetEl (Tabstr *T, IdxType i, ElType v)
+void SetEl (TabGame *T, IdxType i, ElType v)
 {
-    T->TI[i] = v;
+    T->TG[i] = v;
     T->Neff = T->Neff +1;
 }
 
-void SetNeff (Tabstr *T, IdxType N)
+void SetNeff (TabGame *T, IdxType N)
 {
     T->Neff = N;
 }
 
 
 /* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid (Tabstr T, IdxType i)
+boolean IsIdxValid (TabGame T, IdxType i)
 {
     return i>=IdxMin && i<=IdxMax;
 }
 
-boolean IsIdxEff (Tabstr T, IdxType i)
+boolean IsIdxEff (TabGame T, IdxType i)
 {
     return i>=IdxMin && i<T.Neff;
 }
@@ -81,20 +81,20 @@ boolean IsIdxEff (Tabstr T, IdxType i)
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test tabel kosong *** */
-boolean IsEmpty (Tabstr T)
+boolean IsEmpty (TabGame T)
 {
     return T.Neff == 0;
 }
 
 /* *** Test tabel penuh *** */
-boolean IsFull (Tabstr T)
+boolean IsFull (TabGame T)
 {
     return T.Neff == IdxMax;
 }
 
 
 /* ********** BACA dan TULIS dengan INPUT/OUTPUT device ********** */
-void TulisIsi (Tabstr T)
+void TulisIsi (TabGame T)
 {
     if (T.Neff == 0)
     {
