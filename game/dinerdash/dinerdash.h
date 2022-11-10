@@ -9,10 +9,14 @@
 # include "functions.h"
 # include "list_pesanan.h"
 # include "mesinkata_modif.h"
+# include "mesinkarakter.h"
 
 
 int rng1(int lower, int upper);
 int rng2(int lower, int upper);
+
+/*Memberikan delay sebanyak milisecond*/
+void delay(unsigned int milisecond);
 
 void CreateMakanan(Makanan* food, int id);
 /*

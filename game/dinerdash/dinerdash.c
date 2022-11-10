@@ -1,4 +1,5 @@
 # include "dinerdash.h"
+# include <stdlib.h>
 
 int rng1(int lower, int upper) {
     int num,num1;
@@ -14,6 +15,15 @@ int rng2(int lower, int upper) {
     num = rand() % ((rand()) % 25000);
     num1 = ((rand() + 2) % (upper - lower + 1)) + lower;
     return num1;
+}
+
+void delay(unsigned int milisecond) {
+    int i,j;
+    for (i  = 0; i < milisecond; i++)    {
+        for (j = 0; j < milisecond; j++)    {
+
+        }
+    }
 }
 
 void CreateMakanan(Makanan* food, int id)   {
@@ -67,13 +77,34 @@ void Table(Queue antrean, Queue cooking, List serving) {
 }
 
 void DinerDash()    {
+    FILE* aturan;
+    char ch;
+    char ret;
+    CHARMACHINE("dinerdash_ui.txt");
     printf("Selamat datang di game Diner Dash!\n\n");
     int saldo = 0;      //uang yang diterima pemain
     int on_cook = 0;
     int served = 0;
     int idx_served;
     int st = 0;
+    Sentence main_menu_comm;
+    boolean start = false;
+    while (!start)  {
+        printf("Silakan pilih command (START/ATURAN)\n");
+        START();
+        convertToArrayOfKata(&main_menu_comm, 1);
+        if (Eqstr(kataToString(main_menu_comm.buffer[0]), "ATURAN"))  {
+            CHARMACHINE("aturan_diner_dash.txt");
+        }
+        else if (Eqstr(kataToString(main_menu_comm.buffer[0]), "START")) {
+            start = true;
+        }
+        else    {
+            printf("Invalid Command\n");
+        }
+    }
 
+    printf("Mohon Tunggu Sebentar, sedang memproses...\n");
     //masukkan default
     Queue antrean, cooking;
     List serving;
@@ -87,7 +118,9 @@ void DinerDash()    {
         CreateMakanan(&pesanan, st);
         enqueue(&antrean, pesanan);
         st++;
+        delay(20500);
     }
+    printf("\n");
     char* command;
     char* id_food_str1;
     char* id_food_str2;
