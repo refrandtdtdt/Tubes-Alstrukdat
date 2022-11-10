@@ -18,3 +18,5 @@ Anggota Kelompok dan Pembagian Tugas
 
 
 ### **Cara Mengcompile**
+1. Buka terminal baru
+2. ketik "make all" (tanpa tanda kutip)
