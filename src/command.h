@@ -30,11 +30,11 @@ F.S. mengakhiri program ketika input QUIT diberikan
 //     Load()
 // }
 
-void Load(char *filename, Tabstr *list);
+void Load(char *filename, TabGame *list);
 
-void Save(char* filename, Tabstr list);
+void Save(char* filename, TabGame list);
 
-void buatgame (Tabstr *T); 
+void buatgame (TabGame *T); 
 /*
 prosedur ini akan membaca masukkan nama game yang ingin ditambahkan ke dalam Binomo
 I.S Sembarang
@@ -42,7 +42,7 @@ F.S Game berhasil ditambahkan ke dalam array game yang tersedia
 Apabila game yg ditambahkan sudah ada di dalam array game sebelumnya maka game tidak ditambahkan kembali
 */
 
-void ListGame (Tabstr T);
+void ListGame (TabGame T);
 /* proses : menuliskan list atau daftar game yang terdapat dalam Binomo */
 /* I.S T boleh kosong */
 /* F.S Jika T tidak kosong indeks dan nama game ditulis berderet ke bawah
@@ -60,7 +60,7 @@ void HapusGame();
 - Lima Game pertama yang terdapat dlaam file konfigurasi (game default) tidak dapat dihapus 
 - Game yang berada dalam queue game (antrian game) tidak dapat dihapus */
 
-void tambahAntrianGame (Tabstr daftar_game, Queue * antrian_game);
+void tambahAntrianGame (TabGame daftar_game, Queue * antrian_game);
 /*
 Prosedur ini akan membaca masukan game yang akan ditambahkan user ke dalam antrian game
 I.S. Sudah tersedia daftar game dan antrian game di main program yang sudah terdefinisi
