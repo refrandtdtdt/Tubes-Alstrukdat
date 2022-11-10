@@ -60,6 +60,15 @@ int main() // PROGRAM UTAMA
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#PJ?77Y&@@@@@@@@@@@@@@@@@@@#GYJ?JB@@@@@@@@@@@@@@@@@@@@@@@@@@@ \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#BGB&@@@@@@@@@@@@@@@@@@@@@@@&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@ \n");
 
+    printf("\n");
+    printf("                      |***********************|\n");
+    printf("                      |       MAIN  MENU      |\n");
+    printf("                      |***********************|\n");
+    printf("                      |          START        |\n");
+    printf("                      |          LOAD         |\n");
+    printf("                      |***********************|\n");
+    printf("\n");
+    printf("Ketik START untuk memulai program, ketik LOAD untuk me-load file game!");
     char* command;
     char* parameter;
     int run = 0;
