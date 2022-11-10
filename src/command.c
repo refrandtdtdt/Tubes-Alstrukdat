@@ -133,7 +133,7 @@ void tambahAntrianGame (Tabstr daftar_game, Queue * antrian_game) {
     // Mengeluarkan output game-game yang sedang dalam antrian
     printf("Berikut adalah daftar antrian game-mu\n");
     for (int i = 0; i < length(*antrian_game); i++) {
-        printf("%d. %s\n", i+1, (*antrian_game).buffer[i].TabWord);
+        printf("%d: %s\n", i+1, (*antrian_game).buffer[i].TabWord);
     }
 
     // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
@@ -142,7 +142,7 @@ void tambahAntrianGame (Tabstr daftar_game, Queue * antrian_game) {
     // Mengeluarkan output game-game yang terdapat dalam list
     printf("Berikut adalah daftar game yang tersedia\n");
     for (int j = 0; j < NbElmt(daftar_game); j++) {
-        printf("%d. %s\n", j+1, GetElmt(daftar_game, j).TabWord);
+        printf("%d: %s\n", j+1, GetElmt(daftar_game, j).TabWord);
     }
 
     // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
@@ -181,7 +181,7 @@ void mainkanGame (Queue * antrian_game) {
     printf("Berikut adalah daftar game dalam antrianmu\n");
     int i;
     for (i = 0; i < length((*antrian_game)); i++) {
-        printf("%d. %s\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY].TabWord);
+        printf("%d: %s\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY].TabWord);
     }
 
     // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
@@ -236,7 +236,7 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
     printf("Berikut adalah daftar game dalam antrianmu\n");
     int i;
     for (i = 0; i < length((*antrian_game)); i++) {
-        printf("%d. %s\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY].TabWord);
+        printf("%d: %s\n", i+1, (*antrian_game).buffer[(i + IDX_HEAD((*antrian_game))) % CAPACITY].TabWord);
     }
 
     // Biar ada jaraknya aja kayak di contoh spesifikasi wkwkwk
