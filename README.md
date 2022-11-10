@@ -2,7 +2,7 @@
 
 ## Binomo Part 2
 
-Anggota Kelompok
+Anggota Kelompok dan Pembagian Tugas
 
 | Nama | NIM | Pembagian Tugas |
 | ------| ---- | ---- |
