@@ -13,7 +13,7 @@
 # include <math.h>
 # include <time.h>
 # include "drawnlist.h"
-# include "mesinkarakter.h"
+# include "..\..\ADT\mesinkarakter.h"
 
 /*Membuat pemain baru*/
 Pemain CreatePlayer(Word nama, int id);

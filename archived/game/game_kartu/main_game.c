@@ -1,4 +1,4 @@
-# include "game_kartu.h"
+# include "main_game_card.h"
 
 int main()  {
     /*KAMUS*/
@@ -39,7 +39,7 @@ int main()  {
     CHARMACHINE("aturan.txt");
     CreateDeck(&deck);
     printf("Tunggu Sebentar, sedang dikocok...\n");
-    shuffle(&deck, Length(deck));
+    shuffle(&deck, LengthCard(deck));
     Shuffle(&deck, &tumpukan);
     //set the player
     SetPlayers(&player, num_of_players);
@@ -91,7 +91,7 @@ int main()  {
                 START();
                 convertToArrayOfKata(&selected_card, 1);
                 chosen_card = StrToInt(selected_card.buffer[0].TabWord);
-                if (chosen_card < 0 && chosen_card > Length(HEAD(player).pegangan)) {
+                if (chosen_card < 0 && chosen_card > LengthCard(HEAD(player).pegangan)) {
                     printf("index invalid, ulangi.\n");
                 }
                 else if (!CheckSuitsEqual(currentCard, HEAD(player).pegangan.A[chosen_card-1]))    {
@@ -106,8 +106,8 @@ int main()  {
             InsertLastDrawn(&drawn_card, currentPlayerDraw);
             printf("Drawn Cards: \n");
             PrintDrawnCardList(drawn_card);
-            dequeue(&player, &temp);
-            enqueue(&player, temp);
+            dequeueCard(&player, &temp);
+            enqueueCard(&player, temp);
             turn++;
         }
         valid = false;
@@ -121,7 +121,7 @@ int main()  {
             idx_winner++;
         }
         if (!pemenang_putaran)  {
-            InsertLast(&deck, drawn_card.round[FirstIdxDrawn(drawn_card)].card);
+            InsertLastCard(&deck, drawn_card.round[FirstIdxDrawn(drawn_card)].card);
             DeleteFirstDrawn(&drawn_card);
             idx_winner = 0;
         }
@@ -140,8 +140,8 @@ int main()  {
                 win_round_player = true;
                 break;
             }
-            dequeue(&player, &round_winner);
-            enqueue(&player, round_winner);
+            dequeueCard(&player, &round_winner);
+            enqueueCard(&player, round_winner);
         }
         round_winner = HEAD(player);
         printf("\n");
@@ -160,8 +160,8 @@ int main()  {
                 break;
             }
             else    {
-                dequeue(&player, &temp);
-                enqueue(&player, temp);
+                dequeueCard(&player, &temp);
+                enqueueCard(&player, temp);
             }
             idx_winner ++;
         }
@@ -186,7 +186,7 @@ int main()  {
             START();
             convertToArrayOfKata(&selected_card, 1);
             chosen_card = StrToInt(selected_card.buffer[0].TabWord);
-            if (chosen_card < 0 && chosen_card > Length(HEAD(player).pegangan)) {
+            if (chosen_card < 0 && chosen_card > LengthCard(HEAD(player).pegangan)) {
                 printf("index invalid, ulangi.\n");
             }
             else    {
@@ -199,10 +199,9 @@ int main()  {
         system("cls");
         if (!game_over) {
             printf("Drawn Cards: \n");
-            dequeue(&player, &round_winner);
-            enqueue(&player, round_winner);
+            dequeueCard(&player, &round_winner);
+            enqueueCard(&player, round_winner);
             turn = 1;
         }
-
     }
 }

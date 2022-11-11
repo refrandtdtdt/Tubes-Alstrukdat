@@ -20,7 +20,7 @@ void SetPlayers(Queue* pemain, int jumlah)   {
         START();
         convertToArrayOfKata(&player, 1);
         player1 = CreatePlayer(player.buffer[0], i);
-        enqueue(pemain, player1);
+        enqueueCard(pemain, player1);
     }
 }
 
@@ -68,7 +68,7 @@ void CreateDeck(List* cards)    {
 }
 
 void Shuffle(List* cards, Stack* card_stack)    { 
-    int len = Length(*cards);
+    int len = LengthCard(*cards);
     //printf("%d\n", len);
     Kartu val;
     shuffle(cards, len);
@@ -93,13 +93,13 @@ void Draw(List* cards, Kartu pick, DrawnCard* draw, int id_pemain) {
 
     draw->card = card;
     draw->id_player = id_pemain;
-    DeleteAt(cards, i);
+    DeleteAtCard(cards, i);
 }
 
 void Take(List *cards, Stack* card_stack)   {
     Kartu card;
     Pop(card_stack, &card);
-    InsertFirst(cards, card);
+    InsertFirstCard(cards, card);
 }
 
 boolean SearchSuits(List card, Kartu c) {
@@ -119,7 +119,7 @@ void PrintCard(Kartu card)  {
 }
 
 void PrintPlayerCards(Pemain pemain)    {
-    for (int i = 1; i < Length(pemain.pegangan);i++)    {
+    for (int i = 1; i < LengthCard(pemain.pegangan);i++)    {
         printf("%d.", i);
         PrintCard(pemain.pegangan.A[i-1]);
         if ((i-1) % 2 != 0) {
@@ -138,7 +138,7 @@ void PrintPlayerCards(Pemain pemain)    {
 }
 
 void PrintCardList(List card)   {
-    for (int i = 0; i < Length(card)-1;i++)    {
+    for (int i = 0; i < LengthCard(card)-1;i++)    {
         PrintCard(card.A[i]);
         printf(",");
     }
