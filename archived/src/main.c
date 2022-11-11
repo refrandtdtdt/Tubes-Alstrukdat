@@ -76,7 +76,7 @@ int main() // PROGRAM UTAMA
     TabGame listGame; MakeEmpty(&listGame);
     Sentence input; CreateSentence(&input);
     boolean loaded = false;
-    //Tabstr listGame; MakeEmpty(&listGame);
+    //TabGame listGame; MakeEmpty(&listGame);
 
     while (run != 1)
     {
@@ -128,7 +128,7 @@ int main() // PROGRAM UTAMA
         {
             if(loaded)
             {
-                CreateGame();
+                buatgame(&listGame);
             }
             else
             {
@@ -150,7 +150,7 @@ int main() // PROGRAM UTAMA
         {
             if(loaded)
             {
-                DeleteGame();
+                HapusGame();
             }
             else
             {

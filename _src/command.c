@@ -67,8 +67,8 @@ void Load(char *filename, TabGame *list)
 {
     char* currline;
     printf("Loading %s...\n", filename);
-    STARTF(filename);
-    if(retval == EOF)
+    boolean exists = STARTF(filename);
+    if(!exists)
     {
         printf("\nSavefile could not be found\n");
     }
