@@ -30,7 +30,7 @@ void START()
    ADV();
 }
 
-void STARTF(char* filename) {
+boolean STARTF(char* filename) {
     file = true;
     char path[] = "_data/";
     char filepath[] = ".................................................";
@@ -50,7 +50,16 @@ void STARTF(char* filename) {
     }
     i=0;
     pita = fopen(filepath,"r");
-    ADV();
+    if (pita == NULL)
+    {
+      return false;
+    }
+    else
+    {
+      ADV();
+      return true;
+    }
+
 }
 void CLOSEF() {
    fclose(pita);

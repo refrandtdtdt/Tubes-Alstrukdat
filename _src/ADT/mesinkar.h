@@ -16,7 +16,7 @@ int retval;
 void ADV();
 void START();
 
-void STARTF(char* filename);
+boolean STARTF(char* filename);
 void CLOSEF();
 void STARTW(char* filename);
 
