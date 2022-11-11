@@ -1,6 +1,6 @@
 # include <stdio.h>
-# include "../ADT/mesinkar.c"
-# include "../ADT/functions.c"
+# include "../ADT/mesinkar.h"
+# include "../ADT/functions.h"
 
 int main()
 {
