@@ -2,12 +2,12 @@
 #define GAME_KARTU_H
 
 # include "adt_kartu.h"
-# include "queue.h"
+# include "queue_card.h"
 # include "stack.h"
-# include "list.h"
-# include "functions.h"
-# include "mesinkar.h"
-# include "mesinkata_modif.h"
+# include "listcard.h"
+# include "..\..\ADT\functions.h"
+# include "..\..\ADT\mesinkar.h"
+# include "..\..\ADT\mesinkata_modif.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
