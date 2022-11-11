@@ -32,8 +32,19 @@ F.S. mengakhiri program ketika input QUIT diberikan
 // }
 
 void Load(char *filename, TabGame *list);
+/*
+Perintah untuk membaca save file yang ingin dibuka oleh user
+I.S. Sembarang
+F.S. Jika terdapat save file sesuai nama file masukan user, maka akan membaca save file tersebut. Jika tidak,
+     maka akan mengeluarkan pesan bahwa tidak dapa tmenemukan save file tersebut
+*/
 
 void Save(char* filename, TabGame list);
+/*
+Perintah untuk menyimpan state pemain saat ini ke dalam sebuah file
+I.S. Sembarang
+F.S. 
+*/
 
 void buatgame (TabGame *T); 
 /*
@@ -104,10 +115,19 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
 */
 
 void GameTambahan();
+/*
+Perintah untuk memainkan game di mana langsung masuk ke tahap game over dengan langsung mengeluarkan skor akhir berupa
+integer random
+I.S. Sembarang
+F.S. Mengeluarkan output angka random
+*/
 
 void RNG();
+/*
+Perintah untuk memainkan game RNG di mana sistem akan menentukan angka acak, lalu pemain akan diberikan kesempatan untuk
+menebak angka tersebut. Sistem akan memberitahu apakah angka tebakan lebih besar atau lebih kecil dari angka random sistem
+I.S. Sembarang
+F.S. Dikeluarkan output tentang tebakan dari pemain dan skornya
+*/
 
-void DinerDash();
-
-void game_kartu();
 #endif

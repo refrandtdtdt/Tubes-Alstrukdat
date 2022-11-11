@@ -98,6 +98,12 @@ void Load(char *filename, TabGame *list)
         CLOSEF();
     }
 }
+/*
+Perintah untuk membaca save file yang ingin dibuka oleh user
+I.S. Sembarang
+F.S. Jika terdapat save file sesuai nama file masukan user, maka akan membaca save file tersebut. Jika tidak,
+     maka akan mengeluarkan pesan bahwa tidak dapa tmenemukan save file tersebut
+*/
 
 void Save(char* filename, TabGame list)
 {
@@ -111,6 +117,11 @@ void Save(char* filename, TabGame list)
     CLOSEF();
     printf("Saved Successfully\n");
 }
+/*
+Perintah untuk menyimpan state pemain saat ini ke dalam sebuah file
+I.S. Sembarang
+F.S. 
+*/
 
 void buatgame (TabGame *T)
 /*
@@ -377,6 +388,12 @@ void GameTambahan() {
     int random = abs((rand() % 100 + (rand() % 100)*pow(-1, rand()))) % 100 + abs((rand() % 50)*pow(-1, rand()));
     printf("Permainan Selesai, Skor: %d\n", random);
 }
+/*
+Perintah untuk memainkan game di mana langsung masuk ke tahap game over dengan langsung mengeluarkan skor akhir berupa
+integer random
+I.S. Sembarang
+F.S. Mengeluarkan output angka random
+*/
 
 void RNG()
 {
@@ -406,3 +423,9 @@ void RNG()
     printf("\nYa, X adalah %d.\n", x);
     printf("Skor : %d\n", skor);
 }
+/*
+Perintah untuk memainkan game RNG di mana sistem akan menentukan angka acak, lalu pemain akan diberikan kesempatan untuk
+menebak angka tersebut. Sistem akan memberitahu apakah angka tebakan lebih besar atau lebih kecil dari angka random sistem
+I.S. Sembarang
+F.S. Dikeluarkan output tentang tebakan dari pemain danskornya
+*/
