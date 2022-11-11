@@ -1,4 +1,4 @@
-# include "queue.h"
+# include "queue_card.h"
 # include <stdio.h>
 
 void CreateQueue(Queue *q)  {
@@ -14,7 +14,7 @@ boolean isQueueFull(Queue q) {
     return (length(q) == CAPACITY);
 }
 
-int length(Queue q) {
+int lengthCard(Queue q) {
     // case 1, IDX_HEAD <= IDX_TAIL
     if ((IDX_HEAD(q) <= IDX_TAIL(q)) && (!isQueueEmpty(q))) {
         return (IDX_TAIL(q) - IDX_HEAD(q) + 1);
@@ -29,7 +29,7 @@ int length(Queue q) {
     }
 }
 
-void enqueue(Queue *q, Pemain val)
+void enqueueCard(Queue *q, Pemain val)
 {
    if (isQueueEmpty(*q))
    {
@@ -44,7 +44,7 @@ void enqueue(Queue *q, Pemain val)
    }
 }
 
-void dequeue(Queue *q, Pemain *val) {
+void dequeueCard(Queue *q, Pemain *val) {
     // Kasus Pertama: saat idxHead < idxMax
     if ((IDX_HEAD(*q) >= 0) && (IDX_HEAD(*q) < CAPACITY-1) && (IDX_HEAD(*q) != IDX_TAIL(*q)))   {
         *val = HEAD(*q);
@@ -62,27 +62,3 @@ void dequeue(Queue *q, Pemain *val) {
         IDX_TAIL(*q) = IDX_UNDEF;
     }
 }
-/*
-void displayQueue(Queue q)  {
-    // array untuk kebutuhan
-    Pemain temp[CAPACITY];
-    // masukan nilai-nilai queue ke array
-    // jika IDX_HEAD <= IDX_TAIL
-    int i, m, k;
-    m = 0;
-    while (!isEmpty(q)) {
-        dequeue(&q, &k);
-        temp[m] = k;
-        m++;
-    }
-    // print traversal
-    printf("[");
-    if (m > 0)  {
-        for (i = 0; i < m-1; i++) {
-            printf("%d,", temp[i]);
-        }
-        printf("%d", temp[m-1]);
-    }
-    printf("]\n");
-}
-*/
