@@ -93,18 +93,18 @@ void displayQueue(Queue q)
    {
       if(q.idxTail==q.idxHead)
       {
-         printf("[%d]\n", q.buffer[q.idxHead]);
+         printf("[%s]\n", q.buffer[q.idxHead].TabWord);
       }
       else
       {
-         printf("[%d", q.buffer[q.idxHead]);
+         printf("[%s", q.buffer[q.idxHead].TabWord);
          int i = (q.idxHead+1)%100;
          while (i != q.idxTail)
          {
-            printf(",%d", q.buffer[i]);
+            printf(",%s", q.buffer[i].TabWord);
             i = (i+1)%100;
          }
-         printf(",%d]\n", q.buffer[q.idxTail]);
+         printf(",%s]\n", q.buffer[q.idxTail].TabWord);
       }
    }
 }
