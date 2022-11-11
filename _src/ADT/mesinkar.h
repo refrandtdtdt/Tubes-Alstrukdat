@@ -9,8 +9,6 @@ extern boolean file;
 
 #define MARKCHAR '~'
 /* State Mesin */
-extern char currentChar;
-extern boolean EOPCHAR;
 
 void STARTCHAR(char* filename);
 /* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.

@@ -33,7 +33,10 @@
     "stdlib.h": "c",
     "mesinkata_modif.h": "c",
     "boolean.h": "c",
-    "functions.h": "c"
+    "functions.h": "c",
+    "mesinkar.h": "c",
+    "dinerdash.h": "c",
+    "main_game.h": "c"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -52,9 +52,8 @@ F.S. Mencetak bantuan-bantuan sesuai input
 */
 
 void Quit() {
-    printf("keluar dari Game\n");
-    printf("Jangan lupa tidur cukup dan makan makanan yang bergizi\n");
-    printf("Sayounara\n");
+    printf("\nExiting BNMO...\n");
+    printf("Goodbye\n");
     exit(0);
 }
 /*
@@ -179,7 +178,7 @@ void HapusGame(TabGame *T)
     START();
     CopyWord();
     int del = WordToInt(currentWord);
-    if (del <= 5 && del > 0)
+    if (del <= 6 && del > 0)
     {
         printf("Game gagal dihapus\n");
     }
@@ -272,7 +271,7 @@ void mainkanGame (Queue * antrian_game) {
             RNG();// Panggil fungsi game RNG
         } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
             printf("Loading Diner DASH ...\n");
-            // Panggil fungsi game Diner DASH
+            DinerDash();// Panggil fungsi game Diner DASH
         } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
             printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
             printf("Silahkan pilih game lain.\n");
@@ -283,8 +282,8 @@ void mainkanGame (Queue * antrian_game) {
             printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
             printf("Silahkan pilih game lain.\n");
         } else if (Eqstr(dummy.TabWord,"Card Game")) {
-        printf("Loading Card Game ...\n");
-        // Panggil fungsi game Card Game
+            printf("Loading Card Game ...\n");
+            GameKartu();// Panggil fungsi game Card Game
         } else {
             GameTambahan();
         }
@@ -343,7 +342,7 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
                 RNG();// Panggil fungsi game RNG
             } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
                 printf("Loading Diner DASH ...\n");
-                // Panggil fungsi game Diner DASH
+                DinerDash();// Panggil fungsi game Diner DASH
             } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
                 printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
                 printf("Silahkan pilih game lain.\n");
@@ -355,6 +354,7 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
                 printf("Silahkan pilih game lain.\n");
             } else if (Eqstr(dummy.TabWord,"Card Game")) {
                 printf("Loading Card Game ...\n");
+                GameKartu();
             } else {
                 GameTambahan();
             }

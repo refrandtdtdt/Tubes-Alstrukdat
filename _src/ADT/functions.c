@@ -66,3 +66,12 @@ int StrToInt(char* str) {
     }
     return val;
 }
+
+void delay(unsigned int milisecond) {
+    int i,j;
+    for (i  = 0; i < milisecond; i++)    {
+        for (j = 0; j < milisecond; j++)    {
+
+        }
+    }
+}

@@ -9,12 +9,6 @@ boolean file;
 FILE *pita;
 int retval;
 
-char cc;
-boolean eop;
-
-FILE *pita;
-int retval;
-
 boolean IsEOPCHAR()   {
     return (cc == MARKCHAR);
 }

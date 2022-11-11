@@ -13,6 +13,8 @@
 # include "ADT/array_modif.h"
 # include "ADT/mesinkar.h"
 # include "ADT/mesinkata_modif.h"
+# include "game/dinerdash/dinerdash.h"
+# include "game/game_kartu/main_game.h"
 
 void Help();
 /* memberikan bantuan untuk tiap-tiap command

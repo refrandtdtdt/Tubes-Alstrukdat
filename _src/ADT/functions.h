@@ -12,13 +12,7 @@ void getcommParameter(char* s1, char* s2, char* str);
 void clear(char* str);
 int StrToInt(char* str);
 
-// int main()
-// {
-//     char tes[] = "testing jeger";
-//     char tes1[] = "testing";
-//     char str[20];
-//     getcommParameter(tes,tes1,str);
-//     printf("%s",str);
-//     return 0;
-// }
+/*memberi delay*/
+void delay(unsigned int milisecond);
+
 # endif

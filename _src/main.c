@@ -73,6 +73,7 @@ int main() // PROGRAM UTAMA
     printf("Ketik START untuk memulai program, ketik LOAD untuk me-load file game!\n");
     char* command;
     char* parameter;
+    char* skippara;
     int run = 0;
     Queue queueGame; CreateQueue(&queueGame);
     TabGame listGame; MakeEmpty(&listGame);
@@ -82,38 +83,100 @@ int main() // PROGRAM UTAMA
 
     while (run != 1)
     {
+        input.buffer[0].TabWord[0] = '\0';
+        input.buffer[1].TabWord[0] = '\0';
+        input.buffer[2].TabWord[0] = '\0';
+        input.buffer[3].TabWord[0] = '\0';
         printf("ENTER COMMAND: ");
         START();
         convertToArrayOfKata(&input,NMax);
         command = kataToString(input.buffer[0]);
-        if(input.buffer[1].TabWord[0] != '\0'){
-        parameter = kataToString(input.buffer[1]);
-        }
-        if (input.buffer[2].TabWord[0] == '\0')
+        if(input.buffer[1].TabWord[0] != '\0'){parameter = kataToString(input.buffer[1]);}
+        if(input.buffer[2].TabWord[0] != '\0'){skippara = kataToString(input.buffer[2]);}
+
+        if (input.buffer[1].TabWord[0] == '\0')
         {
             if(Eqstr(command,"START")) // START
             {
-                Load("default.txt",&listGame);
                 if(!loaded)
                 {
+                    Load("default.txt",&listGame);
                     loaded = true;
                 }
-            }
-            else if(Eqstr(command, "LOAD")) // LOAD
-            {
-                parameter = kataToString(input.buffer[1]);
-                int i = len(parameter); //.txt
-                if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
+                else
                 {
-                    Load(parameter,&listGame);
-                    if(!loaded)
+                    printf("\nFile sudah terload\n");
+                }
+            }        
+            else if(Eqstr(command, "SKIPGAME")) // SKIPGAME
+            {
+                if(loaded)
+                {
+                    int x = 0;
+                    int i = 0;
+                    boolean num = true;
+                    while(parameter[i]!='\0' && num)
                     {
-                        loaded = true;
+                        if(parameter[i]-'0'<0 || parameter[i]-'0'>9)
+                        {
+                            num = false;
+                        }
+                        else
+                        {
+                            x *= 10;
+                            x += parameter[i]-'0';
+                        }
+                        i++;
+                    }
+
+                    if(num)
+                    {
+                        lewatiGame(&queueGame, x);
+                    }
+                    else
+                    {
+                        printf("\nParameter invalid\n");
                     }
                 }
                 else
                 {
-                    printf("\nFormat file invalid\n");
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else if(Eqstr(command,"HELP")) // HELP
+            {
+                Help();
+            }
+            else if(Eqstr(command, "QUIT")) // QUIT
+            {
+                Quit();
+            }
+            else // COMMAND LAIN
+            {
+                printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
+            }
+        }
+        else if (input.buffer[2].TabWord[0] == '\0')
+        {
+            if(Eqstr(command, "LOAD")) // LOAD
+            {
+                if(!loaded)
+                {
+                    parameter = kataToString(input.buffer[1]);
+                    int i = len(parameter); //.txt
+                    if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
+                    {
+                        Load(parameter,&listGame);
+                    }
+                    else
+                    {
+                        printf("\nFormat file invalid\n");
+                    }
+                    loaded = true;
+                }
+                else
+                {
+                    printf("\nFile sudah terload\n");
                 }
             }
             else if(Eqstr(command, "SAVE")) // SAVE
@@ -190,23 +253,30 @@ int main() // PROGRAM UTAMA
                     printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
                 }
             }
-            else if(Eqstr(command, "SKIPGAME")) // SKIPGAME
+            else // COMMAND LAIN
+            {
+                printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
+            }
+        }
+        else if (input.buffer[3].TabWord[0] == '\0')
+        {
+            if(Eqstr(command, "SKIP") && Eqstr(parameter, "GAME")) // SKIPGAME
             {
                 if(loaded)
                 {
                     int x = 0;
                     int i = 0;
                     boolean num = true;
-                    while(parameter[i]!='\0' && num)
+                    while(skippara[i]!='\0' && num)
                     {
-                        if(parameter[i]-'0'<0 || parameter[i]-'0'>9)
+                        if(skippara[i]-'0'<0 || skippara[i]-'0'>9)
                         {
                             num = false;
                         }
                         else
                         {
                             x *= 10;
-                            x += parameter[i]-'0';
+                            x += skippara[i]-'0';
                         }
                         i++;
                     }
@@ -225,21 +295,14 @@ int main() // PROGRAM UTAMA
                     printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
                 }
             }
-            else if(Eqstr(command,"HELP")) // HELP
-            {
-                Help();
-            }
-            else if(Eqstr(command, "QUIT")) // QUIT
-            {
-                Quit();
-            }
             else // COMMAND LAIN
             {
                 printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
             }
-        } else {
+        }
+        else 
+        {
             printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
-            input.buffer[2].TabWord[0] = '\0';
         }
     }
     return 0;
