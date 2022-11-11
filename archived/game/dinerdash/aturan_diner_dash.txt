@@ -1,0 +1,15 @@
+
+ATURAN DAN TATA CARA PERMAINAN DINER DASH
+====================================
+1. Permainan dimulai dengan 3 makanan default
+2. Terdapat 3 perintah pada game Diner DASH, yaitu COOK, SERVE, dan SKIP
+3. COOK digunakan untuk memasak makanan yang ada di daftar pesanan,
+   Bila berhasil, dihitung 1 putaran dan masuk ke dalam antrian masakan.
+4. SERVE digunakan untuk menyajikan makanan yang ada di daftar makanan yang dapat disajikan,
+   Bila berhasil, dihitung 1 putaran dan mendapatkan saldo sesuai harga makanan.
+5. SKIP digunakan untuk melewati putaran tanpa melakukan apa-apa.
+6. Permainan Selesai apabila panjang antrian melebihi 7 dan makanan yang berhasil dilayani
+   melebihi 15.
+7. Skor permainan merupakan jumlah uang yang didapat dari permainan.
+
+~
