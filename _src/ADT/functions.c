@@ -61,6 +61,9 @@ int StrToInt(char* str) {
     for (i = 0; i < len(str); i++)    {
         val *= ten;
         dig = str[i] - '0';
+        if(dig<0 || dig>9){
+            return -999;
+        }
         val += dig;
         ten *= 10;
     }

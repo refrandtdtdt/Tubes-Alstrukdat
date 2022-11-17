@@ -148,6 +148,9 @@ void DinerDash()    {
             if (!((Eqstr(command, "COOK")) || (Eqstr(command, "SERVE"))))  {
                 printf("Command Tidak Valid, ulangi.\n");
             }
+            else if (id_food == -999){
+                printf("ID makanan tidak valid.\n");
+            }
             else if (xx == IDX_UNDEF) {
                 printf("Gagal Memasak M%d. Makanan M%d tidak terdaftar.\n", id_food, id_food);
             }

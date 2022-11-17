@@ -75,7 +75,7 @@ boolean IsIdxValid (TabGame T, IdxType i)
 
 boolean IsIdxEff (TabGame T, IdxType i)
 {
-    return i>=IdxMin && i<=T.Neff;
+    return i>=IdxMin && i<T.Neff;
 }
 
 
