@@ -25,6 +25,14 @@ void TowerOfHanoi() {
     START();
     convertToArrayOfKata(&jumlahPiringan, 1);
     intJumlahPiringan = StrToInt(kataToString(jumlahPiringan.buffer[0]));
+    while (intJumlahPiringan == 0) {
+        printf("===============================================================\n");
+        printf("Jangan masukin angka 0 dong, mau main ga?! Hehe canda <3\n");
+        printf("Masukkan jumlah piringan yang ingin dimainkan : ");
+        START();
+        convertToArrayOfKata(&jumlahPiringan, 1);
+        intJumlahPiringan = StrToInt(kataToString(jumlahPiringan.buffer[0]));
+    }
 
     // Animasi loading katanye
     printf("\n");
@@ -114,6 +122,8 @@ void TowerOfHanoi() {
     START();
     convertToArrayOfKata(&tiangTujuan, 1);
     intTiangTujuan = StrToInt(kataToString(tiangTujuan.buffer[0]));
+
+    // Looping
 }
 
 int main() {
