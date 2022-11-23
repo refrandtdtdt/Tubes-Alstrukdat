@@ -8,7 +8,7 @@
 
 void TowerOfHanoi() {
     // Deklarasi variabel
-    Sentence jumlahPiringan, tiangAsal, tiangTujuan;
+    Sentence jumlahPiringan, tiangAsal, tiangTujuan, nama;
     int intJumlahPiringan, i, j, a, k, l, m;
     Stack tiangA; CreateEmpty(&tiangA);
     Stack tiangB; CreateEmpty(&tiangB);
@@ -40,12 +40,12 @@ void TowerOfHanoi() {
     printf("\n");
     printf("===============================================================\n");
     printf("Selamat bermain! Loading dulu yah nyiapin tower ");
-    // for (i = 0; i <= 14; i++) {
-    //     for (j = 0; j < 100000000; j++) {
-    //         a = j;
-    //     }
-    //     printf(".");
-    // }
+    for (i = 0; i <= 14; i++) {
+        for (j = 0; j < 100000000; j++) {
+            a = j;
+        }
+        printf(".");
+    }
     printf("\n");
 
     // Memasukkan kondisi awal stack ke masing-masing stack
@@ -310,8 +310,12 @@ void TowerOfHanoi() {
 
     // Game ToH telah selesai, menampilkan score
     system("cls");
-    printf("Selamat, kamu telah memenangkan game ini!\n");
+    printf("Kamu berhasil!\n");
+    printf("==============\n");
     printf("Score kamu : \n");
+    printf("Nama : ");
+    START();
+    convertToArrayOfKata(&nama, 1);
 }
 
 int main() {
