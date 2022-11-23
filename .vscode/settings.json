@@ -36,7 +36,8 @@
     "functions.h": "c",
     "mesinkar.h": "c",
     "dinerdash.h": "c",
-    "main_game.h": "c"
+    "main_game.h": "c",
+    "map_scoreboard.h": "c"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

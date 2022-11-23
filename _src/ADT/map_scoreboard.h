@@ -4,18 +4,14 @@
 #include "..\..\boolean.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "set.h"
 
 #define NIL 0
 #define MaxMapEl 1000
 #define mapUndef -9999
 
-typedef struct score{
-    char* game;
-    int score;
-} score;
-
 typedef char* keytype;
-typedef score valuetype;
+typedef int valuetype;
 typedef int address;
 
 typedef struct {
@@ -28,6 +24,10 @@ typedef struct  {
     address Count;
 } ScoreMap;
 
+typedef struct {
+    char* game_name;
+    ScoreMap board;
+} ScoreBoard;
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah HashMap M kosong berkapasitas MaxMapEl */
 /* Ciri HashMap kosong : count bernilai Nil dengan seluruh isi key & value map mapUndef */
@@ -36,7 +36,6 @@ void CreateBoardEmpty(ScoreMap *M);
 /* Mengirim true jika ScoreMap M kosong*/
 /* Ciri Map kosong : count bernilai NIL */
 boolean IsBoardEmpty(ScoreMap M);
-
 
 /* Mengembalikan nilai value dengan key k dari M */
 /* Jika tidak ada key k pada M, akan mengembalikan mapUndef */
@@ -57,10 +56,21 @@ void DeleteScore(ScoreMap *M, keytype k);
 /* Mengembalikan true jika k adalah member dari M */
 boolean IsMemberScore(ScoreMap M, keytype k);
 
+
 /* Mencetak Scoreboard sesuai game yang ada di list */
 /* I.S. game dan M terdefinisi */
 /* F.S. Mencetak Scoreboard */
-void PrintBoard(ListGame game, ScoreMap M);
+void PrintBoard(ScoreMap M);
 
+/* Mensortir M dengan descending*/
+void sortScoreboard(ScoreMap *M);
 
+/* Memprint papan skor dalam ArrScoreMap*/
+void PrintScoreboard(ScoreBoardpapanskor);
+
+/*Me-reset papan skor*/
+void ResetScoreboard(ScoreMap papanskor);
+
+/*Me-reset arr papan skor*/
+void ResetArrayScore(ScoreBoard arr);
 #endif
