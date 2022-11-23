@@ -9,13 +9,13 @@
 void TowerOfHanoi() {
     // Deklarasi variabel
     Sentence jumlahPiringan, tiangAsal, tiangTujuan;
-    int intJumlahPiringan, intTiangAsal, intTiangTujuan, i, j, a, k, l, m;
+    int intJumlahPiringan, i, j, a, k, l, m;
     Stack tiangA; CreateEmpty(&tiangA);
     Stack tiangB; CreateEmpty(&tiangB);
     Stack tiangC; CreateEmpty(&tiangC);
     Stack tiangAcuan; CreateEmpty(&tiangAcuan);
     Word piringN;
-    boolean end;
+    boolean end, valid;
 
     // Menampilkan UI dari Tower of Hanoi
     system("cls");
@@ -120,21 +120,79 @@ void TowerOfHanoi() {
     // Looping Tower of Hanoi sampai tiangC sama dengan tiangAcuan
     end = false;
     while (!end) {
-        if 
+        if (!isEqStack(tiangAcuan, tiangC)) {
+            end = true;
+        }
+        valid = false;
+        while (!valid) {
+            printf("Masukkan pilihan anda! (A/B/C/a/b/c)\n");
+            printf("Tiang asal : ");
+            START();
+            convertToArrayOfKata(&tiangAsal, 1);
+            if ((tiangAsal.Length == 1) && (tiangAsal.buffer[0].Length == 1) && (tiangAsal.buffer[0].TabWord[0] == 65 || tiangAsal.buffer[0].TabWord[0] == 97 || tiangAsal.buffer[0].TabWord[0] == 66 || tiangAsal.buffer[0].TabWord[0] == 98 || tiangAsal.buffer[0].TabWord[0] == 67 || tiangAsal.buffer[0].TabWord[0] == 99)) {
+                valid = true;
+            } else {
+                system("cls");
+                Display3Stack(tiangA, tiangB, tiangC);
+                for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+                    printf("=");
+                }
+                printf("\n");
+                for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+                    if (m == ((2 * intJumlahPiringan) / 2)) {
+                        printf("A");
+                    } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * intJumlahPiringan - 1))) {
+                        printf("B");
+                    } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * (2 * intJumlahPiringan - 1)))) {
+                        printf("C");
+                    } else {
+                        printf(" ");
+                    }
+                }
+                printf("\n");
+                for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+                    printf("=");
+                }
+                printf("\n");
+                printf("Masukan tidak valid!\n");
+            }
+        }
+        valid = false;
+        while (!valid) {
+            printf("Tiang tujuan : ");
+            START();
+            convertToArrayOfKata(&tiangTujuan, 1);
+            if ((tiangTujuan.Length == 1) && (tiangTujuan.buffer[0].Length == 1) && (tiangTujuan.buffer[0].TabWord[0] == 65 || tiangTujuan.buffer[0].TabWord[0] == 97 || tiangTujuan.buffer[0].TabWord[0] == 66 || tiangTujuan.buffer[0].TabWord[0] == 98 || tiangTujuan.buffer[0].TabWord[0] == 67 || tiangTujuan.buffer[0].TabWord[0] == 99)) {
+                valid = true;
+            } else {
+                system("cls");
+                Display3Stack(tiangA, tiangB, tiangC);
+                for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+                    printf("=");
+                }
+                printf("\n");
+                for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+                    if (m == ((2 * intJumlahPiringan) / 2)) {
+                        printf("A");
+                    } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * intJumlahPiringan - 1))) {
+                        printf("B");
+                    } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * (2 * intJumlahPiringan - 1)))) {
+                        printf("C");
+                    } else {
+                        printf(" ");
+                    }
+                }
+                printf("\n");
+                for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+                    printf("=");
+                }
+                printf("\n");
+                printf("Masukan tidak valid!\n");
+                printf("Masukkan pilihan anda! (A/B/C/a/b/c)\n");
+                printf("Tiang asal : %c\n", tiangAsal.buffer[0].TabWord[0]);
+            }
+        }
     }
-    printf("Masukkan pilihan anda!\n");
-    printf("Tiang asal : ");
-    START();
-    convertToArrayOfKata(&tiangAsal, 1);
-    intTiangAsal = StrToInt(kataToString(tiangAsal.buffer[0]));
-
-    printf("Tiang tujuan : ");
-    START();
-    convertToArrayOfKata(&tiangTujuan, 1);
-    intTiangTujuan = StrToInt(kataToString(tiangTujuan.buffer[0]));
-
-    // Looping Tower of Hanoi
-
 }
 
 int main() {
