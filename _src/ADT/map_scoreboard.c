@@ -60,13 +60,21 @@ void InsertScore(ScoreMap *M, keytype k, valuetype v)
                 }
             }
             //tempat ketemunya diinsert
+            if (v <= M->el[l].Value) {
+                idxfound = l + 1;
+            }
+            else
+            {
+                idxfound = l;
+            }
+            
             address n;
-            for (n = M->Count-1; n >= l ; n--)
+            for (n = M->Count-1; n >= idxfound ; n--)
             {
                 M->el[n+1] = M->el[n];
             }
-            M->el[l].Key = k;
-            M->el[l].Value = v;
+            M->el[idxfound].Key = k;
+            M->el[idxfound].Value = v;
         }
         else    {
             M->el[0].Key = k;
@@ -160,4 +168,5 @@ void ResetScoreboard(ScoreMap *M)
 void ResetArrayScore(ScoreBoard *sb)
 {
     ResetScoreboard(sb->board);
+    printf("Scoreboard berhasil di-reset\n");
 }
