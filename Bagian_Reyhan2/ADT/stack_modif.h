@@ -59,10 +59,10 @@ void Pop(Stack * S, infotype* X);
 /* I.S. S tidak mungkin kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 
-void DisplayStack(Stack S1, Stack S2, Stack S3);
-/* Menampilkan isi stack secara berjajar ke bawah */
-/* I.S. S terdefinisi */
-/* F.S. Tercetak isi stack berjajar ke bawah center*/
+void Display3Stack(Stack S1, Stack S2, Stack S3);
+/* Menampilkan isi 3 stack yang berjajar ke samping dengan isi tiap stacknya berjajar ke bawah */
+/* I.S. S1, S2, S3 terdefinisi */
+/* F.S. Tercetak isi stack seperti di bawah ini */
 /*
 Misal :
    *             *
@@ -70,5 +70,24 @@ Misal :
  * * *   * *   * * * 
 * * * * * * * * * * *
 */
+
+void DisplayStack(Stack S);
+/* Menampilkan isi stack secara berjajar ke bawah */
+/* I.S. S terdefinisi */
+/* F.S. Tercetak isi stack berjajar ke bawah */
+/*
+Misal :
+   *    
+  * *    
+ * * * 
+* * * * 
+*/
+
+boolean isEqStack(Stack S1, Stack S2);
+/* Membandingkan apakah dua buah stack sama ataau tidak */
+/* I.S. S1 dan S2 terdefinisi */
+/* F.S. Mengeluarkan true jika kedua stack sama, false jika beda */
+/* Dua stack sama jika jumlah piringan sama dan isi tiap tumpukan di stack sama */
+
 
 #endif

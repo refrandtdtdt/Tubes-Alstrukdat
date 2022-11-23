@@ -13,7 +13,9 @@ void TowerOfHanoi() {
     Stack tiangA; CreateEmpty(&tiangA);
     Stack tiangB; CreateEmpty(&tiangB);
     Stack tiangC; CreateEmpty(&tiangC);
+    Stack tiangAcuan; CreateEmpty(&tiangAcuan);
     Word piringN;
+    boolean end;
 
     // Menampilkan UI dari Tower of Hanoi
     system("cls");
@@ -87,7 +89,7 @@ void TowerOfHanoi() {
             piringN.TabWord[j] = '\0';
         }
     }
-    DisplayStack(tiangA, tiangB, tiangC);
+    Display3Stack(tiangA, tiangB, tiangC);
 
     for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
         printf("=");
@@ -105,14 +107,22 @@ void TowerOfHanoi() {
         }
     }
     printf("\n");
-
-    // Meminta input asal dan tujuan piringan yang akan dipindahkan
     for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
         printf("=");
     }
     printf("\n");
-    printf("Masukkan pilihan anda!\n");
 
+    // Copy tiangA ke tiangAcuan sebagai acuan nanti di tiangC udah selesai atau belum
+    for (i = 0; i < intJumlahPiringan; i++) {
+        Push(&tiangAcuan, tiangA.T[i]);
+    }
+
+    // Looping Tower of Hanoi sampai tiangC sama dengan tiangAcuan
+    end = false;
+    while (!end) {
+        if 
+    }
+    printf("Masukkan pilihan anda!\n");
     printf("Tiang asal : ");
     START();
     convertToArrayOfKata(&tiangAsal, 1);
@@ -123,7 +133,8 @@ void TowerOfHanoi() {
     convertToArrayOfKata(&tiangTujuan, 1);
     intTiangTujuan = StrToInt(kataToString(tiangTujuan.buffer[0]));
 
-    // Looping
+    // Looping Tower of Hanoi
+
 }
 
 int main() {
