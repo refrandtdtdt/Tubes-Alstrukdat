@@ -1,10 +1,10 @@
 #ifndef MAP_SCOREBOARD_H
 #define MAP_SCOREBOARD_H
 
-#include "..\..\boolean.h"
+#include "..\boolean.h"
+#include "functions.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "set.h"
 
 #define NIL 0
 #define MaxMapEl 1000
@@ -66,11 +66,11 @@ void PrintBoard(ScoreMap M);
 void sortScoreboard(ScoreMap *M);
 
 /* Memprint papan skor dalam ArrScoreMap*/
-void PrintScoreboard(ScoreBoardpapanskor);
+void PrintScoreboard(ScoreBoard papanskor);
 
 /*Me-reset papan skor*/
-void ResetScoreboard(ScoreMap papanskor);
+void ResetScoreboard(ScoreMap *papanskor);
 
 /*Me-reset arr papan skor*/
-void ResetArrayScore(ScoreBoard arr);
+void ResetArrayScore(ScoreBoard *sb);
 #endif
