@@ -13,3 +13,33 @@ Miya: "Oke, %s. sampai jumpaaaa!!"
 
 Pada akhir pekannya...
 
+kami akhirnya makan bersama
+
+di tengah-tengah makan, Miya memberiku sebuah tebak-tebakan
+
+Miya: "betewe, aku mau kasih kamu tebak-tebakan. kalo bisa jawab ya."
+
+aku cuma ngangguk-ngangguk aja
+
+Miya: "Oke, pertanyaannya, ini kita lagi makan nasi kan?"
+%s: "...iya?"
+Miya: "Nah tau gak kenapa kok dinamakan nasi?"
+
+opsi dialog
+1. "Enggak tahu" -25
+2. "Karena..." +80
+
+pilihan 1.
+Miya: "Oke, karena kamu gak tahu aku kasih tau jawabannya."
+Miya: "Jawabannya adalah karena dina lapar, lmaoooo"
+
+Aku berpikir sebentar, kemudian mengerti maksudnya.
+
+%s: "ealah, bisa aja kamu."
+
+pilihan 2.
+%s: "Karena dina lapar, wkwkwkkw."
+Miya: "HAHAHAHAHA, betul jawabannya."
+Miya: "keren banget, kamu :)"
+%s: "hahaha, makasih."
+
