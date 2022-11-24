@@ -59,6 +59,8 @@ void Pop(Stack * S, infotype* X);
 /* I.S. S tidak mungkin kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 
+
+// Mulai dari prosedur ini bakal spesifik digunakan di game Tower of Hanoi
 void Display3Stack(Stack S1, Stack S2, Stack S3);
 /* Menampilkan isi 3 stack yang berjajar ke samping dengan isi tiap stacknya berjajar ke bawah */
 /* I.S. S1, S2, S3 terdefinisi */
@@ -89,5 +91,9 @@ boolean isEqStack(Stack S1, Stack S2);
 /* F.S. Mengeluarkan true jika kedua stack sama, false jika beda */
 /* Dua stack sama jika jumlah piringan sama dan isi tiap tumpukan di stack sama */
 
+boolean isNoPiring(Stack S);
+/* Mengecek ada atau ngga piring di tiang */
+/* I.S. S terdefinisi */
+/* F.S. Mengeluarkan true jika tidak ada piring di tiang, false jika ada */
 
 #endif

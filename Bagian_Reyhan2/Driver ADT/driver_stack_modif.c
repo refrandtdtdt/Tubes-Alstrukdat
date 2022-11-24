@@ -52,5 +52,12 @@ int main () {
         printf("Kedua stack beda gan\n");
     }
     printf("\n");
+
+    // Melihat apakah stack tinggal tiang atau ada piringannya
+    if (isNoPiring(S1)) {
+        printf("Ga ada piringannya gan\n");
+    } else {
+        printf("Ada piringannya gan\n");
+    }
     return 0;
 }

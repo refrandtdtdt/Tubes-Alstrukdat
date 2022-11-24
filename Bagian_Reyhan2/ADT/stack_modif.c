@@ -49,6 +49,7 @@ void Pop(Stack * S, infotype* X) {
 /* I.S. S  tidak mungkin kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 
+// Mulai dari prosedur ini bakal spesifik digunakan di game Tower of Hanoi
 void Display3Stack(Stack S1, Stack S2, Stack S3) {
     int i, j;
     for (i = Top(S1); i >= 0; i--) {
@@ -104,3 +105,26 @@ boolean isEqStack(Stack S1, Stack S2) {
 /* I.S. S1 dan S2 terdefinisi */
 /* F.S. Mengeluarkan true jika kedua stack sama, false jika beda */
 /* Dua stack sama jika jumlah piringan sama dan isi tiap tumpukan di stack sama */
+
+boolean isNoPiring(Stack S) {
+    int j;
+    Word tiangDummy;
+    for (j = 0; j <= (2 * Top(S)); j++) {
+        if (j == (Top(S))) {
+            tiangDummy.TabWord[j] = '|';
+        } else {
+            tiangDummy.TabWord[j] = ' ';
+        }
+    }
+    int i = 0;
+    while (i <= Top(S)) {
+        if (!Eqstr(S.T[i].TabWord, tiangDummy.TabWord)) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+/* Mengecek ada atau ngga piring di tiang */
+/* I.S. S terdefinisi */
+/* F.S. Mengeluarkan true jika tidak ada piring di tiang, false jika ada */
