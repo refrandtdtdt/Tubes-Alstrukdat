@@ -1,21 +1,22 @@
 #ifndef snek_H
 #define snek_H
 #include "linkedlist.h"
+#include "arrPoint.h"
 
-void PrintPeta(ListSnake L, Point Meteor, Point Food);
+void PrintPeta(ListPoint L, ListPoint O, Point Meteor, Point Food);
 
-Point RandomMapPoint(ListSnake L, Point Meteor, Point Food, boolean bomb);
+Point RandomMapPoint(ListPoint L, ListPoint O, Point Meteor, Point Food, boolean meteor);
 
-void MeteorHit(ListSnake *L, Point Meteor);
+void MeteorHit(ListPoint *L, Point Meteor);
 
-void FoodEaten(ListSnake *L, Point *Food, Point Meteor);
+void FoodEaten(ListPoint *L, ListPoint O, Point *Food, Point Meteor);
 
-void Initialize(ListSnake *L, Point *Food, Point *neck);
+void Initialize(ListPoint *L, ListPoint *O, Point *Food, Point *neck, int diff);
 
-void IncreaseLength(ListSnake *L, Point Meteor);
+void IncreaseLength(ListPoint *L, ListPoint O, Point Meteor);
 
-void MoveSnake(ListSnake *L, Point NewPos);
+void MoveSnake(ListPoint *L, Point NewPos);
 
-void ResetIdx(ListSnake *L);
+void ResetIdx(ListPoint *L);
 
 #endif

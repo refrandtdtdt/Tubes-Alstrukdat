@@ -1,109 +1,157 @@
-#include "linkedlist.h"
 #include "snek.h"
 
-void PrintPeta(ListSnake L, Point Meteor, Point Food)
+void PrintPeta(ListPoint L, ListPoint O, Point Meteor, Point Food)
 {
     Point x;
-    address P;
-    for(int i=0; i<5; i++)
+    address P, OP;
+    for(int i=1; i<=11; i++)
     {
-        for(int j=0; j<5; j++)
+        printf("         ");
+        if(i%2==0)
         {
-            x = MakePoint(j,i);
-            P = SearchSnake(L,x);
-            if (EQ(x,Food))
+            for(int j=1; j<=11; j++)
             {
-                printf("o");
+                if(j%2==0)
+                {
+                    x = MakePoint((j/2)-1,(i/2)-1);
+                    P = SearchPoint(L,x);
+                    OP = SearchPoint(O,x);
+                    if (EQ(x,Food))
+                    {
+                        printf(" o ");
+                    }
+                    else if (EQ(x,Meteor))
+                    {
+                        printf(" m ");
+                    }
+                    else if (P!=Nil)
+                    {
+                        if(Index(P)==0)
+                        {
+                            printf(" H ");
+                        }
+                        else
+                        {
+                            printf(" %d ", Index(P));
+                        }
+                    }
+                    else if (OP!=Nil)
+                    {
+                        printf("###");
+                    }
+                    else
+                    {
+                        printf("   ");
+                    }
+                } else {
+                    if(j==1)
+                    {
+                        printf("|");
+                    } else if (j==11) {
+                        printf("|\n");
+                    } else {
+                        printf("|");
+                    }
+                }
             }
-            else if (EQ(x,Meteor))
-            {
-                printf("m");
-            }
-            else if (P!=Nil)
-            {
-                printf("%d", Index(P));
-            }
-            else
-            {
-                printf(".");
-            }
-            if(j==4)
-            {
-                printf("\n");
-            } else {
-                printf(" ");
-            }
+        } else {
+            printf("#####################\n");
         }
     }
 }
 
-Point RandomMapPoint(ListSnake L, Point Meteor, Point Food, boolean bomb)
+Point RandomMapPoint(ListPoint L, ListPoint O, Point Meteor, Point Food, boolean meteor)
 {
-    boolean done = false;
+    boolean done = false; boolean member;
     Point x;
+    ArrPoint X = MakeArrPoint();
     while (!done)
     {
         x = RandomPoint();
-        if(NEQ(x,Meteor) && NEQ(x,Food) && (SearchSnake(L,x)==Nil || bomb))
+        member = SearchArrPoint(X,x);
+        if(!member)
         {
-            done = true;
+            if(NEQ(x,Meteor) && NEQ(x,Food) && (meteor || SearchPoint(L,x)==Nil) && SearchPoint(O,x)==Nil)
+            {
+                done = true;
+            }
+            else
+            {
+                InsertLastPoint(&X,x);
+            }
         }
     }
     return x;
 }
 
-void MeteorHit(ListSnake *L, Point Meteor)
+void MeteorHit(ListPoint *L, Point Meteor)
 {
     DelP(L,Meteor);
     ResetIdx(L);
 }
 
-void FoodEaten(ListSnake *L, Point *Food, Point Meteor)
+void FoodEaten(ListPoint *L, ListPoint O, Point *Food, Point Meteor)
 {
-    IncreaseLength(L,Meteor);
-    *Food = RandomMapPoint(*L,Meteor,Meteor,false);
+    IncreaseLength(L,O,Meteor);
+    *Food = RandomMapPoint(*L,O,Meteor,Meteor,false);
 }
 
-void Initialize(ListSnake *L, Point *Food, Point *neck)
+void Initialize(ListPoint *L, ListPoint *O, Point *Food, Point *neck, int diff)
 {
-    printf("Loading Game...\n");
-    CreateEmptySnake(L);
-    Point x = RandomPoint();
-    InsVFirst(L,x);
+    Point x;
     Point dummy = MakePoint(-99,-99);
-    IncreaseLength(L, dummy);
-    IncreaseLength(L, dummy);
-    *Food = RandomMapPoint(*L,dummy,dummy,false);
+    x = RandomPoint();
+    if(diff==2)
+    {
+        for(int i=0;i<2;i++)
+        {
+            InsVFirst(O,x);
+            x = RandomMapPoint(*L,*O,dummy,dummy,false);
+        }
+    } 
+    else if(diff==3)
+    {
+        for(int i=0;i<5;i++)
+        {
+            InsVFirst(O,x);
+            x = RandomMapPoint(*L,*O,dummy,dummy,false);
+        }
+    }
+    x = RandomMapPoint(*L,*O,dummy,dummy,false);
+    InsVFirst(L,x);
+    IncreaseLength(L, *O, dummy);
+    IncreaseLength(L, *O, dummy);
+    *Food = RandomMapPoint(*L,*O,dummy,dummy,false);
     *neck = Info(Next(First(*L)));
 }
 
-void IncreaseLength(ListSnake *L, Point Meteor)
+void IncreaseLength(ListPoint *L, ListPoint O, Point Meteor)
 {
     address P = Last(*L);
     boolean done = false;
     Point x = PlusDelta(Info(P),-1,0);
-    if(SearchSnake(*L,x)==Nil && NEQ(x,Meteor))
+    if(NEQ(x,Meteor) && SearchPoint(O,x)==Nil && SearchPoint(*L,x)==Nil)
     {
         InsVLast(L,x);
         done = true;
     }
     x = PlusDelta(Info(P),0,-1);
-    if(!done && SearchSnake(*L,x)==Nil && NEQ(x,Meteor))
+    if(!done && NEQ(x,Meteor) && SearchPoint(O,x)==Nil && SearchPoint(*L,x)==Nil)
     {
         InsVLast(L,x);
         done = true;
     }
     x = PlusDelta(Info(P),0,1);
-    if(!done && SearchSnake(*L,x)==Nil && NEQ(x,Meteor))
+    if(!done && NEQ(x,Meteor) && SearchPoint(O,x)==Nil && SearchPoint(*L,x)==Nil)
     {
         InsVLast(L,x);
         done = true;
     }
-    Index(Last(*L)) = NbElmtSnake(*L);
+    Index(Last(*L)) = NbElmtListPoint(*L);
     ResetIdx(L);
 }
 
-void MoveSnake(ListSnake *L, Point NewPos)
+void MoveSnake(ListPoint *L, Point NewPos)
 {
     Point dummy;
     InsVFirst(L,NewPos);
@@ -111,7 +159,7 @@ void MoveSnake(ListSnake *L, Point NewPos)
     ResetIdx(L);
 }
 
-void ResetIdx(ListSnake *L)
+void ResetIdx(ListPoint *L)
 {
     address P = First(*L);
     int i = 0;
