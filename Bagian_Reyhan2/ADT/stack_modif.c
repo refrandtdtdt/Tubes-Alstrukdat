@@ -50,13 +50,32 @@ void Pop(Stack * S, infotype* X) {
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 
 // Mulai dari prosedur ini bakal spesifik digunakan di game Tower of Hanoi
-void Display3Stack(Stack S1, Stack S2, Stack S3) {
-    int i, j;
+void Display3Stack(Stack S1, Stack S2, Stack S3, int intJumlahPiringan) {
+    int i, j, m;
     for (i = Top(S1); i >= 0; i--) {
         printf("%s", S1.T[i].TabWord);
         printf("%s", S2.T[i].TabWord);
         printf("%s", S3.T[i].TabWord);
         printf("\n");
+    }
+    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+        printf("=");
+    }
+    printf("\n");
+    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+        if (m == ((2 * intJumlahPiringan) / 2)) {
+            printf("A");
+        } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * intJumlahPiringan - 1))) {
+            printf("B");
+        } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * (2 * intJumlahPiringan - 1)))) {
+            printf("C");
+        } else {
+            printf(" ");
+        }
+    }
+    printf("\n");
+    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
+        printf("=");
     }
 }
 /* Menampilkan isi 3 stack yang berjajar ke samping dengan isi tiap stacknya berjajar ke bawah */
@@ -106,25 +125,40 @@ boolean isEqStack(Stack S1, Stack S2) {
 /* F.S. Mengeluarkan true jika kedua stack sama, false jika beda */
 /* Dua stack sama jika jumlah piringan sama dan isi tiap tumpukan di stack sama */
 
-boolean isNoPiring(Stack S) {
-    int j;
-    Word tiangDummy;
-    for (j = 0; j <= (2 * Top(S)); j++) {
-        if (j == (Top(S))) {
-            tiangDummy.TabWord[j] = '|';
-        } else {
-            tiangDummy.TabWord[j] = ' ';
+boolean isNoPiring(Stack S, int intJumlahPiringan) {
+    // Membuat Skosong sebagai acuan stack kosong
+    Stack Skosong; CreateEmpty(&Skosong);
+    Word piringN;
+    int i, j;
+    for (i = 0; i < intJumlahPiringan; i++) {
+        for (j = 0; j < (2 * intJumlahPiringan - 1); j++) {
+            if (j == (intJumlahPiringan - 1)) {
+                piringN.TabWord[j] = '|';
+            } else {
+                piringN.TabWord[j] = ' ';
+            }
+        }
+        Push(&Skosong, piringN);
+        for (j = 0; j < ((2 * intJumlahPiringan) - (2 * i + 1)); j++) {
+            piringN.TabWord[j] = '\0';
         }
     }
-    int i = 0;
-    while (i <= Top(S)) {
-        if (!Eqstr(S.T[i].TabWord, tiangDummy.TabWord)) {
-            return false;
-        }
-        i++;
+    if (isEqStack(S, Skosong)) {
+        return true;
+    } else {
+        return false;
     }
-    return true;
 }
 /* Mengecek ada atau ngga piring di tiang */
 /* I.S. S terdefinisi */
 /* F.S. Mengeluarkan true jika tidak ada piring di tiang, false jika ada */
+
+boolean isPiringAsalBigger(Stack Sasal, Stack Stujuan) {
+    int i;
+    for (i = Top(Sasal); i >= 0; i--) {
+        return true;
+    }
+}
+/* Mengecek apakah piringan tiang asal lebih besar dari piringan di tiang tujuan */
+/* I.S. S terdefinisi */
+/* F.S. Mengeluarkan true jika piringan tiang asal lebih besar dari piringan di tiang tujuan, false jika tidak */

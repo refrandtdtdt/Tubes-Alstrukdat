@@ -40,12 +40,12 @@ void TowerOfHanoi() {
     printf("\n");
     printf("===============================================================\n");
     printf("Selamat bermain! Loading dulu yah nyiapin tower ");
-    // for (i = 0; i <= 14; i++) {
-    //     for (j = 0; j < 100000000; j++) {
-    //         a = j;
-    //     }
-    //     printf(".");
-    // }
+    for (i = 0; i <= 14; i++) {
+        for (j = 0; j < 100000000; j++) {
+            a = j;
+        }
+        printf(".");
+    }
     printf("\n");
 
     // Memasukkan kondisi awal stack ke masing-masing stack
@@ -110,26 +110,7 @@ void TowerOfHanoi() {
         } else {
             // Tampilan stack
             system("cls");
-            Display3Stack(tiangA, tiangB, tiangC);
-            for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                printf("=");
-            }
-            printf("\n");
-            for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                if (m == ((2 * intJumlahPiringan) / 2)) {
-                    printf("A");
-                } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * intJumlahPiringan - 1))) {
-                    printf("B");
-                } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * (2 * intJumlahPiringan - 1)))) {
-                    printf("C");
-                } else {
-                    printf(" ");
-                }
-            }
-            printf("\n");
-            for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                printf("=");
-            }
+            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
 
             // Tiang asal
             valid = false;
@@ -141,34 +122,44 @@ void TowerOfHanoi() {
                 START();
                 convertToArrayOfKata(&tiangAsal, 1);
                 if ((tiangAsal.Length == 1) && (tiangAsal.buffer[0].Length == 1) && (tiangAsal.buffer[0].TabWord[0] == 65 || tiangAsal.buffer[0].TabWord[0] == 97 || tiangAsal.buffer[0].TabWord[0] == 66 || tiangAsal.buffer[0].TabWord[0] == 98 || tiangAsal.buffer[0].TabWord[0] == 67 || tiangAsal.buffer[0].TabWord[0] == 99)) {
-                    valid = true;
+                    if (tiangAsal.buffer[0].TabWord[0] == 'A' || tiangAsal.buffer[0].TabWord[0] == 'a') {
+                        if (isNoPiring(tiangA, intJumlahPiringan)) {
+                            // Tampilan stack kalo tiang A kosong
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Tiang A tidak ada piringan!");
+                        } else {
+                            valid = true;
+                        }
+                    } else if (tiangAsal.buffer[0].TabWord[0] == 'B' || tiangAsal.buffer[0].TabWord[0] == 'b') {
+                        if (isNoPiring(tiangB, intJumlahPiringan)) {
+                            // Tampilan stack kalo tiang B kosong
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Tiang B tidak ada piringan!");
+                        } else {
+                            valid = true;
+                        }
+                    } else if (tiangAsal.buffer[0].TabWord[0] == 'C' || tiangAsal.buffer[0].TabWord[0] == 'c') {
+                        if (isNoPiring(tiangC, intJumlahPiringan)) {
+                            // Tampilan stack kalo tiang C kosong
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Tiang C tidak ada piringan!");
+                        } else {
+                            valid = true;
+                        }
+                    }
                 } else {
                     // Tampilan stack kalo salah input
                     system("cls");
-                    Display3Stack(tiangA, tiangB, tiangC);
-                    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                        printf("=");
-                    }
-                    printf("\n");
-                    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                        if (m == ((2 * intJumlahPiringan) / 2)) {
-                            printf("A");
-                        } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * intJumlahPiringan - 1))) {
-                            printf("B");
-                        } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * (2 * intJumlahPiringan - 1)))) {
-                            printf("C");
-                        } else {
-                            printf(" ");
-                        }
-                    }
-                    printf("\n");
-                    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                        printf("=");
-                    }
+                    Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
                     printf("\n");
                     printf("Masukan tidak valid!");
                 }
-                
             }
 
             // Tiang tujuan
@@ -181,29 +172,9 @@ void TowerOfHanoi() {
                 if ((tiangTujuan.Length == 1) && (tiangTujuan.buffer[0].Length == 1) && (tiangTujuan.buffer[0].TabWord[0] == 65 || tiangTujuan.buffer[0].TabWord[0] == 97 || tiangTujuan.buffer[0].TabWord[0] == 66 || tiangTujuan.buffer[0].TabWord[0] == 98 || tiangTujuan.buffer[0].TabWord[0] == 67 || tiangTujuan.buffer[0].TabWord[0] == 99)) {
                     valid = true;
                 } else {
-                    // Tampilan stack
+                    // Tampilan stack kalo salah input
                     system("cls");
-                    Display3Stack(tiangA, tiangB, tiangC);
-                    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                        printf("=");
-                    }
-                    printf("\n");
-                    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                        if (m == ((2 * intJumlahPiringan) / 2)) {
-                            printf("A");
-                        } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * intJumlahPiringan - 1))) {
-                            printf("B");
-                        } else if (m == (((2 * intJumlahPiringan) / 2) + (2 * (2 * intJumlahPiringan - 1)))) {
-                            printf("C");
-                        } else {
-                            printf(" ");
-                        }
-                    }
-                    printf("\n");
-                    for (m = 1; m <= (2 * intJumlahPiringan - 1) * 3; m++) {
-                        printf("=");
-                    }
-                    // Input tiang tujuan kalo salah
+                    Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
                     printf("\n");
                     printf("Masukan tidak valid!\n");
                     printf("Masukkan pilihan anda!\n");

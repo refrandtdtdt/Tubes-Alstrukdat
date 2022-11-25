@@ -61,7 +61,7 @@ void Pop(Stack * S, infotype* X);
 
 
 // Mulai dari prosedur ini bakal spesifik digunakan di game Tower of Hanoi
-void Display3Stack(Stack S1, Stack S2, Stack S3);
+void Display3Stack(Stack S1, Stack S2, Stack S3, int intJumlahPiringan);
 /* Menampilkan isi 3 stack yang berjajar ke samping dengan isi tiap stacknya berjajar ke bawah */
 /* I.S. S1, S2, S3 terdefinisi */
 /* F.S. Tercetak isi stack seperti di bawah ini */
@@ -91,9 +91,14 @@ boolean isEqStack(Stack S1, Stack S2);
 /* F.S. Mengeluarkan true jika kedua stack sama, false jika beda */
 /* Dua stack sama jika jumlah piringan sama dan isi tiap tumpukan di stack sama */
 
-boolean isNoPiring(Stack S);
+boolean isNoPiring(Stack S, int intJumlahPiringan);
 /* Mengecek ada atau ngga piring di tiang */
 /* I.S. S terdefinisi */
 /* F.S. Mengeluarkan true jika tidak ada piring di tiang, false jika ada */
+
+boolean isPiringAsalBigger(Stack Sasal, Stack Stujuan);
+/* Mengecek apakah piringan tiang asal lebih besar dari piringan di tiang tujuan */
+/* I.S. S terdefinisi */
+/* F.S. Mengeluarkan true jika piringan tiang asal lebih besar dari piringan di tiang tujuan, false jika tidak */
 
 #endif
