@@ -153,12 +153,79 @@ boolean isNoPiring(Stack S, int intJumlahPiringan) {
 /* I.S. S terdefinisi */
 /* F.S. Mengeluarkan true jika tidak ada piring di tiang, false jika ada */
 
-boolean isPiringAsalBigger(Stack Sasal, Stack Stujuan) {
-    int i;
-    for (i = Top(Sasal); i >= 0; i--) {
-        return true;
+boolean isPiringAsalBigger(Stack Sasal, Stack Stujuan, int intJumlahPiringan) {
+    // Membuat tiangDummy agar bisa jadi patokan untuk ambil piringan teratas (biar si tiang ga keitung)
+    int k, l, m, n;
+    Word tiangDummy;
+    int j;
+    for (j = 0; j < (2 * intJumlahPiringan - 1); j++) {
+        if (j == (intJumlahPiringan - 1)) {
+            tiangDummy.TabWord[j] = '|';
+        } else {
+            tiangDummy.TabWord[j] = ' ';
+        }
+    }
+    int z;
+    if (len(tiangDummy.TabWord) > (2 * intJumlahPiringan - 1)) {
+        for (z = (2 * intJumlahPiringan - 1); z < len(tiangDummy.TabWord); z++) {
+            tiangDummy.TabWord[z] = '\0';
+        }
+    }
+
+    // Kalau di tiang tujuan kosong (tinggal tiang aja), maka langsung false biar piring bisa pindah
+    Word topPiringAsal, topPiringTujuan;
+    if (isNoPiring(Stujuan, intJumlahPiringan)) { 
+        return false;
+    } else {
+        // Ngambil piringan teratas Sasal
+        boolean nemuPiringAsal = false;
+        int i = Top(Sasal);
+        int stackAsalKe;
+        while ((i >= 0) && (!nemuPiringAsal)) {
+            if (!Eqstr(Sasal.T[i].TabWord, tiangDummy.TabWord)) {
+                nemuPiringAsal = true;
+                stackAsalKe = i;
+            } else {
+                i--;
+            }
+        }
+
+        // Ngambil piringan teratas Stujuan
+        boolean nemuPiringTujuan = false;
+        int k = Top(Stujuan);
+        int stackTujuanKe;
+        while ((k >= 0) && (!nemuPiringTujuan)) {
+            if (!Eqstr(Stujuan.T[k].TabWord, tiangDummy.TabWord)) {
+                nemuPiringTujuan = true;
+                stackTujuanKe = k;
+            } else {
+                k--;
+            }
+        }
+
+        // Membandingkan kedua length kedua piringan (banyak bintangnya)
+        if (lenBintang(Sasal.T[i].TabWord) > lenBintang(Stujuan.T[k].TabWord)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 /* Mengecek apakah piringan tiang asal lebih besar dari piringan di tiang tujuan */
 /* I.S. S terdefinisi */
 /* F.S. Mengeluarkan true jika piringan tiang asal lebih besar dari piringan di tiang tujuan, false jika tidak */
+
+int lenBintang(char* str) {
+    int i = 0;
+    int length = 0;
+    while (str[i] != '\0' && str[i] != '\n') {
+        if (str[i] == '*') {
+            length++;
+        }
+        i++;
+    }
+    return length;
+}
+/* Meengembalikan panjang bintang di piringan */
+/* I.S. S terdefinisi */
+/* F.S. Mengembalikan panjang bintang di piringan */

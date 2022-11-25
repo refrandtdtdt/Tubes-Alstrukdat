@@ -96,9 +96,14 @@ boolean isNoPiring(Stack S, int intJumlahPiringan);
 /* I.S. S terdefinisi */
 /* F.S. Mengeluarkan true jika tidak ada piring di tiang, false jika ada */
 
-boolean isPiringAsalBigger(Stack Sasal, Stack Stujuan);
+boolean isPiringAsalBigger(Stack Sasal, Stack Stujuan, int intJumlahPiringan);
 /* Mengecek apakah piringan tiang asal lebih besar dari piringan di tiang tujuan */
 /* I.S. S terdefinisi */
 /* F.S. Mengeluarkan true jika piringan tiang asal lebih besar dari piringan di tiang tujuan, false jika tidak */
+
+int lenBintang(char* str);
+/* Meengembalikan panjang bintang di piringan */
+/* I.S. S terdefinisi */
+/* F.S. Mengembalikan panjang bintang di piringan */
 
 #endif

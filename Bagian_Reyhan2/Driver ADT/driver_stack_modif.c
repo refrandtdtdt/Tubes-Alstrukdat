@@ -22,19 +22,27 @@ int main () {
     }
     printf("\n");
 
-    printf("Isi stack 2 dulu gan:\n");
-    for (int i = 0; i < 3; i++) {
-        START();
-        CopyWord();
-        Push(&S2, currentWord);
+    // Stack 2 auto aja (tiang doang untuk nguji isNoPiring)
+    for (i = 0; i < intJumlahPiringan; i++) {
+        for (j = 0; j < (2 * intJumlahPiringan - 1); j++) {
+            if ((j >= (intJumlahPiringan - 1) - (intJumlahPiringan - 1 - i)) && (j <= (intJumlahPiringan - 1) + (intJumlahPiringan - 1 - i))) {
+                piringN.TabWord[j] = '*';
+            } else {
+                piringN.TabWord[j] = ' ';
+            }
+        }
+        Push(&S2, piringN);
+        for (j = 0; j < ((2 * intJumlahPiringan) - (2 * i + 1)); j++) {
+            piringN.TabWord[j] = '\0';
+        }
     }
     printf("\n");
 
-    // Stack 3 auto aja (tiang doang untuk nguji isNoPiring)
-    for (i = 0; i < (intJumlahPiringan); i++) {
+    // Stack 3 auto aja (untuk nguji isNoPiring)
+    for (i = 0; i < (intJumlahPiringan - 1); i++) {
         for (j = 0; j < (2 * intJumlahPiringan - 1); j++) {
-            if (j == (intJumlahPiringan - 1)) {
-                piringN.TabWord[j] = '|';
+            if ((j >= (intJumlahPiringan - 1) - (intJumlahPiringan - 1 - i)) && (j <= (intJumlahPiringan - 1) + (intJumlahPiringan - 1 - i))) {
+                piringN.TabWord[j] = '*';
             } else {
                 piringN.TabWord[j] = ' ';
             }
@@ -44,7 +52,38 @@ int main () {
             piringN.TabWord[j] = '\0';
         }
     }
-    printf("\n");
+    for (j = 0; j < (2 * intJumlahPiringan - 1); j++) {
+        if (j == (intJumlahPiringan - 1)) {
+            piringN.TabWord[j] = '|';
+        } else {
+            piringN.TabWord[j] = ' ';
+        }
+    }
+    Push(&S3, piringN);
+    for (j = 0; j < ((2 * intJumlahPiringan) - (2 * i + 1)); j++) {
+        piringN.TabWord[j] = '\0';
+    }
+    // for (i = 0; i < (intJumlahPiringan - 1); i++) {
+    //     for (j = 0; j < (2 * intJumlahPiringan - 1); j++) {
+    //         if (j == (intJumlahPiringan - 1)) {
+    //             piringN.TabWord[j] = '|';
+    //         } else {
+    //             piringN.TabWord[j] = ' ';
+    //         }
+    //     }
+    //     Push(&S3, piringN);
+    //     for (j = 0; j < ((2 * intJumlahPiringan) - (2 * i + 1)); j++) {
+    //         piringN.TabWord[j] = '\0';
+    //     }
+    // }
+    // for (j = 0; j < (2 * intJumlahPiringan - 1); j++) {
+    //     piringN.TabWord[j] = '*';
+    // }
+    // Push(&S3, piringN);
+    // for (j = 0; j < ((2 * intJumlahPiringan) - (2 * i + 1)); j++) {
+    //     piringN.TabWord[j] = '\0';
+    // }
+    // printf("\n");
 
     // Print isi ketiga stack
     printf("Isi ketiga stacknya gan:\n");
@@ -69,10 +108,26 @@ int main () {
     DisplayStack(S3);
 
     // Melihat apakah stack S3 tinggal tiang aja atau ada piringannya
+    printf("S3 ada piringannya ga gan?\n");
     if (isNoPiring(S3, intJumlahPiringan)) {
-        printf("S3 ga ada piringannya gan\n");
+        printf("Ga ada gan\n");
     } else {
-        printf("S3 ada piringannya gan\n");
+        printf("Ada gan\n");
     }
+
+    // Melihat apakah isPiringAsalBigger jalan (pake S2 dan S3)
+    printf("\nPiring S2 gede ga dari piring S3 gan?\n");
+    if (isPiringAsalBigger(S2, S3, intJumlahPiringan)) {
+        printf("Iya gan\n");
+    } else {
+        printf("Kaga gan\n");
+    }
+    printf("\nPiring S3 gede ga dari piring S2 gan?\n");
+    if (isPiringAsalBigger(S3, S2, intJumlahPiringan)) {
+        printf("Iya gan\n");
+    } else {
+        printf("Kaga gan\n");
+    }
+
     return 0;
 }

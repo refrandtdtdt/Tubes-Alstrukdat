@@ -40,12 +40,12 @@ void TowerOfHanoi() {
     printf("\n");
     printf("===============================================================\n");
     printf("Selamat bermain! Loading dulu yah nyiapin tower ");
-    for (i = 0; i <= 14; i++) {
-        for (j = 0; j < 100000000; j++) {
-            a = j;
-        }
-        printf(".");
-    }
+    // for (i = 0; i <= 14; i++) {
+    //     for (j = 0; j < 100000000; j++) {
+    //         a = j;
+    //     }
+    //     printf(".");
+    // }
     printf("\n");
 
     // Memasukkan kondisi awal stack ke masing-masing stack
@@ -170,7 +170,79 @@ void TowerOfHanoi() {
                 START();
                 convertToArrayOfKata(&tiangTujuan, 1);
                 if ((tiangTujuan.Length == 1) && (tiangTujuan.buffer[0].Length == 1) && (tiangTujuan.buffer[0].TabWord[0] == 65 || tiangTujuan.buffer[0].TabWord[0] == 97 || tiangTujuan.buffer[0].TabWord[0] == 66 || tiangTujuan.buffer[0].TabWord[0] == 98 || tiangTujuan.buffer[0].TabWord[0] == 67 || tiangTujuan.buffer[0].TabWord[0] == 99)) {
-                    valid = true;
+                    if ((tiangAsal.buffer[0].TabWord[0] == 'A' || tiangAsal.buffer[0].TabWord[0] == 'a') && (tiangTujuan.buffer[0].TabWord[0] == 'B' || tiangTujuan.buffer[0].TabWord[0] == 'b')) {
+                        if (isPiringAsalBigger(tiangA, tiangB, intJumlahPiringan)) {
+                            // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Piringan di tiang A lebih besar dari piringan di tiang B!\n");
+                            printf("Masukkan pilihan anda!\n");
+                            printf("Tiang asal : %c\n", tiangAsal.buffer[0].TabWord[0]);
+                        } else {
+                            valid = true;
+                        }
+                    } else if ((tiangAsal.buffer[0].TabWord[0] == 'A' || tiangAsal.buffer[0].TabWord[0] == 'a') && (tiangTujuan.buffer[0].TabWord[0] == 'C' || tiangTujuan.buffer[0].TabWord[0] == 'c')) {
+                        if (isPiringAsalBigger(tiangA, tiangC, intJumlahPiringan)) {
+                            // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Piringan di tiang A lebih besar dari piringan di tiang C!\n");
+                            printf("Masukkan pilihan anda!\n");
+                            printf("Tiang asal : %c\n", tiangAsal.buffer[0].TabWord[0]);
+                        } else {
+                            valid = true;
+                        }
+                    } else if ((tiangAsal.buffer[0].TabWord[0] == 'B' || tiangAsal.buffer[0].TabWord[0] == 'b') && (tiangTujuan.buffer[0].TabWord[0] == 'A' || tiangTujuan.buffer[0].TabWord[0] == 'a')) {
+                        if (isPiringAsalBigger(tiangB, tiangA, intJumlahPiringan)) {
+                            // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Piringan di tiang B lebih besar dari piringan di tiang A!\n");
+                            printf("Masukkan pilihan anda!\n");
+                            printf("Tiang asal : %c\n", tiangAsal.buffer[0].TabWord[0]);
+                        } else {
+                            valid = true;
+                        }
+                    } else if ((tiangAsal.buffer[0].TabWord[0] == 'B' || tiangAsal.buffer[0].TabWord[0] == 'b') && (tiangTujuan.buffer[0].TabWord[0] == 'C' || tiangTujuan.buffer[0].TabWord[0] == 'c')) {
+                        if (isPiringAsalBigger(tiangB, tiangC, intJumlahPiringan)) {
+                            // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Piringan di tiang B lebih besar dari piringan di tiang C!\n");
+                            printf("Masukkan pilihan anda!\n");
+                            printf("Tiang asal : %c\n", tiangAsal.buffer[0].TabWord[0]);
+                        } else {
+                            valid = true;
+                        }
+                    } else if ((tiangAsal.buffer[0].TabWord[0] == 'C' || tiangAsal.buffer[0].TabWord[0] == 'c') && (tiangTujuan.buffer[0].TabWord[0] == 'A' || tiangTujuan.buffer[0].TabWord[0] == 'a')) {
+                        if (isPiringAsalBigger(tiangC, tiangA, intJumlahPiringan)) {
+                            // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Piringan di tiang C lebih besar dari piringan di tiang A!\n");
+                            printf("Masukkan pilihan anda!\n");
+                            printf("Tiang asal : %c\n", tiangAsal.buffer[0].TabWord[0]);
+                        } else {
+                            valid = true;
+                        }
+                    } else if ((tiangAsal.buffer[0].TabWord[0] == 'C' || tiangAsal.buffer[0].TabWord[0] == 'c') && (tiangTujuan.buffer[0].TabWord[0] == 'B' || tiangTujuan.buffer[0].TabWord[0] == 'b')) {
+                        if (isPiringAsalBigger(tiangC, tiangB, intJumlahPiringan)) {
+                            // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                            system("cls");
+                            Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                            printf("\n");
+                            printf("Piringan di tiang C lebih besar dari piringan di tiang B!\n");
+                            printf("Masukkan pilihan anda!\n");
+                            printf("Tiang asal : %c\n", tiangAsal.buffer[0].TabWord[0]);
+                        } else {
+                            valid = true;
+                        }
+                    }
                 } else {
                     // Tampilan stack kalo salah input
                     system("cls");
