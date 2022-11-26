@@ -9,13 +9,13 @@
 void TowerOfHanoi() {
     // Deklarasi variabel
     Sentence jumlahPiringan, tiangAsal, tiangTujuan, nama;
-    int intJumlahPiringan, i, j, a, k, l, m, langkah, score;
+    int intJumlahPiringan, i, j, a, k, l, m, z, langkah, score, scoreMax, langkahAcuan;
     Stack tiangA; CreateEmpty(&tiangA);
     Stack tiangB; CreateEmpty(&tiangB);
     Stack tiangC; CreateEmpty(&tiangC);
     Stack tiangAcuan; CreateEmpty(&tiangAcuan);
     Word piringN, tiangDummy, dummyTiangAsal, dummyTiang;
-    boolean end, valid;
+    boolean end, valid, scoreAkhir;
 
     // Menampilkan UI dari Tower of Hanoi
     system("cls");
@@ -380,26 +380,19 @@ void TowerOfHanoi() {
         }
     }
     // Penghitungan score
-    if (langkah == (pangkat(2, intJumlahPiringan) - 1)) {
-        score = 10;
-    } else if (langkah == (pangkat(2, intJumlahPiringan) - 1) + intJumlahPiringan) {
-        score = 9;
-    } else if (langkah == (pangkat(2, intJumlahPiringan) - 1) + (2 * intJumlahPiringan)) {
-        score = 8;
-    } else if (langkah == (pangkat(2, intJumlahPiringan) - 1) + (3 * intJumlahPiringan)) {
-        score = 7;
-    } else if (langkah == (pangkat(2, intJumlahPiringan) - 1) + (4 * intJumlahPiringan)) {
-        score = 6;
-    } else if (langkah == (pangkat(2, intJumlahPiringan) - 1) + (5 * intJumlahPiringan)) {
-        score = 5;
-    } else if (langkah == (pangkat(2, intJumlahPiringan) - 1) + (6 * intJumlahPiringan)) {
-        score = 4;
-    } else if (langkah == (pangkat(2, intJumlahPiringan) - 1) + (7 * intJumlahPiringan)) {
-        score = 3;
-    } else if (langkah == (pangkat(2, intJumlahPiringan) - 1) + (8 * intJumlahPiringan)) {
-        score = 2;
-    } else if (langkah >= (pangkat(2, intJumlahPiringan) - 1) + (9 * intJumlahPiringan)) {
-        score = 1;
+    scoreMax = 2 * intJumlahPiringan;
+    score = scoreMax;
+    langkahAcuan = (pangkat(2, intJumlahPiringan) - 1);
+    scoreAkhir = false;
+    z = 0;
+    while ((z < scoreMax) && !scoreAkhir) {
+        if (langkah <= langkahAcuan) {
+            scoreAkhir = true;
+        } else {
+            score--;
+            langkahAcuan += (intJumlahPiringan);
+            z++;
+        }
     }
 
     // Game ToH telah selesai, menampilkan langkah, score, dan meminta inputan nama
