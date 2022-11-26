@@ -39,12 +39,12 @@ void TowerOfHanoi() {
     printf("\n");
     printf("===============================================================\n");
     printf("Selamat bermain! Loading dulu yah nyiapin tower ");
-    // for (i = 0; i <= 14; i++) {
-    //     for (j = 0; j < 100000000; j++) {
-    //         a = j;
-    //     }
-    //     printf(".");
-    // }
+    for (i = 0; i <= 14; i++) {
+        for (j = 0; j < 100000000; j++) {
+            a = j;
+        }
+        printf(".");
+    }
     printf("\n");
 
     // Memasukkan kondisi awal stack ke masing-masing stack
