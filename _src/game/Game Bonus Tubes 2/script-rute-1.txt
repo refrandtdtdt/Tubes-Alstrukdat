@@ -86,7 +86,11 @@ Miya: "MAAF, %s. aku terlalu emosional sekarang."
 %s: "gpp, Miya. aku janji bakal nemenim kamu setelah selesai lomba"
 Miya: "semoga kamu bisa menepati janjimu :)."
 
-lanjut rute kiri (Sad Ending)
+lanjut rute kiri (Sad Bad Ending)
 
 opsi 2:
+dia menangis sambil berkata kepadaku,
+Miya: "(sob) terima kasih, %s. ini hadiah terbaik yang pernah diberikan kepadaku."
+Miya: "Sampai jumpa besok."
 
+lanjut ke rute kiri (Sad good ending)
