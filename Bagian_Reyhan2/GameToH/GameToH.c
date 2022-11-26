@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include "../ADT/stack_modif.c"
-#include "../ADT/array_modif.c"
-#include "../ADT/queue_modif.c"
-#include "../ADT/mesinkar.c"
-#include "../ADT/mesinkata_modif.c"
-#include "../ADT/functions.c"
+#include "../ADT/stack_modif.h"
+#include "../ADT/array_modif.h"
+#include "../ADT/queue_modif.h"
+#include "../ADT/mesinkar.h"
+#include "../ADT/mesinkata_modif.h"
+#include "../ADT/functions.h"
 
 void TowerOfHanoi() {
     // Deklarasi variabel
