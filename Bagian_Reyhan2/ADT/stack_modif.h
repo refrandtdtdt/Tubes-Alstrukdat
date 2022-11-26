@@ -106,4 +106,9 @@ int lenBintang(char* str);
 /* I.S. S terdefinisi */
 /* F.S. Mengembalikan panjang bintang di piringan */
 
+int pangkat(int angka, int pangkatBerapa);
+/* Meengembalikan hasil pangkat */
+/* I.S. S terdefinisi */
+/* F.S. Mengembalikan hasil pangkat */
+
 #endif
