@@ -195,6 +195,24 @@ void TowerOfHanoi() {
                                     } else {
                                         valid = true;
                                     }
+                                } else if ((tiangAsal.buffer[0].TabWord[0] == 'A' || tiangAsal.buffer[0].TabWord[0] == 'a') && (tiangTujuan.buffer[0].TabWord[0] == 'A' || tiangTujuan.buffer[0].TabWord[0] == 'a')) {
+                                    // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                                    system("cls");
+                                    Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                                    printf("\n");
+                                    printf("Pilih tiang tujuan yang berbeda dengan tiang asal!");
+                                } else if ((tiangAsal.buffer[0].TabWord[0] == 'B' || tiangAsal.buffer[0].TabWord[0] == 'b') && (tiangTujuan.buffer[0].TabWord[0] == 'B' || tiangTujuan.buffer[0].TabWord[0] == 'b')) {
+                                    // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                                    system("cls");
+                                    Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                                    printf("\n");
+                                    printf("Pilih tiang tujuan yang berbeda dengan tiang asal!");
+                                } else if ((tiangAsal.buffer[0].TabWord[0] == 'C' || tiangAsal.buffer[0].TabWord[0] == 'c') && (tiangTujuan.buffer[0].TabWord[0] == 'C' || tiangTujuan.buffer[0].TabWord[0] == 'c')) {
+                                    // Tampilan stack kalo piringan di tiang asal > piringan di tiang tujuan
+                                    system("cls");
+                                    Display3Stack(tiangA, tiangB, tiangC, intJumlahPiringan);
+                                    printf("\n");
+                                    printf("Pilih tiang tujuan yang berbeda dengan tiang asal!");
                                 }
                             } else {
                                 // Tampilan stack kalo salah input
