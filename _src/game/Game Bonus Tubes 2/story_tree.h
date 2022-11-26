@@ -1,7 +1,8 @@
 #ifndef STORY_TREE_H
 #define STORY_TREE_H
 
-#include "..\..\boolean.h"
+//#include "..\..\boolean.h"
+#include "boolean.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -12,7 +13,7 @@
 #define LEFT(p)  (p)->left
 #define RIGHT(p) (p)->right
 
-typedef struct StoryNode* Address;
+typedef struct StoryTreeNode* Address;
 /* Definisi Pohon Biner */
 /* pohon biner kosong p = NULL*/
 typedef struct StoryTreeNode   {
@@ -57,5 +58,13 @@ boolean IsUnerRight(StoryTree p);
 
 /* Mengirimkan true jika p adalah pohon biner*/
 boolean IsBiner(StoryTree p);
+
+StoryTree buildBalancedTree(int n);
+
+/*print sesuai pre order dari kiri sampai kanan*/
+void PrintPreOrder(StoryTree p);
+
+/* Membuat pohon cerita yang sesuai*/
+StoryTree buildStoryTree();
 
 #endif
