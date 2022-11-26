@@ -25,6 +25,9 @@ typedef Address StoryTree;
 
 /*Konstruktor*/
 
+/* Membuat Story baru*/
+StoryTree NewStoryTree(int akar, StoryTree l, StoryTree r);
+
 /* I.S Sembarang*/
 /* F.S Menghasilkan sebuah pohon p*/
 /* Menghasilkan sebuah pohon biner p dari akar, l, dan r, jika alokasi berhasil*/
@@ -36,6 +39,9 @@ void CreateStoryTree(int akar, StoryTree l, StoryTree r, StoryTree* p);
 maka INFO(p) = x, LEFT(p) = NULL, RIGHT(p) = NULL*/
 /* Jika Alokasi gagal, mengirimkan NULL*/
 Address newStoryNode(int x);
+
+/* Men-dealokasi-kan Story*/
+void DeallocStory(Address p);
 
 /*Mengirimkan true jika p adalah pohon yang kosong*/
 boolean IsTreeEmpty (StoryTree p);
