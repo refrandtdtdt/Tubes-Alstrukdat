@@ -43,3 +43,50 @@ Miya: "HAHAHAHAHA, betul jawabannya."
 Miya: "keren banget, kamu :)"
 %s: "hahaha, makasih."
 
+Miya: "Oke, sekarang ini pertanyaan berikutnya. tinggiku berapa?"
+
+opsi dialog
+
+1. "150 cm" (salah) -40 (repeat)
+2. "152 cm" (benar) (+100)
+3. "154 cm" (salah) -40 (repeat)
+4. "156 cm" (salah) -40 (repeat)
+5. "158 cm" (salah) -40 (repeat)
+
+bila benar:
+Miya: "betul wkwkwkwk"
+
+bila salah:
+%s: "tet tot, salah"
+
+kami akhirnya makan dengan lahap. kemudian hari berakhir.
+
+1 bulan pun berjalan, aku mulai ikut lomba Matematika.
+hari-hariku sibuk dengan belajar matematika, 2 hari lagi adalah hari-h lomba, aku tak ingin menyia-nyiakan hal tersebut.
+sehabis pulang sekolah, Miya mencoba membahas sesuatu denganku, muka dia terlihat muram.
+
+Miya: "anu, %s. aku mau minta sesuatu."
+
+%s: "maukah kita pergi ke arcade, bareng?"
+
+aku gugup, apakah ini sebuah date??!!!
+tapi, aku bingung. aku sebentar lagi ada lomba. aku tidak ingin
+
+opsi dialog:
+1. "Maaf, Miya. tapi sepertinya aku sibuk besok."
+2. "Baiklah, kalau itu Miya, aku gak bakal nolak."
+
+opsi 1:
+Miya: Kamu sibuk? masa bener-bener sibuk? MASA KAMU GAK ADA WAKTU SIH!"
+%s: "Maaf, Miya. aku harus belajar buat lomba. kita bisa kok main kapan-kapan."
+Miya: "UDAH TELAT!. UDAH GAK ADA WAKTU LAGI."
+
+dia menangis histeris. baru pertama kali aku melihat dia menangis seperti ini.
+Miya: "MAAF, %s. aku terlalu emosional sekarang."
+%s: "gpp, Miya. aku janji bakal nemenim kamu setelah selesai lomba"
+Miya: "semoga kamu bisa menepati janjimu :)."
+
+lanjut rute kiri (Sad Ending)
+
+opsi 2:
+
