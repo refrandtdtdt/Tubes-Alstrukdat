@@ -272,6 +272,9 @@ void mainkanGame (Queue * antrian_game) {
         } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
             printf("Loading Diner DASH ...\n");
             DinerDash();// Panggil fungsi game Diner DASH
+        } else if (Eqstr(dummy.TabWord,"Tower of Hanoi")) {
+            printf("Loading Tower of Hanoi ...\n");
+            TowerOfHanoi();// Panggil fungsi game Tower of Hanoi
         } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
             printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
             printf("Silahkan pilih game lain.\n");
