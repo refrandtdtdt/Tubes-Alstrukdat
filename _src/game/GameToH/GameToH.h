@@ -1,6 +1,7 @@
 #ifndef GAMETOH_H
 #define GAMETOH_H
 
+#include <stdio.h>
 #include "../../ADT/stack_modif.h"
 #include "../../ADT/array_modif.h"
 #include "../../ADT/queue_modif.h"

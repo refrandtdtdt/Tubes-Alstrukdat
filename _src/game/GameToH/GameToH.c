@@ -18,7 +18,7 @@ void TowerOfHanoi() {
 
     // Menampilkan UI dari Tower of Hanoi
     system("cls");
-    CHARMACHINE("GameToH_UI.txt");
+    CHARMACHINE("_src/game/GameToH/GameToH_UI.txt");
 
     // Meminta input jumlah piringan yang ingin dimainkan
     printf("Selamat datang di game Tower of Hanoi!\n");

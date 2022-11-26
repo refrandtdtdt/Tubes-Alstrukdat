@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include "../ADT/stack_modif.h"
-#include "../ADT/array_modif.h"
-#include "../ADT/queue_modif.h"
-#include "../ADT/mesinkar.h"
-#include "../ADT/mesinkata_modif.h"
-#include "../ADT/functions.h"
+#include "../ADT/stack_modif.c"
+#include "../ADT/array_modif.c"
+#include "../ADT/queue_modif.c"
+#include "../ADT/mesinkar.c"
+#include "../ADT/mesinkata_modif.c"
+#include "../ADT/functions.c"
 
 void TowerOfHanoi() {
     // Deklarasi variabel
@@ -40,12 +40,12 @@ void TowerOfHanoi() {
     printf("\n");
     printf("===============================================================\n");
     printf("Selamat bermain! Loading dulu yah nyiapin tower ");
-    // for (i = 0; i <= 14; i++) {
-    //     for (j = 0; j < 100000000; j++) {
-    //         a = j;
-    //     }
-    //     printf(".");
-    // }
+    for (i = 0; i <= 14; i++) {
+        for (j = 0; j < 100000000; j++) {
+            a = j;
+        }
+        printf(".");
+    }
     printf("\n");
 
     // Memasukkan kondisi awal stack ke masing-masing stack
