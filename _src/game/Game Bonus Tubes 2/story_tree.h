@@ -57,4 +57,5 @@ boolean IsUnerRight(StoryTree p);
 
 /* Mengirimkan true jika p adalah pohon biner*/
 boolean IsBiner(StoryTree p);
+
 #endif
