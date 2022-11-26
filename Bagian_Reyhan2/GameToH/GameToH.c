@@ -401,8 +401,8 @@ void TowerOfHanoi() {
     printf("Kamu berhasil! Horee!\n");
     printf("=====================\n");
     printf("Jumlah langkah kamu : %d\n", langkah);
-    printf("Score kamu          : %d\n", score);
-    printf("Nama                : ");
+    printf("Score yang didapat  : %d\n", score);
+    printf("Masukkan nama kamu  : ");
     START();
     convertToArrayOfKata(&nama, 1);
 }
