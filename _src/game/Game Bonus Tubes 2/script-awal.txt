@@ -78,7 +78,7 @@ pada saat perkenalan, dia mengenalkan diri sebagai refrendt
 Refrendt: "Asal lo tau ya nerd, gue ini lebih menarik, dan juga menawan, huhuhuhu!!"
 
 opsi dialog:
-1. "Bisa-bisanya ni anak"
+1. "Bisa-bisanya ni anak" <+100 poin>
 2. ngajak gelud
 
 opsi 2:
@@ -90,6 +90,61 @@ akhirnya kalian berdua saling adu tonjok, dan ternyata kamu kalah dengan refrend
 
 opsi 1:
 Refrendt: "mari kita lihat nanti, hehe"
-Aku cukup bersabar
+Aku cukup bersabar.
+voting pun berjalan...
+ternyata suaraku menang jauh.
+ya jelas lah, bagaimana ceritanya orang aneh macam dia bisa dapat suara dari temen-temen.
+lalu dia menangis kencang
+
+Refrendt: "kenapa gue bisa kalah???!!!!"
+Refrendt: "Impossible njir!"
+
+dia pun keluar dari kelas. gurunya heran, apalagi aku.
+
+kemudian kami melanjutkan kelas seperti biasa.
+sorenya kami pulang. Aku dan Miya pulang bersama-sama dari sekolah.
+
+Miya: "Oh ya, %s. kamu akhir pekan sibuk ga?"
+%s: "Enggak sih, emangnya kenapa?"
+
+Miya: "Mau makan bareng gak? wkwkwk"
+
+Aku pun mengangguk. yah, tidak ada salahnya juga sih.
+
+%s: "Enaknya makan di mana?"
+Miya: "Kalau kamu gimana?"
+%s: "Nah ini aku bingung atuh eta makanya tanya ke maneh"
+Miya: "lah, aku juga bingung makanya tanya ke kamu, hahahaha"
+%s: "Kamu aja"
+Miya: "Kamu!!"
+%s: "Mending Kamu aja"
+Miya: "Duh, dibilangin kamu aja deh!"
+%s: "Harus kamu!!"
+Miya: "Kaammmmmuuuuuuuuu!!!!"
+
+kamu ribut terus dengan Miya
+
+opsi dialog
+1. pergi meninggalkan Miya, dan meninggalkannya karena keributan ini <-500 poin>
+2. Menentukan dengan gunting batu kertas
+
+Opsi ke 1
+%s: "Dahlah aku kesel sama kamu, kita cukupin hari ini. sampai jumpa besok"
+
+
+Opsi ke 2
+%s: "Gimana kalo gitu main gunting batu kertas aja buat nentuin. yang kalah harus nentuin, titik."
+Miya: "...O-oke deh, mari kita suit"
+
+(game gunting batu kertas)
+menang +250 poin
+kalah -100 poin
+
+if (menang)
+    left
+else (kalah)
+    right
+
+
 
 
