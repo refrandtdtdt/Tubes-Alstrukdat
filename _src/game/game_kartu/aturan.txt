@@ -1,0 +1,14 @@
+ATURAN PERMAINAN
+========================================================================================
+1. Masing-masing pemain menerima kartu sejumlah yang telah ditentukan sebelumnya.
+2. pada putaran pertama, kartu dummy akan dikeluarkan dari stack untuk menentukan suit awal permainan.
+3. yang memenangkan putaran adalah orang yang men-draw kartu dengan suit yang sesuai dan memiliki nilai tertinggi.
+4. pemenang pada setiap putaran akan menjadi orang yang pertama kali mengeluarkan kartu di ronde berikutnya.
+5. pemenang merupakan orang pertama yang kartu yang dimilikinya habis terlebih dahulu.
+
+tips bermain:
+mainnya sambil laptopnya diputar-putar, biar lawan gak ada yang tahu kartu kalian.
+
+Selamat Bermain!!!
+
+~
