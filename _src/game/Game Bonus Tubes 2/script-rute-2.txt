@@ -1,2 +1,15 @@
-Miya: "Yeyy, aku menang"
-%s: "Asem tenan ik"
+Miya: \"Yeyy, aku menang\"
+%s: \"Asem tenan ik\"
+
+Miya: \"Sesuai janji, kamu yang nentuin tempatnya ya\"
+%s: \"OK\"
+
+opsi dialog
+1. \"Aku mau ke Game Cafe\"
+
+Miya: \"Wahh, boleh juga tuh\"
+%s: \"next week, ya!\"
+Miya: \"Okie Dokie\"
+
+seminggu kemudian..
+

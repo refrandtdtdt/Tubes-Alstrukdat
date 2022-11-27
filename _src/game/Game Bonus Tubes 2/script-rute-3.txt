@@ -42,6 +42,6 @@ aku harus menjawabnya
 2. \"Maaf, aku menyukai cewek lain.\"
 
 opsi 1:
-go to left
+    go to left
 opsi 2:
-go to right
+    go to right

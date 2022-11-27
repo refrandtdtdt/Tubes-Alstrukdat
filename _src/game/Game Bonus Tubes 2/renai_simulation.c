@@ -1,6 +1,6 @@
 # include <stdio.h>
 # include "story_tree.h"
-
+# include "..\..\ADT\mesinkar.h"
 StoryTree story;
 
 int main() {
@@ -13,5 +13,6 @@ int main() {
     while (IsTreeEmpty(p))   {
         ExecuteNode(INFO(p), nama, &skor, &p);
     }
-    printf("Permainan selesai! Skor yang kamu dapat: %d", skor);
+    printf("Permainan selesai! Skor yang kamu dapat: %d\n\n", skor);
+    CHARMACHINE("credit.txt");
 }
