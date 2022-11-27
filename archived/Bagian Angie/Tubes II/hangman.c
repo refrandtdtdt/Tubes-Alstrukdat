@@ -2,17 +2,19 @@
 #include "mesinkata_modif.h"
 #include "listword.h"
 #include <stdlib.h>
+#include "array.h"
+#include "functions.h"
 
 void hangman ()
 {
-    printf("##::::'##::::'###::::'##::: ##::'######:::'##::::'##::::'###::::'##::: ##:\n");
-    printf("##:::: ##:::'## ##::: ###:: ##:'##... ##:: ###::'###:::'## ##::: ###:: ##:\n");
-    pritnf("##:::: ##::'##:. ##:: ####: ##: ##:::..::: ####'####::'##:. ##:: ####: ##:\n");
-    printf("#########:'##:::. ##: ## ## ##: ##::'####: ## ### ##:'##:::. ##: ## ## ##:\n");
-    printf("##.... ##: #########: ##. ####: ##::: ##:: ##. #: ##: #########: ##. ####:\n");
-    printf("##:::: ##: ##.... ##: ##:. ###: ##::: ##:: ##:.:: ##: ##.... ##: ##:. ###:\n");
-    printf("##:::: ##: ##:::: ##: ##::. ##:. ######::: ##:::: ##: ##:::: ##: ##::. ##:\n");
-    printf("..:::::..::..:::::..::..::::..:::......::::..:::::..::..:::::..::..::::..::\n");
+    printf("  __   __  _______  __    _  _______  __   __  _______  __    _ \n");
+    printf("|  | |  ||   _   ||  |  | ||       ||  |_|  ||   _   ||  |  | |\n");
+    pritnf("|  |_|  ||  |_|  ||   |_| ||    ___||       ||  |_|  ||   |_| |\n");
+    printf("|       ||       ||       ||   | __ |       ||       ||       |\n");
+    printf("|       ||       ||       ||   | __ |       ||       ||       |\n");
+    printf("|       ||       ||  _    ||   ||  ||       ||       ||  _    |\n");
+    printf("|   _   ||   _   || | |   ||   |_| || ||_|| ||   _   || | |   |\n");
+    printf("|__| |__||__| |__||_|  |__||_______||_|   |_||__| |__||_|  |__|n");
     printf("\n");
     printf("                      |***********************|\n");
     printf("                      |       MAIN  MENU      |\n");
@@ -21,54 +23,61 @@ void hangman ()
     printf("                      |         ADD WORD      |\n");
     printf("                      |***********************|\n");
     printf("\n");
-    char *input;
+    Sentence input,tebakan;
     TabKata listKata; MakeEmpty(&listKata);
     printf("Choose Menu: ");
     START();
-    if (Eqstr(input,"PLAY"))
+    convertToArrayOfKata(&input,4);
+    int length;
+    int i = 0;
+    if (Eqstr(&input,"PLAY"))
     {
         Load("kata.txt",&listKata);
-        int i; 
-        char kata [100], tempkata[100];
-        char hasil [100];
         int kesempatan = 10;
+        Sentence input,tebakan;
+        int i;
         int length;
-        length = strlen(kata);
-        while (kesempatan != 0) // kesempatan tidak habis
+        length = len(&listKata);
+        while (kesempatan != 0)
         {
-            printf("Tebakan sebelumnya: \n");
-            printf("Kata: ");
+            printf("Tebakan sebelumnya: %s",tebakan); // masukkin input stlahnya cara nampilin - gman ya
+            printf("Kesempatan: %d",kesempatan);
             srand(0);
-            printf("%s", listKata.TK[rand()%10].TabWord);
-            for (i =0 ; i < length; i++)
+            Word soal;
+            CreateWord(&soal);
+            for (i = 0; i <= length-1; i++)
             {
-                printf("Kesempatan: ", kesempatan);
-                kesempatan -= 1;
-                printf("Masukan tebakan: ");
-                char *tebakan; 
-                boolean found = true;
-                START(); // membaca tebakan dari penggunakan
-                if (!Eqstr(tebakan, T.TK[i].TabWord))
+                (*soal).TabWord[i] = (&listKata).TabWord[i];
+            }
+            soal = &listKata[rand()%5].TK;
+            for (i; i<length; i++)
+                printf("_", soal.TabWord); // menampilkan _ _ _ _
+            printf("Masukkan Tebakan: ");
+            START();
+            convertToArrayOfKata(&tebakan,1);//input satu huruf tebakan
+            kesempatan -= 1;
+            if (&tebakan == soal.TabWord[i]) // cara akses satu persatu hurufny gmana ya 
+            {
+                printf("%s",soal.TabWord[i]); // nampilin huruf yang uda ketebak 
+                // cek apakah uda sama semua hurufnya
+                if (!Eqstr(&tebakan,soal.TabWord[i]))
                 {
-                    found = false;
-                    if (!found)
+                    printf("Berhasil menebak kata %s",&soal,"Kamu mendapatkan %d ", length, " poin");
                 }
             }
         }
-
     }
-    else if (Eqstr(input, "ADD WORD"))
+    else if(Eqstr(&input, "ADD WORD"))
     {
         Load("kata.txt",&listKata);
         printf("MAsukkan kata baru yang ingin ditambahkan: ");
         tambahkata(&listKata);
     }
-    else 
+    else
     {
         printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
     }
 }
-
 void Load(char *filename, TabKata *list)
 {
     char* currline;
@@ -104,4 +113,9 @@ void Save(char* filename, TabKata list)
         fprintf(pita, "%s\n", list.TK[i].TabWord);
     }
     CLOSEF();
+}
+
+int main() {
+  hangman();
+  return 0;
 }
