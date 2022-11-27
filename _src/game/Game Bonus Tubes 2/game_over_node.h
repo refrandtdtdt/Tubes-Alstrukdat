@@ -5,7 +5,7 @@
 #include "boolean.h"
 
 void game_over_node(boolean *isRunning)   {
-    printf("YOU LOSE");
+    printf("YOU LOSE\n");
     *isRunning = false;
 }
 

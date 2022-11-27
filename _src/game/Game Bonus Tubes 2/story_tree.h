@@ -67,4 +67,5 @@ void PrintPreOrder(StoryTree p);
 /* Membuat pohon cerita yang sesuai*/
 StoryTree buildStoryTree();
 
+void ExecCommand(int id_command);
 #endif
