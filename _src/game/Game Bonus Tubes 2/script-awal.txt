@@ -1,0 +1,150 @@
+"Nanti kita sekolah bareng ya!!!"
+
+aku tiba-tiba teringat kembali ke masa itu.
+kemudian aku membaca kembali diariku yang sudah usang.
+tumpukan debu meliputi buku tersebut. aku segera mengambil kain untuk membersihkan cover buku tersebut.
+Aku sudah lama tidak menulis kembali diariku.
+mungkin aku sudah bosan dengan hal itu.
+kubuka halaman depan buku itu, kubaca kembali kenangan masa Sekolah Dasarku, tertulis pengalamanku bersama Miya.
+
+aku dan Miya adalah teman dari masa kecil. dulu kami selalu bermain bersama.
+perkenalan awalku dimulai ketika Bu Kumakawa datang ke tempatku. ia membawa Nagisa sambil memperkenalkan diri.
+
+"Tolong kenalin dirimu ya, Miya-chan", ujar Bu Kumakawa.
+"Baik, Okaa-san", lirihnya pelan.
+"Halo, Namaku Miya, Kumakawa Miya. Salam Kenal", ia berucap sambil malu-malu.
+"oke, namaku %s, salam kenal ya!", ujarku.
+"Salam kenal, %s-San".
+
+semenjak itu, kita semakin akrab. aku dan dia menikmati waktu bersama bermain di taman bermain dekat rumah, bermain petak umpet bersama teman-temanku yang lain, belajar matematika bareng di rumahku, kebetulan juga ayahku seorang guru matematika. dan kami juga bersekolah di sekolah yang sama.
+
+saat kelulusan, kami membuat janji bersama.
+"Nanti kita masuk ke sekolah yang sama ya!!!"
+kami berusaha menepatinya bersama.
+
+namun sayang hingga saat tes masuk ke SMP diumumkan, ternyata nilaiku masih kurang untuk masuk ke SMP favorit yang jadi pilihan Miya,
+akhirnya kami berpisah saat itu karena aku pindah kota untuk mencari sekolah terbaik lain yang ada di luar kota.
+kami pun akhirnya jarang bertemu semenjak itu.
+
+Masa awal SMA pun dimulai, aku memulai kehidupan SMA biasaku.
+aku melihat palang kelas di atasku, sembari mencari kelasku. maklum ini hari pertamaku memasuki SMA.
+akhirnya aku melihatnya, "kelas 10-2".
+Aku kemudian memasuki ruang kelas itu.
+kupandangi wajah-wajah teman-temanku. beberapa ada yang kuingat karena merupakan teman sekelasku pada masa SD.
+lalu kulihat wajah familiar yang sudah lama aku tidak melihat, ternyata ada Miya yang duduk sambil memandangi jendela kelas.
+di belakang Miya terdapat kursi kosong. aku kemudian duduk di kursi tersebut.
+
+begitu ku duduk di bangku, ia menyapaku
+Miya: "Kamu %s-kun kan?"
+Miya: "Kita udah lama banget enggak ketemu."
+Miya: "Gimana Kabarmu?"
+
+dc
+
+(dialog choice)
+<baik (score: 300)> <apaan sih? (score: -200)>
+
+baik: 
+Miya: "Oh, syukurlah. kamu udah cukup tinggi, ya."
+%s: "Namanya Juga tumbuh dewasa"
+
+apaansih:
+Miya: "Ih kamu, baru ketemu lagi udah songong aja."
+%s  : "Ya terserahku dong!"
+
+kemudian dua teman yang tidak asing datang menghampiriku.
+ya, mereka adalah Enji dan Pina. teman bermain kami saat SD dulu.
+Halo guys!" ujar Enji.
+"Halo Miya-chan, halo %s" ucap Pina.
+
+opsi dialog:
+1. "Apa kabar!"
+2. "Halo, Pina"
+
+Pina: "wah, ternyata lo inget gue juga"
+%s:	"ya jelas dong, kita kan friend. ya kan?"
+Enji: "eh, masa cuma Anip doang yang disapa, lha terus aku gimana?"
+
+opsi dialog:
+1. "Hehehe, maap wwww"
+
+Kemudian guru pun datang, kita pun memulai kelas dengan perkenalan masing-masing
+Pemilihan ketua kelas dimulai, aku pun maju mencalonkan diri.
+namun di situ ada anak songong yang juga maju menjadi calon ketua kelas.
+
+???: "bisa-bisanya orang culun kaya lu maju jadi ketua kelas. malu mas" 
+Aku menghela napas.
+pada saat perkenalan, dia mengenalkan diri sebagai refrendt
+Refrendt: "Asal lo tau ya nerd, gue ini lebih menarik, dan juga menawan, huhuhuhu!!"
+
+opsi dialog:
+1. "Bisa-bisanya ni anak" <+100 poin>
+2. ngajak gelud
+
+opsi 2:
+kamu meninju dia.
+Refrendt: "Apa-apaan nih lu, dasar kurang ajar"
+Refrendt mengayunkan lengannya, pertengkaran tidak dapat dihindarkan.
+akhirnya kalian berdua saling adu tonjok, dan ternyata kamu kalah dengan refrendt. akhirnya kamu masuk UKS
+(game over, masuk skor akhir)
+
+opsi 1:
+Refrendt: "mari kita lihat nanti, hehe"
+Aku cukup bersabar.
+voting pun berjalan...
+ternyata suaraku menang jauh.
+ya jelas lah, bagaimana ceritanya orang aneh macam dia bisa dapat suara dari temen-temen.
+lalu dia menangis kencang
+
+Refrendt: "kenapa gue bisa kalah???!!!!"
+Refrendt: "Impossible njir!"
+
+dia pun keluar dari kelas. gurunya heran, apalagi aku.
+
+kemudian kami melanjutkan kelas seperti biasa.
+sorenya kami pulang. Aku dan Miya pulang bersama-sama dari sekolah.
+
+Miya: "Oh ya, %s. kamu akhir pekan sibuk ga?"
+%s: "Enggak sih, emangnya kenapa?"
+
+Miya: "Mau makan bareng gak? wkwkwk"
+
+Aku pun mengangguk. yah, tidak ada salahnya juga sih.
+
+%s: "Enaknya makan di mana?"
+Miya: "Kalau kamu gimana?"
+%s: "Nah ini aku bingung atuh eta makanya tanya ke maneh"
+Miya: "lah, aku juga bingung makanya tanya ke kamu, hahahaha"
+%s: "Kamu aja"
+Miya: "Kamu!!"
+%s: "Mending Kamu aja"
+Miya: "Duh, dibilangin kamu aja deh!"
+%s: "Harus kamu!!"
+Miya: "Kaammmmmuuuuuuuuu!!!!"
+
+kamu ribut terus dengan Miya
+
+opsi dialog
+1. pergi meninggalkan Miya, dan meninggalkannya karena keributan ini <-500 poin>
+2. Menentukan dengan gunting batu kertas
+
+Opsi ke 1
+%s: "Dahlah aku kesel sama kamu, kita cukupin hari ini. sampai jumpa besok"
+
+
+Opsi ke 2
+%s: "Gimana kalo gitu main gunting batu kertas aja buat nentuin. yang kalah harus nentuin, titik."
+Miya: "...O-oke deh, mari kita suit"
+
+(game gunting batu kertas)
+menang +250 poin
+kalah -100 poin
+
+if (menang)
+    left
+else (kalah)
+    right
+
+
+
+

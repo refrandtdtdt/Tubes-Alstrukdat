@@ -37,7 +37,6 @@
     "mesinkar.h": "c",
     "dinerdash.h": "c",
     "main_game.h": "c",
-    "linkedlist.h": "c"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
