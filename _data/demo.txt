@@ -1,8 +1,9 @@
-7
+8
 RNG
 Diner DASH
-Tower of Hanoi
 DINOSAUR IN EARTH
 RISEWOMAN
 EIFFEL TOWER
 Card Game
+DARGAME
+random1
