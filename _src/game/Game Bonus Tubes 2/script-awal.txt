@@ -8,18 +8,18 @@ mungkin aku sudah bosan dengan hal itu.
 kubuka halaman depan buku itu, kubaca kembali kenangan masa Sekolah Dasarku, tertulis pengalamanku bersama Miya.
 
 aku dan Miya adalah teman dari masa kecil. dulu kami selalu bermain bersama.
-perkenalan awalku dimulai ketika Bu Kumakawa datang ke tempatku. ia membawa Nagisa sambil memperkenalkan diri.
+perkenalan awalku dimulai ketika Bu Kumakawa datang ke tempatku. ia membawa Miya sambil memperkenalkan diri.
 
 "Tolong kenalin dirimu ya, Miya-chan", ujar Bu Kumakawa.
-"Baik, Okaa-san", lirihnya pelan.
-"Halo, Namaku Miya, Kumakawa Miya. Salam Kenal", ia berucap sambil malu-malu.
-"oke, namaku %s, salam kenal ya!", ujarku.
-"Salam kenal, %s-San".
+Miya: \"Baik, Okaa-san\", lirihnya pelan.
+Miya: \"Halo, Namaku Miya, Kumakawa Miya. Salam Kenal\", ia berucap sambil malu-malu.
+%s: \"oke, namaku %s, salam kenal ya!\", ujarku.
+Miya: "Salam kenal, %s-San.".
 
 semenjak itu, kita semakin akrab. aku dan dia menikmati waktu bersama bermain di taman bermain dekat rumah, bermain petak umpet bersama teman-temanku yang lain, belajar matematika bareng di rumahku, kebetulan juga ayahku seorang guru matematika. dan kami juga bersekolah di sekolah yang sama.
 
 saat kelulusan, kami membuat janji bersama.
-"Nanti kita masuk ke sekolah yang sama ya!!!"
+Miya: \"Nanti kita masuk ke sekolah yang sama ya!!!\"
 kami berusaha menepatinya bersama.
 
 namun sayang hingga saat tes masuk ke SMP diumumkan, ternyata nilaiku masih kurang untuk masuk ke SMP favorit yang jadi pilihan Miya,
@@ -28,7 +28,7 @@ kami pun akhirnya jarang bertemu semenjak itu.
 
 Masa awal SMA pun dimulai, aku memulai kehidupan SMA biasaku.
 aku melihat palang kelas di atasku, sembari mencari kelasku. maklum ini hari pertamaku memasuki SMA.
-akhirnya aku melihatnya, "kelas 10-2".
+akhirnya aku melihatnya, \"kelas 10-2\".
 Aku kemudian memasuki ruang kelas itu.
 kupandangi wajah-wajah teman-temanku. beberapa ada yang kuingat karena merupakan teman sekelasku pada masa SD.
 lalu kulihat wajah familiar yang sudah lama aku tidak melihat, ternyata ada Miya yang duduk sambil memandangi jendela kelas.
