@@ -4,9 +4,9 @@
 #include "story_tree.h"
 #include "boolean.h"
 
-void game_over_node(boolean *isRunning)   {
+void game_over_node(Address *p)   {
     printf("YOU LOSE\n");
-    *isRunning = false;
+    *p = LEFT(*p);
 }
 
 #endif

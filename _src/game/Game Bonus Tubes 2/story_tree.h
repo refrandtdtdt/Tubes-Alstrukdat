@@ -67,5 +67,6 @@ void PrintPreOrder(StoryTree p);
 /* Membuat pohon cerita yang sesuai*/
 StoryTree buildStoryTree();
 
-void ExecCommand(int id_command);
+/* Mengeksekusi Story pada node input */
+void ExecuteNode(int id_command, char* nama, int *score, Address *node);
 #endif
