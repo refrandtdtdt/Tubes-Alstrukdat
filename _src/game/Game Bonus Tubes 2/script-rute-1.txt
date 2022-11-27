@@ -67,7 +67,7 @@ sehabis pulang sekolah, Miya mencoba membahas sesuatu denganku, muka dia terliha
 
 Miya: "anu, %s. aku mau minta sesuatu."
 
-%s: "maukah kita pergi ke arcade, bareng?"
+%s: "maukah kita pergi ke taman bermain, bareng?"
 
 aku gugup, apakah ini sebuah date??!!!
 tapi, aku bingung. aku sebentar lagi ada lomba. aku tidak ingin
@@ -93,4 +93,4 @@ dia menangis sambil berkata kepadaku,
 Miya: "(sob) terima kasih, %s. ini hadiah terbaik yang pernah diberikan kepadaku."
 Miya: "Sampai jumpa besok."
 
-lanjut ke rute kiri (Sad good ending)
+lanjut ke rute kanan (Sad good ending)  (script-rute-3.txt)
