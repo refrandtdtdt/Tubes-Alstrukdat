@@ -37,6 +37,8 @@
     "mesinkar.h": "c",
     "dinerdash.h": "c",
     "main_game.h": "c",
+    "math.h": "c",
+    "typeinfo": "c"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

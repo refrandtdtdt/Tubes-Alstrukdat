@@ -1,6 +1,6 @@
 #include "story_tree.h"
 
-StoryTree NewStoryTree(int akar, StoryTree l, StoryTree r)
+StoryTree NewStoryTree(char akar, StoryTree l, StoryTree r)
 {
     StoryTree new = (StoryTree) malloc (sizeof(StoryNode));
     if (new != NULL)    {
@@ -11,12 +11,12 @@ StoryTree NewStoryTree(int akar, StoryTree l, StoryTree r)
     return new;
 }
 
-void CreateStoryTree(int akar, StoryTree l, StoryTree r, StoryTree *p)
+void CreateStoryTree(char akar, StoryTree l, StoryTree r, StoryTree *p)
 {
     *p = NewStoryTree(akar, l, r);
 }
 
-Address newStoryNode(int x)
+Address newStoryNode(char x)
 {
     Address new = (Address) malloc (sizeof(StoryNode));
     if (new != NULL){
@@ -73,7 +73,7 @@ StoryTree buildBalancedTree(int n)  {
 
 void PrintPreOrder(StoryTree p) {
     if (!IsTreeEmpty(p)) {
-        printf("%d\n", INFO(p));
+        printf("%c\n", INFO(p));
         PrintPreOrder(LEFT(p));
         PrintPreOrder(RIGHT(p));
     }
@@ -122,4 +122,21 @@ StoryTree buildStoryTree()  {
     else    {
         return NULL;
     }
+}
+
+void buildTreeString(StoryTree *T, char* st, int *idx)  {
+    Address t;
+    (*idx)++;
+    if (st[*idx]==')')  {
+        (*T)=NULL;
+    }
+    else
+    {
+        t = newStoryNode(st[*idx]);
+        *T = t;
+        (*idx)++;
+        buildTreeString(&LEFT(*T), st, idx);
+        buildTreeString(&RIGHT(*T), st, idx);
+    }
+    (*idx)++;
 }

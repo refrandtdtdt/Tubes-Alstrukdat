@@ -1,3 +1,5 @@
+/* Dalam rute ini, MC tahu tentang penyakit yang dialami Miya */
+
 Miya: \"Yeyy, aku menang\"
 %s: \"Asem tenan ik\"
 
@@ -11,5 +13,48 @@ Miya: \"Wahh, boleh juga tuh\"
 %s: \"next week, ya!\"
 Miya: \"Okie Dokie\"
 
+aku pulang jam 7 malam, karena menyiapkan lombaku.
+saat pulang, aku melihat Bu Kumakawa yang tampak sedih, aku pun sempatkan tuk menghapiri beliau.
 seminggu kemudian..
+
+%s: \"Selamat malam, Bu Kumakawa.\"
+Bu Kumakawa: \"Ara, ada %s-chan rupanya.\"
+%s: \"Bagaimana kabarmu?\"
+Bu Kumakawa: \"Baik, cuma capek sedikit karena pekerjaan.\"
+%s: \"Mengapa wajah ibu sangat sedih?\"
+Bu Kumakawa: \"Mungkin bakal ibu ceritain di taman saja. ayo ke sana.\"
+
+Aku pun mengikuti Bu Kumakawa sampai ke taman, lalu beliau mulai bercerita.
+Bu Kumakawa: \"Jadi begini, 1 minggu lagi Miya-chan akan menjalankan perawatan untuk penyakitnya, namun bisa saja ini akan menyebabkan Miya meninggal dunia."
+
+
+%s: \"Kita mau main apa nih?\"
+Miya: \"Main tic tac toe yuk\"
+%s: \"Oke\"
+
+(main tic tac toe) (menang dapet 1000, kalah dapat -250)
+if (menang) {
+    Miya: \"duh, Aku kalah\"
+}
+else
+    Miya: \"Hore, aku menang\"
+
+Miya: \"Ayo habis ini main kartu!\"
+
+kami pun main games-games yang lain.
+
+%s: \"ajak Enji, Pina, Hanrey, dan Dariah juga dong. biar seru\"
+Miya: \"Oke\"
+kita menghabiskan waktu menyenangkan. kita juga mengajak Enji, Pina, Hanrey, dan Dariah untuk ikut main juga.
+
+setelah bermain sampai malam, Enji, Pina, Hanrey, dan Dariah memutuskan untuk meninggalkan kami berdua.
+Pina: \"Eh, kita pulang duluan ya. udah malam hahaha"
+Miya: \"Oke, gak papa\"
+Hanrey: \"kita duluan ya\"
+Radiah: \"Hati-hati ya kalian\"
+%s: \"Oke, kalian juga hati-hati di jalan ya\"
+Enji: \"Bye, guys\"
+%s, Miya: \"Byee\"
+
+{ngedate}
 
