@@ -101,80 +101,84 @@ void hangman ()
     convertToArrayOfKata(&input,4);
     int length;
     int i = 0;
+    boolean valid = false;
     boolean guessed;
-    if((Eqstr(input.buffer[0].TabWord,"PLAY")) || (Eqstr(input.buffer[0].TabWord,"ADD")  && (Eqstr(input.buffer[1].TabWord, "WORD"))))
+    while (!valid) 
     {
-        if (Eqstr(input.buffer[0].TabWord,"PLAY"))
+        if((Eqstr(input.buffer[0].TabWord,"PLAY")) || ((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))) 
         {
-            Load("kata.txt",&listKata);
-            int kesempatan = 10;
-            srand(time(NULL));
-            Word soal = listKata.TK[rand()%10];
-            while (kesempatan != 0)
-            {
-                guessed = false;
-                printf("Tebakan sebelumnya: %s",semuatebakan.buffer[0].TabWord); // masukkin input stlahnya cara nampilin - gman ya
-                printf("\n");
-                printf("Kesempatan: %d\n",kesempatan);
-                Word kosong;
-                
-                for (i = 0; i < soal.Length; i++)
-                {
-                    kosong.TabWord[i] = '_';
-                }
-                kosong.Length = soal.Length;
-                for (i = 0; i < kosong.Length; i++)
-                {
-                    printf("%c ",kosong.TabWord[i]); // menampilkan _ _ _ _
-                }
-                printf("\n");
-                printf("Masukkan Tebakan: ");
-                CreateSentence(&tebakan);
-                START();
-                convertToArrayOfKata(&tebakan,1); //input satu huruf tebakan
-                for (i = 0; i < soal.Length;i++)
-                {
-                    if (tebakan.buffer[0].TabWord[0] == soal.TabWord[i])
-                    {
-                        kosong.TabWord[i] = soal.TabWord[i];
-                        printf("%c",kosong.TabWord[i]);
-                        guessed = true;
-                    }
-                } 
-                if (!guessed)
-                {
-                    kesempatan -= 1;
-                }
-                if (Eqstr(kosong.TabWord,soal.TabWord))
-                {
-                    printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
-                    soal = listKata.TK[rand()%10];
-                    CreateSentence(&semuatebakan);
-                }
-                // if (&tebakan == soal.TabWord[i]) // cara akses satu persatu hurufny gmana ya 
-                // {
-                //     printf("%c",soal.TabWord[i]); // nampilin huruf yang uda ketebak 
-                //     // cek apakah uda sama semua hurufnya
-                //     if (!Eqstr(&tebakan,soal.TabWord[i]))
-                //     {
-                //         printf("Berhasil menebak kata %s",&soal,"Kamu mendapatkan %d ", length, " poin");
-                //     }
-                // }
-            }
-        }
-        else if((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))
+            valid = true;
+        } 
+        else 
         {
-            Load("kata.txt",&listKata);
-            tambahkata(&listKata);
-            Save("kata.txt", listKata);
+            printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
+            printf("Choose Menu: ");
+            START();
+            convertToArrayOfKata(&input,4);
         }
     }
-    else
+    if (Eqstr(input.buffer[0].TabWord,"PLAY"))
     {
-        printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
-        printf("Choose Menu: ");
-        START();
-        convertToArrayOfKata(&input,4);
+    Load("kata.txt",&listKata);
+    int kesempatan = 10;
+    srand(time(NULL));
+    Word soal = listKata.TK[rand()%10];
+        while (kesempatan != 0)
+        {
+            guessed = false;
+            printf("Tebakan sebelumnya: %s",semuatebakan.buffer[0].TabWord); // masukkin input stlahnya cara nampilin - gman ya
+            printf("\n");
+            printf("Kesempatan: %d\n",kesempatan);
+            Word kosong;
+            for (i = 0; i < soal.Length; i++)
+            {
+                kosong.TabWord[i] = '_';
+            }
+            kosong.Length = soal.Length;
+            for (i = 0; i < kosong.Length; i++)
+            {
+                printf("%c ",kosong.TabWord[i]); // menampilkan _ _ _ _
+            }
+            printf("\n");
+            printf("Masukkan Tebakan: ");
+            CreateSentence(&tebakan);
+            START();
+            convertToArrayOfKata(&tebakan,1); //input satu huruf tebakan
+            for (i = 0; i < soal.Length;i++)
+            {
+                if (tebakan.buffer[0].TabWord[0] == soal.TabWord[i])
+                {
+                    kosong.TabWord[i] = soal.TabWord[i];
+                    printf("%c",kosong.TabWord[i]);
+                    guessed = true;
+                }
+            } 
+            if (!guessed)
+            {
+                kesempatan -= 1;
+            }
+            if (Eqstr(kosong.TabWord,soal.TabWord))
+            {
+                printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
+                soal = listKata.TK[rand()%10];
+                CreateSentence(&semuatebakan);
+            }
+                    // if (&tebakan == soal.TabWord[i]) // cara akses satu persatu hurufny gmana ya 
+                    // {
+                    //     printf("%c",soal.TabWord[i]); // nampilin huruf yang uda ketebak 
+                    //     // cek apakah uda sama semua hurufnya
+                    //     if (!Eqstr(&tebakan,soal.TabWord[i]))
+                    //     {
+                    //         printf("Berhasil menebak kata %s",&soal,"Kamu mendapatkan %d ", length, " poin");
+                    //     }
+                    // }
+        }
+    }
+    else if((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))
+    {
+        Load("kata.txt",&listKata);
+        tambahkata(&listKata);
+        Save("kata.txt", listKata);
     }
 }
 int main() {
