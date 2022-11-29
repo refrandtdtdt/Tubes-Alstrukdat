@@ -98,23 +98,29 @@ void hangman ()
     TabKata listKata; MakeEmpty(&listKata);
     printf("Choose Menu: ");
     START();
-    convertToArrayOfKata(&input,4);
+    convertToArrayOfKata(&input,2);
     int length;
     int i = 0;
     boolean valid = false;
     boolean guessed;
     while (!valid) 
     {
-        if((Eqstr(input.buffer[0].TabWord,"PLAY")) || ((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))) 
+        if(Eqstr(input.buffer[0].TabWord, "PLAY")) 
         {
             valid = true;
-        } 
+        }
+        else if (Eqstr(input.buffer[0].TabWord, "ADD") && Eqstr(input.buffer[1].TabWord, "WORD"))
+        {
+            valid = true;
+        }
         else 
         {
             printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
             printf("Choose Menu: ");
+            clear(input.buffer[0].TabWord);
+            clear(input.buffer[1].TabWord);
             START();
-            convertToArrayOfKata(&input,4);
+            convertToArrayOfKata(&input,2);
         }
     }
     if (Eqstr(input.buffer[0].TabWord,"PLAY"))
