@@ -6,6 +6,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include "..\..\ADT\mesinkar.h"
+#include "..\..\ADT\mesinkata_modif.h"
+#include "..\..\ADT\functions.h"
 
 /*Selektor*/
 #define ROOT(p)  (p)->info
@@ -61,8 +64,8 @@ boolean IsBiner(StoryTree p);
 
 StoryTree buildBalancedTree(int n);
 
-/*print sesuai pre order dari kiri sampai kanan*/
-void PrintPreOrder(StoryTree p);
+/*print sesuai pre order dari kiri sampai kanan dan indentasi levelnya*/
+void PrintPreOrder(StoryTree p, int level);
 
 /* Membuat pohon cerita yang sesuai */
 StoryTree buildStoryTree();
@@ -74,6 +77,8 @@ StoryTree buildStoryTree();
 /* Proses: membaca string st dan membangun pohon secara rekursif*/
 void buildTreeString(StoryTree *T, char* st, int *idx);
 
-/* Mengeksekusi Story pada node input */
+/* Print Space */
+void PrintSpace(int n);
+
 
 #endif

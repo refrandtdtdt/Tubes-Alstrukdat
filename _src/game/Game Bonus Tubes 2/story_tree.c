@@ -71,11 +71,12 @@ StoryTree buildBalancedTree(int n)  {
     }
 }
 
-void PrintPreOrder(StoryTree p) {
+void PrintPreOrder(StoryTree p, int level) {
     if (!IsTreeEmpty(p)) {
+        PrintSpace(level);
         printf("%c\n", INFO(p));
-        PrintPreOrder(LEFT(p));
-        PrintPreOrder(RIGHT(p));
+        PrintPreOrder(LEFT(p), level + 1);
+        PrintPreOrder(RIGHT(p), level + 1);
     }
 }
 
@@ -139,4 +140,11 @@ void buildTreeString(StoryTree *T, char* st, int *idx)  {
         buildTreeString(&RIGHT(*T), st, idx);
     }
     (*idx)++;
+}
+
+void PrintSpace(int n)  {
+    int i;
+    for (i = 1; i < n; i++) {
+        printf("  ");
+    }
 }

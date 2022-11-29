@@ -38,7 +38,8 @@
     "dinerdash.h": "c",
     "main_game.h": "c",
     "math.h": "c",
-    "typeinfo": "c"
+    "typeinfo": "c",
+    "story2_node.h": "c"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

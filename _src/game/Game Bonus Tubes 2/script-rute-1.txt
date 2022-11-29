@@ -1,7 +1,7 @@
 Kamu menang batu-gunting-kertas
 
 %s: \"Hore!!, aku menang!!\"
-Miya: \"aahh, moooou\"
+Miya: \"aahh, dahlah\"
 %s: \"Janji harus ditepati, ya\"
 Miya: \"Ya ya, Aku tahu.\"
 
