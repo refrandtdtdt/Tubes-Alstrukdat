@@ -73,6 +73,18 @@ void tambahkata (TabKata *T)
     }
 }
 
+boolean cekkar (char *string, char cc)
+{
+    for (int i = 0; i < len(string); ++i)
+    {
+        if (string[i] == cc)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 void hangman ()
 {
     printf("  __   __  _______  __    _  _______  __   __  _______  __    _ \n");
@@ -130,60 +142,53 @@ void hangman ()
         int kesempatan = 10;
         srand(time(NULL));
         Word soal = listKata.TK[rand()%10];
+        Word kosong;
+        for (i = 0; i < soal.Length; i++)
+        {
+            kosong.TabWord[i] = '_';
+        }
+        kosong.Length = soal.Length;
+        for (i = 0; i < kosong.Length; i++)
+        {
+            printf("%c ",kosong.TabWord[i]); // menampilkan _ _ _ _
+        }
         while (kesempatan != 0)
         {
             guessed = false;
-
             printf("\n");
             printf("Kesempatan: %d\n",kesempatan);
-            Word kosong;
-            for (i = 0; i < soal.Length; i++)
-            {
-                kosong.TabWord[i] = '_';
-            }
-            kosong.Length = soal.Length;
-            for (i = 0; i < kosong.Length; i++)
-            {
-                printf("%c ",kosong.TabWord[i]); // menampilkan _ _ _ _
-            }
             printf("\n");
             printf("Masukkan Tebakan: ");
             CreateSentence(&tebakan);
             START();
             convertToArrayOfKata(&tebakan,1); //input satu huruf tebakan
-            for (i = 0; i < soal.Length;i++)
+            for (int i = 0; i < soal.Length;i++)
             {
                 if (tebakan.buffer[0].TabWord[0] == soal.TabWord[i])
                 {
                     kosong.TabWord[i] = soal.TabWord[i];
-                    printf("%c",kosong.TabWord[i]);
                     guessed = true;
-                }
-                else
-                {
-                    printf("_");
+                    for (int i=0; i < soal.Length; i++)
+                    {
+                        printf("%c ", kosong.TabWord[i]);
+                    }
+                    printf("\n"); 
+                    if (cekkar(tebakan.buffer[i].TabWord,'_') == true)
+                    {
+                        printf("MasukkanTebakan: ");
+                        CreateSentence(&tebakan);
+                        START();
+                    }
+                    else
+                    {
+                        printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
+                    }
                 }
             }
-            printf("\n"); 
             if (!guessed)
             {
                 kesempatan -= 1;
             }
-            if (Eqstr(kosong.TabWord,soal.TabWord))
-            {
-                printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
-                soal = listKata.TK[rand()%10];
-                CreateSentence(&semuatebakan);
-            }
-                    // if (&tebakan == soal.TabWord[i]) // cara akses satu persatu hurufny gmana ya 
-                    // {
-                    //     printf("%c",soal.TabWord[i]); // nampilin huruf yang uda ketebak 
-                    //     // cek apakah uda sama semua hurufnya
-                    //     if (!Eqstr(&tebakan,soal.TabWord[i]))
-                    //     {
-                    //         printf("Berhasil menebak kata %s",&soal,"Kamu mendapatkan %d ", length, " poin");
-                    //     }
-                    // }
         }
     }
     else if((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))
