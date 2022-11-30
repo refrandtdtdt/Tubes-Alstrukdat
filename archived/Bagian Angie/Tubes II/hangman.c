@@ -103,13 +103,14 @@ void hangman ()
     int i = 0;
     boolean valid = false;
     boolean guessed;
+    printf("%s \n",input.buffer[0].TabWord);
     while (!valid) 
     {
-        if(Eqstr(input.buffer[0].TabWord, "PLAY")) 
+        if((Eqstr(input.buffer[0].TabWord,"PLAY"))) 
         {
             valid = true;
-        }
-        else if (Eqstr(input.buffer[0].TabWord, "ADD") && Eqstr(input.buffer[1].TabWord, "WORD"))
+        } 
+        else if ((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))
         {
             valid = true;
         }
@@ -125,14 +126,14 @@ void hangman ()
     }
     if (Eqstr(input.buffer[0].TabWord,"PLAY"))
     {
-    Load("kata.txt",&listKata);
-    int kesempatan = 10;
-    srand(time(NULL));
-    Word soal = listKata.TK[rand()%10];
+        Load("kata.txt",&listKata);
+        int kesempatan = 10;
+        srand(time(NULL));
+        Word soal = listKata.TK[rand()%10];
         while (kesempatan != 0)
         {
             guessed = false;
-            printf("Tebakan sebelumnya: %s",semuatebakan.buffer[0].TabWord); // masukkin input stlahnya cara nampilin - gman ya
+
             printf("\n");
             printf("Kesempatan: %d\n",kesempatan);
             Word kosong;
@@ -158,7 +159,12 @@ void hangman ()
                     printf("%c",kosong.TabWord[i]);
                     guessed = true;
                 }
-            } 
+                else
+                {
+                    printf("_");
+                }
+            }
+            printf("\n"); 
             if (!guessed)
             {
                 kesempatan -= 1;
