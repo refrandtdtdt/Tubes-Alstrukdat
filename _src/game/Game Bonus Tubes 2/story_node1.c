@@ -38,11 +38,10 @@ void node1(int *score, char* player, Address *p)
     validinput = false;
     printf("1. Baik\n2. apaan sih?\n\nSilakan pilih opsi dialog(1/2): ");
     while (!validinput)    {
-        //scanf("%d", &input);
         START();
         convertToArrayOfKata(&word_input, 1);
         input = StrToInt(word_input.buffer[0].TabWord);
-        if ((input != 1) & (input != 2)) {
+        if ((input != 1) && (input != 2)) {
             printf("Invalid Input\n");
         }
         else    {

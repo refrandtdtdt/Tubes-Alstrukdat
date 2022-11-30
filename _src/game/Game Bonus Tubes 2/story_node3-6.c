@@ -61,7 +61,8 @@ void node3(int *score, char* player, Address *p)
                 validinput = true;
             }
             else    {
-                score_change(score, -40)
+                system("cls");
+                score_change(score, -40);
                 printf("Miya: \"tet tot, salah\"");START();system("cls");
             }
             
@@ -79,15 +80,18 @@ void node3(int *score, char* player, Address *p)
         START(); convertToArrayOfKata(&word_input, 1);input = StrToInt(word_input.buffer[0].TabWord);
         if ((input >= 1) && (input <= 6))   {
             if (input == 2) {
+                system("cls");
                 score_change(score, 200);
                 printf("Miya: \"Betul, kamu tau banget aku\"");START();system("cls");
                 validinput = true;
             }
             else if (input == 1)    {
+                system("cls");
                 score_change(score, -70);
                 printf("Miya: \"Bukan. iya sih aku suka BTS, tapi bukan BTS ya favoritku wkwkkwkw\"");START();system("cls");
             }
             else    {
+                system("cls");
                 score_change(score, -100);
                 printf("Miya: \"bukan, salah\"");START();system("cls");
             }
@@ -105,6 +109,7 @@ void node3(int *score, char* player, Address *p)
         START(); convertToArrayOfKata(&word_input, 1);input = StrToInt(word_input.buffer[0].TabWord);
         if ((input >= 1) && (input <= 6))   {
             if (input == 4) {
+                system("cls");
                 score_change(score, 200);
                 printf("Miya: \"Betul banget.\"");START();system("cls");
                 validinput = true;
@@ -169,7 +174,7 @@ void node3(int *score, char* player, Address *p)
 }
 
 void node4(int *score, char* player, Address *p)    {
-
+    *p = RIGHT(*p);
 }
 
 void node5(int *score, char* player, Address *p)    {
@@ -216,7 +221,7 @@ void node5(int *score, char* player, Address *p)    {
     printf("Miya menyapaku dari bed rumah sakit.");START();system("cls");
     printf("Miya: \"Halo %s, lombamu lancar-lancar aja kan?\"", player);START();system("cls");
     printf("%s: \"Lancar kok\"", player);START();system("cls");
-    printf("%s: \"Maaf aku menolak permintaanmu kemarin, aku nggak tahu kalo kamu sakit begini\"", players);START();system("cls");
+    printf("%s: \"Maaf aku menolak permintaanmu kemarin, aku nggak tahu kalo kamu sakit begini\"", player);START();system("cls");
     printf("Miya: \"Enggak kok, ini salahku karena tidak pernah bilang padamu\"");START();system("cls");
     printf("Miya: \"Jadi sebentar lagi, aku akan menjalankan operasi. doakan semoga operasinya berhasil.\"");START();system("cls");
     printf("Miya: \"kalau gagal, ya mungkin saja aku sudah pergi dari dunia ini\"");START();system("cls");
@@ -304,6 +309,4 @@ void node6(int *score, char* player, Address *p)    {
     else if (input == 2)    {
         *p = RIGHT(*p);
     }
-    printf("");START();system("cls");
-    printf("");START();system("cls");
 }

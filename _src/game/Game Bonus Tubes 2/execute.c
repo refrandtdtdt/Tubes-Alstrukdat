@@ -17,17 +17,17 @@ void ExecuteNode(char id_command, char* nama, int *score, Address *node)    {
         node3(score, nama, node);
         break;
     case '4':
-        //node4(score, nama, node);
-        game_over_node(node);
+        node4(score, nama, node);
+        //game_over_node(node);
         break;
     case '5':
-        //node5(score, nama, node);
+        node5(score, nama, node);
         break;
     case '6':
-        //node6(score, nama, node);
+        node6(score, nama, node);
         break;
     case '7':
-        //node7(score, nama, node);
+        node7(score, nama, node);
         break;
     case '8':
         //node8(score, nama, node);

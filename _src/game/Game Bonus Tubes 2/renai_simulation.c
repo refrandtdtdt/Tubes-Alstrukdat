@@ -7,9 +7,11 @@ StoryTree story;
 
 int main() {
     char* nama;
+    Sentence word_nama;
     int skor;
     skor = 0;
-    printf("Masukkan Namamu: ");scanf("%s", nama);
+    printf("Masukkan Namamu: ");START();convertToArrayOfKata(&word_nama, 1);system("cls");
+    nama = word_nama.buffer[0].TabWord;
     StoryTree story;
     int idx = 0;
     char* pita;

@@ -7,10 +7,10 @@ void create_gacha(gacha *list_item) {
     Item three_star;
     Item four_star;
     Item five_star;
-    string three_star_name[] = {"Pororo", "Woody Gunawan", "Michael Main", "Alan Waker", "Ferdiman"};
-    string four_star_name[] = {"Faith-oni", "Victoria", "Reyhan Padang Asik", "Inspektur Riza"};
+    string three_star_name[] = {"Pororo", "Woody Gunawan", "Michael Main", "Elan Waker", "Ferdiman", "Lis Tabuni"};
+    string four_star_name[] = {"Faith-oni", "Victoria", "Reyhan Padang Asik", "Inspektur Riza", "Algani Takol"};
     string five_star_name[] = {"Hatsune Miku", "Diluc", "Hi Duarrrrrr"};
-    printf("sukses1\n");
+    //printf("sukses1\n");
     int i;
     int offset = 0;
     int random;
@@ -20,7 +20,6 @@ void create_gacha(gacha *list_item) {
         if (i < 5)  {
             //printf("yes");
             random = randomizer(0,2,&offset);
-            printf("%d\n", random);
             (*list_item)[i].name = CopyStr(five_star_name[random]);
             (*list_item)[i].rarity = 5;
             (*list_item)[i].score = 1000;
@@ -29,12 +28,11 @@ void create_gacha(gacha *list_item) {
             (*list_item + i*sizeof(Item))->rarity = 5;
             (*list_item + i*sizeof(Item))->score = 1000;
             */
-            printstring((*list_item)[i].name);printf("\n");
+            //printstring((*list_item)[i].name);printf("\n");
         }
         else if ((i >= 5) && (i < 30))  {
             //printf("yes");
-            random = randomizer(0,3,&offset);
-            printf("%d\n", random);
+            random = randomizer(0,4,&offset);
             (*list_item)[i].name = CopyStr(four_star_name[random]);
             (*list_item)[i].rarity = 4;
             (*list_item)[i].score = 50;
@@ -43,12 +41,11 @@ void create_gacha(gacha *list_item) {
             (*list_item + i*sizeof(Item))->rarity = 4;
             (*list_item + i*sizeof(Item))->score = 50;
             */
-            printstring((*list_item)[i].name);printf("\n");
+            //printstring((*list_item)[i].name);printf("\n");
         }
         else if ((i >= 30) && (i < 100))    {
             //printf("yes");
-            random = randomizer(0,4,&offset);
-            printf("%d\n", random);
+            random = randomizer(0,5,&offset);
             (*list_item)[i].name = CopyStr(three_star_name[random]);
             (*list_item)[i].rarity = 3;
             (*list_item)[i].score = 5;
@@ -57,11 +54,11 @@ void create_gacha(gacha *list_item) {
             (*list_item + i*sizeof(Item))->rarity = 3;
             (*list_item + i*sizeof(Item))->score = 5;
             */
-            printstring((*list_item)[i].name);printf("\n");
+            //printstring((*list_item)[i].name);printf("\n");
         }
-        printf("sukses %d\n", i);
+        //printf("sukses %d\n", i);
     }
-    printf("sukses2\n");
+    //printf("sukses2\n");
 }
 
 void shuffle(gacha *list_item, size_t n)  {
