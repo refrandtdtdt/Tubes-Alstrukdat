@@ -1,7 +1,9 @@
 #ifndef GACHAPON
 #define GACHAPON
 
-#include "boolean.h" 
+#include "boolean.h"
+#include "randomizer.h"
+
 typedef struct item {
     int rarity;
     char* name;
@@ -10,6 +12,8 @@ typedef struct item {
 
 typedef Item gacha[100];
 
+typedef char* string;
+
 /* Game utama */
 void gachapon(int *score);
 
@@ -17,8 +21,11 @@ void gachapon(int *score);
 void create_gacha(gacha *list_item);
 
 /* shuffle */
-void shuffle(gacha *list_item);
+void shuffle(gacha *list_item, size_t n);
 
-/* randomizer*/
-int randomizer(int lower, int upper);
+char* CopyStr(char s[]);
+
+void printstring(char* str);
+
+void clearstr(char* str);
 #endif

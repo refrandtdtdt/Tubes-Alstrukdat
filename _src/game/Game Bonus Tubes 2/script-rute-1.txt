@@ -1,15 +1,15 @@
 Kamu menang batu-gunting-kertas
 
-%s: "Hore!!, aku menang!!"
-Miya: "aahh, moooou"
-%s: "Janji harus ditepati, ya"
-Miya: "Ya ya, Aku tahu."
+%s: \"Hore!!, aku menang!!\"
+Miya: \"aahh, dahlah\"
+%s: \"Janji harus ditepati, ya\"
+Miya: \"Ya ya, Aku tahu.\"
 
 Miya berpikir sejenak...
 
-Miya: "Ayo makan di Ayam Takol"
-%s: "Baiklah, oke sampai jumpa minggu depan"
-Miya: "Oke, %s. sampai jumpaaaa!!"
+Miya: \"Ayo makan di Ayam Takol\"
+%s: \"Baiklah, oke sampai jumpa minggu depan\"
+Miya: \"Oke, %s. sampai jumpaaaa!!\"
 
 Pada akhir pekannya...
 
@@ -17,80 +17,108 @@ kami akhirnya makan bersama
 
 di tengah-tengah makan, Miya memberiku sebuah tebak-tebakan
 
-Miya: "betewe, aku mau kasih kamu tebak-tebakan. kalo bisa jawab ya."
+Miya: \"betewe, aku mau kasih kamu tebak-tebakan. kalo bisa jawab ya.\"
 
 aku cuma ngangguk-ngangguk aja
 
-Miya: "Oke, pertanyaannya, ini kita lagi makan nasi kan?"
-%s: "...iya?"
-Miya: "Nah tau gak kenapa kok dinamakan nasi?"
+Miya: \"Oke, pertanyaannya, ini kita lagi makan nasi kan?\"
+%s: \"...iya?\"
+Miya: \"Nah tau gak kenapa kok dinamakan nasi?\"
 
 opsi dialog
-1. "Enggak tahu" -25
-2. "Karena..." +80
+1. \"Enggak tahu\" -25
+2. \"Karena...\" +80
 
 pilihan 1.
-Miya: "Oke, karena kamu gak tahu aku kasih tau jawabannya."
-Miya: "Jawabannya adalah karena dina lapar, lmaoooo"
+Miya: \"Oke, karena kamu gak tahu aku kasih tau jawabannya.\"
+Miya: \"Jawabannya adalah karena dina lapar, lmaoooo\"
 
 Aku berpikir sebentar, kemudian mengerti maksudnya.
 
-%s: "ealah, bisa aja kamu."
+%s: \"ealah, bisa aja kamu.\"
 
 pilihan 2.
-%s: "Karena dina lapar, wkwkwkkw."
-Miya: "HAHAHAHAHA, betul jawabannya."
-Miya: "keren banget, kamu :)"
-%s: "hahaha, makasih."
+%s: \"Karena dina lapar, wkwkwkkw.\"
+Miya: \"HAHAHAHAHA, betul jawabannya.\"
+Miya: \"keren banget, kamu :)\"
+%s: \"hahaha, makasih.\"
 
-Miya: "Oke, sekarang ini pertanyaan berikutnya. tinggiku berapa?"
+Miya: \"Oke, sekarang ini pertanyaan berikutnya. tinggiku berapa?\"
 
 opsi dialog
 
-1. "150 cm" (salah) -40 (repeat)
-2. "152 cm" (benar) (+100)
-3. "154 cm" (salah) -40 (repeat)
-4. "156 cm" (salah) -40 (repeat)
-5. "158 cm" (salah) -40 (repeat)
+1. \"150 cm\" (salah) -40 (repeat)
+2. \"152 cm\" (benar) (+200)
+3. \"154 cm\" (salah) -40 (repeat)
+4. \"156 cm\" (salah) -40 (repeat)
+5. \"158 cm\" (salah) -40 (repeat)
 
 bila benar:
-Miya: "betul wkwkwkwk"
+Miya: \"betul wkwkwkwk\"
 
 bila salah:
-%s: "tet tot, salah"
+Miya: \"tet tot, salah\"
 
-kami akhirnya makan dengan lahap. kemudian hari berakhir.
+Miya: \"Okay, next question!\"
+Miya: \"Siapa artis favoritku?\"
+
+opsi dialog
+1. BTS\n  (-50)
+2. TREASURE\n (+300)
+3. YOASOBI\n  (-100)
+4. HigeDan\n  (-100)
+5. Eve\n  (-100)
+6. aespa\n\n (-100)
+
+if benar:
+    Betul, kamu tau banget aku
+salah:
+    bukan, salah
+
+Miya: \"oke pertanyaan terakhir.\"
+Miya: \"Kapan hari ulang tahunku?\"
+
+1. \"10 April\" (-80)
+2. \"11 April\" (-80)
+3. \"12 April\" (-80)
+4. \"13 April\" (+500)
+5. \"14 April\" (-80)
+
+if betul: Miya: \"Betul banget.\"
+else: Miya: \"Jawabannya.......Bukan hahahaha\"
+
+setelah menjawab pertanyaan, makanan pun datang. kami akhirnya makan dengan lahap. kemudian hari berakhir.
 
 1 bulan pun berjalan, aku mulai ikut lomba Matematika.
 hari-hariku sibuk dengan belajar matematika, 2 hari lagi adalah hari-h lomba, aku tak ingin menyia-nyiakan hal tersebut.
 sehabis pulang sekolah, Miya mencoba membahas sesuatu denganku, muka dia terlihat muram.
 
-Miya: "anu, %s. aku mau minta sesuatu."
+Miya: \"anu, %s. aku mau minta sesuatu.\"
 
-%s: "maukah kita pergi ke taman bermain, bareng?"
+%s: \"maukah kita pergi ke taman bermain, bareng?\"
 
 aku gugup, apakah ini sebuah date??!!!
-tapi, aku bingung. aku sebentar lagi ada lomba. aku tidak ingin
+tapi, aku bingung. aku sebentar lagi ada lomba. aku tidak ingin menyia-nyiakan waktu belajar.
 
 opsi dialog:
-1. "Maaf, Miya. tapi sepertinya aku sibuk besok."
-2. "Baiklah, kalau itu Miya, aku gak bakal nolak."
+1. \"Maaf, Miya. tapi sepertinya aku sibuk besok.\"
+2. \"Baiklah, kalau itu Miya, aku gak bakal nolak.\"
 
 opsi 1:
-Miya: Kamu sibuk? masa bener-bener sibuk? MASA KAMU GAK ADA WAKTU SIH!"
-%s: "Maaf, Miya. aku harus belajar buat lomba. kita bisa kok main kapan-kapan."
-Miya: "UDAH TELAT!. UDAH GAK ADA WAKTU LAGI."
+Miya: \"Kamu sibuk? masa bener-bener sibuk? MASA KAMU GAK ADA WAKTU SIH!\"
+%s: \"Maaf, Miya. aku harus belajar buat lomba. kita bisa kok main kapan-kapan.\"
+Miya: \"UDAH TELAT!. UDAH GAK ADA WAKTU LAGI.\"
 
 dia menangis histeris. baru pertama kali aku melihat dia menangis seperti ini.
-Miya: "MAAF, %s. aku terlalu emosional sekarang."
-%s: "gpp, Miya. aku janji bakal nemenim kamu setelah selesai lomba"
-Miya: "semoga kamu bisa menepati janjimu :)."
+Miya: \"MAAF, %s. aku terlalu emosional sekarang.\"
+%s: \"gpp, Miya. aku janji bakal nemenim kamu setelah selesai lomba\"
+Miya: \"semoga kamu bisa menepati janjimu :).\"
 
 lanjut rute kiri (Sad Bad Ending)
 
 opsi 2:
 dia menangis sambil berkata kepadaku,
-Miya: "(sob) terima kasih, %s. ini hadiah terbaik yang pernah diberikan kepadaku."
-Miya: "Sampai jumpa besok."
+Miya: \"(sob) terima kasih, %s. ini hadiah terbaik yang pernah diberikan kepadaku.\"
+Miya: \"Sampai jumpa besok.\"
 
 lanjut ke rute kanan (Sad good ending)  (script-rute-3.txt)
