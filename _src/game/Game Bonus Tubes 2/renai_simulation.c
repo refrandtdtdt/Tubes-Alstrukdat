@@ -13,7 +13,7 @@ int main() {
     StoryTree story;
     int idx = 0;
     char* pita;
-    pita = "(1(2(3(5(7()())(8()()))(6()()))(4(9()())(0()())))(0()()))";
+    pita = "(1(2(3(5()())(6(7()())(8(0()())(0()()))))(4(9()())(0()())))(0()()))";
     buildTreeString(&story, pita, &idx);
     Address p = story;
     while (!IsTreeEmpty(p))   {

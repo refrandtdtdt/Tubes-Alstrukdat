@@ -1,4 +1,5 @@
 #include "execute.h"
+#include <stdio.h>
 
 void ExecuteNode(char id_command, char* nama, int *score, Address *node)    {
     switch (id_command)

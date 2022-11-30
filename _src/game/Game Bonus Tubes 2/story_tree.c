@@ -148,3 +148,13 @@ void PrintSpace(int n)  {
         printf("  ");
     }
 }
+
+void score_change(int *score, int value)    {
+    *score += value;
+    if (value >= 0) {
+        printf("Score +%d\n\n", value);
+    }
+    else    {
+        printf("Score %d\n\n", value);
+    }
+}

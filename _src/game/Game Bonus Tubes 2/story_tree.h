@@ -80,5 +80,8 @@ void buildTreeString(StoryTree *T, char* st, int *idx);
 /* Print Space */
 void PrintSpace(int n);
 
+/* Ubah Skor */
+void score_change(int *score, int value);
+
 
 #endif

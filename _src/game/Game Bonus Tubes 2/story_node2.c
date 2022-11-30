@@ -74,7 +74,7 @@ void node2(int *score, char* player, Address *p)
         printf("Miya: \"...O-oke deh, mari kita suit\"\n");scanf("%c", &dummy);system("cls");   
     }
     boolean win;
-    janken(score, 750, 100, &win);
+    janken(score, 500, 100, &win);
 
     if (win)    {
         *p = LEFT(*p);

@@ -31,7 +31,7 @@ opsi dialog
 
 pilihan 1.
 Miya: \"Oke, karena kamu gak tahu aku kasih tau jawabannya.\"
-Miya: "Jawabannya adalah karena dina lapar, lmaoooo"
+Miya: \"Jawabannya adalah karena dina lapar, lmaoooo\"
 
 Aku berpikir sebentar, kemudian mengerti maksudnya.
 
@@ -48,7 +48,7 @@ Miya: \"Oke, sekarang ini pertanyaan berikutnya. tinggiku berapa?\"
 opsi dialog
 
 1. \"150 cm\" (salah) -40 (repeat)
-2. \"152 cm\" (benar) (+100)
+2. \"152 cm\" (benar) (+200)
 3. \"154 cm\" (salah) -40 (repeat)
 4. \"156 cm\" (salah) -40 (repeat)
 5. \"158 cm\" (salah) -40 (repeat)
@@ -57,9 +57,37 @@ bila benar:
 Miya: \"betul wkwkwkwk\"
 
 bila salah:
-%s: \"tet tot, salah\"
+Miya: \"tet tot, salah\"
 
-kami akhirnya makan dengan lahap. kemudian hari berakhir.
+Miya: \"Okay, next question!\"
+Miya: \"Siapa artis favoritku?\"
+
+opsi dialog
+1. BTS\n  (-50)
+2. TREASURE\n (+300)
+3. YOASOBI\n  (-100)
+4. HigeDan\n  (-100)
+5. Eve\n  (-100)
+6. aespa\n\n (-100)
+
+if benar:
+    Betul, kamu tau banget aku
+salah:
+    bukan, salah
+
+Miya: \"oke pertanyaan terakhir.\"
+Miya: \"Kapan hari ulang tahunku?\"
+
+1. \"10 April\" (-80)
+2. \"11 April\" (-80)
+3. \"12 April\" (-80)
+4. \"13 April\" (+500)
+5. \"14 April\" (-80)
+
+if betul: Miya: \"Betul banget.\"
+else: Miya: \"Jawabannya.......Bukan hahahaha\"
+
+setelah menjawab pertanyaan, makanan pun datang. kami akhirnya makan dengan lahap. kemudian hari berakhir.
 
 1 bulan pun berjalan, aku mulai ikut lomba Matematika.
 hari-hariku sibuk dengan belajar matematika, 2 hari lagi adalah hari-h lomba, aku tak ingin menyia-nyiakan hal tersebut.
@@ -70,7 +98,7 @@ Miya: \"anu, %s. aku mau minta sesuatu.\"
 %s: \"maukah kita pergi ke taman bermain, bareng?\"
 
 aku gugup, apakah ini sebuah date??!!!
-tapi, aku bingung. aku sebentar lagi ada lomba. aku tidak ingin
+tapi, aku bingung. aku sebentar lagi ada lomba. aku tidak ingin menyia-nyiakan waktu belajar.
 
 opsi dialog:
 1. \"Maaf, Miya. tapi sepertinya aku sibuk besok.\"
