@@ -168,26 +168,43 @@ void hangman ()
                 {
                     kosong.TabWord[i] = soal.TabWord[i];
                     guessed = true;
-                    for (int i=0; i < soal.Length; i++)
-                    {
-                        printf("%c ", kosong.TabWord[i]);
-                    }
-                    printf("\n"); 
-                    if (cekkar(tebakan.buffer[i].TabWord,'_') == true)
-                    {
-                        printf("MasukkanTebakan: ");
-                        CreateSentence(&tebakan);
-                        START();
-                    }
-                    else
-                    {
-                        printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
-                    }
+                    // for (int i=0; i < soal.Length; i++)
+                    // {
+                    //     printf("%c ", kosong.TabWord[i]);
+                    // }
+                    // printf("\n"); 
+                    // if (cekkar(tebakan.buffer[i].TabWord,'_') == true)
+                    // {
+                    //     printf("MasukkanTebakan: ");
+                    //     CreateSentence(&tebakan);
+                    //     START();
+                    // }
+                    // else
+                    // {
+                    //     printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
+                    // }
                 }
             }
+            printf("%s\n", kosong.TabWord);
             if (!guessed)
             {
                 kesempatan -= 1;
+            }
+            // Ini buat ngecek udah ketebak atau belum semua hurufnya
+            int k = 0;
+            boolean win = true;
+            while (k < soal.Length && win == true)
+            {
+                if (kosong.TabWord[k] != soal.TabWord[k])
+                {
+                    win = false;
+                }
+                k++;
+            }
+            // Kalo kosong tadi udah sama dengan soal, maka win jadi true
+            if (win == true)
+            {
+                printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
             }
         }
     }
