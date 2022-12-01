@@ -51,7 +51,7 @@ I.S. Sembarang
 F.S. Mencetak bantuan-bantuan sesuai input
 */
 
-void Quit() {
+void Quit(ScoreBoardList *scores) {
     printf("\nExiting BNMO...\n");
     printf("Goodbye\n");
     exit(0);
@@ -62,7 +62,7 @@ I.S. Sembarang
 F.S. mengakhiri program ketika input QUIT diberikan
 */
 
-void Load(char *filename, TabGame *list)
+void Load(char *filename, TabGame *list, ScoreBoardList *scores, boolean init)
 {
     char* currline;
     printf("Loading %s...\n", filename);
@@ -88,11 +88,60 @@ void Load(char *filename, TabGame *list)
             clear(gameName.buffer[i].TabWord);
         }
         convertToArrayOfKata(&gameName, games);
-        for (int i = 0; i <games;i++)
+        for (int i = 0; i <games; i++)
         {
             list->TG[i] = gameName.buffer[i];
+            scores->List[i].game_name = gameName.buffer[i];
         }
         list->Neff = games;
+        scores->Neff = games;
+        //batas akhir untuk command START
+        if(!init)
+        {
+            //ADV();
+            //baca scoreboard
+            int j = 0;
+            int scorecount;
+            Sentence gamescore; CreateSentence(&gamescore);
+            Word temp;
+            while(j < games)
+            {
+                scorecount = 0;
+                while (cc != '\n')
+                {
+                    scorecount *= 10;
+                    scorecount += cc-'0';
+                    ADV();
+                }
+                ADV();
+                if(scorecount>0)
+                {
+                    convertToArrayOfKata(&gamescore, scorecount);
+                    for(int i = 0; i < scorecount; i++)
+                    {
+                        int k=0;
+                        clear(temp.TabWord);
+                        while(gamescore.buffer[i].TabWord[k] != ' ')
+                        {
+                            temp.TabWord[k] = gamescore.buffer[i].TabWord[k];
+                            k++;
+                            temp.Length++;
+                        }
+                        k++; int v=0;
+                        while(gamescore.buffer[i].TabWord[k] != '\0')
+                        {
+                            v *= 10;
+                            v += gamescore.buffer[i].TabWord[k]-'0';
+                            k++;
+                        }
+                        InsertScore(&scores->List[j].board,kataToString(temp),v);
+                    }
+                }
+                j++;
+                CreateSentence(&gamescore);
+                //if(j!=games){ADV();}
+            }
+        }
         printf("\nSavefile loaded successfully\n");
         CLOSEF();
     }
@@ -104,7 +153,7 @@ F.S. Jika terdapat save file sesuai nama file masukan user, maka akan membaca sa
      maka akan mengeluarkan pesan bahwa tidak dapa tmenemukan save file tersebut
 */
 
-void Save(char* filename, TabGame list)
+void Save(char* filename, TabGame list, ScoreBoardList scores)
 {
     printf("Saving to %s...\n", filename);
     STARTW(filename);
@@ -112,6 +161,14 @@ void Save(char* filename, TabGame list)
     for (int i = 0; i < list.Neff; i++)
     {
         fprintf(pita, "%s\n", list.TG[i].TabWord);
+    }
+    for (int i = 0; i < scores.Neff; i++)
+    {
+        fprintf(pita, "%d\n", scores.List[i].board.Count);
+        for(int j = 0; j < scores.List[i].board.Count; j++)
+        {
+            fprintf(pita, "%s %d\n", scores.List[i].board.el[j].Key, scores.List[i].board.el[j].Value);
+        }
     }
     CLOSEF();
     printf("Saved Successfully\n");
@@ -248,7 +305,7 @@ F.S. Kondisi 1) Apabila masukan masih di dalam rentang nomor game di dalam dafta
                 masukan lagi sampai masukan valid
 */
 
-void mainkanGame (Queue * antrian_game) {
+void mainkanGame (Queue * antrian_game, ScoreBoardList *scores) {
     printf("Berikut adalah daftar game dalam antrianmu\n");
     int i;
     for (i = 0; i < length((*antrian_game)); i++) {
@@ -272,9 +329,12 @@ void mainkanGame (Queue * antrian_game) {
         } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
             printf("Loading Diner DASH ...\n");
             DinerDash();// Panggil fungsi game Diner DASH
-        } else if (Eqstr(dummy.TabWord,"Tower of Hanoi")) {
-            printf("Loading Tower of Hanoi ...\n");
-            TowerOfHanoi();// Panggil fungsi game Tower of Hanoi
+        } else if (Eqstr(dummy.TabWord,"TOWER OF HANOI")) {
+            printf("Loading TOWER OF HANOI ...\n");
+            TowerOfHanoi();// Panggil fungsi game TOWER OF HANOI
+        } else if (Eqstr(dummy.TabWord,"SNAKE ON METEOR")) {
+            printf("Loading SNAKE ON METEOR ...\n");
+            SnakeOnMeteor();// Panggil fungsi game SNAKE ON METEOR
         } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
             printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
             printf("Silahkan pilih game lain.\n");
@@ -288,7 +348,7 @@ void mainkanGame (Queue * antrian_game) {
             printf("Loading Card Game ...\n");
             GameKartu();// Panggil fungsi game Card Game
         } else {
-            GameTambahan();
+            GameTambahan(scores->List, dummy);
         }
     }
 }
@@ -346,9 +406,12 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
             } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
                 printf("Loading Diner DASH ...\n");
                 DinerDash();// Panggil fungsi game Diner DASH
-            } else if (Eqstr(dummy.TabWord,"Tower of Hanoi")) {
-                printf("Loading Tower of Hanoi ...\n");
-                TowerOfHanoi();// Panggil fungsi game Tower of Hanoi
+            } else if (Eqstr(dummy.TabWord,"TOWER OF HANOI")) {
+                printf("Loading TOWER OF HANOI ...\n");
+                TowerOfHanoi();// Panggil fungsi game TOWER OF HANOI
+            } else if (Eqstr(dummy.TabWord,"SNAKE ON METEOR")) {
+                printf("Loading SNAKE ON METEOR ...\n");
+                SnakeOnMeteor();// Panggil fungsi game SNAKE ON METEOR
             } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
                 printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
                 printf("Silahkan pilih game lain.\n");
@@ -389,10 +452,12 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void GameTambahan() {
+void GameTambahan(ScoreBoard scoreboard) {
     srand(time(0));
     int random = abs((rand() % 100 + (rand() % 100)*pow(-1, rand()))) % 100 + abs((rand() % 50)*pow(-1, rand()));
     printf("Permainan Selesai, Skor: %d\n", random);
+    int i = 5;
+    //while(scoreboard.game_name != )
 }
 /*
 Perintah untuk memainkan game di mana langsung masuk ke tahap game over dengan langsung mengeluarkan skor akhir berupa
@@ -435,3 +500,26 @@ menebak angka tersebut. Sistem akan memberitahu apakah angka tebakan lebih besar
 I.S. Sembarang
 F.S. Dikeluarkan output tentang tebakan dari pemain danskornya
 */
+
+void ResetHistory()
+{
+    printf("resethistory\n");
+}
+
+void History()
+{
+    printf("history\n");
+}
+
+void ResetAllScores()
+{
+    printf("resetallscores\n");
+}
+
+void showScoreBoard(ScoreBoardList scores, int jumlahGame)
+{
+    for(int i=0; i<jumlahGame; i++)
+    {
+        PrintScoreboard(scores.List[i]);
+    }
+}

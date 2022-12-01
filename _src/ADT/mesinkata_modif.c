@@ -100,7 +100,8 @@ void convertToArrayOfKata(Sentence *sentence, int length)  {
             sentence->buffer[i].TabWord[j] = currentWord.TabWord[j];
             sentence->buffer[i].Length = currentWord.Length;
         }
-        ADVWORD();
+        if(i != length-1) {ADVWORD();}
+        //ADVWORD();
         i++;
     }
     sentence->Length = length;

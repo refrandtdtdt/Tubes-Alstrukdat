@@ -3,7 +3,6 @@
 #include <time.h>
 #include <math.h>
 #include "command.h"
-#include "ADT/mesinkata_modif.h"
 
 int main() // PROGRAM UTAMA
 {
@@ -78,6 +77,7 @@ int main() // PROGRAM UTAMA
     Queue queueGame; CreateQueue(&queueGame);
     TabGame listGame; MakeEmpty(&listGame);
     Sentence input; CreateSentence(&input);
+    ScoreBoardList scoreGame;for(int i=0; i<100; i++){ResetArrayScore(&scoreGame.List[i]);}
     boolean loaded = false;
     //Tabstr listGame; MakeEmpty(&listGame);
 
@@ -100,7 +100,7 @@ int main() // PROGRAM UTAMA
             {
                 if(!loaded)
                 {
-                    Load("default.txt",&listGame);
+                    Load("default.txt",&listGame, &scoreGame, true);
                     loaded = true;
                 }
                 else
@@ -108,48 +108,35 @@ int main() // PROGRAM UTAMA
                     printf("\nFile sudah terload\n");
                 }
             }        
-            else if(Eqstr(command, "SKIPGAME")) // SKIPGAME
-            {
-                if(loaded)
-                {
-                    int x = 0;
-                    int i = 0;
-                    boolean num = true;
-                    while(parameter[i]!='\0' && num)
-                    {
-                        if(parameter[i]-'0'<0 || parameter[i]-'0'>9)
-                        {
-                            num = false;
-                        }
-                        else
-                        {
-                            x *= 10;
-                            x += parameter[i]-'0';
-                        }
-                        i++;
-                    }
-
-                    if(num)
-                    {
-                        lewatiGame(&queueGame, x);
-                    }
-                    else
-                    {
-                        printf("\nParameter invalid\n");
-                    }
-                }
-                else
-                {
-                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
-                }
-            }
             else if(Eqstr(command,"HELP")) // HELP
             {
                 Help();
             }
             else if(Eqstr(command, "QUIT")) // QUIT
             {
-                Quit();
+                Quit(&scoreGame);
+            }
+            else if(Eqstr(command, "SCOREBOARD")) // SCOREBOARD
+            {
+                if(loaded)
+                {
+                    showScoreBoard(scoreGame,listGame.Neff);
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else if(Eqstr(command, "HISTORY")) // HISTORY
+            {
+                if(loaded)
+                {
+                    History();
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
             }
             else // COMMAND LAIN
             {
@@ -162,17 +149,23 @@ int main() // PROGRAM UTAMA
             {
                 if(!loaded)
                 {
-                    parameter = kataToString(input.buffer[1]);
                     int i = len(parameter); //.txt
                     if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
                     {
-                        Load(parameter,&listGame);
+                        if(Eqstr(parameter,"default.txt"))
+                        {
+                            Load(parameter,&listGame,&scoreGame,true);
+                        }
+                        else
+                        {
+                            Load(parameter,&listGame,&scoreGame,false);
+                        }
+                        loaded = true;
                     }
                     else
                     {
                         printf("\nFormat file invalid\n");
                     }
-                    loaded = true;
                 }
                 else
                 {
@@ -183,14 +176,21 @@ int main() // PROGRAM UTAMA
             {
                 if(loaded)
                 {
-                    int i = len(parameter); //.txt
-                    if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
+                    if(Eqstr(parameter,"default.txt"))
                     {
-                        Save(parameter, listGame);
+                        printf("\nTidak dapat overwrite konfigurasi default program\n");
                     }
                     else
                     {
-                        printf("\nFormat file invalid\n");
+                        int i = len(parameter); //.txt
+                        if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
+                        {
+                            Save(parameter, listGame, scoreGame);
+                        }
+                        else
+                        {
+                            printf("\nFormat file invalid\n");
+                        }
                     }
                 }
                 else
@@ -246,7 +246,29 @@ int main() // PROGRAM UTAMA
             {
                 if(loaded)
                 {
-                    mainkanGame(&queueGame);
+                    mainkanGame(&queueGame,&scoreGame);
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else if(Eqstr(command,"RESET") && Eqstr(parameter,"SCOREBOARD")) // RESET SCOREBOARD
+            {
+                if(loaded)
+                {
+                    ResetAllScores();
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else if(Eqstr(command,"RESET") && Eqstr(parameter,"HISTORY")) // RESET HISTORY
+            {
+                if(loaded)
+                {
+                    ResetHistory();
                 }
                 else
                 {

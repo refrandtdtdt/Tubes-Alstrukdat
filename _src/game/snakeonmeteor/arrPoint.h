@@ -5,7 +5,7 @@
 #include "point.h"
 /* Kamus Umum */
 #define MaxElPoint 100
-#define MarkPoint -9999  /* Nilai tak terdefinisi */
+#define MarkPoint -9999  /* Nullai tak terdefinisi */
 
 typedef struct {
 	Point A[MaxElPoint];  /* Memori tempat penyimpanan elemen (container) */
@@ -17,7 +17,7 @@ typedef struct {
 /* Jika L adalah ArrPoint, cara deklarasi dan akses: */
 /* Deklarasi: L : ArrPoint */
 /* Maka cara akses:
- * L.A untuk mengakses seluruh nilai elemen arrPoint
+ * L.A untuk mengakses seluruh Nullai elemen arrPoint
  * L.A[i] untuk mengakses elemen ke-i */
 
 /* ********** KONSTRUKTOR ********** */
@@ -26,10 +26,10 @@ ArrPoint MakeArrPoint();
 /* I.S. sembarang */
 /* F.S. Terbentuk arrPoint L kosong dengan kapasitas MaxEl */
 
-/* *** Selektor SET : Mengubah nilai arrPoint dan elemen arrPoint *** */
+/* *** Selektor SET : Mengubah Nullai arrPoint dan elemen arrPoint *** */
 void SetPoint(ArrPoint *L, int i, Point v);
 /* I.S. T terdefinisi, sembarang */
-/* F.S. Elemen T yang ke-i bernilai v */
+/* F.S. Elemen T yang ke-i berNullai v */
 
 /* ********** SELEKTOR ********** */
 /* *** Banyaknya elemen *** */
