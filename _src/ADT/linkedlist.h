@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "boolean.h"
+#include "../boolean.h"
 #include "point.h"
 #define Null NULL
 

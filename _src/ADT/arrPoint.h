@@ -1,7 +1,7 @@
 #ifndef ADTArrPoint1
 #define ADTArrPoint1
 
-#include "boolean.h"
+#include "../boolean.h"
 #include "point.h"
 /* Kamus Umum */
 #define MaxElPoint 100

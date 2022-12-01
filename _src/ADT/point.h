@@ -3,7 +3,7 @@
 #ifndef Point_H
 #define Point_H
 
-#include "boolean.h"
+#include "../boolean.h"
 #include <time.h>
 
 typedef struct { 
