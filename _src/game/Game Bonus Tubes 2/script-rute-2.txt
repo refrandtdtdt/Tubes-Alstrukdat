@@ -85,13 +85,70 @@ Miya: \"Oke\"
 kita menghabiskan waktu menyenangkan. kita juga mengajak Enji, Pina, Hanrey, dan Dariah untuk ikut main juga.
 
 setelah bermain sampai malam, Enji, Pina, Hanrey, dan Dariah memutuskan untuk meninggalkan kami berdua.
-Pina: \"Eh, kita pulang duluan ya. udah malam hahaha"
+Pina: \"Eh, kita pulang duluan ya. udah malam hahaha\"
 Miya: \"Oke, gak papa\"
 Hanrey: \"kita duluan ya\"
 Radiah: \"Hati-hati ya kalian\"
 %s: \"Oke, kalian juga hati-hati di jalan ya\"
 Enji: \"Bye, guys\"
 %s, Miya: \"Byee\"
+
+%s: \"Eh Miya, aku punya permintaan nih.\"
+Miya: \"Apa, %s?\"
+%s: \"Minggu depan mau aku ajak pergi ke game center. mau?\"
+Miya: \"Haah?\"
+Miya: \"(Aku gak nyangka kalo bakal %s yang ngajak date. aku seneng banget)\"
+Miya: \"A-a-a-aku mau kok.\"
+%s: \"Oke, berarti udah diputusin ya.\"
+%s: \"Gimana kalo kita pulang bareng?\"
+Miya: \"B-b-baik\"
+
+Akhirnya kita berdua pulang bersama.
+Miya: \"Eh, aku mau tanya sesuatu.\"
+%s: \"Ada apa, Miya?\"
+Miya: \"Kenapa hari ini kamu beda banget sama biasanya?\"
+%s: \"Beda Gimana maksudnya?\"
+Miya: \"Kamu biasanya lebih kalem, tapi entah kenapa kamu kok perhatian banget hari-hari ini\"
+Miya: \"Emangnya ada sesuatu?\"
+%s: \"Enggak ada sih, aku emang orangnya begini.\"
+Miya: \"Yakin cuma gitu doang? aku gak percaya. kamu orangnya cenderung cuek begitu. kok bisa-bisanya berubah. apa maksudmu?\"
+
+opsi dialog:
+1. \"Soalnya aku lihat wajahmu sedih akhir-akhir ini\"
+2. \"Udah dibilangin, aku ngelakuin karena aku baik sama semua orang\"
+
+
+if (1)
+Miya: \"Aku kelihatan sedih ya?\"
+%s: \"Aku lihat kok, kamu pas sampai ke game cafe tadi kamu habis nangis\"
+%s: \"Kamu kalo ada masalah apa gitu, ceritain aja\"
+Miya: \"uuun, enggak apa-apa kok, tadi sebelum ke sini, aku nonton drakor sedih\"
+
+(aku tahu bahwa dia sedang berbohong)
+
+%s: \"Oke deh, kalo gitu sepertinya masih baik-baik aja\"
+%s: \"Gimana nilai matematikamu?\"
+Miya: \"untungnya dapet bagus. makasih buat tutornya kemarin hehehe.\"
+Miya: \"Enaknya punya temen pinter kaya kamu\"
+Miya: \"T-Tapi bukan berarti aku cuma manfaatin kamu ya, ingat itu\"
+%s: \"Iya, iya. Aku paham kok\"
+
+Kita membicarakan banyak hal selama perjalanan pulang
+Akhirnya tiba di rumah
+Miya: \"%s, aku duluan ya. Selamat Malam\"
+%s: \"Selamat malam, Miya.\"
+
+else (if (2))
+Miya: \"Bohong kamu.\"
+%s: \"Apa maksudmu?\"
+Miya: \"Pokoknya aku kesel sama kamu\"
+Miya: \"dah, jangan deket-deket aku\"
+Miya: \"Gak usah sok baik kamu\"
+dia berlari
+%s: \"Miya, oi Miya\"
+ia pun lari meninggalkanku, seperti dia marah kepadaku.
+
+
 
 {ngedate}
 

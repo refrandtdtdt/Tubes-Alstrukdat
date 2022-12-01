@@ -1,40 +1,40 @@
-keesokan harinya.. aku menunggu di taman bermain, hingga Miya pun datang.
+keesokan harinya.. aku menunggu di taman bermain, hingga Megumi pun datang.
 
-Miya: \"Maaf, aku terlambat.\"
+Megumi: \"Maaf, aku terlambat.\"
 %s: \"tidak apa-apa kok, cuma dua menit doang.\"
 
 dia mengangguk
 
-Miya: \"uhh.. Kita main komedi putar dulu ya\"
+Megumi: \"uhh.. Kita main komedi putar dulu ya\"
 
 aku mengangguk, lalu berjalan dengannya.
 tiba-tiba dia menggenggam tanganku.
 muka dia memerah.
-Miya: \"uuhh, i-i-ini biar kita gak mencar aja ya!\"
+Megumi: \"uuhh, i-i-ini biar kita gak mencar aja ya!\"
 
 aku cuma bisa mengiyakan, namun wajahnya saat itu lucu sekali, dan manis.
 Kami pun bermain komedi putar bersama.
 
-Miya: \"selanjutnya Roller Coaster\"
+Megumi: \"selanjutnya Roller Coaster\"
 
 Kami pun bermain Roller Coaster bersama. kami berteriak ketakuan dicampur rasa bahagia.
 
 Kami mencoba wahana satu persatu, hingga waktu telah mencapai sore. kami menutup kegiatan kami dengan menaiki gondala.
 
-Miya: \"untuk penutup, kita main gondala!\"
+Megumi: \"untuk penutup, kita main gondala!\"
 
 kami pun menaiki gondala bersama.
 saat berada di dalam gondala, tiba-tiba dia berbicara sesuatu.
-Miya: \"%s, aku mau ngungkapin sesuatu\"
+Megumi: \"%s, aku mau ngungkapin sesuatu\"
 Muka dia memerah, aku menelan ludah karena gugup.
-%s: \"Apa, Miya-chan?\"
-Miya: \"A-a-a-a\"
+%s: \"Apa, Megumi-chan?\"
+Megumi: \"A-a-a-a\"
 %s: \"Asu?\"
-Miya: \"Apaan sih?\"
+Megumi: \"Apaan sih?\"
 %s: \"maaf, bercanda.\"
-Miya: \"Aku sebenarnya.... suka sama kamu\"
+Megumi: \"Aku sebenarnya.... suka sama kamu\"
 aku grogi
-Miya: \"Maukah kamu menjadi pacarku?\"
+Megumi: \"Maukah kamu menjadi pacarku?\"
 
 aku harus menjawabnya
 
