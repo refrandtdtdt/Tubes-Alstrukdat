@@ -1,117 +1,117 @@
-/* Dalam rute ini, MC tahu tentang penyakit yang dialami Miya */
+/* Dalam rute ini, MC tahu tentang penyakit yang dialami Megumi */
 
-Miya: \"Yeyy, aku menang\"
+Megumi: \"Yeyy, aku menang\"
 %s: \"Asem tenan ik\"
 
-Miya: \"Sesuai janji, kamu yang nentuin tempatnya ya\"
+Megumi: \"Sesuai janji, kamu yang nentuin tempatnya ya\"
 %s: \"OK\"
 
 opsi dialog
 1. \"Aku mau ke Game Cafe\"
 
-Miya: \"Wahh, boleh juga tuh\"
+Megumi: \"Wahh, boleh juga tuh\"
 %s: \"next week, ya!\"
-Miya: \"Okie Dokie\"
+Megumi: \"Okie Dokie\"
 
 aku pulang jam 7 malam, karena menyiapkan lombaku.
-saat pulang, aku melihat Bu Kumakawa yang tampak sedih, aku pun sempatkan tuk menghapiri beliau.
+saat pulang, aku melihat Bu Miyagawa yang tampak sedih, aku pun sempatkan tuk menghapiri beliau.
 
-%s: \"Selamat malam, Bu Kumakawa.\"
-Bu Kumakawa: \"Ara, ada %s-chan rupanya.\"
+%s: \"Selamat malam, Bu Miyagawa.\"
+Bu Miyagawa: \"Ara, ada %s-chan rupanya.\"
 %s: \"Bagaimana kabarmu?\"
-Bu Kumakawa: \"Baik, cuma capek sedikit karena pekerjaan.\"
+Bu Miyagawa: \"Baik, cuma capek sedikit karena pekerjaan.\"
 %s: \"Mengapa wajah ibu sangat sedih?\"
-Bu Kumakawa: \"Mungkin bakal ibu ceritain di taman saja. ayo ke sana.\"
+Bu Miyagawa: \"Mungkin bakal ibu ceritain di taman saja. ayo ke sana.\"
 
-Aku pun mengikuti Bu Kumakawa sampai ke taman, lalu beliau mulai bercerita.
-Bu Kumakawa: \"Jadi begini, 1 minggu lagi Miya-chan akan menjalankan perawatan untuk penyakitnya, namun bisa saja ini akan menyebabkan Miya meninggal dunia."
+Aku pun mengikuti Bu Miyagawa sampai ke taman, lalu beliau mulai bercerita.
+Bu Miyagawa: \"Jadi begini, 1 minggu lagi Megumi-chan akan menjalankan perawatan untuk penyakitnya, namun bisa saja ini akan menyebabkan Megumi meninggal dunia."
 %s: \"Ngomong-ngomong, dia sakit apa?\"
-Bu Kumakawa: \"Ia punya kanker. 1 minggu lagi akan dilaksanakan kemoterapi kembali, semoga operasi nanti bisa berhasil, dan dia bisa hidup sehat.\"
+Bu Miyagawa: \"Ia punya kanker. 1 minggu lagi akan dilaksanakan kemoterapi kembali, semoga operasi nanti bisa berhasil, dan dia bisa hidup sehat.\"
 %s: \"Amin, semoga hal itu terwujud.\"
-Bu Kumakawa: \"Terima kasih nak, oh benar juga, mau ikut makan malam dengan kami?\"
+Bu Miyagawa: \"Terima kasih nak, oh benar juga, mau ikut makan malam dengan kami?\"
 Aku enggak enak menolak
-%s: \"Oke bu, saya terima. Terima kasih banyak, Bu Kumakawa.\"
+%s: \"Oke bu, saya terima. Terima kasih banyak, Bu Miyagawa.\"
 
-Akhirnya aku pergi ke rumah Keluarga Kumakawa bersama Ibunya Miya.
-Sesampainya di rumah tersebut. Miya dan Pak Kumakawa sudah menyambutku.
+Akhirnya aku pergi ke rumah Keluarga Miyagawa bersama Ibunya Megumi.
+Sesampainya di rumah tersebut. Megumi dan Pak Miyagawa sudah menyambutku.
 
-Pak Kumakawa: \"Oi, %s rupanya, ayo silakan makan!\"
-Miya: \"Wah, %s. gak nyangka kamu bakal mampir ke sini.\"
+Pak Miyagawa: \"Oi, %s rupanya, ayo silakan makan!\"
+Megumi: \"Wah, %s. gak nyangka kamu bakal mampir ke sini.\"
 %s: \"Hehehe, tadi enggak sengaja ketemu sama Ibu pas di jalan, sekalian diajak ke sini.\"
-Bu Kumakawa: \"Hihihihi. ya sudah, silakan ambil makanan.\"
+Bu Miyagawa: \"Hihihihi. ya sudah, silakan ambil makanan.\"
 %s: \"Terima kasih banyak semuanya, maaf apabila merepotkan.\"
 Semuanya: \"Selamat Makan!!\"
 
-Setelah selesai makan, Tiba-tiba Miya mengajakku ke atap rumahnya.
-Miya: \"%s, ikut aku ke atap yuk\"
+Setelah selesai makan, Tiba-tiba Megumi mengajakku ke atap rumahnya.
+Megumi: \"%s, ikut aku ke atap yuk\"
 %s: \"Mau ngapain?\"
-Miya: \"Ya ngobrol-ngobrol santai, hehe.\"
+Megumi: \"Ya ngobrol-ngobrol santai, hehe.\"
 %s: \"OK lah, aku turutin\"
 
 kami berdua pun duduk bersebelahan, sambil menatap langit malam.
-Miya: \"Andai saja tidak ada polusi cahaya, kita udah pasti bisa lihat bintang-bintang indah dari sini\"
+Megumi: \"Andai saja tidak ada polusi cahaya, kita udah pasti bisa lihat bintang-bintang indah dari sini\"
 %s: \"Ya gimana lagi, lampu udah jadi bagian dari kehidupan kita\"
-Miya: \"Sebenarnya ada upaya lho buat ngurangin itu. misalnya tidak memakai lampu yang merambat ke arah langit\"
-%s: \" oh begitu ternyata, dapet ilmu baru dari Miya nih wkwkwkwk\"
-Miya: \"imba jangan merendah dong. justru aku butuh ilmu Matematika dari kamu nih. Nilai matematikaku akhir-akhir ini menurutku kurang memuaskan.\"
+Megumi: \"Sebenarnya ada upaya lho buat ngurangin itu. misalnya tidak memakai lampu yang merambat ke arah langit\"
+%s: \" oh begitu ternyata, dapet ilmu baru dari Megumi nih wkwkwkwk\"
+Megumi: \"imba jangan merendah dong. justru aku butuh ilmu Matematika dari kamu nih. Nilai matematikaku akhir-akhir ini menurutku kurang memuaskan.\"
 %s: \"Ya kalo kamu pingin belajar bareng aku, tinggal bilang aja sih.\"
-Miya: \"Oke deh.\"
+Megumi: \"Oke deh.\"
 %s: \"Anyway, kamu suka bintang ya?\"
-Miya: \"Ya, aku suka bintang. dari kecil aku udah tertarik sama hal berbau langit dan astronomi.\"
+Megumi: \"Ya, aku suka bintang. dari kecil aku udah tertarik sama hal berbau langit dan astronomi.\"
 %s: \"ohh, begitu rupanya. ngomongin soal Bintang. aku suka rasi bintang Virgo. ya karena zodiakku Virgo sih hahaha.\"
-Miya: \"Kalau aku suka banyak rasi bintang. Ursa Mayor, Ursa Minor, Orion, Centaur, Pegasus, Aries, Taurus, Gemini, dan masih banyak lagi.\"
+Megumi: \"Kalau aku suka banyak rasi bintang. Ursa Mayor, Ursa Minor, Orion, Centaur, Pegasus, Aries, Taurus, Gemini, dan masih banyak lagi.\"
 %s: \"Ampun suhu.\"
 %s: \"
 
 seminggu kemudian..
 
 %s: \"Kita mau main apa nih?\"
-Miya: \"Main tic tac toe yuk\"
+Megumi: \"Main tic tac toe yuk\"
 %s: \"Oke\"
 
 (main tic tac toe) (menang dapet 1000, kalah dapat -250)
 if (menang) {
-    Miya: \"duh, Aku kalah\"
+    Megumi: \"duh, Aku kalah\"
 }
 else
-    Miya: \"Hore, aku menang\"
+    Megumi: \"Hore, aku menang\"
 
-Miya: \"Ayo habis ini main kartu!\"
+Megumi: \"Ayo habis ini main kartu!\"
 
 kami pun main games-games yang lain.
 
 %s: \"ajak Enji, Pina, Hanrey, dan Dariah juga dong. biar seru\"
-Miya: \"Oke\"
+Megumi: \"Oke\"
 kita menghabiskan waktu menyenangkan. kita juga mengajak Enji, Pina, Hanrey, dan Dariah untuk ikut main juga.
 
 setelah bermain sampai malam, Enji, Pina, Hanrey, dan Dariah memutuskan untuk meninggalkan kami berdua.
 Pina: \"Eh, kita pulang duluan ya. udah malam hahaha\"
-Miya: \"Oke, gak papa\"
+Megumi: \"Oke, gak papa\"
 Hanrey: \"kita duluan ya\"
 Radiah: \"Hati-hati ya kalian\"
 %s: \"Oke, kalian juga hati-hati di jalan ya\"
 Enji: \"Bye, guys\"
-%s, Miya: \"Byee\"
+%s, Megumi: \"Byee\"
 
-%s: \"Eh Miya, aku punya permintaan nih.\"
-Miya: \"Apa, %s?\"
+%s: \"Eh Megumi, aku punya permintaan nih.\"
+Megumi: \"Apa, %s?\"
 %s: \"Minggu depan mau aku ajak pergi ke game center. mau?\"
-Miya: \"Haah?\"
-Miya: \"(Aku gak nyangka kalo bakal %s yang ngajak date. aku seneng banget)\"
-Miya: \"A-a-a-aku mau kok.\"
+Megumi: \"Haah?\"
+Megumi: \"(Aku gak nyangka kalo bakal %s yang ngajak date. aku seneng banget)\"
+Megumi: \"A-a-a-aku mau kok.\"
 %s: \"Oke, berarti udah diputusin ya.\"
 %s: \"Gimana kalo kita pulang bareng?\"
-Miya: \"B-b-baik\"
+Megumi: \"B-b-baik\"
 
 Akhirnya kita berdua pulang bersama.
-Miya: \"Eh, aku mau tanya sesuatu.\"
-%s: \"Ada apa, Miya?\"
-Miya: \"Kenapa hari ini kamu beda banget sama biasanya?\"
+Megumi: \"Eh, aku mau tanya sesuatu.\"
+%s: \"Ada apa, Megumi?\"
+Megumi: \"Kenapa hari ini kamu beda banget sama biasanya?\"
 %s: \"Beda Gimana maksudnya?\"
-Miya: \"Kamu biasanya lebih kalem, tapi entah kenapa kamu kok perhatian banget hari-hari ini\"
-Miya: \"Emangnya ada sesuatu?\"
+Megumi: \"Kamu biasanya lebih kalem, tapi entah kenapa kamu kok perhatian banget hari-hari ini\"
+Megumi: \"Emangnya ada sesuatu?\"
 %s: \"Enggak ada sih, aku emang orangnya begini.\"
-Miya: \"Yakin cuma gitu doang? aku gak percaya. kamu orangnya cenderung cuek begitu. kok bisa-bisanya berubah. apa maksudmu?\"
+Megumi: \"Yakin cuma gitu doang? aku gak percaya. kamu orangnya cenderung cuek begitu. kok bisa-bisanya berubah. apa maksudmu?\"
 
 opsi dialog:
 1. \"Soalnya aku lihat wajahmu sedih akhir-akhir ini\"
@@ -119,33 +119,35 @@ opsi dialog:
 
 
 if (1)
-Miya: \"Aku kelihatan sedih ya?\"
+Megumi: \"Aku kelihatan sedih ya?\"
 %s: \"Aku lihat kok, kamu pas sampai ke game cafe tadi kamu habis nangis\"
 %s: \"Kamu kalo ada masalah apa gitu, ceritain aja\"
-Miya: \"uuun, enggak apa-apa kok, tadi sebelum ke sini, aku nonton drakor sedih\"
+Megumi: \"uuun, enggak apa-apa kok, tadi sebelum ke sini, aku nonton drakor sedih\"
 
 (aku tahu bahwa dia sedang berbohong)
 
 %s: \"Oke deh, kalo gitu sepertinya masih baik-baik aja\"
 %s: \"Gimana nilai matematikamu?\"
-Miya: \"untungnya dapet bagus. makasih buat tutornya kemarin hehehe.\"
-Miya: \"Enaknya punya temen pinter kaya kamu\"
-Miya: \"T-Tapi bukan berarti aku cuma manfaatin kamu ya, ingat itu\"
+Megumi: \"untungnya dapet bagus. makasih buat tutornya kemarin hehehe.\"
+Megumi: \"Enaknya punya temen pinter kaya kamu\"
+Megumi: \"T-Tapi bukan berarti aku cuma manfaatin kamu ya, ingat itu\"
 %s: \"Iya, iya. Aku paham kok\"
 
 Kita membicarakan banyak hal selama perjalanan pulang
 Akhirnya tiba di rumah
-Miya: \"%s, aku duluan ya. Selamat Malam\"
-%s: \"Selamat malam, Miya.\"
+Megumi: \"%s, aku duluan ya. Selamat Malam\"
+%s: \"Selamat malam, Megumi.\"
+
+belok kiri
 
 else (if (2))
-Miya: \"Bohong kamu.\"
+Megumi: \"Bohong kamu.\"
 %s: \"Apa maksudmu?\"
-Miya: \"Pokoknya aku kesel sama kamu\"
-Miya: \"dah, jangan deket-deket aku\"
-Miya: \"Gak usah sok baik kamu\"
+Megumi: \"Pokoknya aku kesel sama kamu\"
+Megumi: \"dah, jangan deket-deket aku\"
+Megumi: \"Gak usah sok baik kamu\"
 dia berlari
-%s: \"Miya, oi Miya\"
+%s: \"Megumi, oi Megumi\"
 ia pun lari meninggalkanku, seperti dia marah kepadaku.
 
 

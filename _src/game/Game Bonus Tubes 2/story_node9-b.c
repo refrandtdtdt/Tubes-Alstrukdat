@@ -20,11 +20,11 @@ void node9(int *score, char* player, Address *p)
     printf("Akhirnya tiba di rumah");START();system("cls");
     printf("Megumi: \"%s, aku duluan ya. Selamat Malam\"", player);START();system("cls");
     printf("%s: \"Selamat malam, Megumi.\"", player);START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
+    printf("Keesokannya, kita berangkat bersama ke Game center");START();system("cls");
+    printf("kami pertama kali mencoba Mesin Gachapon");START();system("cls");
+    printf("Megumi: \"Ayo main gacha\"");START();system("cls");
+    printf("%s: \"Oke, tapi 5 koin aja ya. Kecanduan gacha tidak baik ya, Megumi.\"", player);START();system("cls");
+    printf("Megumi: \"baik, baik\"");START();system("cls");
     printf("");START();system("cls");
     printf("");START();system("cls");
     printf("");START();system("cls");

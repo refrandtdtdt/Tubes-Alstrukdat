@@ -1,0 +1,46 @@
+Keesokannya, kita berangkat bersama ke Game center
+kita menaiki bus menuju ke lokasi. kita duduk bersebelahan.
+tiba-tiba ia menggenggam tanganku.
+aku cuma bisa melihat heran
+setelah mata kita saling bertatapan, dia langsung memalingkan wajahnya, tersipu malu.
+
+akhirnya kami sampai ke Game Center.
+kami pertama kali mencoba Mesin Gachapon
+Megumi: \"Ayo main gacha\"
+%s: \"Oke, tapi 5 koin aja ya. Kecanduan gacha tidak baik ya, Megumi.\"
+Megumi: \"baik, baik\"
+
+gachapon.exe
+
+%s: \"Mayan nih hadiahnya. 2 buat aku, 3 nya buat kamu\"
+Megumi: \"M-m-makasih %s.\"
+%s: \"Lanjut main balapan mobil\"
+Megumi: \"Gas!!\"
+
+setelah itu..
+Megumi: \"Main Dance Dance Revolution yuk\"
+
+Aku kesusahan mengimbangi skill Megumi yang sudah jago
+
+%s: \"Kamu terlalu jago\"
+Megumi: \"Lho, aku baru main 3 bulan yang lalu\"
+%s: \"ya tapi aku baru main sekarang njir\"
+
+kami bermain banyak permainan, kemudian dilanjutkan dengan makan-makan.
+akhirnya waktu sore pun tiba.
+
+Megumi: \"Uwoooghh, hari ini sangat menyenangkan\"
+%s: \"Bener banget.\"
+Megumi: \"Makasih ya buat hari ini.\"
+Megumi: \"Oh ya, kamu pulang duluan enggak apa-apa. Aku ada urusan.\"
+
+(hmmm urusan, apa aku harus ikut juga ya...?)
+
+opsi dialog:
+1. \"Oh yaudah kalo gitu. aku duluan ya!\"
+2. \"Emangnya urusan apa sih? Bisa gak kalau aku ikut?\"
+
+if (1)
+    left
+if (2)
+    right
