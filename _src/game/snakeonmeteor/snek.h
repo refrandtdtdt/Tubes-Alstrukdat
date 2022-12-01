@@ -1,7 +1,7 @@
 #ifndef snek_H
 #define snek_H
-#include "linkedlist.h"
-#include "arrPoint.h"
+#include "../../ADT/linkedlist.h"
+#include "../../ADT/arrPoint.h"
 
 void PrintPeta(ListPoint L, ListPoint O, Point Meteor, Point Food);
 
