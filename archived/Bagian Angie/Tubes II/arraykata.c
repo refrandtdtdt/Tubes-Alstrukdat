@@ -1,4 +1,4 @@
-#include "array.h"
+#include "arraykata.h"
 
 // HEADER INI BUKAN FINAL, BUAT TESTING AJA
 

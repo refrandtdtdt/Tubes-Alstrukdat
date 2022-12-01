@@ -1,7 +1,7 @@
 #include "hangman.h"
 #include "mesinkata_modif.h"
 #include <stdlib.h>
-#include "array.h"
+#include "arraykata.h"
 #include "functions.h"
 #include "time.h"
 void Load(char *filename, TabKata *list)
@@ -61,7 +61,31 @@ void tambahkata (TabKata *T)
         }
         i++;
     }
-    if (!isMember) //bukan member 
+    boolean isvalid = false;
+    while (!isvalid)
+    {
+        int j = 0;
+        int i = 0;  
+        isvalid = true;
+        while (j < currentWord.Length && isvalid)
+        {
+            if(!(currentWord.TabWord[j] >='A' && (currentWord.TabWord[j] <= 'Z')))
+            {
+                isvalid = false;
+            }
+            j++;
+        }
+        if(!isvalid)
+        {
+            printf("Kata yang dimasukkan tidak valid!\n");
+            printf("Masukkan kata baru yang akan ditambahkan: ");
+            START () ;
+            file = true;
+            CopyWord();
+            (*T).TK[i] = currentWord;
+        }
+    }
+    if (!isMember && isvalid == true) //bukan member 
     {
         (*T).Neff++;
         (*T).TK[i] = currentWord;
@@ -73,18 +97,13 @@ void tambahkata (TabKata *T)
     }
 }
 
-boolean cekkar (char *string, char cc)
+void clearstring (char *s1)
 {
-    for (int i = 0; i < len(string); ++i)
+    for (int i = 0; i < 30; i++)
     {
-        if (string[i] == cc)
-        {
-            return true;
-        }
+        s1[i] = '\0';
     }
-    return false;
 }
-
 void hangman ()
 {
     printf("  __   __  _______  __    _  _______  __   __  _______  __    _ \n");
@@ -96,16 +115,29 @@ void hangman ()
     printf("|   _   ||   _   || | |   ||   |_| || ||_|| ||   _   || | |   |\n");
     printf("|__| |__||__| |__||_|  |__||_______||_|   |_||__| |__||_|  |__|n");
     printf("\n");
-    printf("                      |***********************|\n");
-    printf("                      |       MAIN  MENU      |\n");
-    printf("                      |***********************|\n");
-    printf("                      |          PLAY         |\n");
-    printf("                      |         ADD WORD      |\n");
-    printf("                      |***********************|\n");
     printf("\n");
-    Sentence input, semuatebakan, tebakan;
+    printf("                  |***********************|\n");
+    printf("                  |       MAIN  MENU      |\n");
+    printf("                  |***********************|\n");
+    printf("                  |         PLAY          |\n");
+    printf("                  |        ADD WORD       |\n");
+    printf("                  |***********************|\n");
+    printf("\n");
+    printf("                ___       _ \n");
+    printf(" |_|  _          |  _    |_) |  _.      |_|  _. ._   _  ._ _   _. ._ \n");
+    printf(" | | (_) |_|_|   | (_)   |   | (_| |_|  | | (_| | | (_| | | | (_| | | \n");
+    printf("                                    _|               _|               \n");
+    printf("1. Ketik PLAY untuk memulai permainan HANGMAN. \n");
+    printf("2. Ketik ADD WORD apabila anda ingin menambahkan kata ke dalam permainan HANGMAN \n");
+    printf("3. Apabila anda telah mengetik PLAY permainan akan langsung dimulai.\n");
+    printf("4. Anda akan diberikan 10 kali kesempatan untuk menebak huruf secara acak, setiap anda berhasil menebak kata maka \n ");
+    printf(" anda akan mendapatkan poin sejumlah kata yang ditebak.\n");
+    printf("5. Permainan akan berakhir apabila kesempatan habis.\n");
+    printf("SELAMAT BERMAIN!\n");
+    printf("\n");
+    Sentence input, tebakan;
+    Word semuatebakan;
     CreateSentence(&input);
-    CreateSentence(&semuatebakan);
     CreateSentence(&tebakan);
     TabKata listKata; MakeEmpty(&listKata);
     printf("Choose Menu: ");
@@ -115,7 +147,8 @@ void hangman ()
     int i = 0;
     boolean valid = false;
     boolean guessed;
-    printf("%s \n",input.buffer[0].TabWord);
+    int skorakhir = 0;
+    clear(semuatebakan.TabWord);
     while (!valid) 
     {
         if((Eqstr(input.buffer[0].TabWord,"PLAY"))) 
@@ -140,57 +173,82 @@ void hangman ()
     {
         Load("kata.txt",&listKata);
         int kesempatan = 10;
-        srand(time(NULL));
-        Word soal = listKata.TK[rand()%10];
+        boolean done = true;
+        Word soal;
         Word kosong;
-        for (i = 0; i < soal.Length; i++)
-        {
-            kosong.TabWord[i] = '_';
-        }
-        kosong.Length = soal.Length;
-        for (i = 0; i < kosong.Length; i++)
-        {
-            printf("%c ",kosong.TabWord[i]); // menampilkan _ _ _ _
-        }
+        semuatebakan.Length = 0;
+        int n = 0; 
         while (kesempatan != 0)
         {
+            if (done == true)
+            {
+                srand(time(NULL));
+                clearstring(soal.TabWord);
+                clearstring(kosong.TabWord);
+                soal = listKata.TK[rand()%20];
+                for (i = 0; i < soal.Length; i++)
+                {
+                    kosong.TabWord[i] = '_';
+                }
+                kosong.Length = soal.Length;
+                for (i = 0; i < kosong.Length; i++)
+                {
+                    printf("%c ",kosong.TabWord[i]); // menampilkan _ _ _ _
+                }
+                done = false;
+            }
             guessed = false;
             printf("\n");
             printf("Kesempatan: %d\n",kesempatan);
-            printf("\n");
             printf("Masukkan Tebakan: ");
             CreateSentence(&tebakan);
             START();
             convertToArrayOfKata(&tebakan,1); //input satu huruf tebakan
-            for (int i = 0; i < soal.Length;i++)
+            int i = 0;
+            boolean valid = false;
+            while (!valid)
+            {
+                if ((tebakan.buffer[0].Length == 1) && ((tebakan.buffer[0].TabWord[0] >= 65 && tebakan.buffer[0].TabWord[0] <= 90)))
+                {
+                    valid = true;
+                }
+                else
+                {
+                    printf("Kesempatan: %d\n",kesempatan);
+                    printf("\n");
+                    printf("Tebakan tidak valid!\n");
+                    printf("Masukkan Tebakan: ");
+                    CreateSentence(&tebakan);
+                    START();
+                    convertToArrayOfKata(&tebakan,1); //input satu huruf tebakan
+                }
+            }
+            while (i < soal.Length && soal.TabWord[i] != '\0')
             {
                 if (tebakan.buffer[0].TabWord[0] == soal.TabWord[i])
                 {
                     kosong.TabWord[i] = soal.TabWord[i];
                     guessed = true;
-                    // for (int i=0; i < soal.Length; i++)
-                    // {
-                    //     printf("%c ", kosong.TabWord[i]);
-                    // }
-                    // printf("\n"); 
-                    // if (cekkar(tebakan.buffer[i].TabWord,'_') == true)
-                    // {
-                    //     printf("MasukkanTebakan: ");
-                    //     CreateSentence(&tebakan);
-                    //     START();
-                    // }
-                    // else
-                    // {
-                    //     printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
-                    // }
                 }
+                i++;
             }
-            printf("%s\n", kosong.TabWord);
+            printf("Kata: %s\n",kosong.TabWord);
             if (!guessed)
             {
                 kesempatan -= 1;
             }
-            // Ini buat ngecek udah ketebak atau belum semua hurufnya
+            semuatebakan.TabWord[n] = tebakan.buffer[0].TabWord[0];
+            semuatebakan.Length++;
+            printf("Tebakan sebelumnya:");
+            int m = 0;
+            while (m < semuatebakan.Length) 
+            {
+                printf("%c", semuatebakan.TabWord[m]);
+                m++;
+            }
+            n++;
+            printf("\n");
+            //memeriksa apakah hurufnya sudah ketebak atau belum 
             int k = 0;
             boolean win = true;
             while (k < soal.Length && win == true)
@@ -201,12 +259,16 @@ void hangman ()
                 }
                 k++;
             }
-            // Kalo kosong tadi udah sama dengan soal, maka win jadi true
             if (win == true)
             {
-                printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,soal.Length);
+                skorakhir += soal.Length;
+                printf("Berhasil menebak kata %s! Kamu mendapatkan %d poin.\n",soal.TabWord,skorakhir);
+                done = true;
+                printf("\n");
+                clearstring(semuatebakan.TabWord);
             }
         }
+        printf("Game Over! Poin yang anda dapatkan adalah %d poin!",skorakhir);
     }
     else if((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))
     {

@@ -106,14 +106,6 @@ void convertToArrayOfKata(Sentence *sentence, int length)  {
     sentence->Length = length;
 }
 
-void CreateWord (Word *kata)
-{
-    (*kata).Length = 0;
-    for (int i = 0; i < NMax; i++)
-    {
-        kata->TabWord[i] = '\0';
-    }
-}
 void CreateSentence(Sentence *sentence) {
     sentence->Length = 0;
     for (int i = 0; i < NMax; i++)

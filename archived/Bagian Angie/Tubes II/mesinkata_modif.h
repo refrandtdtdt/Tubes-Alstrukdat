@@ -52,8 +52,6 @@ void CopyWord();
           currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
 
-void CreateWord(Word *kata);
-
 boolean isEndWord();
 
 void convertToArrayOfKata(Sentence *sentence, int length);
