@@ -7,9 +7,9 @@ void create_gacha(gacha *list_item) {
     Item three_star;
     Item four_star;
     Item five_star;
-    string three_star_name[] = {"Pororo", "Yadu", "Michael Main", "Elan Waker", "Ferdiman", "Lis Thoriq"};
-    string four_star_name[] = {"Faith-oni", "Victoria", "Reyhan Padang Asik", "Inspektur Riza", "Algani Takol"};
-    string five_star_name[] = {"Hatsune Miku", "Diluc", "Hi Duarr"};
+    string three_star_name[] = {"Pororo", "Yadu", "Tanigox", "Elan Waker", "Ferdiman", "Hi-DR"};
+    string four_star_name[] = {"Faith-oni", "Victoria", "ReyhanPA (Padang Asli)", "Inspektur Riza", "AI-Gunny TKL"};
+    string five_star_name[] = {"Hatsune Miku", "The Uncover Corps", "King BNMO"};
     //printf("sukses1\n");
     int i;
     int offset = 0;

@@ -1,0 +1,153 @@
+Keesokannya, kita berangkat bersama ke Game center
+kita menaiki bus menuju ke lokasi. kita duduk bersebelahan.
+tiba-tiba ia menggenggam tanganku.
+aku cuma bisa melihat heran
+setelah mata kita saling bertatapan, dia langsung memalingkan wajahnya, tersipu malu.
+
+akhirnya kami sampai ke Game Center.
+kami pertama kali mencoba Mesin Gachapon
+Megumi: \"Ayo main gacha\"
+%s: \"Oke, tapi 5 koin aja ya. Kecanduan gacha tidak baik ya, Megumi.\"
+Megumi: \"baik, baik\"
+
+gachapon.exe
+
+%s: \"Mayan nih hadiahnya. dua buat aku, tiga sisanya buat kamu\"
+Megumi: \"M-m-makasih %s.\"
+%s: \"Lanjut main balapan mobil.\"
+Megumi: \"Gas!!\"
+
+setelah itu..
+Megumi: \"Main Dance Dance Revolution yuk\"
+
+Aku kesusahan mengimbangi skill Megumi yang sudah jago
+
+%s: \"Kamu terlalu jago\"
+Megumi: \"Lho, aku baru main 3 bulan yang lalu.\"
+%s: \"ya tapi aku baru main sekarang njir.\"
+
+kami bermain banyak permainan, kemudian dilanjutkan dengan makan-makan.
+akhirnya waktu sore pun tiba.
+
+Megumi: \"Uwoooghh, hari ini sangat menyenangkan.\"
+%s: \"Bener banget.\"
+Megumi: \"Makasih ya buat hari ini.\"
+Megumi: \"Oh ya, kamu pulang duluan enggak apa-apa. Aku ada urusan.\"
+
+(hmmm urusan, apa aku harus ikut juga ya...?)
+
+opsi dialog:
+1. \"Oh yaudah kalo gitu. aku duluan ya!\"
+2. \"Emangnya urusan apa sih? Bisa gak kalau aku ikut?\"
+
+if (1)
+    left
+if (2)
+    right
+
+left:
+
+right:
+Megumi: \"Cuma belanja-belanja doang, hahahaha\"
+%s: \"Yaelah, kirain apa.\"
+Megumi: \"Ayo sini ikut aku.\"
+kita pun jalan bareng.
+kemudian sesaat kita hendak menyeberang, ia mulai maju ke depan, dengan muka ceria.
+Megumi: \"Jadi, aku mau ngungkapin perasaanku.\"
+dengan wajah dibalut matahari sore, menyinari semyum manisnya, ia berkata kepadaku.
+Megumi: \"Aku suka denganmu, maukah kamu jadi pacarku?\"
+%s: \"(Really, aku ditembak???)\"
+
+sesaat sebelum aku menjawab confession dia, aku menyadari ada truk yang melaju kencang sedang menuju ke arah Megumi berdiri.
+tanpa berpikir panjang aku segera bertindak.
+%s: \"MEGUMIII, AWASSSSS!!!!!\"
+Megumi: \"Apa!\"
+aku segera menarik tangan Megumi dan menarik tubuhnya ke belakang.
+namun sial, justru truk itu akan menghantam tubuhku.
+Megumi: \"%s!!!!!!!\"
+(Brakk)
+Tubuhku mati rasa.
+Aku masih dapat melihat wajah Megumi.
+Ia menangis di atasku.
+Ahhh, aku bisa mendengar suaranya.
+Megumi: \"Tolong, Ambulans. Ada orang tertabrak. cepat segera!!\"
+Megumi: \"%s, %s, Tolong bertahanlah\"
+lama-lama aku kehilangan kendali tubuhku
+napasku makin melambat.
+kesadaranku sebentar lagi akan hilang.
+Megumi: \"Ya Tuhan, selamatkan %s.\"
+sepertinya aku akan segera mati.
+sebelum mati, mungkin aku ingin mengungkapkan permintaanku.
+%s: \"Andai reinkarnasi itu nyata, aku ingin terlahir sebagai seorang anak petani biasa yang super kuat, tak terkalahkan, dan bisa melakukan apa saja, agar aku dapat melindungi keluargaku di dunia itu nanti, dan menikmati hari-hari damai di pedesaan.\"
+%s: \"heh, walaupun kedengarannya konyol, tapi bisa saja harapan ini terkabulkan\"
+%s: \"Sudah saatnya ku beristirahat dengan tenang\" 
+Kupejamkan mata terakhirku.
+
+dua hari kemudian.
+ini adalah hari pemakaman %s.
+Aku tidak menyangka ia akan meninggalkanku duluan.
+Keluargaku dan keluarganya berkumpul untuk mengirim dia ke peristirahatan terakhirnya.
+Megumi: \"Semoga kamu tenang di sana ya, %s. Setidaknya aku sudah mengungkapkan perasaanku padamu.\"
+Megumi: \"Sekarang keinginan terbesar dalam hidupku sudah terwujud\"
+Megumi: \"%s, bila kamu mendengar doa ini, tolong berikan kekuatanmu padaku untuk menghadapi operasi besok.\"
+
+Hari operasi pun tiba.
+Aku sangat deg-degan dengan hal ini.
+Bu Miyagawa: \"Berdoalah, semoga kali ini lancar ya, dan kamu bisa sembuh\"
+Megumi: \"humm, baik bu\"
+
+akhirnya aku dibawa ke ruang operasi.
+dan aku mulai kehilangan kesadaranku.
+tiba-tiba aku terbangun di atas sebuah awan.
+cahaya sore melingkupiku.
+warna itu sama seperti waktu itu.
+di depan aku melihat seseorang yang sedang berdiri dari jauh.
+aku pun menghapiri sosok itu.
+ternyata sosok itu adalah %s.
+
+%s: \"Megumi.\"
+Megumi: \"Iya, %s?\"
+%s: \"Mungkin tidak banyak yang akan aku ucapkan.\"
+%s: \"Namun sebagai penutup, aku ingin membalas pernyataanmu saat itu.\"
+Air mataku mengalir, aku pun mengusapnya.
+%s: \"Jawabanku dari pertanyaanmu saat itu adalah: Ya!\"
+%s: \"Aku juga suka sama kamu.\"
+%s: \"Sekarang kita sudah resmi jadi pacar ya, hahahaha.\"
+%s: \"Tapi aku gak bisa selamanya bersamamu.\"
+%s: \"mungkin untuk sementara waktu, aku tidak akan bisa bersamamu.\"
+%s: \"Tapi aku yakin suatu saat, kita akan bertemu kembali, di dunia yang berbeda\"
+%s: \"Berjuanglah, tetaplah hidup. Aku tahu hidupmu berat dengan penyakitmu itu.\"
+%s: \"Sekarang, bangunlah! dan wujudkan impianmu, dan mungkin juga impianku\"
+%s: \"Terima kasih banyak, Megumi. Sampai jumpa di lain waktu\"
+
+Bayangannya pun menghilang
+Aku pun Menangis tersedu-sedu
+Meratapi kepergiannya
+Tiba-tiba terdengar suara.
+???: \"Megumi, apakah kamu bisa dengar suaraku?\"
+Aku pun langsung membuka mataku.
+Pak Miyagawa: \"Syukurlah kamu selamat.\"
+Megumi: \"Apa yang terjadi?\"
+Bu Miyagawa: \"Operasinya lancar, Megu-chan!\"
+Aku pun menangis terharu, bahagia mendengarnya.
+ternyata aku masih diberi kesempatan hidup.
+Terima kasih, Tuhan. dan terima kasih juga, %s.
+Aku tidak akan pernah melupakanmu.
+
+..........
+
+tiba-tiba aku merasakan hawa dingin di sekitarku.
+saat ku membuka mataku, aku melihat bahwa diriku berada di kedalaman yang gelap.
+Aku melihat sekilas cahaya tampak yang kecil.
+%s: \"Aku di mana?\"
+Tiba-tiba aku mendengar suara yang menggema
+???: \"Wahai Makhluk yang fana, balaslah seruan ini!!\"
+%s: \"Siapa itu?\"
+???: \"Kau tidak perlu tahu siapa aku, namun aku akan memberimu suatu misi penting\"
+%s: \"Apaan tuh kira-kira?\"
+???: \"Tolong selamatkan Semesta Hebiora dari kehancuran. kamu adalah orang terpilih yang akan menjadi pahlawan untuk menyelamatkannya\"
+wait, apakah ini tandanya aku Ter-isekai?
+%s: \"Wait, What??\"
+%s: \"ISEKAIIIIIIIII, ISEKAI IS REALLLLLLLLLLL!!!!\"
+
+Ende

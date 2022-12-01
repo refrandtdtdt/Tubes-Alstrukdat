@@ -1,37 +1,37 @@
 Kamu menang batu-gunting-kertas
 
 %s: \"Hore!!, aku menang!!\"
-Miya: \"aahh, dahlah\"
+Megumi: \"aahh, dahlah\"
 %s: \"Janji harus ditepati, ya\"
-Miya: \"Ya ya, Aku tahu.\"
+Megumi: \"Ya ya, Aku tahu.\"
 
-Miya berpikir sejenak...
+Megumi berpikir sejenak...
 
-Miya: \"Ayo makan di Ayam Takol\"
+Megumi: \"Ayo makan di Ayam Takol\"
 %s: \"Baiklah, oke sampai jumpa minggu depan\"
-Miya: \"Oke, %s. sampai jumpaaaa!!\"
+Megumi: \"Oke, %s. sampai jumpaaaa!!\"
 
 Pada akhir pekannya...
 
 kami akhirnya makan bersama
 
-di tengah-tengah makan, Miya memberiku sebuah tebak-tebakan
+di tengah-tengah makan, Megumi memberiku sebuah tebak-tebakan
 
-Miya: \"betewe, aku mau kasih kamu tebak-tebakan. kalo bisa jawab ya.\"
+Megumi: \"betewe, aku mau kasih kamu tebak-tebakan. kalo bisa jawab ya.\"
 
 aku cuma ngangguk-ngangguk aja
 
-Miya: \"Oke, pertanyaannya, ini kita lagi makan nasi kan?\"
+Megumi: \"Oke, pertanyaannya, ini kita lagi makan nasi kan?\"
 %s: \"...iya?\"
-Miya: \"Nah tau gak kenapa kok dinamakan nasi?\"
+Megumi: \"Nah tau gak kenapa kok dinamakan nasi?\"
 
 opsi dialog
 1. \"Enggak tahu\" -25
 2. \"Karena...\" +80
 
 pilihan 1.
-Miya: \"Oke, karena kamu gak tahu aku kasih tau jawabannya.\"
-Miya: \"Jawabannya adalah karena dina lapar, lmaoooo\"
+Megumi: \"Oke, karena kamu gak tahu aku kasih tau jawabannya.\"
+Megumi: \"Jawabannya adalah karena dina lapar, lmaoooo\"
 
 Aku berpikir sebentar, kemudian mengerti maksudnya.
 
@@ -39,11 +39,11 @@ Aku berpikir sebentar, kemudian mengerti maksudnya.
 
 pilihan 2.
 %s: \"Karena dina lapar, wkwkwkkw.\"
-Miya: \"HAHAHAHAHA, betul jawabannya.\"
-Miya: \"keren banget, kamu :)\"
+Megumi: \"HAHAHAHAHA, betul jawabannya.\"
+Megumi: \"keren banget, kamu :)\"
 %s: \"hahaha, makasih.\"
 
-Miya: \"Oke, sekarang ini pertanyaan berikutnya. tinggiku berapa?\"
+Megumi: \"Oke, sekarang ini pertanyaan berikutnya. tinggiku berapa?\"
 
 opsi dialog
 
@@ -54,13 +54,13 @@ opsi dialog
 5. \"158 cm\" (salah) -40 (repeat)
 
 bila benar:
-Miya: \"betul wkwkwkwk\"
+Megumi: \"betul wkwkwkwk\"
 
 bila salah:
-Miya: \"tet tot, salah\"
+Megumi: \"tet tot, salah\"
 
-Miya: \"Okay, next question!\"
-Miya: \"Siapa artis favoritku?\"
+Megumi: \"Okay, next question!\"
+Megumi: \"Siapa artis favoritku?\"
 
 opsi dialog
 1. BTS\n  (-50)
@@ -75,8 +75,8 @@ if benar:
 salah:
     bukan, salah
 
-Miya: \"oke pertanyaan terakhir.\"
-Miya: \"Kapan hari ulang tahunku?\"
+Megumi: \"oke pertanyaan terakhir.\"
+Megumi: \"Kapan hari ulang tahunku?\"
 
 1. \"10 April\" (-80)
 2. \"11 April\" (-80)
@@ -84,16 +84,16 @@ Miya: \"Kapan hari ulang tahunku?\"
 4. \"13 April\" (+500)
 5. \"14 April\" (-80)
 
-if betul: Miya: \"Betul banget.\"
-else: Miya: \"Jawabannya.......Bukan hahahaha\"
+if betul: Megumi: \"Betul banget.\"
+else: Megumi: \"Jawabannya.......Bukan hahahaha\"
 
 setelah menjawab pertanyaan, makanan pun datang. kami akhirnya makan dengan lahap. kemudian hari berakhir.
 
 1 bulan pun berjalan, aku mulai ikut lomba Matematika.
 hari-hariku sibuk dengan belajar matematika, 2 hari lagi adalah hari-h lomba, aku tak ingin menyia-nyiakan hal tersebut.
-sehabis pulang sekolah, Miya mencoba membahas sesuatu denganku, muka dia terlihat muram.
+sehabis pulang sekolah, Megumi mencoba membahas sesuatu denganku, muka dia terlihat muram.
 
-Miya: \"anu, %s. aku mau minta sesuatu.\"
+Megumi: \"anu, %s. aku mau minta sesuatu.\"
 
 %s: \"maukah kita pergi ke taman bermain, bareng?\"
 
@@ -101,24 +101,24 @@ aku gugup, apakah ini sebuah date??!!!
 tapi, aku bingung. aku sebentar lagi ada lomba. aku tidak ingin menyia-nyiakan waktu belajar.
 
 opsi dialog:
-1. \"Maaf, Miya. tapi sepertinya aku sibuk besok.\"
-2. \"Baiklah, kalau itu Miya, aku gak bakal nolak.\"
+1. \"Maaf, Megumi. tapi sepertinya aku sibuk besok.\"
+2. \"Baiklah, kalau itu Megumi, aku gak bakal nolak.\"
 
 opsi 1:
-Miya: \"Kamu sibuk? masa bener-bener sibuk? MASA KAMU GAK ADA WAKTU SIH!\"
-%s: \"Maaf, Miya. aku harus belajar buat lomba. kita bisa kok main kapan-kapan.\"
-Miya: \"UDAH TELAT!. UDAH GAK ADA WAKTU LAGI.\"
+Megumi: \"Kamu sibuk? masa bener-bener sibuk? MASA KAMU GAK ADA WAKTU SIH!\"
+%s: \"Maaf, Megumi. aku harus belajar buat lomba. kita bisa kok main kapan-kapan.\"
+Megumi: \"UDAH TELAT!. UDAH GAK ADA WAKTU LAGI.\"
 
 dia menangis histeris. baru pertama kali aku melihat dia menangis seperti ini.
-Miya: \"MAAF, %s. aku terlalu emosional sekarang.\"
-%s: \"gpp, Miya. aku janji bakal nemenim kamu setelah selesai lomba\"
-Miya: \"semoga kamu bisa menepati janjimu :).\"
+Megumi: \"MAAF, %s. aku terlalu emosional sekarang.\"
+%s: \"gpp, Megumi. aku janji bakal nemenim kamu setelah selesai lomba\"
+Megumi: \"semoga kamu bisa menepati janjimu :).\"
 
 lanjut rute kiri (Sad Bad Ending)
 
 opsi 2:
 dia menangis sambil berkata kepadaku,
-Miya: \"(sob) terima kasih, %s. ini hadiah terbaik yang pernah diberikan kepadaku.\"
-Miya: \"Sampai jumpa besok.\"
+Megumi: \"(sob) terima kasih, %s. ini hadiah terbaik yang pernah diberikan kepadaku.\"
+Megumi: \"Sampai jumpa besok.\"
 
 lanjut ke rute kanan (Sad good ending)  (script-rute-3.txt)

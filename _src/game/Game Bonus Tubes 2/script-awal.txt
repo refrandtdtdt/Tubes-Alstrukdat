@@ -8,11 +8,11 @@ mungkin aku sudah bosan dengan hal itu.
 kubuka halaman depan buku itu, kubaca kembali kenangan masa Sekolah Dasarku, tertulis pengalamanku bersama Miya.
 
 aku dan Miya adalah teman dari masa kecil. dulu kami selalu bermain bersama.
-perkenalan awalku dimulai ketika Bu Kumakawa datang ke tempatku. ia membawa Miya sambil memperkenalkan diri.
+perkenalan awalku dimulai ketika Bu Miyagawa datang ke tempatku. ia membawa Miya sambil memperkenalkan diri.
 
-"Tolong kenalin dirimu ya, Miya-chan", ujar Bu Kumakawa.
+"Tolong kenalin dirimu ya, Miya-chan", ujar Bu Miyagawa.
 Miya: \"Baik, Okaa-san\", lirihnya pelan.
-Miya: \"Halo, Namaku Miya, Kumakawa Miya. Salam Kenal\", ia berucap sambil malu-malu.
+Miya: \"Halo, Namaku Miya, Miyagawa Miya. Salam Kenal\", ia berucap sambil malu-malu.
 %s: \"oke, namaku %s, salam kenal ya!\", ujarku.
 Miya: "Salam kenal, %s-San.".
 
