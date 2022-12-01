@@ -13,14 +13,31 @@ boolean IsEOPCHAR()   {
     return (cc == MARKCHAR);
 }
 
+boolean IsEOPPrint()  {
+  return (cc == MARKPRINT);
+}
+
 void STARTCHAR(char* filename)    {
     pita = fopen(filename, "r");
     ADVCHAR();
 }
 
+void STARTPRINT(char* filename) {
+    pita = fopen(filename, "r");
+    ADVPRINT(); 
+}
+
 void ADVCHAR()  {
     retval = fscanf(pita, "%c", &cc);
     eop = IsEOPCHAR();
+    if (eop)    {
+        fclose(pita);
+    }
+}
+
+void ADVPRINT() {
+    retval = fscanf(pita, "%c", &cc);
+    eop = IsEOPPrint();
     if (eop)    {
         fclose(pita);
     }
@@ -113,4 +130,12 @@ void STARTW(char* filename) {
    i=0;
    fopen(filepath,"w");
    pita = fopen(filepath,"w");
+}
+
+void PRINTMACHINE(char* filename) {
+    STARTPRINT(filename);
+    while (!IsEOPPrint())  {
+        printf("%c", cc);
+        ADVPRINT();
+    }
 }

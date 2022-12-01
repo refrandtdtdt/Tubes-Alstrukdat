@@ -59,3 +59,50 @@ void node7(int *score, char* player, Address *p)    {
     printf("The End");START();system("cls");
     *p = LEFT(*p);
 }
+
+void node8(int *score, char* player, Address *p)    {
+    Sentence word_input;
+    int input;
+    boolean validinput;
+    system("cls");
+    printf("Miya: \"Oh, jadi begitu ya\"");START();system("cls");
+    printf("%s: \"Maaf\"");START();system("cls");
+    printf("Kita pun terdiam canggung");START();system("cls");
+    printf("kita pun selesai bermain Gondala.");START();system("cls");
+    printf("ia tiba-tiba berkata dengan tegas");START();system("cls");
+    printf("Miya: \"Aku mau pulang. aku duluan.\"");START();system("cls");
+    printf("Dia pun berlari menjauhiku dengan kencang");START();system("cls");
+    printf("Aku tidak tahu harus berkata apa");START();system("cls");
+    printf("setelah kejadian itu, ia tidak mau berbicara kepadaku. hubungan pertemananku dengannya sepertinya telah berakhir");START();system("cls");
+    score_change(score, -500);
+    *p = RIGHT(*p);
+    /*
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    */
+}

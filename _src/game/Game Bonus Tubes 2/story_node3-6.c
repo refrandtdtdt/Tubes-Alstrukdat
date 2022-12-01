@@ -174,6 +174,57 @@ void node3(int *score, char* player, Address *p)
 }
 
 void node4(int *score, char* player, Address *p)    {
+    Sentence word_input;
+    int input;
+    boolean validinput;
+    printf("Miya: \"Yeyy, aku menang\"");START();system("cls");
+    printf("%s: \"Asem tenan ik\"", player);START();system("cls");
+    printf("Miya: \"Sesuai janji, kamu yang nentuin tempatnya ya\"");START();system("cls");
+    printf("%s: \"OK\"", player);START();system("cls");
+    validinput = false;
+    while (!validinput) {
+        printf("Opsi Dialog:\n1. \"Aku mau ke Game Cafe\"\n\n");
+        START(); convertToArrayOfKata(&word_input, 1);
+        input = StrToInt(word_input.buffer[0].TabWord);
+        if (input == 1)   {
+            validinput = true;
+        }
+        else    {
+            printf("Invalid Input\n");
+        }
+    }
+    printf("Miya: \"Wahh, boleh juga tuh\"");START();system("cls");
+    printf("%s: \"next week, ya!\"", player);START();system("cls");
+    printf("Miya: \"Okie Dokie\"");START();system("cls");
+    printf("aku pulang jam 7 malam, karena menyiapkan lombaku.");START();system("cls");
+    printf("saat pulang, aku melihat Bu Kumakawa yang tampak sedih, aku pun sempatkan tuk menghapiri beliau.");START();system("cls");
+    printf("%s: \"Selamat malam, Bu Kumakawa.\"", player);START();system("cls");
+    printf("Bu Kumakawa: \"Ara, ada %s-chan rupanya.\"", player);START();system("cls");
+    printf("%s: \"Bagaimana kabar Ibu?\"", player);START();system("cls");
+    printf("Bu Kumakawa: \"Baik, cuma capek sedikit karena pekerjaan.\"");START();system("cls");
+    printf("%s: \"Mengapa wajah ibu sangat sedih?\"", player);START();system("cls");
+    printf("Bu Kumakawa: \"Mungkin bakal ibu ceritain di taman saja. ayo ke sana.\"");START();system("cls");
+    printf("Aku pun mengikuti Bu Kumakawa sampai ke taman, lalu beliau mulai bercerita.");START();system("cls");
+    printf("Bu Kumakawa: \"Jadi begini, 1 minggu lagi Miya-chan akan menjalankan perawatan untuk penyakitnya, namun bisa saja ini akan menyebabkan Miya meninggal dunia.\"");START();system("cls");
+    printf("%s: \"Ngomong-ngomong, dia sakit apa?\"", player);START();system("cls");
+    printf("Bu Kumakawa: \"Ia punya kanker. 1 minggu lagi akan dilaksanakan kemoterapi kembali, semoga operasi nanti bisa berhasil, dan dia bisa hidup sehat.\"");START();system("cls");
+    printf("%s: \"Amin, semoga hal itu terwujud.\"", player);START();system("cls");
+    printf("Bu Kumakawa: \"Terima kasih nak, oh benar juga, mau ikut makan malam dengan kami?\"");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
+    printf("");START();system("cls");
     *p = RIGHT(*p);
 }
 
@@ -245,7 +296,7 @@ void node5(int *score, char* player, Address *p)    {
     printf("setelah itu, Bu Kumakawa memberiku sebuah surat.");START();system("cls");
     printf("Kumakawa: \"Ini surat dari Miya. katanya ia akan berikan pada hari ini.\"");START();system("cls");
     printf("Aku pun membaca isi surat itu.");START();system("cls");
-    CHARMACHINE("surat.txt");START();system("cls");
+    //CHARMACHINE("surat.txt");START();system("cls");
     printf("Aku pun larut dalam kesedihan bersama Keluarga Kumakawa.");START();system("cls");
     printf("Aku tidak sempat untuk mengungkapkan perasaanku ke Miya. aku baru sadar bahwa aku mencintai Miya saat ku membaca surat itu.");START();system("cls");
     printf("%s: \"AAAAAAAAAAAAAAAAAAAAAAAAAA\"", player);START();system("cls");

@@ -8,6 +8,7 @@ extern boolean eop;
 extern boolean file;
 
 #define MARKCHAR '~'
+#define MARKPRINT 'N'
 /* State Mesin */
 
 void STARTCHAR(char* filename);
@@ -33,6 +34,11 @@ boolean IsEOPCHAR();
 /* Mengirimkan true jika currentChar = MARK */
 
 void CHARMACHINE(char* filename);
+
+void PRINTMACHINE(char* filename);
+void ADVPRINT();
+void STARTPRINT(char* filename);
+boolean IsEOPPrint();
 
 char cc;
 boolean eop;

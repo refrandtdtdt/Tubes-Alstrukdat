@@ -22,5 +22,6 @@ int main() {
         ExecuteNode(INFO(p), nama, &skor, &p);
     }
     printf("Permainan selesai! Skor yang kamu dapat: %d\n\n", skor);
+    PRINTMACHINE("miya.txt");
     CHARMACHINE("credit.txt");
 }

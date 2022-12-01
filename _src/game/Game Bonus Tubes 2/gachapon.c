@@ -7,9 +7,9 @@ void create_gacha(gacha *list_item) {
     Item three_star;
     Item four_star;
     Item five_star;
-    string three_star_name[] = {"Pororo", "Woody Gunawan", "Michael Main", "Elan Waker", "Ferdiman", "Lis Tabuni"};
+    string three_star_name[] = {"Pororo", "Yadu", "Michael Main", "Elan Waker", "Ferdiman", "Lis Thoriq"};
     string four_star_name[] = {"Faith-oni", "Victoria", "Reyhan Padang Asik", "Inspektur Riza", "Algani Takol"};
-    string five_star_name[] = {"Hatsune Miku", "Diluc", "Hi Duarrrrrr"};
+    string five_star_name[] = {"Hatsune Miku", "Diluc", "Hi Duarr"};
     //printf("sukses1\n");
     int i;
     int offset = 0;
@@ -86,9 +86,7 @@ void gachapon(int *score)   {
     //list = (Item*) malloc (200*sizeof(Item));
     srand(time(NULL));
     offset = rand();
-    printf("1\n");
     create_gacha(&list);
-    printf("2\n");
     printf("Selamat datang di game gachapon, uji keberuntunganmu untuk mendapatkan hadiah figurine 5 stars!!\n");
     while (coin != 0)   {
         printf("jumlah koin saat ini: %d\n", coin);
