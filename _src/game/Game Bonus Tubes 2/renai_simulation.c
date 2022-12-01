@@ -39,14 +39,13 @@ int main() {
     StoryTree story;
     int idx = 0;
     char* pita;
-    pita = "(1(2(3(5()())(6(7()())(8(0()())(0()()))))(4(9()())(0()())))(0()()))";
+    pita = "(1(2(3(5()())(6(7()())(8(0()())(0()()))))(4(9(A()())(B()()))(0()())))(0()()))";
     buildTreeString(&story, pita, &idx);
     Address p = story;
     while (!IsTreeEmpty(p))   {
         ExecuteNode(INFO(p), nama, &skor, &p);
     }
     printf("Permainan selesai! Skor yang kamu dapat: %d\n\n", skor);
-    PRINTMACHINE("megumi_game_over.txt");
     CHARMACHINE("credit.txt");
     return 0;
 }

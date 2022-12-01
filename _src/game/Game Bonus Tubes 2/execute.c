@@ -36,10 +36,10 @@ void ExecuteNode(char id_command, char* nama, int *score, Address *node)    {
         node9(score, nama, node);
         break;
     case 'A':
-        //nodeA(score, nama, node);
+        nodeA(score, nama, node);
         break;
     case 'B':
-        //nodeB(score, nama, node);
+        nodeB(score, nama, node);
         break;
     case 'C':
         //nodeC(score, nama, node);

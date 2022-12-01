@@ -99,7 +99,7 @@ void node1(int *score, char* player, Address *p)
         START();
         convertToArrayOfKata(&word_input, 1);
         input = StrToInt(word_input.buffer[0].TabWord);
-        if ((input != 1) && (input != 2)) {
+        if ((input != 1) && (input != 2) && (input != 9)) {
             printf("Invalid Input\n");
         }
         else    {
@@ -121,5 +121,10 @@ void node1(int *score, char* player, Address *p)
         printf("akhirnya kalian berdua saling adu tonjok, dan ternyata kamu kalah dengan refrendt.");START();system("cls");
         printf("akhirnya kamu masuk UKS");START();system("cls");
         *p = RIGHT(*p);                
+    }
+    else if (input == 9)    {
+        *p = LEFT(*p);
+        *p = RIGHT(*p);
+        *p = LEFT(*p);
     }
 }
