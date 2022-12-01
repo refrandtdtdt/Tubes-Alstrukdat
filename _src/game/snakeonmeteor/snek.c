@@ -3,7 +3,7 @@
 void PrintPeta(ListPoint L, ListPoint O, Point Meteor, Point Food)
 {
     Point x;
-    address P, OP;
+    ADDRESS P, OP;
     for(int i=1; i<=11; i++)
     {
         printf("         ");
@@ -24,7 +24,7 @@ void PrintPeta(ListPoint L, ListPoint O, Point Meteor, Point Food)
                     {
                         printf(" m ");
                     }
-                    else if (P!=Nil)
+                    else if (P!=Null)
                     {
                         if(Index(P)==0)
                         {
@@ -35,7 +35,7 @@ void PrintPeta(ListPoint L, ListPoint O, Point Meteor, Point Food)
                             printf(" %d ", Index(P));
                         }
                     }
-                    else if (OP!=Nil)
+                    else if (OP!=Null)
                     {
                         printf("###");
                     }
@@ -71,7 +71,7 @@ Point RandomMapPoint(ListPoint L, ListPoint O, Point Meteor, Point Food, boolean
         member = SearchArrPoint(X,x);
         if(!member)
         {
-            if(NEQ(x,Meteor) && NEQ(x,Food) && (meteor || SearchPoint(L,x)==Nil) && SearchPoint(O,x)==Nil)
+            if(NEQ(x,Meteor) && NEQ(x,Food) && (meteor || SearchPoint(L,x)==Null) && SearchPoint(O,x)==Null)
             {
                 done = true;
             }
@@ -90,9 +90,9 @@ void MeteorHit(ListPoint *L, Point Meteor)
     ResetIdx(L);
 }
 
-void FoodEaten(ListPoint *L, ListPoint O, Point *Food, Point Meteor)
+void FoodEaten(ListPoint *L, ListPoint O, Point *Food, Point Meteor, boolean *gameover)
 {
-    IncreaseLength(L,O,Meteor);
+    IncreaseLength(L,O,Meteor,gameover);
     *Food = RandomMapPoint(*L,O,Meteor,Meteor,false);
 }
 
@@ -119,33 +119,44 @@ void Initialize(ListPoint *L, ListPoint *O, Point *Food, Point *neck, int diff)
     }
     x = RandomMapPoint(*L,*O,dummy,dummy,false);
     InsVFirst(L,x);
-    IncreaseLength(L, *O, dummy);
-    IncreaseLength(L, *O, dummy);
+    boolean temp;
+    IncreaseLength(L, *O, dummy, &temp);
+    IncreaseLength(L, *O, dummy, &temp);
     *Food = RandomMapPoint(*L,*O,dummy,dummy,false);
     *neck = Info(Next(First(*L)));
 }
 
-void IncreaseLength(ListPoint *L, ListPoint O, Point Meteor)
+void IncreaseLength(ListPoint *L, ListPoint O, Point Meteor, boolean *gameover)
 {
-    address P = Last(*L);
+    ADDRESS P = Last(*L);
     boolean done = false;
     Point x = PlusDelta(Info(P),-1,0);
-    if(NEQ(x,Meteor) && SearchPoint(O,x)==Nil && SearchPoint(*L,x)==Nil)
+    if(NEQ(x,Meteor) && SearchPoint(O,x)==Null && SearchPoint(*L,x)==Null)
     {
         InsVLast(L,x);
         done = true;
     }
     x = PlusDelta(Info(P),0,-1);
-    if(!done && NEQ(x,Meteor) && SearchPoint(O,x)==Nil && SearchPoint(*L,x)==Nil)
+    if(!done && NEQ(x,Meteor) && SearchPoint(O,x)==Null && SearchPoint(*L,x)==Null)
     {
         InsVLast(L,x);
         done = true;
     }
     x = PlusDelta(Info(P),0,1);
-    if(!done && NEQ(x,Meteor) && SearchPoint(O,x)==Nil && SearchPoint(*L,x)==Nil)
+    if(!done && NEQ(x,Meteor) && SearchPoint(O,x)==Null && SearchPoint(*L,x)==Null)
     {
         InsVLast(L,x);
         done = true;
+    }
+    x = PlusDelta(Info(P),1,0);
+    if(!done && NEQ(x,Meteor) && SearchPoint(O,x)==Null && SearchPoint(*L,x)==Null)
+    {
+        InsVLast(L,x);
+        done = true;
+    }
+    if(!done)
+    {
+        *gameover = true;
     }
     Index(Last(*L)) = NbElmtListPoint(*L);
     ResetIdx(L);
@@ -161,9 +172,9 @@ void MoveSnake(ListPoint *L, Point NewPos)
 
 void ResetIdx(ListPoint *L)
 {
-    address P = First(*L);
+    ADDRESS P = First(*L);
     int i = 0;
-    while (P!=Nil)
+    while (P!=Null)
     {
         Index(P) = i;
         P = Next(P);

@@ -3,6 +3,7 @@
 
 #include "..\boolean.h"
 #include "functions.h"
+#include "mesinkata_modif.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,22 +13,26 @@
 
 typedef char* keytype;
 typedef int valuetype;
-typedef int address;
 
 typedef struct {
     keytype Key;
     valuetype Value;
-} infotype;
+} infotypemap;
 
 typedef struct  {
-    infotype el[MaxMapEl];
-    address Count;
+    infotypemap el[MaxMapEl];
+    int Count;
 } ScoreMap;
 
 typedef struct {
-    char* game_name;
+    Word game_name;
     ScoreMap board;
 } ScoreBoard;
+
+typedef struct  {
+    ScoreBoard List[100];
+    int Neff;
+} ScoreBoardList;
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah HashMap M kosong berkapasitas MaxMapEl */
 /* Ciri HashMap kosong : count bernilai Nil dengan seluruh isi key & value map mapUndef */
@@ -73,4 +78,8 @@ void ResetScoreboard(ScoreMap *papanskor);
 
 /*Me-reset arr papan skor*/
 void ResetArrayScore(ScoreBoard *sb);
+
+/*Mendelete scoreboard dari satu game*/
+void DeleteScoreofGame(ScoreBoardList *gamelist,int gameidx);
+
 #endif

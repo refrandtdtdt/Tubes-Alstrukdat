@@ -97,7 +97,7 @@ void sortScoreboard(ScoreMap *M)
 {
     /* Menggunakan Insertion Sort*/
     int i, j;
-    infotype k;
+    infotypemap k;
     for (i = 1; i < M->Count; i++)
     {
         k = M->el[i];
@@ -114,7 +114,12 @@ void sortScoreboard(ScoreMap *M)
 void PrintScoreboard(ScoreBoard papanskor)
 {
     int i;
-    printf("**** SCOREBOARD GAME %s ****\n", papanskor.game_name);
+    printf("**** SCOREBOARD GAME ");
+    for(int j = 0; j < papanskor.game_name.Length; j++)
+    {
+        printf("%c", papanskor.game_name.TabWord[j]);
+    }
+    printf(" ****\n");
     printf("|     NAMA    |   SKOR    |\n");
     if (papanskor.board.Count == 0)
     {
@@ -148,5 +153,13 @@ void ResetArrayScore(ScoreBoard *sb)
 {
     //ScoreMap* board = sb->board;
     ResetScoreboard(&(sb->board));
-    printf("Scoreboard berhasil di-reset\n");
+    //printf("Scoreboard berhasil di-reset\n");
+}
+
+void DeleteScoreofGame(ScoreBoardList *gamelist,int gameidx)
+{
+    for(int i=gameidx;i<gamelist->Neff; i++)
+    {
+        gamelist->List[i] = gamelist->List[i+1];
+    }
 }
