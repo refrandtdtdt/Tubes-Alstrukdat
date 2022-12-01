@@ -15,7 +15,6 @@ Miya: \"Okie Dokie\"
 
 aku pulang jam 7 malam, karena menyiapkan lombaku.
 saat pulang, aku melihat Bu Kumakawa yang tampak sedih, aku pun sempatkan tuk menghapiri beliau.
-seminggu kemudian..
 
 %s: \"Selamat malam, Bu Kumakawa.\"
 Bu Kumakawa: \"Ara, ada %s-chan rupanya.\"
@@ -26,7 +25,45 @@ Bu Kumakawa: \"Mungkin bakal ibu ceritain di taman saja. ayo ke sana.\"
 
 Aku pun mengikuti Bu Kumakawa sampai ke taman, lalu beliau mulai bercerita.
 Bu Kumakawa: \"Jadi begini, 1 minggu lagi Miya-chan akan menjalankan perawatan untuk penyakitnya, namun bisa saja ini akan menyebabkan Miya meninggal dunia."
+%s: \"Ngomong-ngomong, dia sakit apa?\"
+Bu Kumakawa: \"Ia punya kanker. 1 minggu lagi akan dilaksanakan kemoterapi kembali, semoga operasi nanti bisa berhasil, dan dia bisa hidup sehat.\"
+%s: \"Amin, semoga hal itu terwujud.\"
+Bu Kumakawa: \"Terima kasih nak, oh benar juga, mau ikut makan malam dengan kami?\"
+Aku enggak enak menolak
+%s: \"Oke bu, saya terima. Terima kasih banyak, Bu Kumakawa.\"
 
+Akhirnya aku pergi ke rumah Keluarga Kumakawa bersama Ibunya Miya.
+Sesampainya di rumah tersebut. Miya dan Pak Kumakawa sudah menyambutku.
+
+Pak Kumakawa: \"Oi, %s rupanya, ayo silakan makan!\"
+Miya: \"Wah, %s. gak nyangka kamu bakal mampir ke sini.\"
+%s: \"Hehehe, tadi enggak sengaja ketemu sama Ibu pas di jalan, sekalian diajak ke sini.\"
+Bu Kumakawa: \"Hihihihi. ya sudah, silakan ambil makanan.\"
+%s: \"Terima kasih banyak semuanya, maaf apabila merepotkan.\"
+Semuanya: \"Selamat Makan!!\"
+
+Setelah selesai makan, Tiba-tiba Miya mengajakku ke atap rumahnya.
+Miya: \"%s, ikut aku ke atap yuk\"
+%s: \"Mau ngapain?\"
+Miya: \"Ya ngobrol-ngobrol santai, hehe.\"
+%s: \"OK lah, aku turutin\"
+
+kami berdua pun duduk bersebelahan, sambil menatap langit malam.
+Miya: \"Andai saja tidak ada polusi cahaya, kita udah pasti bisa lihat bintang-bintang indah dari sini\"
+%s: \"Ya gimana lagi, lampu udah jadi bagian dari kehidupan kita\"
+Miya: \"Sebenarnya ada upaya lho buat ngurangin itu. misalnya tidak memakai lampu yang merambat ke arah langit\"
+%s: \" oh begitu ternyata, dapet ilmu baru dari Miya nih wkwkwkwk\"
+Miya: \"imba jangan merendah dong. justru aku butuh ilmu Matematika dari kamu nih. Nilai matematikaku akhir-akhir ini menurutku kurang memuaskan.\"
+%s: \"Ya kalo kamu pingin belajar bareng aku, tinggal bilang aja sih.\"
+Miya: \"Oke deh.\"
+%s: \"Anyway, kamu suka bintang ya?\"
+Miya: \"Ya, aku suka bintang. dari kecil aku udah tertarik sama hal berbau langit dan astronomi.\"
+%s: \"ohh, begitu rupanya. ngomongin soal Bintang. aku suka rasi bintang Virgo. ya karena zodiakku Virgo sih hahaha.\"
+Miya: \"Kalau aku suka banyak rasi bintang. Ursa Mayor, Ursa Minor, Orion, Centaur, Pegasus, Aries, Taurus, Gemini, dan masih banyak lagi.\"
+%s: \"Ampun suhu.\"
+%s: \"
+
+seminggu kemudian..
 
 %s: \"Kita mau main apa nih?\"
 Miya: \"Main tic tac toe yuk\"
