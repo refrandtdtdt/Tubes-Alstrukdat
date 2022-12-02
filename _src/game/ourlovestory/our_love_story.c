@@ -45,6 +45,6 @@ void our_love_story(ScoreBoard *Scoreboard) {
         ExecuteNode(INFO(p), nama, &skor, &p);
     }
     printf("Permainan selesai! Skor yang kamu dapat: %d\n\n", skor);
-    CHARMACHINE("credit.txt");
+    CHARMACHINE("_src/game/ourlovestory/credit.txt");
     InsertScore(&(Scoreboard->board), nama, skor);
 }
