@@ -10,6 +10,7 @@
 # include "../../ADT/functions.h"
 # include "list_pesanan.h"
 # include "../../ADT/mesinkata_modif.h"
+# include "../../ADT/map_scoreboard.h"
 
 
 int rng1(int lower, int upper);
@@ -28,7 +29,7 @@ Menampilkan Table terkait.
 I.S Sembarang
 F.S Menampilkan Isi Queue
 */
-void DinerDash();
+void DinerDash(ScoreBoard *scoreboard);
 /*
 Program untuk Game Diner Dash
 */
