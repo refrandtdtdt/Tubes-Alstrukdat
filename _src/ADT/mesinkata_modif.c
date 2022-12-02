@@ -132,50 +132,50 @@ int WordToInt(Word kata) {
     return StrToInt(kata.TabWord);
 }
 
-void CommandWord(Word *w, Word command, int kataKe)
-{
-    int i = 0, counter = 0, length = 0;
-    boolean stop;
+// void CommandWord(Word *w, Word command, int kataKe)
+// {
+//     int i = 0, counter = 0, length = 0;
+//     boolean stop;
 
-    while (counter != kataKe - 1 && i < command.Length)
-    {
-        stop = false;
-        if (command.TabWord[i] == ' ')
-        {
-            counter++;
-            while (i < command.Length && !stop)
-            {
-                i++;
-                if (command.TabWord[i] != ' ')
-                {
-                    stop = true;
-                }
-            }
-        }
-        else
-        {
-            i++;
-        }
+//     while (counter != kataKe - 1 && i < command.Length)
+//     {
+//         stop = false;
+//         if (command.TabWord[i] == ' ')
+//         {
+//             counter++;
+//             while (i < command.Length && !stop)
+//             {
+//                 i++;
+//                 if (command.TabWord[i] != ' ')
+//                 {
+//                     stop = true;
+//                 }
+//             }
+//         }
+//         else
+//         {
+//             i++;
+//         }
 
-        if (i == command.Length)
-        {
-            counter++;
-        }
-    }
+//         if (i == command.Length)
+//         {
+//             counter++;
+//         }
+//     }
 
-    stop = false;
-    while (!stop && i < command.Length)
-    {
-        if (command.TabWord[i] == ' ')
-        {
-            stop = true;
-        }
-        else
-        {
-            w->TabWord[length] = command.TabWord[i];
-            i++;
-            length++;
-        }
-    }
-    w->Length = length;
-}
+//     stop = false;
+//     while (!stop && i < command.Length)
+//     {
+//         if (command.TabWord[i] == ' ')
+//         {
+//             stop = true;
+//         }
+//         else
+//         {
+//             w->TabWord[length] = command.TabWord[i];
+//             i++;
+//             length++;
+//         }
+//     }
+//     w->Length = length;
+// }

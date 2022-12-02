@@ -12,7 +12,7 @@ Pemain CreatePlayer(Word nama, int id)   {
     return ret;
 }
 
-void SetPlayers(QueuePemain* pemain, int jumlah)   {
+void SetPlayers(Queue* pemain, int jumlah)   {
     Sentence player;
     Pemain player1;
     for (int i = 0; i < jumlah; i++)    {
@@ -20,7 +20,7 @@ void SetPlayers(QueuePemain* pemain, int jumlah)   {
         START();
         convertToArrayOfKata(&player, 1);
         player1 = CreatePlayer(player.buffer[0], i);
-        enqueuePemain(pemain, player1);
+        enqueueCard(pemain, player1);
     }
 }
 
@@ -68,13 +68,13 @@ void CreateDeck(List* cards)    {
 }
 
 void Shuffle(List* cards, Stack* card_stack)    { 
-    int len = LengthList(*cards);
+    int len = LengthCard(*cards);
     //printf("%d\n", len);
     Kartu val;
     shuffle(cards, len);
     while (!IsListEmpty(*cards))    {
         val = cards->A[len-1];
-        DeleteLastList(cards);
+        DeleteLast(cards);
         Push(card_stack, val);
         len--;
     }
@@ -93,13 +93,13 @@ void Draw(List* cards, Kartu pick, DrawnCard* draw, int id_pemain) {
 
     draw->card = card;
     draw->id_player = id_pemain;
-    DeleteAtList(cards, i);
+    DeleteAtCard(cards, i);
 }
 
 void Take(List *cards, Stack* card_stack)   {
     Kartu card;
     Pop(card_stack, &card);
-    InsertFirstList(cards, card);
+    InsertFirstCard(cards, card);
 }
 
 boolean SearchSuits(List card, Kartu c) {
@@ -119,7 +119,7 @@ void PrintCard(Kartu card)  {
 }
 
 void PrintPlayerCards(Pemain pemain)    {
-    for (int i = 1; i < LengthList(pemain.pegangan);i++)    {
+    for (int i = 1; i < LengthCard(pemain.pegangan);i++)    {
         printf("%d.", i);
         PrintCard(pemain.pegangan.A[i-1]);
         if ((i-1) % 2 != 0) {
@@ -131,18 +131,18 @@ void PrintPlayerCards(Pemain pemain)    {
         }
 
     }
-    int j = LengthList(pemain.pegangan);
+    int j = Length(pemain.pegangan);
     printf("%d.", j);
     PrintCard(pemain.pegangan.A[j-1]);
     printf("\n");
 }
 
 void PrintCardList(List card)   {
-    for (int i = 0; i < LengthList(card)-1;i++)    {
+    for (int i = 0; i < LengthCard(card)-1;i++)    {
         PrintCard(card.A[i]);
         printf(",");
     }
-    int j = LengthList(card)-1;
+    int j = Length(card)-1;
     PrintCard(card.A[j]);
     printf("\n");    
 }

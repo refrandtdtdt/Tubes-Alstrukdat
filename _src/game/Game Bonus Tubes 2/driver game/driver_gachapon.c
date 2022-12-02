@@ -1,4 +1,4 @@
-#include "gachapon.h"
+#include "..\gachapon.h"
 #include <stdio.h>
 
 int main()  {

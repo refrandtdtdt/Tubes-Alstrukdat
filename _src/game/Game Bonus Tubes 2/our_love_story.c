@@ -2,10 +2,11 @@
 # include "story_tree.h"
 # include "..\..\ADT\mesinkar.h"
 # include "execute.h"
+# include "our_love_story.h"
 
 StoryTree story;
 
-int main() {
+void our_love_story(ScoreBoard *Scoreboard) {
     char* nama;
     Sentence word_nama;
     Sentence word_input;
@@ -24,7 +25,7 @@ int main() {
         }
         else if (input == 2) {
             system("cls");
-            PRINTMACHINE("megumi_main.txt");
+            PRINTMACHINE("megumi_game_over.txt");
             printf("\n\n");
             CHARMACHINE("character_profile.txt");
             printf("Tekan enter untuk menutup");START();system("cls");
@@ -47,5 +48,5 @@ int main() {
     }
     printf("Permainan selesai! Skor yang kamu dapat: %d\n\n", skor);
     CHARMACHINE("credit.txt");
-    return 0;
+    InsertScore(&(Scoreboard->board), nama, skor);
 }

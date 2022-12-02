@@ -67,7 +67,7 @@ void Table(QueueFood antrean, QueueFood cooking, ListPesanan serving) {
     printf("\n");
 }
 
-void DinerDash()    {
+void DinerDash(ScoreBoard *scoreboard)    {
     FILE* aturan;
     char ch;
     char ret;
@@ -237,4 +237,11 @@ void DinerDash()    {
     free(id_food_str1);
     free(id_food_str2);
     printf("\nPermainan Selesai!!\nTotal Pendapatan yang didapat: %d\n", saldo);
+    Sentence player_name_sent;
+    char* player_name;
+    printf("Masukkan Nama Pemain (tanpa spasi): ");
+    START();
+    convertToArrayOfKata(&player_name_sent, 1);
+    player_name = kataToString(player_name_sent.buffer[0]);
+    InsertScore(&(scoreboard->board), player_name, saldo);
 }

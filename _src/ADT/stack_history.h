@@ -1,18 +1,19 @@
 #ifndef stackt_H
 #define stackt_H
 
-#include "boolean.h"
+#include "../boolean.h"
 #include "mesinkata_modif.h"
 
 #define NilHistory -1
 #define MaxElHistory 100
 
-typedef int infotypeHistory;
+typedef Word infotypeHistory;
 typedef int address;   
 
 typedef struct {
   infotypeHistory T[MaxElHistory]; 
-  address TOP;  
+  address TOP;
+  int NbElmt;  
 } StackHistory;
 
 

@@ -4,7 +4,7 @@
 #ifndef QUEUEPEMAIN_H
 #define QUEUEPEMAIN_H
 
-#include "boolean.h"
+#include "..\..\boolean.h"
 #include "adt_kartu.h"
 
 #define IDX_UNDEF -1

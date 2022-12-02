@@ -96,7 +96,7 @@ void FoodEaten(ListPoint *L, ListPoint O, Point *Food, Point Meteor, boolean *ga
     *Food = RandomMapPoint(*L,O,Meteor,Meteor,false);
 }
 
-void Initialize(ListPoint *L, ListPoint *O, Point *Food, Point *neck, int diff)
+void Initialize(ListPoint *L, ListPoint *O, Point *Food, int diff)
 {
     Point x;
     Point dummy = MakePoint(-99,-99);
@@ -123,7 +123,6 @@ void Initialize(ListPoint *L, ListPoint *O, Point *Food, Point *neck, int diff)
     IncreaseLength(L, *O, dummy, &temp);
     IncreaseLength(L, *O, dummy, &temp);
     *Food = RandomMapPoint(*L,*O,dummy,dummy,false);
-    *neck = Info(Next(First(*L)));
 }
 
 void IncreaseLength(ListPoint *L, ListPoint O, Point Meteor, boolean *gameover)

@@ -3,6 +3,7 @@
 void CreateStackHistory(StackHistory *S)
 {
     Top(*S) = NilHistory;
+    S->NbElmt = 0;
 }
 
 boolean IsStackHistoryEmpty(StackHistory S)
@@ -19,7 +20,8 @@ void PushHistory(StackHistory *S, infotypeHistory X)
 {
     if (!IsStackHistoryFull(*S)) {
         Top(*S) += 1;
-        CopyWord(&InfoTop(*S), X);
+        InfoTop(*S) = X;
+        S->NbElmt++;
     } else {
         printf("Stack is full ...\n");
     }
@@ -27,8 +29,9 @@ void PushHistory(StackHistory *S, infotypeHistory X)
 
 void PopHistory(StackHistory *S, infotypeHistory *X)
 {
-    CopyWord(X, InfoTop(*S));
+    *X = InfoTop(*S);
 	Top(*S) -= 1;
+    S->NbElmt--;
 }
 
 void InverseStackHistory(StackHistory *S)
@@ -75,11 +78,12 @@ void PrintStackHistory(StackHistory S, int banyak)
         {
             printf("%d. ", i + 1);
             PopHistory(&S, &val);
-            for (j = 0; j < val.Length; j++)
-            {
-                printf("%c", val.TabWord[j]);
-            }
-            printf("\n");
+            printf("%s\n", val.TabWord);
+            // for (j = 0; j < val.Length; j++)
+            // {
+            //     printf("%c", val.TabWord[j]);
+            // }
+            //printf("\n");
         }
     }
     else

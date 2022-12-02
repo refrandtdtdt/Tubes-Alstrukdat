@@ -1,13 +1,9 @@
 #include "hangman.h"
-#include "mesinkata_modif.h"
-#include <stdlib.h>
-#include "arraykata.h"
-#include "functions.h"
-#include "time.h"
-void Load(char *filename, TabKata *list)
+
+void LoadKata(char *filename, TabKata *list)
 {
     char* currline;
-    boolean exists = STARTF(filename);
+    boolean exists = STARTFlocal(filename);
     Sentence listkata; CreateSentence(&listkata);
     int banyakkata = 0;
     while (cc != '\n')
@@ -30,9 +26,9 @@ void Load(char *filename, TabKata *list)
     CLOSEF();
 }
 
-void Save(char* filename, TabKata list)
+void SaveKata(char* filename, TabKata list)
 {
-    STARTW(filename);
+    STARTWlocal(filename);
     fprintf(pita, "%d\n", list.Neff);
     for (int i = 0; i < list.Neff; i++)
     {
@@ -48,8 +44,8 @@ void tambahkata (TabKata *T)
     file = true;
     CopyWord();
     boolean isMember = false;
-    int i;
-    while (!isMember && i<=GetLastIdx(*T))
+    int i=0;
+    while (!isMember && i<=GetLastIdxTab(*T))
     {
         if (Eqstr((*T).TK[i].TabWord, kataToString(currentWord)))
         {
@@ -65,7 +61,6 @@ void tambahkata (TabKata *T)
     while (!isvalid)
     {
         int j = 0;
-        int i = 0;  
         isvalid = true;
         while (j < currentWord.Length && isvalid)
         {
@@ -82,7 +77,6 @@ void tambahkata (TabKata *T)
             START () ;
             file = true;
             CopyWord();
-            (*T).TK[i] = currentWord;
         }
     }
     if (!isMember && isvalid == true) //bukan member 
@@ -139,7 +133,7 @@ void hangman ()
     Word semuatebakan;
     CreateSentence(&input);
     CreateSentence(&tebakan);
-    TabKata listKata; MakeEmpty(&listKata);
+    TabKata listKata; MakeEmptyTab(&listKata);
     printf("Choose Menu: ");
     START();
     convertToArrayOfKata(&input,2);
@@ -171,7 +165,7 @@ void hangman ()
     }
     if (Eqstr(input.buffer[0].TabWord,"PLAY"))
     {
-        Load("kata.txt",&listKata);
+        LoadKata("_src/game/Hangman/kata.txt",&listKata);
         int kesempatan = 10;
         boolean done = true;
         Word soal;
@@ -266,18 +260,20 @@ void hangman ()
                 done = true;
                 printf("\n");
                 clearstring(semuatebakan.TabWord);
+                semuatebakan.Length = 0;
+                n = 0;
             }
         }
-        printf("Game Over! Poin yang anda dapatkan adalah %d poin!",skorakhir);
+        printf("Game Over! Poin yang anda dapatkan adalah %d poin!\n",skorakhir);
     }
     else if((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))
     {
-        Load("kata.txt",&listKata);
+        LoadKata("_src/game/Hangman/kata.txt",&listKata);
         tambahkata(&listKata);
-        Save("kata.txt", listKata);
+        SaveKata("_src/game/Hangman/kata.txt", listKata);
     }
 }
-int main() {
-  hangman();
-  return 0;
-}
+// int main() {
+//   hangman();
+//   return 0;
+// }

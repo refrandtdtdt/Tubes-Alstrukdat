@@ -1,8 +1,8 @@
 #ifndef ARRAYMODIF_H
 #define ARRAYMODIF_H
 #include <stdio.h>
-#include "boolean.h"
-#include "mesinkata_modif.h"
+#include "../../boolean.h"
+#include "../../ADT/mesinkata_modif.h"
 
 /* Kamus Umum */
 
@@ -11,12 +11,12 @@
 #define IdxUndef -999 /* indeks tak terdefinisi*/
 
 /* Definisi elemen dan koleksi objek */
-typedef int IdxType;
-typedef Word ElType;
+typedef int IndexType;
+typedef Word Eletype;
 
 typedef struct
 	{
-		ElType TK [IdxMax-IdxMin+1]; /* memori tempat penyimpan elemen (container) */
+		Eletype TK [IdxMax-IdxMin+1]; /* memori tempat penyimpan elemen (container) */
 		int Neff; /* banyaknya elemen efektif */
 	} TabKata;
 
@@ -34,65 +34,65 @@ typedef struct
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create tabel kosong */
-void MakeEmpty (TabKata *T);
+void MakeEmptyTab (TabKata *T);
 /* I.S. sembarang */
 /* F.S. Terbentuk tabel T kosong dengan kapasitas IdxMax-IdxMin+1 */
 
 /* ********** SELEKTOR ********** */
 /* *** Banyaknya elemen *** */
-int NbElmt (TabKata T);
+int NbElmtTab (TabKata T);
 /* Mengirimkan banyaknya elemen efektif tabel */
 /* Mengirimkan nol jika tabel kosong */
 /* *** Daya tampung container *** */
-int MaxNbEl (TabKata T);
+int MaxNbElTab (TabKata T);
 /* Mengirimkan maksimum elemen yang dapat ditampung oleh tabel */
 /* *** Selektor INDEKS *** */
-IdxType GetFirstIdx (TabKata T);
+IndexType GetFirstIdxTab (TabKata T);
 /* Prekondisi : Tabel T tidak kosong */
 /* Mengirimkan indeks elemen pertama */
-IdxType GetLastIdx (TabKata T);
+IndexType GetLastIdxTab (TabKata T);
 /* Prekondisi : Tabel T tidak kosong */
 /* Mengirimkan indeks elemen terakhir */
 /* *** Menghasilkan sebuah elemen *** */
-ElType GetElmt (TabKata T, IdxType i);
+Eletype GetElmtTab (TabKata T, IndexType i);
 /* Prekondisi : Tabel tidak kosong, i antara FirstIdx(T)..LastIdx(T) */
 /* Mengirimkan elemen tabel yang ke-i */
 
 /* *** Selektor SET : Mengubah nilai TABEL dan elemen tabel *** */
 /* Untuk type private/limited private pada bahasa tertentu */
-void SetTab (TabKata Tin, TabKata *Tout);
+void SetTabKata (TabKata Tin, TabKata *Tout);
 /* I.S. Tin terdefinisi, sembarang */
 /* F.S. Tout berisi salinan Tin */
 /* Assignment THsl -> Tin */
-void SetEl (TabKata *T, IdxType i, ElType v);
+void SetElKata (TabKata *T, IndexType i, Eletype v);
 /* I.S. T terdefinisi, sembarang */
 /* F.S. Elemen T yang ke-i bernilai v */
 /* Mengeset nilai elemen tabel yang ke-i sehingga bernilai v */
-void SetNeff (TabKata *T, IdxType N);
+void SetNeffKata (TabKata *T, IndexType N);
 /* I.S. T terdefinisi, sembarang */
 /* F.S. Nilai indeks efektif T bernilai N */
 /* Mengeset nilai indeks elemen efektif sehingga bernilai N */
 
 /* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid (TabKata T, IdxType i);
+boolean IsIdxValidTab (TabKata T, IndexType i);
 /* Prekondisi : i sembarang */
 /* Mengirimkan true jika i adalah indeks yang valid utk ukuran tabel */
 /* yaitu antara indeks yang terdefinisi utk container*/
-boolean IsIdxEff (TabKata T, IdxType i);
+boolean IsIdxEffTab (TabKata T, IndexType i);
 /* Prekondisi : i sembarang*/
 /* Mengirimkan true jika i adalah indeks yang terdefinisi utk tabel */
 /* yaitu antara FirstIdx(T)..LastIdx(T) */
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test tabel kosong *** */
-boolean IsEmpty (TabKata T);
+boolean IsEmptyTab (TabKata T);
 /* Mengirimkan true jika tabel T kosong, mengirimkan false jika tidak */
 /* *** Test tabel penuh *** */
-boolean IsFull (TabKata T);
+boolean IsFullTab (TabKata T);
 /* Mengirimkan true jika tabel T penuh, mengirimkan false jika tidak */
 
 /* ********** BACA dan TULIS dengan INPUT/OUTPUT device ********** */
-void TulisIsi (TabKata T);
+void TulisIsiTab (TabKata T);
 /* Proses : Menuliskan isi tabel dengan traversal */
 /* I.S. T boleh kosong */
 /* F.S. Jika T tidak kosong : indeks dan elemen tabel ditulis berderet ke bawah */

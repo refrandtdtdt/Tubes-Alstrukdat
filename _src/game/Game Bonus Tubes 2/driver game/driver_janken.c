@@ -1,4 +1,4 @@
-#include "janken.h"
+#include "..\janken.h"
 #include <stdio.h>
 
 int main()  {

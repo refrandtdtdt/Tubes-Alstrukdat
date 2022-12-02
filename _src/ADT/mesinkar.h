@@ -53,4 +53,6 @@ boolean STARTF(char* filename);
 void CLOSEF();
 void STARTW(char* filename);
 
+boolean STARTFlocal(char* filename);
+void STARTWlocal(char* filename);
 #endif

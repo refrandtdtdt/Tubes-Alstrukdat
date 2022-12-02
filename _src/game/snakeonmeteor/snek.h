@@ -11,7 +11,7 @@ void MeteorHit(ListPoint *L, Point Meteor);
 
 void FoodEaten(ListPoint *L, ListPoint O, Point *Food, Point Meteor, boolean *gameover);
 
-void Initialize(ListPoint *L, ListPoint *O, Point *Food, Point *neck, int diff);
+void Initialize(ListPoint *L, ListPoint *O, Point *Food, int diff);
 
 void IncreaseLength(ListPoint *L, ListPoint O, Point Meteor, boolean *gameover);
 

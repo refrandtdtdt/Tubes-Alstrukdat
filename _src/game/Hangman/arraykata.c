@@ -3,7 +3,7 @@
 // HEADER INI BUKAN FINAL, BUAT TESTING AJA
 
 /* ********** KONSTRUKTOR ********** */
-void MakeEmpty (TabKata *T)
+void MakeEmptyTab (TabKata *T)
 {
     T->Neff = 0;
    //  for(int i=1;1<=IdxMax;i++)
@@ -15,37 +15,37 @@ void MakeEmpty (TabKata *T)
 
 /* ********** SELEKTOR ********** */
 /* *** Banyaknya elemen *** */
-int NbElmt (TabKata T)
+int NbElmtTab (TabKata T)
 {
     return T.Neff;
 }
 
 /* *** Daya tampung container *** */
-int MaxNbEl (TabKata T)
+int MaxNbElTab (TabKata T)
 {
     return IdxMax-IdxMin+1;
 }
 
 /* *** Selektor INDEKS *** */
-IdxType GetFirstIdx (TabKata T)
+IndexType GetFirstIdxTab (TabKata T)
 {
     return IdxMin;
 }
 
-IdxType GetLastIdx (TabKata T)
+IndexType GetLastIdxTab (TabKata T)
 {
     return T.Neff-1;
 }
 
 /* *** Menghasilkan sebuah elemen *** */
-ElType GetElmt (TabKata T, IdxType i)
+Eletype GetElmtTab (TabKata T, IndexType i)
 {
     return T.TK[i];
 }
 
 /* *** Selektor SET : Mengubah nilai TABEL dan elemen tabel *** */
 
-void SetTab (TabKata Tin, TabKata *Tout)
+void SetTabKata (TabKata Tin, TabKata *Tout)
 {
     Tout->Neff = Tin.Neff;
     for(int i=IdxMin; i<=Tin.Neff; i++)
@@ -55,25 +55,25 @@ void SetTab (TabKata Tin, TabKata *Tout)
 }
 
 /* Assignment THsl -> Tin */
-void SetEl (TabKata *T, IdxType i, ElType v)
+void SetElKata (TabKata *T, IndexType i, Eletype v)
 {
     T->TK[i] = v;
     T->Neff = T->Neff +1;
 }
 
-void SetNeff (TabKata *T, IdxType N)
+void SetNeffKata (TabKata *T, IndexType N)
 {
     T->Neff = N;
 }
 
 
 /* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid (TabKata T, IdxType i)
+boolean IsIdxValidTab (TabKata T, IndexType i)
 {
     return i>=IdxMin && i<=IdxMax;
 }
 
-boolean IsIdxEff (TabKata T, IdxType i)
+boolean IsIdxEffTab (TabKata T, IndexType i)
 {
     return i>=IdxMin && i<T.Neff;
 }
@@ -81,20 +81,20 @@ boolean IsIdxEff (TabKata T, IdxType i)
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test tabel kosong *** */
-boolean IsEmpty (TabKata T)
+boolean IsEmptyTab (TabKata T)
 {
     return T.Neff == 0;
 }
 
 /* *** Test tabel penuh *** */
-boolean IsFull (TabKata T)
+boolean IsFullTab (TabKata T)
 {
     return T.Neff == IdxMax;
 }
 
 
 /* ********** BACA dan TULIS dengan INPUT/OUTPUT device ********** */
-void TulisIsi (TabKata T)
+void TulisIsiTab (TabKata T)
 {
     if (T.Neff == 0)
     {
@@ -104,7 +104,7 @@ void TulisIsi (TabKata T)
     {
         for(int i=IdxMin; i<T.Neff; i++)
         {
-            printf("%d:%s\n", i+1, GetElmt(T,i).TabWord);
+            printf("%d:%s\n", i+1, GetElmtTab(T,i).TabWord);
         }
     }
 }

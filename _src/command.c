@@ -62,7 +62,7 @@ I.S. Sembarang
 F.S. mengakhiri program ketika input QUIT diberikan
 */
 
-void Load(char *filename, TabGame *list, ScoreBoardList *scores, boolean init)
+void Load(char *filename, TabGame *list, ScoreBoardList *scores, StackHistory *history, boolean init)
 {
     char* currline;
     printf("Loading %s...\n", filename);
@@ -98,7 +98,29 @@ void Load(char *filename, TabGame *list, ScoreBoardList *scores, boolean init)
         //batas akhir untuk command START
         if(!init)
         {
-            //ADV();
+            //baca history
+            //Sentence gameHistory; CreateSentence(&gameHistory);
+            int played = 0;
+            while (cc != '\n')
+            {
+                played *= 10;
+                played += cc-'0';
+                ADV();
+            }
+            //printf("%d history loaded\n", played);
+            ADV();
+            // for (int i = 0; i < played; i++)
+            // {
+            //     clear(gameHistory.buffer[i].TabWord);
+            // }
+            for (int i = 0; i < played; i++)
+            {
+                clear(currentWord.TabWord);
+                CopyWord();
+                //printf("%s",currentWord.TabWord);
+                PushHistory(history,currentWord);
+                ADV();
+            }
             //baca scoreboard
             int j = 0;
             int scorecount;
@@ -106,14 +128,18 @@ void Load(char *filename, TabGame *list, ScoreBoardList *scores, boolean init)
             Word temp;
             while(j < games)
             {
+                //printf("loading game %d scoreboard\n",j+1);
                 scorecount = 0;
                 while (cc != '\n')
                 {
+                    //printf("%c",cc);
                     scorecount *= 10;
                     scorecount += cc-'0';
                     ADV();
                 }
+                //printf("\n");
                 ADV();
+                //printf("%d scores loaded\n", scorecount);
                 if(scorecount>0)
                 {
                     convertToArrayOfKata(&gamescore, scorecount);
@@ -153,7 +179,7 @@ F.S. Jika terdapat save file sesuai nama file masukan user, maka akan membaca sa
      maka akan mengeluarkan pesan bahwa tidak dapa tmenemukan save file tersebut
 */
 
-void Save(char* filename, TabGame list, ScoreBoardList scores)
+void Save(char* filename, TabGame list, ScoreBoardList scores, StackHistory history)
 {
     printf("Saving to %s...\n", filename);
     STARTW(filename);
@@ -161,6 +187,19 @@ void Save(char* filename, TabGame list, ScoreBoardList scores)
     for (int i = 0; i < list.Neff; i++)
     {
         fprintf(pita, "%s\n", list.TG[i].TabWord);
+    }
+    int x = history.NbElmt;
+    fprintf(pita, "%d\n", x);
+    Word val; StackHistory temp; CreateStackHistory(&temp);
+    for (int i = 0; i < x; i++)
+    {
+        PopHistory(&history,&val);
+        PushHistory(&temp,val);
+    }
+    for (int i = 0; i < x; i++)
+    {
+        PopHistory(&temp,&val);
+        fprintf(pita, "%s\n", val.TabWord);
     }
     for (int i = 0; i < scores.Neff; i++)
     {
@@ -305,7 +344,7 @@ F.S. Kondisi 1) Apabila masukan masih di dalam rentang nomor game di dalam dafta
                 masukan lagi sampai masukan valid
 */
 
-void mainkanGame (Queue * antrian_game, ScoreBoardList *scores) {
+void mainkanGame (Queue * antrian_game, ScoreBoardList *scores, StackHistory *history) {
     printf("Berikut adalah daftar game dalam antrianmu\n");
     int i;
     for (i = 0; i < length((*antrian_game)); i++) {
@@ -322,34 +361,28 @@ void mainkanGame (Queue * antrian_game, ScoreBoardList *scores) {
         // Dequeue game yang dimainkan
         Word dummy;
         dequeue(antrian_game, &dummy);
-
         if (Eqstr(dummy.TabWord,"RNG")) {
             printf("Loading RNG ...\n");
             RNG();// Panggil fungsi game RNG
         } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
             printf("Loading Diner DASH ...\n");
             DinerDash();// Panggil fungsi game Diner DASH
+        } else if (Eqstr(dummy.TabWord,"HANGMAN")) {
+            printf("Loading HANGMAN ...\n");
+            hangman();// Panggil fungsi game HANGMAN
         } else if (Eqstr(dummy.TabWord,"TOWER OF HANOI")) {
             printf("Loading TOWER OF HANOI ...\n");
             TowerOfHanoi();// Panggil fungsi game TOWER OF HANOI
         } else if (Eqstr(dummy.TabWord,"SNAKE ON METEOR")) {
             printf("Loading SNAKE ON METEOR ...\n");
             SnakeOnMeteor();// Panggil fungsi game SNAKE ON METEOR
-        } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
-            printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
-            printf("Silahkan pilih game lain.\n");
-        } else if (Eqstr(dummy.TabWord,"RISEWOMAN")) {
-            printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
-            printf("Silahkan pilih game lain.\n");
-        } else if (Eqstr(dummy.TabWord,"EIFFEL TOWER")) {
-            printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
-            printf("Silahkan pilih game lain.\n");
         } else if (Eqstr(dummy.TabWord,"Card Game")) {
             printf("Loading Card Game ...\n");
             GameKartu();// Panggil fungsi game Card Game
         } else {
-            GameTambahan(scores->List, dummy);
+            GameTambahan();
         }
+        PushHistory(history,dummy);
     }
 }
 /*
@@ -364,7 +397,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void lewatiGame (Queue * antrian_game, int jumlah_skip) {
+void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history) {
     printf("Berikut adalah daftar game dalam antrianmu\n");
     int i;
     for (i = 0; i < length((*antrian_game)); i++) {
@@ -406,27 +439,22 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip) {
             } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
                 printf("Loading Diner DASH ...\n");
                 DinerDash();// Panggil fungsi game Diner DASH
+            } else if (Eqstr(dummy.TabWord,"HANGMAN")) {
+                printf("Loading HANGMAN ...\n");
+                hangman();// Panggil fungsi game HANGMAN
             } else if (Eqstr(dummy.TabWord,"TOWER OF HANOI")) {
                 printf("Loading TOWER OF HANOI ...\n");
                 TowerOfHanoi();// Panggil fungsi game TOWER OF HANOI
             } else if (Eqstr(dummy.TabWord,"SNAKE ON METEOR")) {
                 printf("Loading SNAKE ON METEOR ...\n");
                 SnakeOnMeteor();// Panggil fungsi game SNAKE ON METEOR
-            } else if (Eqstr(dummy.TabWord,"DINOSAUR IN EARTH")) {
-                printf("Game DINOSAUR IN EARTH masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
-            } else if (Eqstr(dummy.TabWord,"RISEWOMAN")) {
-                printf("Game RISEWOMAN masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
-            } else if (Eqstr(dummy.TabWord,"EIFFEL TOWER")) {
-                printf("Game EIFFEL TOWER masih dalam maintenance, belum dapat dimainkan.\n");
-                printf("Silahkan pilih game lain.\n");
             } else if (Eqstr(dummy.TabWord,"Card Game")) {
                 printf("Loading Card Game ...\n");
-                GameKartu();
+                GameKartu();// Panggil fungsi game Card Game
             } else {
-                GameTambahan();
+                GameTambahan();//scores->List, dummy);
             }
+            PushHistory(history,dummy);
         } else {
             CreateQueue(antrian_game);
             printf("Tidak ada permainan lagi dalam antrian game-mu\n");
@@ -452,7 +480,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void GameTambahan(ScoreBoard scoreboard) {
+void GameTambahan() {
     srand(time(0));
     int random = abs((rand() % 100 + (rand() % 100)*pow(-1, rand()))) % 100 + abs((rand() % 50)*pow(-1, rand()));
     printf("Permainan Selesai, Skor: %d\n", random);
@@ -501,14 +529,48 @@ I.S. Sembarang
 F.S. Dikeluarkan output tentang tebakan dari pemain danskornya
 */
 
-void ResetHistory()
+void showHistory(int parameter, StackHistory stackHistory)
 {
-    printf("resethistory\n");
+    int banyakHistory_int = parameter;
+    if (banyakHistory_int > 0)
+    {
+        printf("Berikut adalah daftar Game yang telah dimainkan\n");
+        PrintStackHistory(stackHistory, banyakHistory_int);
+    }
+    else
+    {
+        printf("History gagal ditampilkan.\n");
+    }
 }
 
-void History()
+void resetHistory(StackHistory *stackHistory)
 {
-    printf("history\n");
+    boolean valid = false;
+    while (!valid)
+    {
+        printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET HISTORY? ");
+        START();
+        CopyWord();
+        if (Eqstr(currentWord.TabWord, "YA") || Eqstr(currentWord.TabWord, "TIDAK"))
+        {
+            valid = true;
+        }
+        else
+        {
+            printf("\nMasukan tidak valid coba lagi.\n");
+        }
+    }
+
+    if (Eqstr(currentWord.TabWord, "YA"))
+    {
+        CreateStackHistory(stackHistory);
+        printf("\nHistory berhasil di-reset.\n");
+    }
+    else
+    {
+        printf("\nHistory tidak jadi di-reset. Berikut adalah daftar Game yang telah dimainkan\n");
+        PrintStackHistory(*stackHistory, Top(*stackHistory) + 1);
+    }
 }
 
 void ResetAllScores()

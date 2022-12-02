@@ -1,7 +1,7 @@
 #ifndef GACHAPON
 #define GACHAPON
 
-#include "boolean.h"
+#include "..\..\boolean.h"
 #include "randomizer.h"
 
 typedef struct item {
