@@ -1,6 +1,6 @@
 # include "main_game_card.h"
 
-void CardGame(ScoreBoard Scoreboard)  {
+void CardGame(ScoreBoard *Scoreboard)  {
     /*KAMUS*/
     List deck;
     char* input;
