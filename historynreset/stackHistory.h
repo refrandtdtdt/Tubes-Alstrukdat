@@ -11,11 +11,6 @@ typedef int infotypeHistory;
 typedef int address;   
 
 typedef struct {
-    char TabWord[NMax];
-    int Length;
-} infotypeHistory;
-
-typedef struct {
   infotypeHistory T[MaxElHistory]; 
   address TOP;  
 } StackHistory;
