@@ -1,7 +1,4 @@
-# include <stdio.h>
-# include "story_tree.h"
-# include "..\..\ADT\mesinkar.h"
-# include "execute.h"
+
 # include "our_love_story.h"
 
 StoryTree story;
@@ -15,7 +12,7 @@ void our_love_story(ScoreBoard *Scoreboard) {
     int skor;
     skor = 0;
     while (!valid)  {
-        PRINTMACHINE("game_title.txt");
+        PRINTMACHINE("_src/game/ourlovestory/game_title.txt");
         printf("Welcome to Our Love Story\n\n");
         printf("Select menu\n1. START THE GAME\n2. CHARACTER PROFILE\n");
         START();convertToArrayOfKata(&word_input, 1);system("cls");
@@ -26,7 +23,7 @@ void our_love_story(ScoreBoard *Scoreboard) {
         }
         else if (input == 2) {
             system("cls");
-            PRINTMACHINE("megumi_game_over.txt");
+            PRINTMACHINE("_src/game/ourlovestory/megumi_game_over.txt");
             printf("\n\n");
             CHARMACHINE("character_profile.txt");
             printf("Tekan enter untuk menutup");START();system("cls");

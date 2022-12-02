@@ -384,6 +384,9 @@ void mainkanGame (Queue * antrian_game, ScoreBoardList *scores, StackHistory *hi
         } else if (Eqstr(dummy.TabWord,"Card Game")) {
             printf("Loading Card Game ...\n");
             CardGame(&scores->List[i]);// Panggil fungsi game Card Game
+        } else if (Eqstr(dummy.TabWord,"Our Love Story")) {
+            printf("Loading Our Love Story ...\n");
+            our_love_story(&scores->List[i]);// Panggil fungsi game Our Love Story
         } else {
             GameTambahan(&scores->List[i]);
         }
@@ -461,6 +464,9 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history, S
             } else if (Eqstr(dummy.TabWord,"Card Game")) {
                 printf("Loading Card Game ...\n");
                 CardGame(&scores->List[i]);// Panggil fungsi game Card Game
+            } else if (Eqstr(dummy.TabWord,"Our Love Story")) {
+                printf("Loading Our Love Story ...\n");
+                our_love_story(&scores->List[i]);// Panggil fungsi game Our Love Story
             } else {
                 GameTambahan(&scores->List[i]);
             }

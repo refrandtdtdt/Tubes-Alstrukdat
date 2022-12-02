@@ -21,6 +21,7 @@
 # include "game/GameToH/GameToH.h"
 # include "game/snakeonmeteor/snakeonmeteor.h"
 # include "game/Hangman/hangman.h"
+# include "game/ourlovestory/our_love_story.h"
 
 void Help();
 /* memberikan bantuan untuk tiap-tiap command

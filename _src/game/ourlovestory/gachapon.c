@@ -61,7 +61,7 @@ void create_gacha(gacha *list_item) {
     //printf("sukses2\n");
 }
 
-void shuffle(gacha *list_item, size_t n)  {
+void shufflegacha(gacha *list_item, size_t n)  {
     if (n > 1) 
     {
         size_t i;
@@ -91,7 +91,7 @@ void gachapon(int *score)   {
     while (coin != 0)   {
         printf("jumlah koin saat ini: %d\n", coin);
         printf("Tekan Enter untuk mulai menarik gacha");scanf("%c", &dummy);
-        shuffle(&list, 10);
+        shufflegacha(&list, 10);
         printf("berhasil\n");
         prize = list[randomizer(0,99, &offset)];
         printf("Selamat! kamu mendapatkan \"%d* - %s\"\n", prize.rarity, prize.name);
