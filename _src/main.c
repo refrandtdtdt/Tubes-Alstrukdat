@@ -282,7 +282,7 @@ int main() // PROGRAM UTAMA
             {
                 if(loaded)
                 {
-                    ResetAllScores();
+                    ResetScores(&scoreGame);
                 }
                 else
                 {
@@ -330,7 +330,7 @@ int main() // PROGRAM UTAMA
 
                     if(num)
                     {
-                        lewatiGame(&queueGame, x, &historyGame);
+                        lewatiGame(&queueGame, x, &historyGame, &scoreGame);
                     }
                     else
                     {

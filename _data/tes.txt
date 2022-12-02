@@ -4,9 +4,10 @@ Diner DASH
 TOWER OF HANOI
 SNAKE ON METEOR
 Card Game
-3
+4
 HANGMAN
 TOWER OF HANOI
+SNAKE ON METEOR
 SNAKE ON METEOR
 2
 BNMO 19
@@ -16,7 +17,8 @@ Jake 58
 Finn 31
 Marcelline 30
 0
-1
+2
 Marshall 77
+Reyhan 6
 1
 kepret 1000

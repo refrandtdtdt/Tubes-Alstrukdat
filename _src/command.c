@@ -361,26 +361,31 @@ void mainkanGame (Queue * antrian_game, ScoreBoardList *scores, StackHistory *hi
         // Dequeue game yang dimainkan
         Word dummy;
         dequeue(antrian_game, &dummy);
+        int i = 0;
+        while(!Eqstr(dummy.TabWord,scores->List[i].game_name.TabWord))
+        {
+            i++;
+        }
         if (Eqstr(dummy.TabWord,"RNG")) {
             printf("Loading RNG ...\n");
-            RNG();// Panggil fungsi game RNG
+            RNG(&scores->List[i]);// Panggil fungsi game RNG
         } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
             printf("Loading Diner DASH ...\n");
-            DinerDash();// Panggil fungsi game Diner DASH
+            DinerDash(&scores->List[i]);// Panggil fungsi game Diner DASH
         } else if (Eqstr(dummy.TabWord,"HANGMAN")) {
             printf("Loading HANGMAN ...\n");
-            hangman();// Panggil fungsi game HANGMAN
+            hangman(&scores->List[i]);// Panggil fungsi game HANGMAN
         } else if (Eqstr(dummy.TabWord,"TOWER OF HANOI")) {
             printf("Loading TOWER OF HANOI ...\n");
-            TowerOfHanoi();// Panggil fungsi game TOWER OF HANOI
+            TowerOfHanoi(&scores->List[i]);// Panggil fungsi game TOWER OF HANOI
         } else if (Eqstr(dummy.TabWord,"SNAKE ON METEOR")) {
             printf("Loading SNAKE ON METEOR ...\n");
-            SnakeOnMeteor();// Panggil fungsi game SNAKE ON METEOR
+            SnakeOnMeteor(&scores->List[i]);// Panggil fungsi game SNAKE ON METEOR
         } else if (Eqstr(dummy.TabWord,"Card Game")) {
             printf("Loading Card Game ...\n");
-            GameKartu();// Panggil fungsi game Card Game
+            CardGame(&scores->List[i]);// Panggil fungsi game Card Game
         } else {
-            GameTambahan();
+            GameTambahan(&scores->List[i]);
         }
         PushHistory(history,dummy);
     }
@@ -397,7 +402,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history) {
+void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history, ScoreBoardList *scores) {
     printf("Berikut adalah daftar game dalam antrianmu\n");
     int i;
     for (i = 0; i < length((*antrian_game)); i++) {
@@ -433,26 +438,31 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history) {
                 CreateQueue(antrian_game);
             }
 
+            int i = 0;
+            while(!Eqstr(dummy.TabWord,scores->List[i].game_name.TabWord))
+            {
+                i++;
+            }
             if (Eqstr(dummy.TabWord,"RNG")) {
                 printf("Loading RNG ...\n");
-                RNG();// Panggil fungsi game RNG
+                RNG(&scores->List[i]);// Panggil fungsi game RNG
             } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
                 printf("Loading Diner DASH ...\n");
-                DinerDash();// Panggil fungsi game Diner DASH
+                DinerDash(&scores->List[i]);// Panggil fungsi game Diner DASH
             } else if (Eqstr(dummy.TabWord,"HANGMAN")) {
                 printf("Loading HANGMAN ...\n");
-                hangman();// Panggil fungsi game HANGMAN
+                hangman(&scores->List[i]);// Panggil fungsi game HANGMAN
             } else if (Eqstr(dummy.TabWord,"TOWER OF HANOI")) {
                 printf("Loading TOWER OF HANOI ...\n");
-                TowerOfHanoi();// Panggil fungsi game TOWER OF HANOI
+                TowerOfHanoi(&scores->List[i]);// Panggil fungsi game TOWER OF HANOI
             } else if (Eqstr(dummy.TabWord,"SNAKE ON METEOR")) {
                 printf("Loading SNAKE ON METEOR ...\n");
-                SnakeOnMeteor();// Panggil fungsi game SNAKE ON METEOR
+                SnakeOnMeteor(&scores->List[i]);// Panggil fungsi game SNAKE ON METEOR
             } else if (Eqstr(dummy.TabWord,"Card Game")) {
                 printf("Loading Card Game ...\n");
-                GameKartu();// Panggil fungsi game Card Game
+                CardGame(&scores->List[i]);// Panggil fungsi game Card Game
             } else {
-                GameTambahan();//scores->List, dummy);
+                GameTambahan(&scores->List[i]);
             }
             PushHistory(history,dummy);
         } else {
@@ -480,11 +490,18 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void GameTambahan() {
+void GameTambahan(ScoreBoard * scoreboard) {
     srand(time(0));
     int random = abs((rand() % 100 + (rand() % 100)*pow(-1, rand()))) % 100 + abs((rand() % 50)*pow(-1, rand()));
     printf("Permainan Selesai, Skor: %d\n", random);
     int i = 5;
+    Sentence nama;
+    char * strNama;
+    printf("Nama (cukup 1 kata) : ");
+    START();
+    convertToArrayOfKata(&nama, 1);
+    strNama = kataToString(nama.buffer[0]);
+    InsertScore(&(scoreboard->board), strNama, random);
     //while(scoreboard.game_name != )
 }
 /*
@@ -494,7 +511,7 @@ I.S. Sembarang
 F.S. Mengeluarkan output angka random
 */
 
-void RNG()
+void RNG(ScoreBoard * scoreboard)
 {
     srand(time(NULL));
     int x = (rand() % 30);
@@ -521,6 +538,13 @@ void RNG()
     }
     printf("\nYa, X adalah %d.\n", x);
     printf("Skor : %d\n", skor);
+    Sentence nama;
+    char * strNama;
+    printf("Nama (cukup 1 kata) : ");
+    START();
+    convertToArrayOfKata(&nama, 1);
+    strNama = kataToString(nama.buffer[0]);
+    InsertScore(&(scoreboard->board), strNama, skor);
 }
 /*
 Perintah untuk memainkan game RNG di mana sistem akan menentukan angka acak, lalu pemain akan diberikan kesempatan untuk
@@ -548,7 +572,7 @@ void resetHistory(StackHistory *stackHistory)
     boolean valid = false;
     while (!valid)
     {
-        printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET HISTORY? ");
+        printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET HISTORY? (YA/TIDAK)\n");
         START();
         CopyWord();
         if (Eqstr(currentWord.TabWord, "YA") || Eqstr(currentWord.TabWord, "TIDAK"))
@@ -573,9 +597,83 @@ void resetHistory(StackHistory *stackHistory)
     }
 }
 
-void ResetAllScores()
+void ResetScores(ScoreBoardList *scores)
 {
-    printf("resetallscores\n");
+    int i = 0;
+    printf("DAFTAR SCOREBOARD:\n");
+    printf("0. ALL\n");
+    while(i<scores->Neff)
+    {
+        printf("%d. %s\n", i+1, scores->List[i].game_name.TabWord);
+        i++;
+    }
+    boolean valid = false;
+    while (!valid)
+    {
+        printf("\nSCOREBOARD YANG INGIN DIHAPUS: ");
+        clear(currentWord.TabWord);
+        currentWord.Length = 0;
+        START();
+        CopyWord();
+        if(WordToInt(currentWord) >= 0 && WordToInt(currentWord) <= scores->Neff)
+        {
+            valid = true;
+        }
+        else
+        {
+            printf("INPUT INVALID, MOHON ULANGI.");
+        }
+    }
+    int idx = WordToInt(currentWord);
+    valid = false;
+    Word temp;
+    if (idx == 0)
+    {
+        temp.Length = 3;
+        temp.TabWord[0] = 'A';
+        temp.TabWord[1] = 'L';
+        temp.TabWord[2] = 'L';
+    }
+    else
+    {
+        temp = scores->List[idx-1].game_name;
+    }
+    while (!valid)
+    {
+        printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET SCOREBOARD %s (YA/TIDAK)?\n", temp.TabWord);
+        clear(currentWord.TabWord);
+        currentWord.Length = 0;
+        START();
+        CopyWord();
+        if(Eqstr(currentWord.TabWord,"YA") || Eqstr(currentWord.TabWord,"TIDAK"))
+        {
+            valid = true;
+        }
+        else
+        {
+            printf("INPUT INVALID, MOHON ULANGI.");
+        }
+    }
+    if(Eqstr(currentWord.TabWord,"YA"))
+    {
+        if(idx == 0)
+        {
+            for(int j = 0; j < scores->Neff; j++)
+            {
+                ResetScoreboard(&scores->List[j].board);
+            }
+        }
+        else
+        {
+            ResetScoreboard(&scores->List[idx-1].board);
+        }
+        printf("Scoreboard berhasil di-reset.\n");
+    }
+    else
+    {
+        printf("Scoreboard gagal di-reset.\n");
+    }
+
 }
 
 void showScoreBoard(ScoreBoardList scores, int jumlahGame)

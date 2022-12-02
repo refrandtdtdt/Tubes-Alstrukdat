@@ -8,8 +8,9 @@
 #include "arraykata.h"
 #include "../../ADT/functions.h"
 #include <time.h>
+#include "../../ADT/map_scoreboard.h"
 
-void hangman (); 
+void hangman (ScoreBoard * scoreboard); 
 /* prosedur ini akan membaca sebuah masukkan bertipe char berupa tebakan kata atau gnka dan prgogram akan megnecek
 satu per satu apakah tebakan tersebut sesuai atau tidak. 
 I.S Sembarang 

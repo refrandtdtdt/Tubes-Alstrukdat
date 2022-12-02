@@ -103,7 +103,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history);
+void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history, ScoreBoardList *scores);
 /*
 Prosedur ini akan melewati sebanyak <jumlah_skip> game, game yang dilewati akan dikeluarkan dari antrian game,
 lalu langsung memainkan game yang terletak pada antrian pertama pada antrian game setelah game-game tadi dilewati
@@ -122,7 +122,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void GameTambahan();
+void GameTambahan(ScoreBoard * scoreboard);
 /*
 Perintah untuk memainkan game di mana langsung masuk ke tahap game over dengan langsung mengeluarkan skor akhir berupa
 integer random
@@ -130,7 +130,7 @@ I.S. Sembarang
 F.S. Mengeluarkan output angka random
 */
 
-void RNG();
+void RNG(ScoreBoard * scoreboard);
 /*
 Perintah untuk memainkan game RNG di mana sistem akan menentukan angka acak, lalu pemain akan diberikan kesempatan untuk
 menebak angka tersebut. Sistem akan memberitahu apakah angka tebakan lebih besar atau lebih kecil dari angka random sistem
@@ -142,7 +142,7 @@ void resetHistory(StackHistory *stackHistory);
 
 void showHistory(int parameter, StackHistory stackHistory);
 
-void ResetAllScores();
+void ResetScores(ScoreBoardList *scores);
 
 void showScoreBoard(ScoreBoardList scores, int jumlahGame);
 

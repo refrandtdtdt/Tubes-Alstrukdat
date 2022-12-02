@@ -4,7 +4,8 @@
 #include "snek.h"
 #include "../../ADT/mesinkata_modif.h"
 #include "../../ADT/functions.h"
+#include "../../ADT/map_scoreboard.h"
 
-void SnakeOnMeteor();
+void SnakeOnMeteor(ScoreBoard * scoreboard);
 
 #endif
