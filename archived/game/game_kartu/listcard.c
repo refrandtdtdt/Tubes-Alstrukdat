@@ -21,14 +21,14 @@
 List MakeList()
 {
     List L;
-    for(int i=0;i<MaxEl;i++)
+    for(int i=0;i<MaxELCard;i++)
     {
         L.A[i].Suits = Tanda;
     }
     return L;
 }
 /* I.S. sembarang */
-/* F.S. Terbentuk list L kosong dengan kapasitas MaxEl */
+/* F.S. Terbentuk list L kosong dengan kapasitas MaxELCard */
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
@@ -59,7 +59,7 @@ void SetCard(List *L, IdxType i, Kartu v)
 int LengthCard(List L)
 {
     int i=0;
-    while ((i < MaxEl) && (L.A[i].Suits != Tanda))
+    while ((i < MaxELCard) && (L.A[i].Suits != Tanda))
     {
         i++;
     }
@@ -86,7 +86,7 @@ IdxType LastIdxCard(List L)
 /* ********** Test Indeks yang valid ********** */
 boolean IsIdxValidCard (List L, IdxType i)
 {
-    return i >= FirstIdxCard(L) && i < MaxEl;
+    return i >= FirstIdxCard(L) && i < MaxELCard;
 }
 /* Prekondisi : i sembarang */
 /* Mengirimkan true jika i adalah indeks yang valid utk ukuran list */

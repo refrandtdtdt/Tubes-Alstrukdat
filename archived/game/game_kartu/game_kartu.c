@@ -131,7 +131,7 @@ void PrintPlayerCards(Pemain pemain)    {
         }
 
     }
-    int j = Length(pemain.pegangan);
+    int j = LengthCard(pemain.pegangan);
     printf("%d.", j);
     PrintCard(pemain.pegangan.A[j-1]);
     printf("\n");

@@ -13,7 +13,7 @@ void CardGame(ScoreBoard *Scoreboard)  {
     Pemain round_winner, temp;
     Stack tumpukan;
     Sentence sent_pl, sent_card, selected_card;
-    Queue player;
+    QueuePemain player;
     boolean valid;
     boolean game_over;
     boolean winner;
@@ -21,8 +21,8 @@ void CardGame(ScoreBoard *Scoreboard)  {
     /*kode program utama*/
     CreateSentence(&sent_pl);
     CreateSentence(&sent_card);
-    CreateEmpty(&tumpukan);
-    CreateQueue(&player);
+    CreateEmptyStackCard(&tumpukan);
+    CreateQueuePemain(&player);
     printf("Welcome to Card Game!\n");
     printf("How many players do you want to play with?\nEnter: ");
     START();
@@ -46,7 +46,7 @@ void CardGame(ScoreBoard *Scoreboard)  {
 
     /*mengisi kartu masing-masing player*/
     for (int l = 0; l < num_of_cards*num_of_players; l++)   {
-        Take(&(player.buffer[l%num_of_players+IDX_HEAD(player)].pegangan), &tumpukan);
+        Take(&(player.buffer[l%num_of_players+IDX_HEADQ(player)].pegangan), &tumpukan);
     }
 
     system("cls");
@@ -54,7 +54,7 @@ void CardGame(ScoreBoard *Scoreboard)  {
     /* Start Permainan */
     printf("Permainan Dimulai!!\n");
     drawn_card = MakeDrawnList();
-    Pop(&tumpukan, &currentCard);
+    PopStackCard(&tumpukan, &currentCard);
     currentDrawnCard.card = currentCard;
     currentDrawnCard.id_player = -1;
     InsertLastDrawn(&drawn_card, currentDrawnCard);
@@ -72,29 +72,29 @@ void CardGame(ScoreBoard *Scoreboard)  {
             valid = false;
             //cek validitas
             while (!valid)  {
-                printf("Giliran %s, pilih kartu: \n", HEAD(player).nama);
+                printf("Giliran %s, pilih kartu: \n", HEADQ(player).nama);
 
                 //cek apabila pemain punya suitsnya
-                if (!SearchSuits(HEAD(player).pegangan,currentCard))    {
+                if (!SearchSuits(HEADQ(player).pegangan,currentCard))    {
                     printf("Tidak ada suit ini pada kartu anda, secara otomatis akan mencari kartu dari stack\n");
                 }
-                while (!SearchSuits(HEAD(player).pegangan,currentCard)) {
-                    Take(&(HEAD(player).pegangan), &tumpukan);
+                while (!SearchSuits(HEADQ(player).pegangan,currentCard)) {
+                    Take(&(HEADQ(player).pegangan), &tumpukan);
                     //ketika stack sudah empty
-                    if (IsEmpty(tumpukan))  {
+                    if (IsEmptyStackCard(tumpukan))  {
                         printf("tumpukan kartu habis. Mohon tunggu, Sedang dikocok ulang...\n");
                         Shuffle(&deck, &tumpukan);
                     }
                 }
                 printf("Silakan pilih Kartunya: ");
-                PrintPlayerCards(HEAD(player));
+                PrintPlayerCards(HEADQ(player));
                 START();
                 convertToArrayOfKata(&selected_card, 1);
                 chosen_card = StrToInt(selected_card.buffer[0].TabWord);
-                if (chosen_card < 0 && chosen_card > LengthCard(HEAD(player).pegangan)) {
+                if (chosen_card < 0 && chosen_card > LengthCard(HEADQ(player).pegangan)) {
                     printf("index invalid, ulangi.\n");
                 }
-                else if (!CheckSuitsEqual(currentCard, HEAD(player).pegangan.A[chosen_card-1]))    {
+                else if (!CheckSuitsEqual(currentCard, HEADQ(player).pegangan.A[chosen_card-1]))    {
                     printf("suits tidak cocok!\n");
                 }
                 else    {
@@ -102,12 +102,12 @@ void CardGame(ScoreBoard *Scoreboard)  {
                 }
             }
             system("cls");
-            Draw(&(HEAD(player).pegangan), HEAD(player).pegangan.A[chosen_card-1], &currentPlayerDraw, HEAD(player).id_player);
+            Draw(&(HEADQ(player).pegangan), HEADQ(player).pegangan.A[chosen_card-1], &currentPlayerDraw, HEADQ(player).id_player);
             InsertLastDrawn(&drawn_card, currentPlayerDraw);
             printf("Drawn Cards: \n");
             PrintDrawnCardList(drawn_card);
-            dequeueCard(&player, &temp);
-            enqueueCard(&player, temp);
+            dequeuePemain(&player, &temp);
+            enqueuePemain(&player, temp);
             turn++;
         }
         valid = false;
@@ -134,34 +134,34 @@ void CardGame(ScoreBoard *Scoreboard)  {
         }
         /*pindah turn ke pemenang*/
         boolean win_round_player = false;
-        Pemain round_winner; //penampung sementara untuk geser head dan tail
+        Pemain round_winner; //penampung sementara untuk geser HEADQ dan TAILQ
         while (!win_round_player) {
-            if (HEAD(player).id_player == Max(drawn_card).id_player) {
+            if (HEADQ(player).id_player == Max(drawn_card).id_player) {
                 win_round_player = true;
                 break;
             }
-            dequeueCard(&player, &round_winner);
-            enqueueCard(&player, round_winner);
+            dequeuePemain(&player, &round_winner);
+            enqueuePemain(&player, round_winner);
         }
-        round_winner = HEAD(player);
+        round_winner = HEADQ(player);
         printf("\n");
-        printf("pemenang round ini: %s\n", HEAD(player).nama);
+        printf("pemenang round ini: %s\n", HEADQ(player).nama);
 
         //kartu di drawn list dikembalikan ke deck;
         for (int k = 0; k < LengthDrawn(drawn_card); k++)   {
-            InsertLast(&deck, drawn_card.round[k].card);
+            InsertLastCard(&deck, drawn_card.round[k].card);
         }
         drawn_card = MakeDrawnList();
         //cek apabila sudah ada yang menang
         int idx_winner = 0;
         while (idx_winner < num_of_players)    {
-            if (IsListEmpty(HEAD(player).pegangan))    {
+            if (IsListEmpty(HEADQ(player).pegangan))    {
                 game_over = true;
                 break;
             }
             else    {
-                dequeueCard(&player, &temp);
-                enqueueCard(&player, temp);
+                dequeuePemain(&player, &temp);
+                enqueuePemain(&player, temp);
             }
             idx_winner ++;
         }
@@ -170,47 +170,47 @@ void CardGame(ScoreBoard *Scoreboard)  {
         }
         if (game_over)  {
             printf("Permainan Selesai, Pemenang adalah: ");
-            printf("%s\n", HEAD(player).nama);
+            printf("%s\n", HEADQ(player).nama);
             continue;
         }
 
         //mulai putaran berikutnya oleh pemenang
         system("cls");
         while (!valid && !game_over)  {
-            printf("Pemenang putaran ini adalah %s, silahkan pilih kartu: \n", HEAD(player).nama);
+            printf("Pemenang putaran ini adalah %s, silahkan pilih kartu: \n", HEADQ(player).nama);
 
             //cek apabila pemain punya suitsnya
-            PrintPlayerCards(HEAD(player));
+            PrintPlayerCards(HEADQ(player));
             printf("\n");
             printf("Silakan pilih Kartunya: \n");
             START();
             convertToArrayOfKata(&selected_card, 1);
             chosen_card = StrToInt(selected_card.buffer[0].TabWord);
-            if (chosen_card < 0 && chosen_card > LengthCard(HEAD(player).pegangan)) {
+            if (chosen_card < 0 && chosen_card > LengthCard(HEADQ(player).pegangan)) {
                 printf("index invalid, ulangi.\n");
             }
             else    {
                 valid = true;
             }
         }
-        currentCard = HEAD(player).pegangan.A[chosen_card-1];
-        Draw(&(HEAD(player).pegangan), HEAD(player).pegangan.A[chosen_card-1], &currentPlayerDraw, HEAD(player).id_player);       
+        currentCard = HEADQ(player).pegangan.A[chosen_card-1];
+        Draw(&(HEADQ(player).pegangan), HEADQ(player).pegangan.A[chosen_card-1], &currentPlayerDraw, HEADQ(player).id_player);       
         InsertLastDrawn(&drawn_card, currentPlayerDraw);
         system("cls");
         if (!game_over) {
             printf("Drawn Cards: \n");
-            dequeueCard(&player, &round_winner);
-            enqueueCard(&player, round_winner);
+            dequeuePemain(&player, &round_winner);
+            enqueuePemain(&player, round_winner);
             turn = 1;
         }
     }
     int score_value;
-    if (!IsMemberScore(Scoreboard->board))  {
-        InsertScore(&(Scoreboard->board), HEAD(player).nama, 1);
+    if (!IsMemberScore(Scoreboard->board, HEADQ(player).nama))  {
+        InsertScore(&(Scoreboard->board), HEADQ(player).nama, 1);
     }
     else    {
-        score_value = ValueScore(Scoreboard->board, HEAD(player).nama);
+        score_value = ValueScore(Scoreboard->board, HEADQ(player).nama);
         score_value++;
-        InsertScore(&(Scoreboard->board), HEAD(player).nama, score_value);
+        InsertScore(&(Scoreboard->board), HEADQ(player).nama, score_value);
     }
 }

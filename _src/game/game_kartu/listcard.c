@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "..\..\boolean.h"
 #include "listcard.h"
-#include "../../_src/ADT/functions.h"
+#include "../../ADT/functions.h"
 
 
 /* Indeks yang digunakan seberapa banyak memori itu terisi */
@@ -21,14 +21,14 @@
 List MakeList()
 {
     List L;
-    for(int i=0;i<MaxEl;i++)
+    for(int i=0;i<MaxElCard;i++)
     {
         L.A[i].Suits = Tanda;
     }
     return L;
 }
 /* I.S. sembarang */
-/* F.S. Terbentuk list L kosong dengan kapasitas MaxEl */
+/* F.S. Terbentuk list L kosong dengan kapasitas MaxElCard */
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
@@ -59,7 +59,7 @@ void SetCard(List *L, IdxType i, Kartu v)
 int LengthCard(List L)
 {
     int i=0;
-    while ((i < MaxEl) && (L.A[i].Suits != Tanda))
+    while ((i < MaxElCard) && (L.A[i].Suits != Tanda))
     {
         i++;
     }
@@ -78,7 +78,7 @@ IdxType FirstIdxCard(List L)
 
 IdxType LastIdxCard(List L)
 {
-    return Length(L)-1;
+    return LengthCard(L)-1;
 }
 /* Prekondisi : list L tidak kosong */
 /* Mengirimkan indeks elemen terakhir */
@@ -86,7 +86,7 @@ IdxType LastIdxCard(List L)
 /* ********** Test Indeks yang valid ********** */
 boolean IsIdxValidCard (List L, IdxType i)
 {
-    return i >= FirstIdxCard(L) && i < MaxEl;
+    return i >= FirstIdxCard(L) && i < MaxElCard;
 }
 /* Prekondisi : i sembarang */
 /* Mengirimkan true jika i adalah indeks yang valid utk ukuran list */
@@ -136,7 +136,7 @@ void InsertAt(List *L, Kartu X, IdxType i)
 {
     if(!IsListEmpty(*L))
     {
-        for(int j=Length(*L);j>i;j--)
+        for(int j=LengthCard(*L);j>i;j--)
         {
             L->A[j] = L->A[j-1];
         }   

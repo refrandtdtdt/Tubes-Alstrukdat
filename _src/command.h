@@ -17,7 +17,7 @@
 # include "ADT/mesinkata_modif.h"
 # include "ADT/map_scoreboard.h"
 # include "game/dinerdash/dinerdash.h"
-# include "game/game_kartu/main_game.h"
+# include "game/game_kartu/main_game_card.h"
 # include "game/GameToH/GameToH.h"
 # include "game/snakeonmeteor/snakeonmeteor.h"
 # include "game/Hangman/hangman.h"
