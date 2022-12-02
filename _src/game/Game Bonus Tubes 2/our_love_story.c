@@ -14,8 +14,9 @@ void our_love_story(ScoreBoard *Scoreboard) {
     boolean valid = false;
     int skor;
     skor = 0;
-    printf("Welcome to Our Love Story\n\n");
     while (!valid)  {
+        PRINTMACHINE("game_title.txt");
+        printf("Welcome to Our Love Story\n\n");
         printf("Select menu\n1. START THE GAME\n2. CHARACTER PROFILE\n");
         START();convertToArrayOfKata(&word_input, 1);system("cls");
         input = StrToInt(word_input.buffer[0].TabWord);
