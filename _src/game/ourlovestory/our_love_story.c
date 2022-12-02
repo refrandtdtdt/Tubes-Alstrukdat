@@ -25,7 +25,7 @@ void our_love_story(ScoreBoard *Scoreboard) {
             system("cls");
             PRINTMACHINE("_src/game/ourlovestory/megumi_game_over.txt");
             printf("\n\n");
-            CHARMACHINE("character_profile.txt");
+            CHARMACHINE("_src/game/ourlovestory/character_profile.txt");
             printf("Tekan enter untuk menutup");START();system("cls");
         }
         else    {
