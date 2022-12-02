@@ -4,6 +4,6 @@
 #include "game_kartu.h"
 #include "..\..\ADT\map_scoreboard.h"
 
-void CardGame();
+void CardGame(ScoreBoard *Scoreboard);
 
 #endif
