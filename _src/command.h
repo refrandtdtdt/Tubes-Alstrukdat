@@ -103,7 +103,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history);
+void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history, ScoreBoardList *scores);
 /*
 Prosedur ini akan melewati sebanyak <jumlah_skip> game, game yang dilewati akan dikeluarkan dari antrian game,
 lalu langsung memainkan game yang terletak pada antrian pertama pada antrian game setelah game-game tadi dilewati
@@ -142,7 +142,7 @@ void resetHistory(StackHistory *stackHistory);
 
 void showHistory(int parameter, StackHistory stackHistory);
 
-void ResetAllScores();
+void ResetScores(ScoreBoardList *scores);
 
 void showScoreBoard(ScoreBoardList scores, int jumlahGame);
 
