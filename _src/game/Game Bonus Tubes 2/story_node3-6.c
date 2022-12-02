@@ -161,16 +161,6 @@ void node3(int *score, char* player, Address *p)
         printf("Megumi: \"Sampai jumpa besok.\"");START();system("cls");
         *p = RIGHT(*p);
     }
-    /*
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    */
 }
 
 void node4(int *score, char* player, Address *p)    {

@@ -2,10 +2,11 @@
 # include "story_tree.h"
 # include "..\..\ADT\mesinkar.h"
 # include "execute.h"
+# include "our_love_story.h"
 
 StoryTree story;
 
-int main() {
+void story(ScoreBoard *Scoreboard) {
     char* nama;
     Sentence word_nama;
     Sentence word_input;
@@ -47,5 +48,5 @@ int main() {
     }
     printf("Permainan selesai! Skor yang kamu dapat: %d\n\n", skor);
     CHARMACHINE("credit.txt");
-    return 0;
+    InsertScore(*(Scoreboard).board, nama, skor);
 }

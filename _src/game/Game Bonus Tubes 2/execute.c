@@ -41,9 +41,6 @@ void ExecuteNode(char id_command, char* nama, int *score, Address *node)    {
     case 'B':
         nodeB(score, nama, node);
         break;
-    case 'C':
-        //nodeC(score, nama, node);
-        break;
     default:
         break;
     }
