@@ -15,6 +15,7 @@ void TowerOfHanoi() {
     CreateEmptyStackt(&tiangAcuan);
     Word piringN, tiangDummy, dummyTiangAsal, dummyTiang;
     boolean end, valid, scoreAkhir;
+    char * strNama;
 
     // Menampilkan UI dari Tower of Hanoi
     system("cls");
@@ -401,8 +402,9 @@ void TowerOfHanoi() {
     printf("=====================\n");
     printf("Jumlah langkah kamu : %d\n", langkah);
     printf("Score kamu          : %d\n", score);
-    printf("Nama                : ");
+    printf("Nama (cukup 1 kata) : ");
     START();
     convertToArrayOfKata(&nama, 1);
+    strNama = kataToString(nama.buffer[0]);
 }
 /* Game Tower of Hanoi */

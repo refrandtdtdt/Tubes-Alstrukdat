@@ -3,10 +3,11 @@
 #ifndef HANGMAN_H
 #define HANGMAN_H
 
-#include "array.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "boolean.h"
+#include "arraykata.h"
+#include "../../ADT/functions.h"
+#include <time.h>
 
 void hangman (); 
 /* prosedur ini akan membaca sebuah masukkan bertipe char berupa tebakan kata atau gnka dan prgogram akan megnecek

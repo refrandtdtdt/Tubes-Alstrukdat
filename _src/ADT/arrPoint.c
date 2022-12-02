@@ -14,7 +14,7 @@ ArrPoint MakeArrPoint(){
 
 void SetPoint(ArrPoint *L, int i, Point v){
 /* I.S. T terdefinisi, sembarang */
-/* F.S. Elemen T yang ke-i bernilai v */
+/* F.S. Elemen T yang ke-i berNullai v */
 	L->A[i] = v;
 }
 

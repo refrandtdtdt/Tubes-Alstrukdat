@@ -12,11 +12,15 @@
 # include "ADT/queue_modif.h"
 # include "ADT/array_modif.h"
 # include "ADT/stack_modif.h"
+# include "ADT/stack_history.h"
 # include "ADT/mesinkar.h"
 # include "ADT/mesinkata_modif.h"
+# include "ADT/map_scoreboard.h"
 # include "game/dinerdash/dinerdash.h"
 # include "game/game_kartu/main_game.h"
 # include "game/GameToH/GameToH.h"
+# include "game/snakeonmeteor/snakeonmeteor.h"
+# include "game/Hangman/hangman.h"
 
 void Help();
 /* memberikan bantuan untuk tiap-tiap command
@@ -35,7 +39,7 @@ F.S. mengakhiri program ketika input QUIT diberikan
 //     Load()
 // }
 
-void Load(char *filename, TabGame *list);
+void Load(char *filename, TabGame *list, ScoreBoardList *scores, StackHistory *history, boolean init);
 /*
 Perintah untuk membaca save file yang ingin dibuka oleh user
 I.S. Sembarang
@@ -43,7 +47,7 @@ F.S. Jika terdapat save file sesuai nama file masukan user, maka akan membaca sa
      maka akan mengeluarkan pesan bahwa tidak dapa tmenemukan save file tersebut
 */
 
-void Save(char* filename, TabGame list);
+void Save(char* filename, TabGame list, ScoreBoardList scores, StackHistory history);
 /*
 Perintah untuk menyimpan state pemain saat ini ke dalam sebuah file
 I.S. Sembarang
@@ -86,7 +90,7 @@ F.S. Kondisi 1) Apabila masukan masih di dalam rentang nomor game di dalam dafta
                 masukan lagi sampai masukan valid
 */
 
-void mainkanGame (Queue * antrian_game);
+void mainkanGame (Queue * antrian_game, ScoreBoardList *scores, StackHistory *history);
 /*
 Prosedur ini akan langsung memainkan game yang terletak pada antrian pertama pada antrian game
 I.S. Sudah tersedia antrian game di main program yang sudah terdefinisi
@@ -99,7 +103,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void lewatiGame (Queue * antrian_game, int jumlah_skip);
+void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history);
 /*
 Prosedur ini akan melewati sebanyak <jumlah_skip> game, game yang dilewati akan dikeluarkan dari antrian game,
 lalu langsung memainkan game yang terletak pada antrian pertama pada antrian game setelah game-game tadi dilewati
@@ -133,5 +137,13 @@ menebak angka tersebut. Sistem akan memberitahu apakah angka tebakan lebih besar
 I.S. Sembarang
 F.S. Dikeluarkan output tentang tebakan dari pemain dan skornya
 */
+
+void resetHistory(StackHistory *stackHistory);
+
+void showHistory(int parameter, StackHistory stackHistory);
+
+void ResetAllScores();
+
+void showScoreBoard(ScoreBoardList scores, int jumlahGame);
 
 #endif

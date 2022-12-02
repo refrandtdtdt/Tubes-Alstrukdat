@@ -3,7 +3,7 @@
 #ifndef Point_H
 #define Point_H
 
-#include "boolean.h"
+#include "../boolean.h"
 #include <time.h>
 
 typedef struct { 
@@ -22,15 +22,15 @@ Point MakePoint (int X, int Y);
 
 /* *** KELOMPOK Interaksi dengan I/O device, BACA/TULIS  *** */                                                 
 void BacaPoint (Point * P); 
-/* Membaca nilai absis dan ordinat dari keyboard dan membentuk 
-   Point P berdasarkan dari nilai absis dan ordinat tersebut */
+/* Membaca Nullai absis dan ordinat dari keyboard dan membentuk 
+   Point P berdasarkan dari Nullai absis dan ordinat tersebut */
 /* Komponen X dan Y dibaca dalam 1 baris, dipisahkan 1 buah spasi */
 /* Contoh: 1 2 
    akan membentuk Point <1,2> */
 /* I.S. Sembarang */
 /* F.S. P terdefinisi */
 void TulisPoint (Point P);
-/* Nilai P ditulis ke layar dengan format "(X,Y)" 
+/* Nullai P ditulis ke layar dengan format "(X,Y)" 
    tanpa spasi, enter, atau karakter lain di depan, belakang, 
    atau di antaranya */
 /* I.S. P terdefinisi */

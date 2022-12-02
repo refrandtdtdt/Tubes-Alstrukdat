@@ -3,7 +3,6 @@
 #include <time.h>
 #include <math.h>
 #include "command.h"
-#include "ADT/mesinkata_modif.h"
 
 int main() // PROGRAM UTAMA
 {
@@ -78,6 +77,8 @@ int main() // PROGRAM UTAMA
     Queue queueGame; CreateQueue(&queueGame);
     TabGame listGame; MakeEmpty(&listGame);
     Sentence input; CreateSentence(&input);
+    ScoreBoardList scoreGame;for(int i=0; i<100; i++){ResetArrayScore(&scoreGame.List[i]);}
+    StackHistory historyGame; CreateStackHistory(&historyGame);
     boolean loaded = false;
     //Tabstr listGame; MakeEmpty(&listGame);
 
@@ -100,7 +101,7 @@ int main() // PROGRAM UTAMA
             {
                 if(!loaded)
                 {
-                    Load("default.txt",&listGame);
+                    Load("default.txt",&listGame, &scoreGame, &historyGame, true);
                     loaded = true;
                 }
                 else
@@ -108,7 +109,86 @@ int main() // PROGRAM UTAMA
                     printf("\nFile sudah terload\n");
                 }
             }        
-            else if(Eqstr(command, "SKIPGAME")) // SKIPGAME
+            else if(Eqstr(command,"HELP")) // HELP
+            {
+                Help();
+            }
+            else if(Eqstr(command, "QUIT")) // QUIT
+            {
+                Quit(&scoreGame);
+            }
+            else if(Eqstr(command, "SCOREBOARD")) // SCOREBOARD
+            {
+                if(loaded)
+                {
+                    showScoreBoard(scoreGame,listGame.Neff);
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else // COMMAND LAIN
+            {
+                printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
+            }
+        }
+        else if (input.buffer[2].TabWord[0] == '\0')
+        {
+            if(Eqstr(command, "LOAD")) // LOAD
+            {
+                if(!loaded)
+                {
+                    int i = len(parameter); //.txt
+                    if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
+                    {
+                        if(Eqstr(parameter,"default.txt"))
+                        {
+                            Load(parameter,&listGame,&scoreGame,&historyGame,true);
+                        }
+                        else
+                        {
+                            Load(parameter,&listGame,&scoreGame,&historyGame,false);
+                        }
+                        loaded = true;
+                    }
+                    else
+                    {
+                        printf("\nFormat file invalid\n");
+                    }
+                }
+                else
+                {
+                    printf("\nFile sudah terload\n");
+                }
+            }
+            else if(Eqstr(command, "SAVE")) // SAVE
+            {
+                if(loaded)
+                {
+                    if(Eqstr(parameter,"default.txt"))
+                    {
+                        printf("\nTidak dapat overwrite konfigurasi default program\n");
+                    }
+                    else
+                    {
+                        int i = len(parameter); //.txt
+                        if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
+                        {
+                            Save(parameter, listGame, scoreGame, historyGame);
+                        }
+                        else
+                        {
+                            printf("\nFormat file invalid\n");
+                        }
+                    }
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else if(Eqstr(command, "HISTORY")) // HISTORY
             {
                 if(loaded)
                 {
@@ -131,66 +211,11 @@ int main() // PROGRAM UTAMA
 
                     if(num)
                     {
-                        lewatiGame(&queueGame, x);
+                        showHistory(x, historyGame);
                     }
                     else
                     {
                         printf("\nParameter invalid\n");
-                    }
-                }
-                else
-                {
-                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
-                }
-            }
-            else if(Eqstr(command,"HELP")) // HELP
-            {
-                Help();
-            }
-            else if(Eqstr(command, "QUIT")) // QUIT
-            {
-                Quit();
-            }
-            else // COMMAND LAIN
-            {
-                printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
-            }
-        }
-        else if (input.buffer[2].TabWord[0] == '\0')
-        {
-            if(Eqstr(command, "LOAD")) // LOAD
-            {
-                if(!loaded)
-                {
-                    parameter = kataToString(input.buffer[1]);
-                    int i = len(parameter); //.txt
-                    if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
-                    {
-                        Load(parameter,&listGame);
-                    }
-                    else
-                    {
-                        printf("\nFormat file invalid\n");
-                    }
-                    loaded = true;
-                }
-                else
-                {
-                    printf("\nFile sudah terload\n");
-                }
-            }
-            else if(Eqstr(command, "SAVE")) // SAVE
-            {
-                if(loaded)
-                {
-                    int i = len(parameter); //.txt
-                    if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
-                    {
-                        Save(parameter, listGame);
-                    }
-                    else
-                    {
-                        printf("\nFormat file invalid\n");
                     }
                 }
                 else
@@ -246,7 +271,29 @@ int main() // PROGRAM UTAMA
             {
                 if(loaded)
                 {
-                    mainkanGame(&queueGame);
+                    mainkanGame(&queueGame,&scoreGame,&historyGame);
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else if(Eqstr(command,"RESET") && Eqstr(parameter,"SCOREBOARD")) // RESET SCOREBOARD
+            {
+                if(loaded)
+                {
+                    ResetAllScores();
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else if(Eqstr(command,"RESET") && Eqstr(parameter,"HISTORY")) // RESET HISTORY
+            {
+                if(loaded)
+                {
+                    resetHistory(&historyGame);
                 }
                 else
                 {
@@ -283,7 +330,7 @@ int main() // PROGRAM UTAMA
 
                     if(num)
                     {
-                        lewatiGame(&queueGame, x);
+                        lewatiGame(&queueGame, x, &historyGame);
                     }
                     else
                     {

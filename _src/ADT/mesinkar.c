@@ -105,7 +105,6 @@ boolean STARTF(char* filename) {
       ADV();
       return true;
     }
-
 }
 void CLOSEF() {
    fclose(pita);
@@ -138,4 +137,22 @@ void PRINTMACHINE(char* filename) {
         printf("%c", cc);
         ADVPRINT();
     }
+}
+
+boolean STARTFlocal(char* filename) {
+    file = true;
+    pita = fopen(filename,"r");
+    if (pita == NULL)
+    {
+      return false;
+    }
+    else
+    {
+      ADV();
+      return true;
+    }
+}
+
+void STARTWlocal(char* filename) {
+   pita = fopen(filename,"w");
 }

@@ -1,17 +1,12 @@
-#include "snek.h"
-// #include "../../ADT/mesinkar.h"
-// #include "../../ADT/mesinkata_modif.h"
-// #include "../../ADT/functions.h"
-#include "mesinkata_modif.h"
-#include "functions.h"
+#include "snakeonmeteor.h"
 
-int main()
+void SnakeOnMeteor()
 {
     ListPoint Snek; CreateEmptyListPoint(&Snek);
     ListPoint Obstacle; CreateEmptyListPoint(&Obstacle);
-    Point Food; Point Meteor = MakePoint(-99,-99); Point x, neck;
-    address checkSnek, checkObstacle;
-    boolean dead=false; boolean valid, meteor; boolean moved = true;
+    Point Food; Point Meteor = MakePoint(-99,-99); Point x;
+    ADDRESS checkSnek, checkObstacle;
+    boolean dead=false; boolean valid, meteor, gameover; boolean moved = true;
     char* arah, pilihan;
     int turn=1; int skor; int diff=0;
     printf("Selamat datang di snake on meteor!\n");
@@ -32,7 +27,7 @@ int main()
         }
     }
     printf("Mengenerate peta, snake dan makanan . . .\n");
-    Initialize(&Snek, &Obstacle, &Food, &neck, diff);
+    Initialize(&Snek, &Obstacle, &Food, diff);
     printf("Berhasil digenerate!\n\n");
     while (!dead)
     {
@@ -54,10 +49,10 @@ int main()
         else {printf("Input invalid. Masukkan w, a, s, atau d.\n\n");valid=false;}
         if(valid)
         {
-            if(NEQ(x,Meteor) && NEQ(x,neck))
+            if(NEQ(x,Meteor) && SearchPoint(Snek,x)==Null)
             {
                 checkObstacle = SearchPoint(Obstacle,x);
-                if(checkObstacle != Nil)
+                if(checkObstacle != Null)
                 {
                     dead = true;
                     printf("TURN %d\n", turn+1);
@@ -67,20 +62,8 @@ int main()
                 }
                 else
                 {
-                    checkSnek = SearchPoint(Snek,x);
-                    if(checkSnek != Nil && checkSnek != Last(Snek))
-                    {
-                        dead = true;
-                        printf("TURN %d\n", turn+1);
-                        PrintPeta(Snek, Obstacle, Meteor, Food);
-                        printf("Kepala snake menabrak diri sendiri!\n");
-                        meteor = false;
-                    }
-                    else
-                    {
-                        MoveSnake(&Snek,x);
-                        moved = true;
-                    }
+                    MoveSnake(&Snek,x);
+                    moved = true;
                 }
             }
             else
@@ -97,7 +80,7 @@ int main()
             {
                 if(EQ(x,Food))
                 {
-                    FoodEaten(&Snek, Obstacle, &Food, Meteor);
+                    FoodEaten(&Snek, Obstacle, &Food, Meteor, &gameover);
                 }
                 Meteor = RandomMapPoint(Snek,Obstacle,Meteor,Food,true);
                 if (EQ(x,Meteor))
@@ -111,12 +94,11 @@ int main()
                 else
                 {
                     checkSnek = SearchPoint(Snek,Meteor);
-                    if (checkSnek!=Nil)
+                    if (checkSnek!=Null)
                     {
                         MeteorHit(&Snek,Meteor);
                     }
                 }
-                neck = Info(Next(First(Snek)));
                 turn++;
             }
         }
