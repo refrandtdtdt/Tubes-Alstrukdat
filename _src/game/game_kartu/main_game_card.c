@@ -36,7 +36,7 @@ void CardGame(ScoreBoard *Scoreboard)  {
     //create the deck
     /*aturan*/
     //pakai mesin kata buat ngeprint aturannya
-    CHARMACHINE("aturan.txt");
+    CHARMACHINE("_src/game/game_kartu/aturan.txt");
     CreateDeck(&deck);
     printf("Tunggu Sebentar, sedang dikocok...\n");
     shuffle(&deck, LengthCard(deck));
