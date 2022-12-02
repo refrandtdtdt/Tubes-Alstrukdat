@@ -136,7 +136,7 @@ void nodeA(int *score, char* player, Address *p)    {
     printf("ia memandang wajahku dengan mata terbuka lebar");START();system("cls");
     printf("ia pun menjawab");START();system("cls");
     printf("Megumi: \"%s, aku juga mencintaimu\"", player);START();system("cls");
-    printf("%s: \"Maukah kamu menjadi pacarku?s\"", player);START();system("cls");
+    printf("%s: \"Maukah kamu menjadi pacarku?\"", player);START();system("cls");
     printf("Megumi: \"Ya, aku mau.\"");START();system("cls");
     printf("kemudian tangan kami saling menggenggam");START();system("cls");
     printf("%s: \"Bentar lagi kembang apinya akan dimulai\"", player);START();system("cls");

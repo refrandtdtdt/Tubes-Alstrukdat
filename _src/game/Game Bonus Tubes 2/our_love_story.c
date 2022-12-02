@@ -6,7 +6,7 @@
 
 StoryTree story;
 
-void story(ScoreBoard *Scoreboard) {
+void our_love_story(ScoreBoard *Scoreboard) {
     char* nama;
     Sentence word_nama;
     Sentence word_input;
@@ -25,7 +25,7 @@ void story(ScoreBoard *Scoreboard) {
         }
         else if (input == 2) {
             system("cls");
-            PRINTMACHINE("megumi_main.txt");
+            PRINTMACHINE("megumi_game_over.txt");
             printf("\n\n");
             CHARMACHINE("character_profile.txt");
             printf("Tekan enter untuk menutup");START();system("cls");
@@ -48,5 +48,5 @@ void story(ScoreBoard *Scoreboard) {
     }
     printf("Permainan selesai! Skor yang kamu dapat: %d\n\n", skor);
     CHARMACHINE("credit.txt");
-    InsertScore(*(Scoreboard).board, nama, skor);
+    InsertScore(&(Scoreboard->board), nama, skor);
 }

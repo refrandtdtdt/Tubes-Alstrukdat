@@ -3,6 +3,6 @@
 
 #include "..\..\ADT\map_scoreboard.h"
 
-void story(ScoreBoard scoreboard);
+void our_love_story(ScoreBoard *scoreboard);
 
 #endif
