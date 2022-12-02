@@ -5,7 +5,7 @@
 #ifndef ADTDrawnList1
 #define ADTDrawnList1
 
-#include "boolean.h"
+#include "..\..\boolean.h"
 #include "adt_kartu.h"
 /* Kamus Umum */
 #define Tanda '?'  /* Nilai tak terdefinisi */

@@ -58,6 +58,7 @@ void node3(int *score, char* player, Address *p)
         input = StrToInt(word_input.buffer[0].TabWord);
         if ((input >= 1) && (input <= 5))   {
             if (input == 2) {
+                score_change(score, 200);
                 validinput = true;
             }
             else    {
@@ -161,16 +162,6 @@ void node3(int *score, char* player, Address *p)
         printf("Megumi: \"Sampai jumpa besok.\"");START();system("cls");
         *p = RIGHT(*p);
     }
-    /*
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    printf("");START();system("cls");
-    */
 }
 
 void node4(int *score, char* player, Address *p)    {

@@ -42,9 +42,7 @@
     "story2_node.h": "c",
     "story_node3-6.h": "c",
     "story_node7-8.h": "c",
-    "linkedlist.h": "c",
-    "arrpoint.h": "c",
-    "stack_history.h": "c"
+
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -1,8 +1,8 @@
 #ifndef ADT_KARTU
 #define ADT_KARTU
 
-# include "boolean.h"
-# define MaxCard 52
+# include "..\..\boolean.h"
+# define MaxEl 52
 
 typedef struct Kartu
 {
@@ -11,7 +11,7 @@ typedef struct Kartu
 } Kartu;
 
 typedef struct List{
-	Kartu A[MaxCard];  /* Memori tempat penyimpanan elemen (container) */
+	Kartu A[MaxEl];  /* Memori tempat penyimpanan elemen (container) */
 } List;
 
 typedef struct player {
