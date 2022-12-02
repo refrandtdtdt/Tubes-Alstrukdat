@@ -4,7 +4,7 @@ void SnakeOnMeteor()
 {
     ListPoint Snek; CreateEmptyListPoint(&Snek);
     ListPoint Obstacle; CreateEmptyListPoint(&Obstacle);
-    Point Food; Point Meteor = MakePoint(-99,-99); Point x, neck;
+    Point Food; Point Meteor = MakePoint(-99,-99); Point x;
     ADDRESS checkSnek, checkObstacle;
     boolean dead=false; boolean valid, meteor, gameover; boolean moved = true;
     char* arah, pilihan;
@@ -27,7 +27,7 @@ void SnakeOnMeteor()
         }
     }
     printf("Mengenerate peta, snake dan makanan . . .\n");
-    Initialize(&Snek, &Obstacle, &Food, &neck, diff);
+    Initialize(&Snek, &Obstacle, &Food, diff);
     printf("Berhasil digenerate!\n\n");
     while (!dead)
     {
@@ -49,7 +49,7 @@ void SnakeOnMeteor()
         else {printf("Input invalid. Masukkan w, a, s, atau d.\n\n");valid=false;}
         if(valid)
         {
-            if(NEQ(x,Meteor) && NEQ(x,neck))
+            if(NEQ(x,Meteor) && SearchPoint(Snek,x)==Null)
             {
                 checkObstacle = SearchPoint(Obstacle,x);
                 if(checkObstacle != Null)
@@ -62,20 +62,8 @@ void SnakeOnMeteor()
                 }
                 else
                 {
-                    checkSnek = SearchPoint(Snek,x);
-                    if(checkSnek != Null && checkSnek != Last(Snek))
-                    {
-                        dead = true;
-                        printf("TURN %d\n", turn+1);
-                        PrintPeta(Snek, Obstacle, Meteor, Food);
-                        printf("Kepala snake menabrak diri sendiri!\n");
-                        meteor = false;
-                    }
-                    else
-                    {
-                        MoveSnake(&Snek,x);
-                        moved = true;
-                    }
+                    MoveSnake(&Snek,x);
+                    moved = true;
                 }
             }
             else
@@ -111,7 +99,6 @@ void SnakeOnMeteor()
                         MeteorHit(&Snek,Meteor);
                     }
                 }
-                neck = Info(Next(First(Snek)));
                 turn++;
             }
         }

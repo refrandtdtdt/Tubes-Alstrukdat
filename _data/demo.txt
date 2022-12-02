@@ -1,9 +1,14 @@
-5
+6
 RNG
 Diner DASH
+HANGMAN
 TOWER OF HANOI
 SNAKE ON METEOR
 Card Game
+3
+HANGMAN
+TOWER OF HANOI
+SNAKE ON METEOR
 2
 BNMO 19
 Finn 12
@@ -16,3 +21,4 @@ Marcelline 30
 Marshall 77
 1
 kepret 1000
+0

@@ -1,1 +1,0 @@
-gcc -o lala array.c functions.c mesinkar.c mesinkata_modif.c hangman.c 

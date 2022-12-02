@@ -78,6 +78,7 @@ int main() // PROGRAM UTAMA
     TabGame listGame; MakeEmpty(&listGame);
     Sentence input; CreateSentence(&input);
     ScoreBoardList scoreGame;for(int i=0; i<100; i++){ResetArrayScore(&scoreGame.List[i]);}
+    StackHistory historyGame; CreateStackHistory(&historyGame);
     boolean loaded = false;
     //Tabstr listGame; MakeEmpty(&listGame);
 
@@ -100,7 +101,7 @@ int main() // PROGRAM UTAMA
             {
                 if(!loaded)
                 {
-                    Load("default.txt",&listGame, &scoreGame, true);
+                    Load("default.txt",&listGame, &scoreGame, &historyGame, true);
                     loaded = true;
                 }
                 else
@@ -127,17 +128,6 @@ int main() // PROGRAM UTAMA
                     printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
                 }
             }
-            else if(Eqstr(command, "HISTORY")) // HISTORY
-            {
-                if(loaded)
-                {
-                    History();
-                }
-                else
-                {
-                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
-                }
-            }
             else // COMMAND LAIN
             {
                 printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
@@ -154,11 +144,11 @@ int main() // PROGRAM UTAMA
                     {
                         if(Eqstr(parameter,"default.txt"))
                         {
-                            Load(parameter,&listGame,&scoreGame,true);
+                            Load(parameter,&listGame,&scoreGame,&historyGame,true);
                         }
                         else
                         {
-                            Load(parameter,&listGame,&scoreGame,false);
+                            Load(parameter,&listGame,&scoreGame,&historyGame,false);
                         }
                         loaded = true;
                     }
@@ -185,12 +175,47 @@ int main() // PROGRAM UTAMA
                         int i = len(parameter); //.txt
                         if(parameter[i-4]=='.'&&parameter[i-3]=='t'&&parameter[i-2]=='x'&&parameter[i-1]=='t')
                         {
-                            Save(parameter, listGame, scoreGame);
+                            Save(parameter, listGame, scoreGame, historyGame);
                         }
                         else
                         {
                             printf("\nFormat file invalid\n");
                         }
+                    }
+                }
+                else
+                {
+                    printf("\nData kosong. Silakan menggunakan START atau LOAD terlebih dahulu\n");
+                }
+            }
+            else if(Eqstr(command, "HISTORY")) // HISTORY
+            {
+                if(loaded)
+                {
+                    int x = 0;
+                    int i = 0;
+                    boolean num = true;
+                    while(parameter[i]!='\0' && num)
+                    {
+                        if(parameter[i]-'0'<0 || parameter[i]-'0'>9)
+                        {
+                            num = false;
+                        }
+                        else
+                        {
+                            x *= 10;
+                            x += parameter[i]-'0';
+                        }
+                        i++;
+                    }
+
+                    if(num)
+                    {
+                        showHistory(x, historyGame);
+                    }
+                    else
+                    {
+                        printf("\nParameter invalid\n");
                     }
                 }
                 else
@@ -246,7 +271,7 @@ int main() // PROGRAM UTAMA
             {
                 if(loaded)
                 {
-                    mainkanGame(&queueGame,&scoreGame);
+                    mainkanGame(&queueGame,&scoreGame,&historyGame);
                 }
                 else
                 {
@@ -268,7 +293,7 @@ int main() // PROGRAM UTAMA
             {
                 if(loaded)
                 {
-                    ResetHistory();
+                    resetHistory(&historyGame);
                 }
                 else
                 {
@@ -305,7 +330,7 @@ int main() // PROGRAM UTAMA
 
                     if(num)
                     {
-                        lewatiGame(&queueGame, x);
+                        lewatiGame(&queueGame, x, &historyGame);
                     }
                     else
                     {
