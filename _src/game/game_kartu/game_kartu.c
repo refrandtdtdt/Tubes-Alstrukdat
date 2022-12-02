@@ -12,7 +12,7 @@ Pemain CreatePlayer(Word nama, int id)   {
     return ret;
 }
 
-void SetPlayers(Queue* pemain, int jumlah)   {
+void SetPlayers(QueuePemain* pemain, int jumlah)   {
     Sentence player;
     Pemain player1;
     for (int i = 0; i < jumlah; i++)    {
@@ -20,7 +20,7 @@ void SetPlayers(Queue* pemain, int jumlah)   {
         START();
         convertToArrayOfKata(&player, 1);
         player1 = CreatePlayer(player.buffer[0], i);
-        enqueueCard(pemain, player1);
+        enqueuePemain(pemain, player1);
     }
 }
 
@@ -74,8 +74,8 @@ void Shuffle(List* cards, Stack* card_stack)    {
     shuffle(cards, len);
     while (!IsListEmpty(*cards))    {
         val = cards->A[len-1];
-        DeleteLast(cards);
-        Push(card_stack, val);
+        DeleteLastCard(cards);
+        PushStackCard(card_stack, val);
         len--;
     }
 }
@@ -98,7 +98,7 @@ void Draw(List* cards, Kartu pick, DrawnCard* draw, int id_pemain) {
 
 void Take(List *cards, Stack* card_stack)   {
     Kartu card;
-    Pop(card_stack, &card);
+    PopStackCard(card_stack, &card);
     InsertFirstCard(cards, card);
 }
 
@@ -131,7 +131,7 @@ void PrintPlayerCards(Pemain pemain)    {
         }
 
     }
-    int j = Length(pemain.pegangan);
+    int j = LengthCard(pemain.pegangan);
     printf("%d.", j);
     PrintCard(pemain.pegangan.A[j-1]);
     printf("\n");
@@ -142,7 +142,7 @@ void PrintCardList(List card)   {
         PrintCard(card.A[i]);
         printf(",");
     }
-    int j = Length(card)-1;
+    int j = LengthCard(card)-1;
     PrintCard(card.A[j]);
     printf("\n");    
 }

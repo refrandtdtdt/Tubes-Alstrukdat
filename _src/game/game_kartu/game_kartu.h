@@ -2,7 +2,7 @@
 #define GAME_KARTU_H
 
 # include "adt_kartu.h"
-# include "queue_card.h"
+# include "queue.h"
 # include "stack.h"
 # include "listcard.h"
 # include "..\..\ADT\functions.h"
@@ -18,7 +18,7 @@
 Pemain CreatePlayer(Word nama, int id);
 
 /* Menetapkan Nama-nama Pemain*/
-void SetPlayers(Queue* pemain, int jumlah);
+void SetPlayers(QueuePemain *pemain, int jumlah);
 
 /*
 Mengembalikan nilai boolean apakah c1 lebih kuat daripada c2. hanya

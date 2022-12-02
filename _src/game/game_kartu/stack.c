@@ -1,23 +1,23 @@
 # include "stack.h"
 
-void CreateEmpty(Stack *S)  {
+void CreateEmptyStackCard(Stack *S)  {
     Top(*S) = Nil;
 }
 
-boolean IsEmpty(Stack S)    {
+boolean IsEmptyStackCard(Stack S)    {
     return (Top(S) == Nil);
 }
 
-boolean IsFull(Stack S)     {
+boolean IsFullStackCard(Stack S)     {
     return (Top(S) == MaxEl-1);
 }
 
-void Push(Stack * S, Kartu X)    {
+void PushStackCard(Stack * S, Kartu X)    {
     Top(*S)++;
     InfoTop(*S) = X;
 }
 
-void Pop(Stack * S, Kartu* X)    {
+void PopStackCard(Stack * S, Kartu* X)    {
     *X = InfoTop(*S);
     Top(*S)--;
 }

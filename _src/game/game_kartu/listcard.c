@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "..\..\boolean.h"
 #include "listcard.h"
-#include "../../_src/ADT/functions.h"
+#include "../../ADT/functions.h"
 
 
 /* Indeks yang digunakan seberapa banyak memori itu terisi */
@@ -78,7 +78,7 @@ IdxType FirstIdxCard(List L)
 
 IdxType LastIdxCard(List L)
 {
-    return Length(L)-1;
+    return LengthCard(L)-1;
 }
 /* Prekondisi : list L tidak kosong */
 /* Mengirimkan indeks elemen terakhir */
@@ -136,7 +136,7 @@ void InsertAt(List *L, Kartu X, IdxType i)
 {
     if(!IsListEmpty(*L))
     {
-        for(int j=Length(*L);j>i;j--)
+        for(int j=LengthCard(*L);j>i;j--)
         {
             L->A[j] = L->A[j-1];
         }   
