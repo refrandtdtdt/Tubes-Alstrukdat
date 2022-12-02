@@ -1,4 +1,4 @@
-#include "..\story_tree.h"
+#include "..\ADT\story_tree.h"
 
 int main()  {
     StoryTree story;

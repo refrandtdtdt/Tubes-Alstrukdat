@@ -2,13 +2,13 @@
 #define STORY_TREE_H
 
 //#include "..\..\boolean.h"
-#include "..\..\boolean.h"
+#include "..\boolean.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-#include "..\..\ADT\mesinkar.h"
-#include "..\..\ADT\mesinkata_modif.h"
-#include "..\..\ADT\functions.h"
+#include "mesinkar.h"
+#include "mesinkata_modif.h"
+#include "functions.h"
 
 /*Selektor*/
 #define ROOT(p)  (p)->info
