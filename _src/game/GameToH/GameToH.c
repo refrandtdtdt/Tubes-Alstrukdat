@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "GameToH.h"
 
-void TowerOfHanoi() {
+void TowerOfHanoi(ScoreBoard * scoreboard) {
     // Deklarasi variabel
     Sentence jumlahPiringan, tiangAsal, tiangTujuan, nama;
     int intJumlahPiringan, i, j, a, k, l, m, z, langkah, score, scoreMax, langkahAcuan;
@@ -406,5 +406,6 @@ void TowerOfHanoi() {
     START();
     convertToArrayOfKata(&nama, 1);
     strNama = kataToString(nama.buffer[0]);
+    InsertScore(&(scoreboard->board), strNama, score);
 }
 /* Game Tower of Hanoi */

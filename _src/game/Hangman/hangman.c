@@ -98,7 +98,7 @@ void clearstring (char *s1)
         s1[i] = '\0';
     }
 }
-void hangman ()
+void hangman (ScoreBoard * scoreboard)
 {
     printf("  __   __  _______  __    _  _______  __   __  _______  __    _ \n");
     printf("|  | |  ||   _   ||  |  | ||       ||  |_|  ||   _   ||  |  | |\n");
@@ -129,11 +129,12 @@ void hangman ()
     printf("5. Permainan akan berakhir apabila kesempatan habis.\n");
     printf("SELAMAT BERMAIN!\n");
     printf("\n");
-    Sentence input, tebakan;
+    Sentence input, tebakan, nama;
     Word semuatebakan;
     CreateSentence(&input);
     CreateSentence(&tebakan);
     TabKata listKata; MakeEmptyTab(&listKata);
+    char * strNama;
     printf("Choose Menu: ");
     START();
     convertToArrayOfKata(&input,2);
@@ -265,6 +266,11 @@ void hangman ()
             }
         }
         printf("Game Over! Poin yang anda dapatkan adalah %d poin!\n",skorakhir);
+        printf("Nama (cukup 1 kata) : ");
+        START();
+        convertToArrayOfKata(&nama, 1);
+        strNama = kataToString(nama.buffer[0]);
+        InsertScore(&(scoreboard->board), strNama, skorakhir);
     }
     else if((Eqstr(input.buffer[0].TabWord, "ADD")) && (Eqstr(input.buffer[1].TabWord, "WORD")))
     {

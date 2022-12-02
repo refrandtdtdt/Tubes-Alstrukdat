@@ -480,11 +480,18 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void GameTambahan() {
+void GameTambahan(ScoreBoard * scoreboard) {
     srand(time(0));
     int random = abs((rand() % 100 + (rand() % 100)*pow(-1, rand()))) % 100 + abs((rand() % 50)*pow(-1, rand()));
     printf("Permainan Selesai, Skor: %d\n", random);
     int i = 5;
+    Sentence nama;
+    char * strNama;
+    printf("Nama (cukup 1 kata) : ");
+    START();
+    convertToArrayOfKata(&nama, 1);
+    strNama = kataToString(nama.buffer[0]);
+    InsertScore(&(scoreboard->board), strNama, random);
     //while(scoreboard.game_name != )
 }
 /*
@@ -494,7 +501,7 @@ I.S. Sembarang
 F.S. Mengeluarkan output angka random
 */
 
-void RNG()
+void RNG(ScoreBoard * scoreboard)
 {
     srand(time(NULL));
     int x = (rand() % 30);
@@ -521,6 +528,13 @@ void RNG()
     }
     printf("\nYa, X adalah %d.\n", x);
     printf("Skor : %d\n", skor);
+    Sentence nama;
+    char * strNama;
+    printf("Nama (cukup 1 kata) : ");
+    START();
+    convertToArrayOfKata(&nama, 1);
+    strNama = kataToString(nama.buffer[0]);
+    InsertScore(&(scoreboard->board), strNama, skor);
 }
 /*
 Perintah untuk memainkan game RNG di mana sistem akan menentukan angka acak, lalu pemain akan diberikan kesempatan untuk

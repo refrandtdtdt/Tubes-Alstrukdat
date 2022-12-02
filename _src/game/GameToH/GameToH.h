@@ -8,8 +8,9 @@
 #include "../../ADT/mesinkar.h"
 #include "../../ADT/mesinkata_modif.h"
 #include "../../ADT/functions.h"
+#include "../../ADT/map_scoreboard.h"
 
-void TowerOfHanoi();
+void TowerOfHanoi(ScoreBoard * scoreboard);
 /* Game Tower of Hanoi */
 
 #endif

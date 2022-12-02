@@ -1,4 +1,4 @@
-# include "..\ADT\map_scoreboard.h"
+# include "..\ADT\map_scoreboard.c"
 
 int main()  {
     ScoreMap S;

@@ -1,6 +1,6 @@
 #include "snakeonmeteor.h"
 
-void SnakeOnMeteor()
+void SnakeOnMeteor(ScoreBoard * scoreboard)
 {
     ListPoint Snek; CreateEmptyListPoint(&Snek);
     ListPoint Obstacle; CreateEmptyListPoint(&Obstacle);
@@ -110,4 +110,11 @@ void SnakeOnMeteor()
         skor = (NbElmtListPoint(Snek)) * 2;
     }
     printf("Game berakhir. Skor: %d\n\n", skor);
+    Sentence nama;
+    char * strNama;
+    printf("Nama (cukup 1 kata) : ");
+    START();
+    convertToArrayOfKata(&nama, 1);
+    strNama = kataToString(nama.buffer[0]);
+    InsertScore(&(scoreboard->board), strNama, skor);
 }

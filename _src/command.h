@@ -122,7 +122,7 @@ Note : apabila antrian game kosong, akan mengeluarkan output bahwa belum ada gam
        game ke dalam antrian
 */
 
-void GameTambahan();
+void GameTambahan(ScoreBoard * scoreboard);
 /*
 Perintah untuk memainkan game di mana langsung masuk ke tahap game over dengan langsung mengeluarkan skor akhir berupa
 integer random
@@ -130,7 +130,7 @@ I.S. Sembarang
 F.S. Mengeluarkan output angka random
 */
 
-void RNG();
+void RNG(ScoreBoard * scoreboard);
 /*
 Perintah untuk memainkan game RNG di mana sistem akan menentukan angka acak, lalu pemain akan diberikan kesempatan untuk
 menebak angka tersebut. Sistem akan memberitahu apakah angka tebakan lebih besar atau lebih kecil dari angka random sistem
