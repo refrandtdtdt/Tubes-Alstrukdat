@@ -42,7 +42,7 @@
     "story2_node.h": "c",
     "story_node3-6.h": "c",
     "story_node7-8.h": "c",
-
+    "story_tree.h": "c"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

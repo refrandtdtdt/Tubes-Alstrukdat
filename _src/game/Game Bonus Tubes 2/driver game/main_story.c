@@ -1,4 +1,4 @@
-#include "our_love_story.h"
+#include "..\our_love_story.h"
 
 int main()  {
     boolean quit = false;
