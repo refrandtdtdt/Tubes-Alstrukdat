@@ -5,7 +5,7 @@
 #ifndef stackt_H
 #define stackt_H
 
-#include "boolean.h"
+#include "..\..\boolean.h"
 #include "adt_kartu.h"
 
 #define Nil -1
@@ -16,7 +16,7 @@ typedef int address;   /* indeks tabel */
 /* Contoh deklarasi variabel bertype stack dengan ciri TOP : */
 /* Versi I : dengan menyimpan tabel dan alamat top secara eksplisit*/
 typedef struct { 
-  Kartu T[MaxCard]; /* tabel penyimpan elemen */
+  Kartu T[MaxEl]; /* tabel penyimpan elemen */
   address TOP;  /* alamat TOP: elemen puncak */
 } Stack;
 /* Definisi stack S kosong : S.TOP = Nil */
@@ -31,16 +31,16 @@ typedef struct {
 
 /* ************ Prototype ************ */
 /* *** Konstruktor/Kreator *** */
-void CreateEmptyStack(Stack *S);
+void CreateEmpty(Stack *S);
 /* I.S. sembarang; */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* jadi indeksnya antara 0.. MaxEl */
 /* Ciri stack kosong : TOP bernilai Nil */
 
 /* ************ Predikat Untuk test keadaan KOLEKSI ************ */
-boolean IsEmptyStack(Stack S);
+boolean IsEmpty(Stack S);
 /* Mengirim true jika Stack kosong: lihat definisi di atas */
-boolean IsFullStack(Stack S);
+boolean IsFull(Stack S);
 /* Mengirim true jika tabel penampung nilai elemen stack penuh */
 
 /* ************ Menambahkan sebuah elemen ke Stack ************ */

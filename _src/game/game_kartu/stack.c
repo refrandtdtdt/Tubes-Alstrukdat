@@ -1,15 +1,15 @@
 # include "stack.h"
 
-void CreateEmptyStack(Stack *S)  {
+void CreateEmpty(Stack *S)  {
     Top(*S) = Nil;
 }
 
-boolean IsEmptyStack(Stack S)    {
+boolean IsEmpty(Stack S)    {
     return (Top(S) == Nil);
 }
 
-boolean IsFullStack(Stack S)     {
-    return (Top(S) == MaxCard-1);
+boolean IsFull(Stack S)     {
+    return (Top(S) == MaxEl-1);
 }
 
 void Push(Stack * S, Kartu X)    {

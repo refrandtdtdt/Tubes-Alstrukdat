@@ -58,6 +58,7 @@ void node3(int *score, char* player, Address *p)
         input = StrToInt(word_input.buffer[0].TabWord);
         if ((input >= 1) && (input <= 5))   {
             if (input == 2) {
+                score_change(score, 200);
                 validinput = true;
             }
             else    {
