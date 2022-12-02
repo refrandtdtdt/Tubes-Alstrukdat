@@ -1,10 +1,9 @@
-#include "stackHistory.h"
-
+#include "stack_history.h"
 
 void showHistory(Word command, StackHistory stackHistory)
 {
     Word banyakHistory;
-    akuisisiCommandWord(&banyakHistory, command, 2);
+    CommandWord(&banyakHistory, command, 2);
     if (banyakHistory.Length > 0)
     {
         int banyakHistory_int = WordToInt(banyakHistory);
@@ -31,7 +30,7 @@ void resetHistory(StackHistory *stackHistory)
     {
         printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET HISTORY? ");
         startInputWord();
-        if (stringEQWord(currentWord, "YA") || stringEQWord(currentWord, "TIDAK"))
+        if (Eqstr(currentWord, "YA") || Eqstr(currentWord, "TIDAK"))
         {
             valid = true;
         }
@@ -41,7 +40,7 @@ void resetHistory(StackHistory *stackHistory)
         }
     }
 
-    if (stringEQWord(currentWord, "YA"))
+    if (Eqstr(currentWord, "YA"))
     {
         CreateStackHistory(stackHistory);
         printf("\nHistory berhasil di-reset.\n");
