@@ -361,26 +361,31 @@ void mainkanGame (Queue * antrian_game, ScoreBoardList *scores, StackHistory *hi
         // Dequeue game yang dimainkan
         Word dummy;
         dequeue(antrian_game, &dummy);
+        int i = 0;
+        while(!Eqstr(dummy.TabWord,scores->List[i].game_name.TabWord))
+        {
+            i++;
+        }
         if (Eqstr(dummy.TabWord,"RNG")) {
             printf("Loading RNG ...\n");
-            RNG();// Panggil fungsi game RNG
+            RNG(List[i].board);// Panggil fungsi game RNG
         } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
             printf("Loading Diner DASH ...\n");
-            DinerDash();// Panggil fungsi game Diner DASH
+            DinerDash(List[i].board);// Panggil fungsi game Diner DASH
         } else if (Eqstr(dummy.TabWord,"HANGMAN")) {
             printf("Loading HANGMAN ...\n");
-            hangman();// Panggil fungsi game HANGMAN
+            hangman(List[i].board);// Panggil fungsi game HANGMAN
         } else if (Eqstr(dummy.TabWord,"TOWER OF HANOI")) {
             printf("Loading TOWER OF HANOI ...\n");
-            TowerOfHanoi();// Panggil fungsi game TOWER OF HANOI
+            TowerOfHanoi(List[i].board);// Panggil fungsi game TOWER OF HANOI
         } else if (Eqstr(dummy.TabWord,"SNAKE ON METEOR")) {
             printf("Loading SNAKE ON METEOR ...\n");
-            SnakeOnMeteor();// Panggil fungsi game SNAKE ON METEOR
+            SnakeOnMeteor(List[i].board);// Panggil fungsi game SNAKE ON METEOR
         } else if (Eqstr(dummy.TabWord,"Card Game")) {
             printf("Loading Card Game ...\n");
-            GameKartu();// Panggil fungsi game Card Game
+            GameKartu(List[i].board);// Panggil fungsi game Card Game
         } else {
-            GameTambahan();
+            GameTambahan(List[i].board);
         }
         PushHistory(history,dummy);
     }
@@ -433,26 +438,31 @@ void lewatiGame (Queue * antrian_game, int jumlah_skip, StackHistory *history) {
                 CreateQueue(antrian_game);
             }
 
+            int i = 0;
+            while(!Eqstr(dummy.TabWord,scores->List[i].game_name.TabWord))
+            {
+                i++;
+            }
             if (Eqstr(dummy.TabWord,"RNG")) {
                 printf("Loading RNG ...\n");
-                RNG();// Panggil fungsi game RNG
+                RNG(List[i].board);// Panggil fungsi game RNG
             } else if (Eqstr(dummy.TabWord,"Diner DASH")) {
                 printf("Loading Diner DASH ...\n");
-                DinerDash();// Panggil fungsi game Diner DASH
+                DinerDash(List[i].board);// Panggil fungsi game Diner DASH
             } else if (Eqstr(dummy.TabWord,"HANGMAN")) {
                 printf("Loading HANGMAN ...\n");
-                hangman();// Panggil fungsi game HANGMAN
+                hangman(List[i].board);// Panggil fungsi game HANGMAN
             } else if (Eqstr(dummy.TabWord,"TOWER OF HANOI")) {
                 printf("Loading TOWER OF HANOI ...\n");
-                TowerOfHanoi();// Panggil fungsi game TOWER OF HANOI
+                TowerOfHanoi(List[i].board);// Panggil fungsi game TOWER OF HANOI
             } else if (Eqstr(dummy.TabWord,"SNAKE ON METEOR")) {
                 printf("Loading SNAKE ON METEOR ...\n");
-                SnakeOnMeteor();// Panggil fungsi game SNAKE ON METEOR
+                SnakeOnMeteor(List[i].board);// Panggil fungsi game SNAKE ON METEOR
             } else if (Eqstr(dummy.TabWord,"Card Game")) {
                 printf("Loading Card Game ...\n");
-                GameKartu();// Panggil fungsi game Card Game
+                GameKartu(List[i].board);// Panggil fungsi game Card Game
             } else {
-                GameTambahan();//scores->List, dummy);
+                GameTambahan(List[i].board);
             }
             PushHistory(history,dummy);
         } else {
