@@ -20,7 +20,7 @@
 DrawnList MakeDrawnList()
 {
     DrawnList L;
-    for(int i=0;i<MaxEl;i++)
+    for(int i=0;i<MaxElCard;i++)
     {
         L.round[i].card.Suits = Tanda;
         L.round[i].id_player = -1;
@@ -28,7 +28,7 @@ DrawnList MakeDrawnList()
     return L;
 }
 /* I.S. sembarang */
-/* F.S. Terbentuk DrawnList L kosong dengan kapasitas MaxEl */
+/* F.S. Terbentuk DrawnList L kosong dengan kapasitas MaxElCard */
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test DrawnList kosong *** */
@@ -59,7 +59,7 @@ void SetDrawn(DrawnList *L, IdxType i, DrawnCard v)
 int LengthDrawn(DrawnList L)
 {
     int i=0;
-    while ((i < MaxEl) && (L.round[i].card.Suits != Tanda))
+    while ((i < MaxElCard) && (L.round[i].card.Suits != Tanda))
     {
         i++;
     }
@@ -86,7 +86,7 @@ IdxType LastIdxDrawn(DrawnList L)
 /* ********** Test Indeks yang valid ********** */
 boolean IsIdxValidDrawn (DrawnList L, IdxType i)
 {
-    return i >= FirstIdxDrawn(L) && i < MaxEl;
+    return i >= FirstIdxDrawn(L) && i < MaxElCard;
 }
 /* Prekondisi : i sembarang */
 /* Mengirimkan true jika i adalah indeks yang valid utk ukuran DrawnList */

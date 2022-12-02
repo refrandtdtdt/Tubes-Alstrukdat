@@ -9,7 +9,7 @@ boolean IsEmptyStackCard(Stack S)    {
 }
 
 boolean IsFullStackCard(Stack S)     {
-    return (Top(S) == MaxEl-1);
+    return (Top(S) == MaxElCard-1);
 }
 
 void PushStackCard(Stack * S, Kartu X)    {
