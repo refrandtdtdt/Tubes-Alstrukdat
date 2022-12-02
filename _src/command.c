@@ -604,12 +604,15 @@ void ResetScores(ScoreBoardList *scores)
     printf("0. ALL\n");
     while(i<scores->Neff)
     {
-        printf("%d. %s\n", i+1, scores->List[i].game_name);
+        printf("%d. %s\n", i+1, scores->List[i].game_name.TabWord);
+        i++;
     }
     boolean valid = false;
     while (!valid)
     {
         printf("\nSCOREBOARD YANG INGIN DIHAPUS: ");
+        clear(currentWord.TabWord);
+        currentWord.Length = 0;
         START();
         CopyWord();
         if(WordToInt(currentWord) >= 0 && WordToInt(currentWord) <= scores->Neff)
@@ -621,7 +624,56 @@ void ResetScores(ScoreBoardList *scores)
             printf("INPUT INVALID, MOHON ULANGI.");
         }
     }
-    printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET SCOREBOARD %s (YA/TIDAK)?");
+    int idx = WordToInt(currentWord);
+    valid = false;
+    Word temp;
+    if (idx == 0)
+    {
+        temp.Length = 3;
+        temp.TabWord[0] = 'A';
+        temp.TabWord[1] = 'L';
+        temp.TabWord[2] = 'L';
+    }
+    else
+    {
+        temp = scores->List[idx-1].game_name;
+    }
+    while (!valid)
+    {
+        printf("\nAPAKAH KAMU YAKIN INGIN MELAKUKAN RESET SCOREBOARD %s (YA/TIDAK)?\n", temp.TabWord);
+        clear(currentWord.TabWord);
+        currentWord.Length = 0;
+        START();
+        CopyWord();
+        if(Eqstr(currentWord.TabWord,"YA") || Eqstr(currentWord.TabWord,"TIDAK"))
+        {
+            valid = true;
+        }
+        else
+        {
+            printf("INPUT INVALID, MOHON ULANGI.");
+        }
+    }
+    if(Eqstr(currentWord.TabWord,"YA"))
+    {
+        if(idx == 0)
+        {
+            for(int j = 0; j < scores->Neff; j++)
+            {
+                ResetScoreboard(&scores->List[j].board);
+            }
+        }
+        else
+        {
+            ResetScoreboard(&scores->List[idx-1].board);
+        }
+        printf("Scoreboard berhasil di-reset.\n");
+    }
+    else
+    {
+        printf("Scoreboard gagal di-reset.\n");
+    }
+
 }
 
 void showScoreBoard(ScoreBoardList scores, int jumlahGame)
